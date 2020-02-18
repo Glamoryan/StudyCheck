@@ -18,8 +18,7 @@ namespace StudyCheck.Business.Abstract
         Uye UpdateUser(Uye uye);
         Uyedetay AddUserDetail(Uyedetay uyedetay);
         Uyedetay UpdateUserDetail(Uyedetay uyedetay);
-        List<Uyedetay> GetActiveAccounts();
-        Uyedetay GetByUsernamePassword(string username,string password);
+        List<Uyedetay> GetActiveAccounts();        
 
     }
 }
