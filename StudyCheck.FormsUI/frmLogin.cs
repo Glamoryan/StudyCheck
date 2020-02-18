@@ -10,6 +10,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using StudyCheck.Business.Concrete.Managers;
 
 namespace StudyCheck.FormsUI
 {
@@ -23,7 +24,9 @@ namespace StudyCheck.FormsUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-          
+        //----------------------------------------------
+
+        
 
         public frmLogin()
         {
@@ -58,6 +61,11 @@ namespace StudyCheck.FormsUI
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
