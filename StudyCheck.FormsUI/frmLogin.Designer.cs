@@ -31,6 +31,7 @@
             this.pcbMinimizeButon = new System.Windows.Forms.PictureBox();
             this.pcbCikisButon = new System.Windows.Forms.PictureBox();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
+            this.DragDropPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimizeButon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCikisButon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
@@ -45,6 +46,8 @@
             this.pcbMinimizeButon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcbMinimizeButon.TabIndex = 2;
             this.pcbMinimizeButon.TabStop = false;
+            this.pcbMinimizeButon.Click += new System.EventHandler(this.pcbMinimizeButon_Click);
+            this.pcbMinimizeButon.MouseEnter += new System.EventHandler(this.pcbMinimizeButon_MouseEnter);
             // 
             // pcbCikisButon
             // 
@@ -68,12 +71,21 @@
             this.pcbLogo.TabIndex = 0;
             this.pcbLogo.TabStop = false;
             // 
+            // DragDropPanel
+            // 
+            this.DragDropPanel.Location = new System.Drawing.Point(32, 0);
+            this.DragDropPanel.Name = "DragDropPanel";
+            this.DragDropPanel.Size = new System.Drawing.Size(276, 32);
+            this.DragDropPanel.TabIndex = 3;
+            this.DragDropPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.DragDropPanel_MouseDown);
+            // 
             // frmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(342, 542);
+            this.Controls.Add(this.DragDropPanel);
             this.Controls.Add(this.pcbMinimizeButon);
             this.Controls.Add(this.pcbCikisButon);
             this.Controls.Add(this.pcbLogo);
@@ -95,6 +107,7 @@
         private System.Windows.Forms.PictureBox pcbLogo;
         private System.Windows.Forms.PictureBox pcbCikisButon;
         private System.Windows.Forms.PictureBox pcbMinimizeButon;
+        private System.Windows.Forms.Panel DragDropPanel;
     }
 }
 
