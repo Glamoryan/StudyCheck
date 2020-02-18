@@ -14,6 +14,8 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Abstract;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.ComplexTypes;
+using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
+using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
 
 namespace StudyCheck.FormsUI
 {
@@ -39,6 +41,7 @@ namespace StudyCheck.FormsUI
             
         }
 
+        [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
         private void pcbCikisButon_Click(object sender, EventArgs e)
         {
             Application.Exit();
