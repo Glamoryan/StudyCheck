@@ -30,11 +30,6 @@ namespace StudyCheck.FormsUI
             InitializeComponent();
         }
 
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-                   
-        }
-
         private void pcbCikisButon_Click(object sender, EventArgs e)
         {
             Application.Exit();
