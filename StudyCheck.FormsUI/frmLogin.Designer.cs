@@ -28,11 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.pcbMinimizeButon = new System.Windows.Forms.PictureBox();
             this.pcbCikisButon = new System.Windows.Forms.PictureBox();
             this.pcbLogo = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMinimizeButon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCikisButon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).BeginInit();
             this.SuspendLayout();
+            // 
+            // pcbMinimizeButon
+            // 
+            this.pcbMinimizeButon.Image = global::StudyCheck.FormsUI.Properties.Resources.minimize_window_16px;
+            this.pcbMinimizeButon.Location = new System.Drawing.Point(12, 12);
+            this.pcbMinimizeButon.Name = "pcbMinimizeButon";
+            this.pcbMinimizeButon.Size = new System.Drawing.Size(16, 16);
+            this.pcbMinimizeButon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbMinimizeButon.TabIndex = 2;
+            this.pcbMinimizeButon.TabStop = false;
             // 
             // pcbCikisButon
             // 
@@ -62,6 +74,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(342, 542);
+            this.Controls.Add(this.pcbMinimizeButon);
             this.Controls.Add(this.pcbCikisButon);
             this.Controls.Add(this.pcbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -69,6 +82,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.frmLogin_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pcbMinimizeButon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbCikisButon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLogo)).EndInit();
             this.ResumeLayout(false);
@@ -80,6 +94,7 @@
 
         private System.Windows.Forms.PictureBox pcbLogo;
         private System.Windows.Forms.PictureBox pcbCikisButon;
+        private System.Windows.Forms.PictureBox pcbMinimizeButon;
     }
 }
 
