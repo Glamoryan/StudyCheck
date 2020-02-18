@@ -29,5 +29,15 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             Application.Exit();
         }
+
+        private void pcbMinimize_MouseEnter(object sender, EventArgs e)
+        {
+            pcbMinimize.Cursor = Cursors.Hand;
+        }
+
+        private void pcbMinimize_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
+        }
     }
 }
