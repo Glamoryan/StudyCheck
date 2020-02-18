@@ -1,4 +1,5 @@
 ﻿using StudyCheck.Core.DataAccess;
+using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.Entites.Concrete;
 using System;
 using System.Collections.Generic;

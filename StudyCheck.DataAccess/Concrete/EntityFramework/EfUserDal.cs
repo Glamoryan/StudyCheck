@@ -12,7 +12,8 @@ using System.Threading.Tasks;
 namespace StudyCheck.DataAccess.Concrete.EntityFramework
 {
     public class EfUserDal : EfEntityRepositoryBase<Uye, StudyCheckContext>, IUserDal
-    {        
+    {
+        
 
         /// <summary>
         /// Uyeler ile Uyedetay tablosunun tüm alanlarını çek

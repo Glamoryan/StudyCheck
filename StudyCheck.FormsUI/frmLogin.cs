@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using StudyCheck.Business.Concrete.Managers;
+using StudyCheck.DataAccess.Abstract;
+using StudyCheck.DataAccess.Concrete.EntityFramework;
+using StudyCheck.Entites.ComplexTypes;
 
 namespace StudyCheck.FormsUI
 {
@@ -25,12 +28,15 @@ namespace StudyCheck.FormsUI
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
         //----------------------------------------------
+        private static EfUserDal _efUserDal = new EfUserDal();
+        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
 
-        
 
         public frmLogin()
         {
             InitializeComponent();
+            
         }
 
         private void pcbCikisButon_Click(object sender, EventArgs e)
@@ -63,9 +69,18 @@ namespace StudyCheck.FormsUI
             }
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void CheckFields()
         {
+            if (string.IsNullOrEmpty(tbxUsername.Text) && string.IsNullOrEmpty(tbxPassword.Text))
+                MessageBox.Show("Boş alan bırakılamaz!");
+            else if (string.IsNullOrEmpty(tbxPassword.Text))
+                MessageBox.Show("Şifre boş geçilemez!");
+            else if (string.IsNullOrEmpty(tbxUsername.Text))
+                MessageBox.Show("Kullanıcı adı boş geçilemez!");
+        }
 
+        private void btnLogin_Click(object sender, EventArgs e)
+        {                    
         }
     }
 }

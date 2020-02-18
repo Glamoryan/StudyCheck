@@ -11,6 +11,7 @@ namespace StudyCheck.DataAccess.Abstract
 {
     public interface IUserDal:IEntityRepository<Uye>
     {
-        List<UserDetail> GetUserDetails();        
+        List<UserDetail> GetUserDetails();
+        
     }
 }
