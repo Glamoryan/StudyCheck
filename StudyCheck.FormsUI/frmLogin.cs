@@ -23,5 +23,16 @@ namespace StudyCheck.FormsUI
         {
                    
         }
+
+        private void pcbCikisButon_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+        
+
+        private void pcbCikisButon_MouseEnter(object sender, EventArgs e)
+        {
+            pcbCikisButon.Cursor = Cursors.Hand;
+        }
     }
 }
