@@ -106,7 +106,7 @@ namespace StudyCheck.FormsUI
                     LoginInfo.Mail = user.kullanici_mail;
                     LoginInfo.SilId = user.sil_id;
                     LoginInfo.TemaId = user.tema_id;
-                    LoginInfo.RolId = user.rol_id;                    
+                    LoginInfo.RolId = user.rol_id;                               
                 }
                 else
                 {

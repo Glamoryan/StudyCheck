@@ -1,0 +1,133 @@
+﻿namespace StudyCheck.FormsUI.AdminForms
+{
+    partial class frmAdminPanel
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.pnlLogo = new System.Windows.Forms.Panel();
+            this.lblDashboardTitle = new System.Windows.Forms.Label();
+            this.pnlHeader = new System.Windows.Forms.Panel();
+            this.pcbExit = new System.Windows.Forms.PictureBox();
+            this.pnlContent = new System.Windows.Forms.Panel();
+            this.pnlSidebar.SuspendLayout();
+            this.pnlLogo.SuspendLayout();
+            this.pnlHeader.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
+            this.SuspendLayout();
+            // 
+            // pnlSidebar
+            // 
+            this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlSidebar.Controls.Add(this.pnlLogo);
+            this.pnlSidebar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pnlSidebar.Location = new System.Drawing.Point(0, 0);
+            this.pnlSidebar.Name = "pnlSidebar";
+            this.pnlSidebar.Size = new System.Drawing.Size(200, 725);
+            this.pnlSidebar.TabIndex = 0;
+            // 
+            // pnlLogo
+            // 
+            this.pnlLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.pnlLogo.Controls.Add(this.lblDashboardTitle);
+            this.pnlLogo.Location = new System.Drawing.Point(0, 0);
+            this.pnlLogo.Name = "pnlLogo";
+            this.pnlLogo.Size = new System.Drawing.Size(200, 76);
+            this.pnlLogo.TabIndex = 0;
+            // 
+            // lblDashboardTitle
+            // 
+            this.lblDashboardTitle.Font = new System.Drawing.Font("Cambria", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblDashboardTitle.ForeColor = System.Drawing.Color.White;
+            this.lblDashboardTitle.Location = new System.Drawing.Point(3, 21);
+            this.lblDashboardTitle.Name = "lblDashboardTitle";
+            this.lblDashboardTitle.Size = new System.Drawing.Size(194, 35);
+            this.lblDashboardTitle.TabIndex = 0;
+            this.lblDashboardTitle.Text = "STUDYCHECK";
+            this.lblDashboardTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pnlHeader
+            // 
+            this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlHeader.Controls.Add(this.pcbExit);
+            this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlHeader.Location = new System.Drawing.Point(200, 0);
+            this.pnlHeader.Name = "pnlHeader";
+            this.pnlHeader.Size = new System.Drawing.Size(1045, 76);
+            this.pnlHeader.TabIndex = 1;
+            // 
+            // pcbExit
+            // 
+            this.pcbExit.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_shutdown_16;
+            this.pcbExit.Location = new System.Drawing.Point(1017, 12);
+            this.pcbExit.Name = "pcbExit";
+            this.pcbExit.Size = new System.Drawing.Size(16, 16);
+            this.pcbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbExit.TabIndex = 0;
+            this.pcbExit.TabStop = false;
+            this.pcbExit.Click += new System.EventHandler(this.pcbExit_Click);
+            this.pcbExit.MouseEnter += new System.EventHandler(this.pcbExit_MouseEnter);
+            // 
+            // pnlContent
+            // 
+            this.pnlContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlContent.Location = new System.Drawing.Point(200, 76);
+            this.pnlContent.Name = "pnlContent";
+            this.pnlContent.Size = new System.Drawing.Size(1045, 649);
+            this.pnlContent.TabIndex = 2;
+            // 
+            // frmAdminPanel
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1245, 725);
+            this.Controls.Add(this.pnlContent);
+            this.Controls.Add(this.pnlHeader);
+            this.Controls.Add(this.pnlSidebar);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Name = "frmAdminPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "frmAdminPanel";
+            this.pnlSidebar.ResumeLayout(false);
+            this.pnlLogo.ResumeLayout(false);
+            this.pnlHeader.ResumeLayout(false);
+            this.pnlHeader.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).EndInit();
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private System.Windows.Forms.Panel pnlSidebar;
+        private System.Windows.Forms.Panel pnlHeader;
+        private System.Windows.Forms.Panel pnlContent;
+        private System.Windows.Forms.Panel pnlLogo;
+        private System.Windows.Forms.Label lblDashboardTitle;
+        private System.Windows.Forms.PictureBox pcbExit;
+    }
+}
