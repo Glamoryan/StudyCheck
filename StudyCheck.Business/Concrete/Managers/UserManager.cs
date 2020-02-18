@@ -90,6 +90,11 @@ namespace StudyCheck.Business.Concrete.Managers
         {
             return _userDetailDal.Get(u => u.kullanici_adi.Equals(username) & u.kullanici_sifre.Equals(password));
         }
+
+        public Uye GetUserById(int id)
+        {
+            return _userDal.Get(u => u.id == id);
+        }
     }
 }
 

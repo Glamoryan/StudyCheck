@@ -69,18 +69,50 @@ namespace StudyCheck.FormsUI
             }
         }
 
-        private void CheckFields()
+        private bool CheckFields()
         {
             if (string.IsNullOrEmpty(tbxUsername.Text) && string.IsNullOrEmpty(tbxPassword.Text))
-                MessageBox.Show("Boş alan bırakılamaz!");
+            {
+                MessageBox.Show("Boş alan bırakılamaz!","Gerekli Alanlar",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                return false;
+            }                
             else if (string.IsNullOrEmpty(tbxPassword.Text))
-                MessageBox.Show("Şifre boş geçilemez!");
+            {
+                MessageBox.Show("Şifre boş geçilemez!","Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }                
             else if (string.IsNullOrEmpty(tbxUsername.Text))
-                MessageBox.Show("Kullanıcı adı boş geçilemez!");
+            {
+                MessageBox.Show("Kullanıcı adı boş geçilemez!","Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
+                
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
-        {                    
+        {
+            string username = tbxUsername.Text;
+            string password = tbxPassword.Text;
+            if (CheckFields())
+            {
+                var user = _userManager.GetByUsernamePassword(username, password);
+                if (user != null)
+                {
+                    LoginInfo.Id = user.id;
+                    LoginInfo.UyeId = user.uye_id;
+                    LoginInfo.KullaniciAdi = user.kullanici_adi;
+                    LoginInfo.Sifre = user.kullanici_sifre;
+                    LoginInfo.Mail = user.kullanici_mail;
+                    LoginInfo.SilId = user.sil_id;
+                    LoginInfo.TemaId = user.tema_id;
+                    LoginInfo.RolId = user.rol_id;                    
+                }
+                else
+                {
+                    MessageBox.Show("Hatalı bilgiler!","Giriş Başarısız",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                }
+            }
         }
     }
 }

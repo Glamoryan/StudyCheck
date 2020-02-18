@@ -16,6 +16,7 @@ namespace StudyCheck.Business.Abstract
         UserDetail GetUserDetailById(int id);
         Uye AddUser(Uye uye);
         Uye UpdateUser(Uye uye);
+        Uye GetUserById(int id);
         Uyedetay AddUserDetail(Uyedetay uyedetay);
         Uyedetay UpdateUserDetail(Uyedetay uyedetay);
         List<Uyedetay> GetActiveAccounts();
