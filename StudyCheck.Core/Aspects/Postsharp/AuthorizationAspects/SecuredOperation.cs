@@ -23,7 +23,7 @@ namespace StudyCheck.Core.Aspects.Postsharp.AuthorizationAspects
                     isAuthorized = true;
             }
             if (!isAuthorized)
-                throw new SecurityException("Yetkiniz yok!");
+                throw new SecurityException("Yetkiniz yok!");            
             
         }
     }
