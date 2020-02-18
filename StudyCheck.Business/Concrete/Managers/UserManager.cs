@@ -85,6 +85,11 @@ namespace StudyCheck.Business.Concrete.Managers
         {            
             return _userDal.GetList();
         }
+        [PerformanceCounterAspect(2)]
+        public Uyedetay GetByUsernamePassword(string username, string password)
+        {
+            return _userDetailDal.Get(u => u.kullanici_adi == username & u.kullanici_sifre == password);
+        }
     }
 }
 
