@@ -139,9 +139,6 @@
     <None Include="Resources\icons8_school.ico" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\exit_sign_16px.png" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Resources\exit_sign_32px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
