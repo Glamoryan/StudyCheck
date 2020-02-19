@@ -46,18 +46,8 @@ namespace StudyCheck.FormsUI
 
         public frmLogin()
         {
-            Thread t = new Thread(new ThreadStart(StartForm));
-            t.Start();
-            Thread.Sleep(5000);
             InitializeComponent();
-            t.Abort();
-        }
-
-        private void StartForm()
-        {
-            Application.Run(new StartLoadingScreen());
-        }
-        
+        }        
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
         private void pcbCikisButon_Click(object sender, EventArgs e)
@@ -130,8 +120,10 @@ namespace StudyCheck.FormsUI
                     LoginInfo.RolId = user.rol_id;
                     if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
                     {
+                        this.Hide();
                         _adminForm = new frmAdminPanel();
-                        _adminForm.ShowDialog();
+                        _adminForm.FormClosed += (s, args) => this.Close();
+                        _adminForm.Show();
                     }
                     else
                         MessageBox.Show("Giriş Başarılı!");
