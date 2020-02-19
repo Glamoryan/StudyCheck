@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StudyCheck.Entites.ComplexTypes
+namespace StudyCheck.Entites.AccountManagement
 {
     public static class LoginInfo
     {

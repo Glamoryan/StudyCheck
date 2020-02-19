@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ComplexTypes\LoginInfo.cs" />
+    <Compile Include="AccountManagement\LoginInfo.cs" />
     <Compile Include="ComplexTypes\UserDetail.cs" />
     <Compile Include="Concrete\Calisma.cs" />
     <Compile Include="Concrete\Ders.cs" />
