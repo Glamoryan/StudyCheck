@@ -74,7 +74,7 @@
             this.lblAdminName.AutoSize = true;
             this.lblAdminName.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblAdminName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblAdminName.Location = new System.Drawing.Point(79, 689);
+            this.lblAdminName.Location = new System.Drawing.Point(75, 688);
             this.lblAdminName.Name = "lblAdminName";
             this.lblAdminName.Size = new System.Drawing.Size(52, 19);
             this.lblAdminName.TabIndex = 2;
@@ -167,6 +167,7 @@
             this.Name = "frmAdminPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmAdminPanel";
+            this.Load += new System.EventHandler(this.frmAdminPanel_Load);
             this.pnlSidebar.ResumeLayout(false);
             this.pnlSidebar.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).EndInit();

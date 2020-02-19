@@ -16,6 +16,8 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
 using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
+using StudyCheck.FormsUI.AdminForms;
+using StudyCheck.Entites.AccountManagement;
 
 namespace StudyCheck.FormsUI
 {
@@ -33,7 +35,7 @@ namespace StudyCheck.FormsUI
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-
+        private static frmAdminPanel _adminForm;
 
         public frmLogin()
         {
@@ -109,7 +111,14 @@ namespace StudyCheck.FormsUI
                     LoginInfo.Mail = user.kullanici_mail;
                     LoginInfo.SilId = user.sil_id;
                     LoginInfo.TemaId = user.tema_id;
-                    LoginInfo.RolId = user.rol_id;                               
+                    LoginInfo.RolId = user.rol_id;
+                    if (LoginInfo.RolId == 1)
+                    {
+                        _adminForm = new frmAdminPanel();
+                        _adminForm.ShowDialog();
+                    }                        
+                    else
+                        MessageBox.Show("Giriş Başarılı!");
                 }
                 else
                 {

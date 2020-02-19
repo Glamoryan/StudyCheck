@@ -17,8 +17,7 @@ namespace StudyCheck.FormsUI
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmLogin());
-            Application.Run(new frmAdminPanel());
+            Application.Run(new frmLogin());            
         }
     }
 }

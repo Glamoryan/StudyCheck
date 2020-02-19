@@ -1,6 +1,8 @@
 ﻿using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
 using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
 using StudyCheck.Core.Entities;
+using StudyCheck.Entites.AccountManagement;
+using StudyCheck.Entites.ComplexTypes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,8 +16,8 @@ using System.Windows.Forms;
 
 namespace StudyCheck.FormsUI.AdminForms
 {
-    public partial class frmAdminPanel : Form , IForm
-    {
+    public partial class frmAdminPanel : Form 
+    {        
         //Drag Drop
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -59,6 +61,16 @@ namespace StudyCheck.FormsUI.AdminForms
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
+        }
+
+        private void GetAdminName()
+        {
+            lblAdminName.Text = LoginInfo.KullaniciAdi.ToUpper();
+        }
+
+        private void frmAdminPanel_Load(object sender, EventArgs e)
+        {
+            GetAdminName();
         }
     }
 }
