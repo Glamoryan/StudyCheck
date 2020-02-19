@@ -1,5 +1,6 @@
 ﻿using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
 using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
+using StudyCheck.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ using System.Windows.Forms;
 
 namespace StudyCheck.FormsUI.AdminForms
 {
-    public partial class frmAdminPanel : Form
+    public partial class frmAdminPanel : Form , IForm
     {
         //Drag Drop
         public const int WM_NCLBUTTONDOWN = 0xA1;
