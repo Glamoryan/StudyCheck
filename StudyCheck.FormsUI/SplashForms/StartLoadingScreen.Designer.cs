@@ -30,6 +30,7 @@
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.pcbLoadPicture = new System.Windows.Forms.PictureBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbLoadPicture)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,20 +51,34 @@
             this.pcbLoadPicture.TabIndex = 1;
             this.pcbLoadPicture.TabStop = false;
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label1.Location = new System.Drawing.Point(8, 293);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(85, 19);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Yükleniyor...";
+            // 
             // StartLoadingScreen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(885, 337);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.pcbLoadPicture);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "StartLoadingScreen";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "StartLoadingScreen";
+            this.Load += new System.EventHandler(this.StartLoadingScreen_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbLoadPicture)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -71,5 +86,6 @@
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pcbLoadPicture;
+        private System.Windows.Forms.Label label1;
     }
 }

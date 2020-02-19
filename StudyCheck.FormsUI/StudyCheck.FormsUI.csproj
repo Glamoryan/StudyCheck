@@ -155,7 +155,7 @@
     <None Include="Resources\exit_sign_32px.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\load.png" />
+    <None Include="Resources\yukle.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

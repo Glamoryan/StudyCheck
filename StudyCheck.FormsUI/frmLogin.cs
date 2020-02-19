@@ -19,6 +19,7 @@ using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
 using StudyCheck.FormsUI.AdminForms;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Utilities;
+using StudyCheck.FormsUI.SplashForms;
 
 namespace StudyCheck.FormsUI
 {
@@ -45,8 +46,16 @@ namespace StudyCheck.FormsUI
 
         public frmLogin()
         {
+            Thread t = new Thread(new ThreadStart(StartForm));
+            t.Start();
+            Thread.Sleep(5000);
             InitializeComponent();
-            
+            t.Abort();
+        }
+
+        private void StartForm()
+        {
+            Application.Run(new StartLoadingScreen());
         }
         
 
