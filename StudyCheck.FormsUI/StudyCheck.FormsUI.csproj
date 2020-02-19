@@ -125,6 +125,10 @@
       <Project>{29073D7C-7DD5-45F6-B11A-5EF546B5C0FD}</Project>
       <Name>StudyCheck.Entites</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StudyCheck.Utilities\StudyCheck.Utilities.csproj">
+      <Project>{68B5B1A2-4AF8-4847-BD39-8F15F615FA43}</Project>
+      <Name>StudyCheck.Utilities</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\school_80px.png" />

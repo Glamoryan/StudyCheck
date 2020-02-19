@@ -18,11 +18,16 @@ using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
 using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
 using StudyCheck.FormsUI.AdminForms;
 using StudyCheck.Entites.AccountManagement;
+using StudyCheck.Utilities;
 
 namespace StudyCheck.FormsUI
 {
     public partial class frmLogin : Form
     {
+        //Animasyonlar
+        [DllImport("user32.dll")]
+        static extern bool AnimateWindow(IntPtr hWnd, int time, FormAnimates.AnimateWindowFlags flags);
+        //--------------------------------------------------------------------------
         //Drag Drop
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -132,6 +137,11 @@ namespace StudyCheck.FormsUI
         private void btnLogin_Click(object sender, EventArgs e)
         {
             DoLogin();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
     }
 }
