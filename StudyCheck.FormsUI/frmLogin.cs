@@ -33,8 +33,9 @@ namespace StudyCheck.FormsUI
         public static extern bool ReleaseCapture();
         //----------------------------------------------
         private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();        
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
+
         private static frmAdminPanel _adminForm;
 
         public frmLogin()
@@ -42,6 +43,7 @@ namespace StudyCheck.FormsUI
             InitializeComponent();
             
         }
+        
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
         private void pcbCikisButon_Click(object sender, EventArgs e)
@@ -112,7 +114,7 @@ namespace StudyCheck.FormsUI
                     LoginInfo.SilId = user.sil_id;
                     LoginInfo.TemaId = user.tema_id;
                     LoginInfo.RolId = user.rol_id;
-                    if (LoginInfo.RolId == 1)
+                    if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
                     {
                         _adminForm = new frmAdminPanel();
                         _adminForm.ShowDialog();
