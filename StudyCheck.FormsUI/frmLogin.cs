@@ -97,7 +97,7 @@ namespace StudyCheck.FormsUI
                 
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void DoLogin()
         {
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
@@ -118,15 +118,20 @@ namespace StudyCheck.FormsUI
                     {
                         _adminForm = new frmAdminPanel();
                         _adminForm.ShowDialog();
-                    }                        
+                    }
                     else
                         MessageBox.Show("Giriş Başarılı!");
                 }
                 else
                 {
-                    MessageBox.Show("Hatalı bilgiler!","Giriş Başarısız",MessageBoxButtons.OK,MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Hatalı bilgiler!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            DoLogin();
         }
     }
 }
