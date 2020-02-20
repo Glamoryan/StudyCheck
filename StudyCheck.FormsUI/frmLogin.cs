@@ -21,6 +21,7 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Utilities;
 using StudyCheck.FormsUI.SplashForms;
 
+
 namespace StudyCheck.FormsUI
 {
     public partial class frmLogin : Form
@@ -46,7 +47,8 @@ namespace StudyCheck.FormsUI
 
         public frmLogin()
         {
-            InitializeComponent();
+            Thread.Sleep(2000);
+            InitializeComponent();            
         }        
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
@@ -141,7 +143,7 @@ namespace StudyCheck.FormsUI
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
-        {
+        {            
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
     }
