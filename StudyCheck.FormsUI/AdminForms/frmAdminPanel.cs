@@ -107,5 +107,10 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             pcbSignOut.Cursor = Cursors.Hand;
         }
+
+        private void pnlDashboardButton_MouseEnter(object sender, EventArgs e)
+        {
+            pnlDashboardButton.Cursor = Cursors.Hand;            
+        }
     }
 }
