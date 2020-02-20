@@ -68,6 +68,8 @@
             this.pcbSignOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcbSignOut.TabIndex = 3;
             this.pcbSignOut.TabStop = false;
+            this.pcbSignOut.Click += new System.EventHandler(this.pcbSignOut_Click);
+            this.pcbSignOut.MouseEnter += new System.EventHandler(this.pcbSignOut_MouseEnter);
             // 
             // lblAdminName
             // 

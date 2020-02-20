@@ -28,9 +28,24 @@ namespace StudyCheck.FormsUI.AdminForms
         public static extern bool ReleaseCapture();
         //----------------------------------------------
 
+        private static frmLogin _loginForm;
+
+
         public frmAdminPanel()
         {
             InitializeComponent();
+        }
+
+        private void ClearLogin()
+        {
+            LoginInfo.Id = -1;
+            LoginInfo.KullaniciAdi = null;
+            LoginInfo.Mail = null;
+            LoginInfo.RolId = -1;
+            LoginInfo.Sifre = null;
+            LoginInfo.SilId = -1;
+            LoginInfo.TemaId = -1;
+            LoginInfo.UyeId = -1;
         }
 
         private void pcbExit_MouseEnter(object sender, EventArgs e)
@@ -71,6 +86,26 @@ namespace StudyCheck.FormsUI.AdminForms
         private void frmAdminPanel_Load(object sender, EventArgs e)
         {
             GetAdminName();
+        }
+
+        [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
+        private void pcbSignOut_Click(object sender, EventArgs e)
+        {
+            DialogResult sonuc = MessageBox.Show("Çıkış yapmak istediğinize emin misiniz?", "Çıkış Yap?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(sonuc == DialogResult.Yes)
+            {
+                ClearLogin();
+                this.Hide();
+                _loginForm = new frmLogin();
+                _loginForm.FormClosed += (s, args) => this.Close();
+                _loginForm.Show();
+            }
+
+        }
+
+        private void pcbSignOut_MouseEnter(object sender, EventArgs e)
+        {
+            pcbSignOut.Cursor = Cursors.Hand;
         }
     }
 }

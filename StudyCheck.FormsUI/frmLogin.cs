@@ -25,7 +25,7 @@ using StudyCheck.FormsUI.SplashForms;
 namespace StudyCheck.FormsUI
 {
     public partial class frmLogin : Form
-    {
+    {        
         //Animasyonlar
         [DllImport("user32.dll")]
         static extern bool AnimateWindow(IntPtr hWnd, int time, FormAnimates.AnimateWindowFlags flags);
@@ -47,8 +47,7 @@ namespace StudyCheck.FormsUI
         
 
         public frmLogin()
-        {
-            Thread.Sleep(2000);
+        {            
             InitializeComponent();            
         }        
 
