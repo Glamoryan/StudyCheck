@@ -44,6 +44,7 @@ namespace StudyCheck.FormsUI
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
 
         private static frmAdminPanel _adminForm;
+        
 
         public frmLogin()
         {
@@ -109,7 +110,8 @@ namespace StudyCheck.FormsUI
             string password = tbxPassword.Text;
             if (CheckFields())
             {
-                var user = _userManager.GetByUsernamePassword(username, password);
+                
+                var user = _userManager.GetByUsernamePassword(username, password);           
                 if (user != null)
                 {
                     LoginInfo.Id = user.id;
@@ -146,5 +148,6 @@ namespace StudyCheck.FormsUI
         {            
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
+        
     }
 }
