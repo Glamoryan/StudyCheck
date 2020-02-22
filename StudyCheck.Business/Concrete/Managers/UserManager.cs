@@ -95,6 +95,13 @@ namespace StudyCheck.Business.Concrete.Managers
         {
             return _userDal.Get(u => u.id == id);
         }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [PerformanceCounterAspect(3)]//3 saniyeden fazla gelirse      
+        public List<Uyedetay> GetAllAdmins(int rolId)
+        {
+            return _userDetailDal.GetList(u => u.rol_id == rolId);
+        }        
     }
 }
 

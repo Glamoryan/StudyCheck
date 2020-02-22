@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
+using StudyCheck.Entites.AccountManagement;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls
 {
@@ -21,6 +22,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
         public DashboardControl()
         {
             InitializeComponent();
+        }
+
+        private void GetAdminDetails()
+        {
+            int sonuc = _userManager.GetAllAdmins((int)RoleInfo.Roller.Admin).Count;
+            adminWidget.lblWidgetTitle.Text = "Adminler";
+            adminWidget.lblWidgetValue.Text = sonuc.ToString();
+            adminWidget.pcbWidgetIcon.Image = Properties.Resources.admin;
         }
         
         private void GetAccountDetails()
@@ -43,6 +52,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
         {
             GetUserDetails();
             GetAccountDetails();
+            GetAdminDetails();
         }
     }
 }

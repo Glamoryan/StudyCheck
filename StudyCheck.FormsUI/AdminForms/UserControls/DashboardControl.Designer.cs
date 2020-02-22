@@ -28,17 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.accountWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
+            this.userWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
+            this.adminWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.SuspendLayout();
-            // 
-            // userWidget
-            // 
-            this.userWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.userWidget.Location = new System.Drawing.Point(26, 22);
-            this.userWidget.Name = "userWidget";
-            this.userWidget.Size = new System.Drawing.Size(185, 155);
-            this.userWidget.TabIndex = 0;
             // 
             // accountWidget
             // 
@@ -48,11 +41,28 @@
             this.accountWidget.Size = new System.Drawing.Size(185, 155);
             this.accountWidget.TabIndex = 1;
             // 
+            // userWidget
+            // 
+            this.userWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.userWidget.Location = new System.Drawing.Point(26, 22);
+            this.userWidget.Name = "userWidget";
+            this.userWidget.Size = new System.Drawing.Size(185, 155);
+            this.userWidget.TabIndex = 0;
+            // 
+            // adminWidget
+            // 
+            this.adminWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.adminWidget.Location = new System.Drawing.Point(478, 22);
+            this.adminWidget.Name = "adminWidget";
+            this.adminWidget.Size = new System.Drawing.Size(185, 155);
+            this.adminWidget.TabIndex = 2;
+            // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.adminWidget);
             this.Controls.Add(this.accountWidget);
             this.Controls.Add(this.userWidget);
             this.Name = "DashboardControl";
@@ -66,5 +76,6 @@
 
         private WidgetsControl userWidget;
         private WidgetsControl accountWidget;
+        private WidgetsControl adminWidget;
     }
 }
