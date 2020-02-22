@@ -23,16 +23,26 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             InitializeComponent();
         }
         
-        private void GetUserCount()
+        private void GetAccountDetails()
+        {
+            int sonuc = _userManager.GetAllUserDetails().Count;
+            accountWidget.lblWidgetTitle.Text = "Kullanıcılar";
+            accountWidget.lblWidgetValue.Text = sonuc.ToString();
+            accountWidget.pcbWidgetIcon.Image = Properties.Resources.user_groups_32px;
+        }
+
+        private void GetUserDetails()
         {
             int sonuc = _userManager.GetAllUsers().Count;
             userWidget.lblWidgetTitle.Text = "Üyeler";
             userWidget.lblWidgetValue.Text = sonuc.ToString();
+            userWidget.pcbWidgetIcon.Image = Properties.Resources.icons8_user_account_32;
         }
 
         private void DashboardControl_Load(object sender, EventArgs e)
         {
-            GetUserCount();
+            GetUserDetails();
+            GetAccountDetails();
         }
     }
 }

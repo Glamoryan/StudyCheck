@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.userWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
-            this.widgetsControl1 = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
+            this.accountWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.SuspendLayout();
             // 
             // userWidget
@@ -40,20 +40,20 @@
             this.userWidget.Size = new System.Drawing.Size(185, 155);
             this.userWidget.TabIndex = 0;
             // 
-            // widgetsControl1
+            // accountWidget
             // 
-            this.widgetsControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.widgetsControl1.Location = new System.Drawing.Point(253, 22);
-            this.widgetsControl1.Name = "widgetsControl1";
-            this.widgetsControl1.Size = new System.Drawing.Size(185, 155);
-            this.widgetsControl1.TabIndex = 1;
+            this.accountWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.accountWidget.Location = new System.Drawing.Point(253, 22);
+            this.accountWidget.Name = "accountWidget";
+            this.accountWidget.Size = new System.Drawing.Size(185, 155);
+            this.accountWidget.TabIndex = 1;
             // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
-            this.Controls.Add(this.widgetsControl1);
+            this.Controls.Add(this.accountWidget);
             this.Controls.Add(this.userWidget);
             this.Name = "DashboardControl";
             this.Size = new System.Drawing.Size(1045, 649);
@@ -65,6 +65,6 @@
         #endregion
 
         private WidgetsControl userWidget;
-        private WidgetsControl widgetsControl1;
+        private WidgetsControl accountWidget;
     }
 }

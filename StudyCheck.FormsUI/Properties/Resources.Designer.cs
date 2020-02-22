@@ -133,6 +133,16 @@ namespace StudyCheck.FormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap user_groups_32px {
+            get {
+                object obj = ResourceManager.GetObject("user_groups_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap yukle {
             get {
                 object obj = ResourceManager.GetObject("yukle", resourceCulture);
