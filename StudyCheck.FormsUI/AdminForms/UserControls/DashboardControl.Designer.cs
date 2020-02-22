@@ -36,7 +36,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
             this.Name = "DashboardControl";
-            this.Size = new System.Drawing.Size(1025, 654);
+            this.Size = new System.Drawing.Size(1045, 649);
             this.ResumeLayout(false);
 
         }

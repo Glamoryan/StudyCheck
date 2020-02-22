@@ -3,6 +3,7 @@ using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
 using StudyCheck.Core.Entities;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
+using StudyCheck.FormsUI.AdminForms.UserControls;
 using StudyCheck.Utilities;
 using System;
 using System.Collections.Generic;
@@ -33,6 +34,7 @@ namespace StudyCheck.FormsUI.AdminForms
         public static extern bool ReleaseCapture();
         //----------------------------------------------
 
+        private static DashboardControl _dashboardControl;
         private static frmLogin _loginForm;
 
 
@@ -83,6 +85,13 @@ namespace StudyCheck.FormsUI.AdminForms
             }
         }
 
+        private void GetDashboardControl()
+        {
+            _dashboardControl = new DashboardControl();
+            pnlContent.Controls.Clear();
+            pnlContent.Controls.Add(_dashboardControl);            
+        }
+
         private void GetAdminName()
         {
             lblAdminName.Text = LoginInfo.KullaniciAdi.ToUpper();
@@ -92,6 +101,7 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             GetAdminName();
+            GetDashboardControl();
         }
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
