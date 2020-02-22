@@ -17,11 +17,21 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
     {
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfExamDal _efExamDal = new EfExamDal();
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
+        private static ExamManager _examManager = new ExamManager(_efExamDal);
 
         public DashboardControl()
         {
             InitializeComponent();
+        }
+
+        private void GetExamDetails()
+        {
+            int sonuc = _examManager.GetAllExams().Count;
+            examWidget.lblWidgetTitle.Text = "Sınavlar";
+            examWidget.lblWidgetValue.Text = sonuc.ToString();
+            examWidget.pcbWidgetIcon.Image = Properties.Resources.icons8_exam_32;
         }
 
         private void GetAdminDetails()
@@ -53,6 +63,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             GetUserDetails();
             GetAccountDetails();
             GetAdminDetails();
+            GetExamDetails();
         }
     }
 }
