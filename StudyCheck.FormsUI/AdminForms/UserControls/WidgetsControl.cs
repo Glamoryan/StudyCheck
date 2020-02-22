@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls
 {
-    public partial class Widgets : UserControl
+    public partial class WidgetsControl : UserControl
     {
-        public Widgets()
+        public WidgetsControl()
         {
             InitializeComponent();
         }
