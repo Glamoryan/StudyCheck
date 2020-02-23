@@ -32,6 +32,7 @@
             this.adminWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.accountWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.userWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
+            this.lessonWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.SuspendLayout();
             // 
             // examWidget
@@ -66,11 +67,20 @@
             this.userWidget.Size = new System.Drawing.Size(185, 155);
             this.userWidget.TabIndex = 0;
             // 
+            // lessonWidget
+            // 
+            this.lessonWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.lessonWidget.Location = new System.Drawing.Point(20, 241);
+            this.lessonWidget.Name = "lessonWidget";
+            this.lessonWidget.Size = new System.Drawing.Size(185, 155);
+            this.lessonWidget.TabIndex = 4;
+            // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.lessonWidget);
             this.Controls.Add(this.examWidget);
             this.Controls.Add(this.adminWidget);
             this.Controls.Add(this.accountWidget);
@@ -88,5 +98,6 @@
         private WidgetsControl accountWidget;
         private WidgetsControl adminWidget;
         private WidgetsControl examWidget;
+        private WidgetsControl lessonWidget;
     }
 }

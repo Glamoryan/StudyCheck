@@ -18,12 +18,23 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
         private static EfExamDal _efExamDal = new EfExamDal();
+        private static EfLessonDal _efLessonDal = new EfLessonDal();
+
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private static ExamManager _examManager = new ExamManager(_efExamDal);
+        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
 
         public DashboardControl()
         {
             InitializeComponent();
+        }
+
+        private void GetLessonDetails()
+        {
+            int sonuc = _lessonManager.GetAllLessons().Count;
+            lessonWidget.lblWidgetTitle.Text = "Dersler";
+            lessonWidget.lblWidgetValue.Text = sonuc.ToString();
+            lessonWidget.pcbWidgetIcon.Image = Properties.Resources.icons8_test_passed_32;
         }
 
         private void GetExamDetails()
@@ -64,6 +75,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             GetAccountDetails();
             GetAdminDetails();
             GetExamDetails();
+            GetLessonDetails();
         }
     }
 }
