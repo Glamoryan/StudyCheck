@@ -138,7 +138,7 @@ namespace StudyCheck.FormsUI
             }
         }
 
-        private void ChangeOpacity(bool deger,Control kontrol)
+        private void ChangeOpacity(bool deger,Control kontrol)//yeni eklendi
         {
             if (deger)
             {
