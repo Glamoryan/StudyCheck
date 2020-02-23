@@ -98,7 +98,7 @@ namespace StudyCheck.FormsUI.AdminForms
         }
 
         private void frmAdminPanel_Load(object sender, EventArgs e)
-        {
+        {            
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             GetAdminName();
             GetDashboardControl();
