@@ -138,31 +138,15 @@ namespace StudyCheck.FormsUI
             }
         }
 
-        private void ChangeOpacity(bool deger,Control kontrol)//yeni eklendi
-        {
-            if (deger)
-            {
-                kontrol.BackColor = Color.FromArgb(50, 255, 83, 17);
-                kontrol.Text = "Yükleniyor...";
-            }                
-            else if (deger == false)
-            {
-                kontrol.BackColor = Color.FromArgb(255, 83, 17);
-                kontrol.Text = "Giriş Yap";
-            }
-                
-
-        }
+        
         private void btnLogin_Click(object sender, EventArgs e)
-        {
-            ChangeOpacity(true, btnLogin);            
-            DoLogin();            
-            ChangeOpacity(false, btnLogin);
+        {                       
+            DoLogin();                      
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {            
-            AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
+            AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);            
         }
         
     }
