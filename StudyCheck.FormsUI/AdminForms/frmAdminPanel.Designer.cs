@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.btnUyeler = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pcbSignOut = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
@@ -50,6 +51,7 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlSidebar.Controls.Add(this.btnUyeler);
             this.pnlSidebar.Controls.Add(this.btnDashboard);
             this.pnlSidebar.Controls.Add(this.pcbSignOut);
             this.pnlSidebar.Controls.Add(this.lblAdminName);
@@ -60,6 +62,24 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(200, 725);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // btnUyeler
+            // 
+            this.btnUyeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnUyeler.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUyeler.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeler.FlatAppearance.BorderSize = 0;
+            this.btnUyeler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUyeler.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUyeler.ForeColor = System.Drawing.Color.White;
+            this.btnUyeler.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_admin_settings_male_32;
+            this.btnUyeler.Location = new System.Drawing.Point(0, 190);
+            this.btnUyeler.Name = "btnUyeler";
+            this.btnUyeler.Size = new System.Drawing.Size(200, 56);
+            this.btnUyeler.TabIndex = 4;
+            this.btnUyeler.Text = "Üyeler ve Hesaplar";
+            this.btnUyeler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUyeler.UseVisualStyleBackColor = false;
             // 
             // btnDashboard
             // 
@@ -217,5 +237,6 @@
         private System.Windows.Forms.Label lblAdminName;
         private System.Windows.Forms.PictureBox pcbSignOut;
         private System.Windows.Forms.Button btnDashboard;
+        private System.Windows.Forms.Button btnUyeler;
     }
 }
