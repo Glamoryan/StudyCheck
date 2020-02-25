@@ -29,7 +29,8 @@ namespace StudyCheck.FormsUI
             splashThread.Start();
 
             MainForm = new frmLogin();            
-            MainForm.Load += MainForm_LoadCompleted;            
+            MainForm.Load += MainForm_LoadCompleted;
+            Thread.Sleep(2000);
             Application.Run(MainForm);
 
         }
@@ -37,8 +38,8 @@ namespace StudyCheck.FormsUI
         private static void MainForm_LoadCompleted(object sender,EventArgs e)
         {
             if (SplashScreen != null && !SplashScreen.Disposing && !SplashScreen.IsDisposed)
-                SplashScreen.Invoke(new Action(() => SplashScreen.Close()));
-            MainForm.TopMost = true;
+                SplashScreen.Invoke(new Action(() => SplashScreen.Close()));            
+            MainForm.TopMost = true;            
             MainForm.Activate();
             MainForm.TopMost = false;
         }
