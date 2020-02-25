@@ -33,7 +33,7 @@
             this.accountWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.userWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.lessonWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
-            this.lblWelcome = new System.Windows.Forms.Label();
+            this.lblDashboard = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
@@ -77,16 +77,16 @@
             this.lessonWidget.Size = new System.Drawing.Size(185, 155);
             this.lessonWidget.TabIndex = 4;
             // 
-            // lblWelcome
+            // lblDashboard
             // 
-            this.lblWelcome.AutoSize = true;
-            this.lblWelcome.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblWelcome.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblWelcome.Location = new System.Drawing.Point(27, 27);
-            this.lblWelcome.Name = "lblWelcome";
-            this.lblWelcome.Size = new System.Drawing.Size(86, 21);
-            this.lblWelcome.TabIndex = 5;
-            this.lblWelcome.Text = "Dashboard";
+            this.lblDashboard.AutoSize = true;
+            this.lblDashboard.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblDashboard.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.lblDashboard.Location = new System.Drawing.Point(27, 27);
+            this.lblDashboard.Name = "lblDashboard";
+            this.lblDashboard.Size = new System.Drawing.Size(86, 21);
+            this.lblDashboard.TabIndex = 5;
+            this.lblDashboard.Text = "Dashboard";
             // 
             // panel1
             // 
@@ -102,7 +102,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.lblWelcome);
+            this.Controls.Add(this.lblDashboard);
             this.Controls.Add(this.lessonWidget);
             this.Controls.Add(this.examWidget);
             this.Controls.Add(this.adminWidget);
@@ -123,7 +123,7 @@
         private WidgetsControl adminWidget;
         private WidgetsControl examWidget;
         private WidgetsControl lessonWidget;
-        private System.Windows.Forms.Label lblWelcome;
+        private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Panel panel1;
     }
 }
