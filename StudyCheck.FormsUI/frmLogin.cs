@@ -140,7 +140,7 @@ namespace StudyCheck.FormsUI
 
         
         private void btnLogin_Click(object sender, EventArgs e)
-        {                       
+        {
             DoLogin();                      
         }
 
