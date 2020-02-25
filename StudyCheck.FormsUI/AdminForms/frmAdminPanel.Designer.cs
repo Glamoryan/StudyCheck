@@ -40,6 +40,8 @@
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).BeginInit();
             this.pnlLogo.SuspendLayout();
@@ -51,6 +53,8 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlSidebar.Controls.Add(this.panel2);
+            this.pnlSidebar.Controls.Add(this.panel1);
             this.pnlSidebar.Controls.Add(this.btnUyeler);
             this.pnlSidebar.Controls.Add(this.btnDashboard);
             this.pnlSidebar.Controls.Add(this.pcbSignOut);
@@ -75,7 +79,7 @@
             this.btnUyeler.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_admin_settings_male_32;
             this.btnUyeler.Location = new System.Drawing.Point(0, 190);
             this.btnUyeler.Name = "btnUyeler";
-            this.btnUyeler.Size = new System.Drawing.Size(200, 56);
+            this.btnUyeler.Size = new System.Drawing.Size(194, 56);
             this.btnUyeler.TabIndex = 4;
             this.btnUyeler.Text = "Üyeler ve Hesaplar";
             this.btnUyeler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -93,7 +97,7 @@
             this.btnDashboard.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_home_32;
             this.btnDashboard.Location = new System.Drawing.Point(0, 128);
             this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(200, 56);
+            this.btnDashboard.Size = new System.Drawing.Size(194, 56);
             this.btnDashboard.TabIndex = 4;
             this.btnDashboard.Text = "Dashboard";
             this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -198,6 +202,22 @@
             this.pnlContent.Size = new System.Drawing.Size(1045, 649);
             this.pnlContent.TabIndex = 2;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.panel1.Location = new System.Drawing.Point(190, 128);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(10, 56);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.panel2.Location = new System.Drawing.Point(190, 190);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(10, 56);
+            this.panel2.TabIndex = 5;
+            // 
             // frmAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,5 +258,7 @@
         private System.Windows.Forms.PictureBox pcbSignOut;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnUyeler;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
     }
 }
