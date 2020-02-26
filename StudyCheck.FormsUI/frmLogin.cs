@@ -154,15 +154,24 @@ namespace StudyCheck.FormsUI
 
         private void doLoadingAnimation(Bitmap resim)
         {
-            pcbLoading = new PictureBox();
-            pcbLoading.SizeMode = PictureBoxSizeMode.CenterImage;
-            pcbLoading.Location = new Point(0, 0);
-            pcbLoading.Width = this.Width;
-            pcbLoading.Height = this.Height;
-            pcbLoading.Image = resim;
-            this.Controls.Add(pcbLoading);
-            pcbLoading.BringToFront();
-            pcbLoading.Visible = true;
+            if (pcbLoading != null)
+            {
+                pcbLoading.BringToFront();
+                pcbLoading.Visible = true;
+            }
+            else
+            {
+                pcbLoading = new PictureBox();
+                pcbLoading.SizeMode = PictureBoxSizeMode.CenterImage;
+                pcbLoading.Location = new Point(0, 0);
+                pcbLoading.Width = this.Width;
+                pcbLoading.Height = this.Height;
+                pcbLoading.Image = resim;
+                this.Controls.Add(pcbLoading);
+                pcbLoading.BringToFront();
+                pcbLoading.Visible = true;
+            }
+            
         }
 
 
