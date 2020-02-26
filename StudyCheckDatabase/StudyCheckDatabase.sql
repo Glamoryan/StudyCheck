@@ -1,6 +1,6 @@
-create database Deneme
+create database StudyCheck
 go
-use Deneme
+use StudyCheck
 go
 create table Uyeler
 (
@@ -36,7 +36,7 @@ go
 create table Yetkiler
 (
 id int PRIMARY KEY IDENTITY(1,1),
-yetki_adi varchar(30) not null, -- Okuma , Güncelleme , Silme...
+yetki_adi varchar(30) not null, -- Okuma , GÃ¼ncelleme , Silme...
 ekleyen_id int references UyeDetay(id),
 eklenme_tarihi datetime not null
 )
