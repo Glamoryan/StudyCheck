@@ -4,6 +4,7 @@ using StudyCheck.Core.Entities;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
 using StudyCheck.Utilities;
 using System;
 using System.Collections.Generic;
@@ -35,6 +36,7 @@ namespace StudyCheck.FormsUI.AdminForms
         //----------------------------------------------
 
         private static DashboardControl _dashboardControl;
+        private static AccountsControl _accountsControl;
         private static frmLogin _loginForm;
 
 
@@ -101,6 +103,21 @@ namespace StudyCheck.FormsUI.AdminForms
             }
                         
         }
+        [CacheAspect(typeof(MemoryCacheManager))]
+        private void GetAccountControl()
+        {
+            if(_accountsControl == null)
+            {
+                _accountsControl = new AccountsControl();
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_accountsControl);
+            }
+            else
+            {
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_accountsControl);
+            }
+        }
         
         private void GetAdminName()
         {
@@ -138,6 +155,11 @@ namespace StudyCheck.FormsUI.AdminForms
         private void btnDashboard_Click(object sender, EventArgs e)
         {                        
             GetDashboardControl();
+        }
+
+        private void btnUyeler_Click(object sender, EventArgs e)
+        {
+            GetAccountControl();
         }
     }
 }

@@ -34,9 +34,9 @@
             // usersColumnControl1
             // 
             this.usersColumnControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.usersColumnControl1.Location = new System.Drawing.Point(0, 3);
+            this.usersColumnControl1.Location = new System.Drawing.Point(8, 6);
             this.usersColumnControl1.Name = "usersColumnControl1";
-            this.usersColumnControl1.Size = new System.Drawing.Size(1045, 46);
+            this.usersColumnControl1.Size = new System.Drawing.Size(1032, 46);
             this.usersColumnControl1.TabIndex = 0;
             // 
             // AccountsControl

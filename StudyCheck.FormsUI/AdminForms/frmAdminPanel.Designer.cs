@@ -100,6 +100,7 @@
             this.btnUyeler.Text = "Üyeler ve Hesaplar";
             this.btnUyeler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUyeler.UseVisualStyleBackColor = false;
+            this.btnUyeler.Click += new System.EventHandler(this.btnUyeler_Click);
             // 
             // btnDashboard
             // 
