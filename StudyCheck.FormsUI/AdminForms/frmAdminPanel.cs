@@ -85,13 +85,23 @@ namespace StudyCheck.FormsUI.AdminForms
             }
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
         private void GetDashboardControl()
         {
-            _dashboardControl = new DashboardControl();
-            pnlContent.Controls.Clear();
-            pnlContent.Controls.Add(_dashboardControl);            
+            if (_dashboardControl == null)
+            {
+                _dashboardControl = new DashboardControl();
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_dashboardControl);
+            }
+            else
+            {
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_dashboardControl);
+            }
+                        
         }
-
+        
         private void GetAdminName()
         {
             lblAdminName.Text = LoginInfo.KullaniciAdi.ToUpper();
@@ -124,6 +134,10 @@ namespace StudyCheck.FormsUI.AdminForms
             pcbSignOut.Cursor = Cursors.Hand;
         }
 
-        
+        [CacheAspect(typeof(MemoryCacheManager))]
+        private void btnDashboard_Click(object sender, EventArgs e)
+        {                        
+            GetDashboardControl();
+        }
     }
 }
