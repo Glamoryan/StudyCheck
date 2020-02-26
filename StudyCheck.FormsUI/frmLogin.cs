@@ -102,8 +102,8 @@ namespace StudyCheck.FormsUI
             }
             return true;
 
-        }   
-        
+        }
+
         private void CallAdminForm()
         {
             this.Hide();
@@ -135,18 +135,16 @@ namespace StudyCheck.FormsUI
                         {
                             CallAdminFormDelegate del = new CallAdminFormDelegate(CallAdminForm);
                             Invoke(del, new object[] { });
-                        }                        
+                        }
                     }
                     else
                     {
                         MessageBox.Show("Giriş Başarılı!");
-
                     }
                 }
                 else
                 {
                     MessageBox.Show("Hatalı bilgiler!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-
                 }
             }
 
@@ -171,20 +169,17 @@ namespace StudyCheck.FormsUI
                 pcbLoading.BringToFront();
                 pcbLoading.Visible = true;
             }
-            
+
         }
 
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-
             doLoadingAnimation(Properties.Resources._494);
             await Task.Run(() => DoLogin());
             pcbLoading.Visible = false;
-            pcbLoading.SendToBack();            
-
-
-        }       
+            pcbLoading.SendToBack();
+        }
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
