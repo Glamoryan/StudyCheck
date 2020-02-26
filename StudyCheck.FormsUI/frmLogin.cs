@@ -25,7 +25,7 @@ using StudyCheck.FormsUI.SplashForms;
 namespace StudyCheck.FormsUI
 {
     public partial class frmLogin : Form
-    {        
+    {
         //Animasyonlar
         [DllImport("user32.dll")]
         static extern bool AnimateWindow(IntPtr hWnd, int time, FormAnimates.AnimateWindowFlags flags);
@@ -40,23 +40,23 @@ namespace StudyCheck.FormsUI
         public static extern bool ReleaseCapture();
         //----------------------------------------------
         private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();        
+        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
 
         private static frmAdminPanel _adminForm;
-        
+
 
         public frmLogin()
-        {            
-            InitializeComponent();            
-        }        
+        {
+            InitializeComponent();
+        }
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
         private void pcbCikisButon_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
-        
+
 
         private void pcbCikisButon_MouseEnter(object sender, EventArgs e)
         {
@@ -75,7 +75,7 @@ namespace StudyCheck.FormsUI
 
         private void DragDropPanel_MouseDown(object sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            if (e.Button == MouseButtons.Left)
             {
                 ReleaseCapture();
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
@@ -86,31 +86,38 @@ namespace StudyCheck.FormsUI
         {
             if (string.IsNullOrEmpty(tbxUsername.Text) && string.IsNullOrEmpty(tbxPassword.Text))
             {
-                MessageBox.Show("Boş alan bırakılamaz!","Gerekli Alanlar",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Boş alan bırakılamaz!", "Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-            }                
+            }
             else if (string.IsNullOrEmpty(tbxPassword.Text))
             {
-                MessageBox.Show("Şifre boş geçilemez!","Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Şifre boş geçilemez!", "Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
-            }                
+            }
             else if (string.IsNullOrEmpty(tbxUsername.Text))
             {
-                MessageBox.Show("Kullanıcı adı boş geçilemez!","Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Kullanıcı adı boş geçilemez!", "Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return false;
             }
             return true;
-                
-        }
 
+        }   
+        
+        private void CallAdminForm()
+        {
+            this.Hide();
+            _adminForm = new frmAdminPanel();
+            _adminForm.FormClosed += (s, args) => this.Close();
+            _adminForm.Show();
+        }
+        delegate void CallAdminFormDelegate();
         private void DoLogin()
         {
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
             if (CheckFields())
             {
-                
-                var user = _userManager.GetByUsernamePassword(username, password);           
+                var user = _userManager.GetByUsernamePassword(username, password);
                 if (user != null)
                 {
                     LoginInfo.Id = user.id;
@@ -123,31 +130,51 @@ namespace StudyCheck.FormsUI
                     LoginInfo.RolId = user.rol_id;
                     if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
                     {
-                        this.Hide();
-                        _adminForm = new frmAdminPanel();
-                        _adminForm.FormClosed += (s, args) => this.Close();
-                        _adminForm.Show();
+                        if (this.InvokeRequired)
+                        {
+                            CallAdminFormDelegate del = new CallAdminFormDelegate(CallAdminForm);
+                            Invoke(del, new object[] { });
+                        }                        
                     }
                     else
+                    {
                         MessageBox.Show("Giriş Başarılı!");
+
+                    }
                 }
                 else
                 {
                     MessageBox.Show("Hatalı bilgiler!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
                 }
             }
+
         }
 
-        
-        private void btnLogin_Click(object sender, EventArgs e)
+
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
-            DoLogin();                      
-        }
+            PictureBox pcbLoading = new PictureBox();
+            pcbLoading.SizeMode = PictureBoxSizeMode.CenterImage;
+            pcbLoading.Location = new Point(0, 0);
+            pcbLoading.Width = this.Width;
+            pcbLoading.Height = this.Height;
+            pcbLoading.Image = Properties.Resources._813;
+            this.Controls.Add(pcbLoading);
+            pcbLoading.BringToFront();
+            pcbLoading.Visible = true;            
+            await Task.Run(() => DoLogin());
+            pcbLoading.Visible = false;
+            pcbLoading.SendToBack();            
+
+
+        }       
 
         private void frmLogin_Load(object sender, EventArgs e)
-        {            
-            AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);            
+        {
+            //CheckForIllegalCrossThreadCalls = false;
+            AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
-        
+
     }
 }
