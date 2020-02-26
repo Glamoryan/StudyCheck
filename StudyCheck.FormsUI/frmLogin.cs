@@ -45,6 +45,7 @@ namespace StudyCheck.FormsUI
 
         private static frmAdminPanel _adminForm;
 
+        private static PictureBox pcbLoading;
 
         public frmLogin()
         {
@@ -151,18 +152,24 @@ namespace StudyCheck.FormsUI
 
         }
 
-
-        private async void btnLogin_Click(object sender, EventArgs e)
+        private void doLoadingAnimation(Bitmap resim)
         {
-            PictureBox pcbLoading = new PictureBox();
+            pcbLoading = new PictureBox();
             pcbLoading.SizeMode = PictureBoxSizeMode.CenterImage;
             pcbLoading.Location = new Point(0, 0);
             pcbLoading.Width = this.Width;
             pcbLoading.Height = this.Height;
-            pcbLoading.Image = Properties.Resources._813;
+            pcbLoading.Image = resim;
             this.Controls.Add(pcbLoading);
             pcbLoading.BringToFront();
-            pcbLoading.Visible = true;            
+            pcbLoading.Visible = true;
+        }
+
+
+        private async void btnLogin_Click(object sender, EventArgs e)
+        {
+
+            doLoadingAnimation(Properties.Resources._813);
             await Task.Run(() => DoLogin());
             pcbLoading.Visible = false;
             pcbLoading.SendToBack();            
@@ -172,7 +179,7 @@ namespace StudyCheck.FormsUI
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            //CheckForIllegalCrossThreadCalls = false;
+            //CheckForIllegalCrossThreadCalls = false; ----------- Thread Çakışmalarına izin ver
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
 
