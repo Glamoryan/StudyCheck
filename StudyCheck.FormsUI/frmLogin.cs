@@ -169,7 +169,7 @@ namespace StudyCheck.FormsUI
         private async void btnLogin_Click(object sender, EventArgs e)
         {
 
-            doLoadingAnimation(Properties.Resources._813);
+            doLoadingAnimation(Properties.Resources._494);
             await Task.Run(() => DoLogin());
             pcbLoading.Visible = false;
             pcbLoading.SendToBack();            
