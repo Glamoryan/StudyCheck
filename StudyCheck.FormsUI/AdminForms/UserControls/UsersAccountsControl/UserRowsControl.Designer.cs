@@ -130,6 +130,7 @@
             // btnDuzenle
             // 
             this.btnDuzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(206)))), ((int)(((byte)(109)))));
+            this.btnDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDuzenle.FlatAppearance.BorderSize = 0;
             this.btnDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDuzenle.Image = global::StudyCheck.FormsUI.Properties.Resources.edit_16px;

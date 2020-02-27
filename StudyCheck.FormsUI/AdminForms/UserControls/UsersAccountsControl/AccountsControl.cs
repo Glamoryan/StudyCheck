@@ -25,19 +25,19 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private static UserRowsControl _rowsControl;
         private static UserManager _userManager;
-        private List<UserDetail> _UyeDetaylar;
+        private List<UserDetail> _uyeDetaylar;
 
         private void GetUserDetails()
-        {
+        {            
             if (_userManager == null)
             {
                 _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-            }            
-            _UyeDetaylar = _userManager.GetAllUserDetails();
+            }
+            _uyeDetaylar = _userManager.GetAllUserDetails();
             if (!pnlUserContent.Controls.ContainsKey("UserRowsControl"))
             {
                 int i = 0;
-                foreach (var detay in _UyeDetaylar)
+                foreach (var detay in _uyeDetaylar)
                 {
                     _rowsControl = new UserRowsControl();
                     _rowsControl.Top = (i * 32);
@@ -54,8 +54,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                         {
                             _rowsControl.lblRol.Text = "Kullanıcı";
                             _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
-                        }
-                            
+                        }                            
                     }
                     else
                     {

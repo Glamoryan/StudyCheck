@@ -19,7 +19,7 @@ using System.Windows.Forms;
 
 namespace StudyCheck.FormsUI.AdminForms
 {
-    public partial class frmAdminPanel : Form 
+    public partial class frmAdminPanel : Form
     {
 
         //Animasyonlar
@@ -101,31 +101,34 @@ namespace StudyCheck.FormsUI.AdminForms
                 pnlContent.Controls.Clear();
                 pnlContent.Controls.Add(_dashboardControl);
             }
-                        
+
         }
         [CacheAspect(typeof(MemoryCacheManager))]
         private void GetAccountControl()
         {
-            if(_accountsControl == null)
+            if (_accountsControl == null)
             {
-                _accountsControl = new AccountsControl();
+                _accountsControl = new AccountsControl();                
                 pnlContent.Controls.Clear();
                 pnlContent.Controls.Add(_accountsControl);
             }
             else
             {
+                _accountsControl = new AccountsControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
                 pnlContent.Controls.Clear();
                 pnlContent.Controls.Add(_accountsControl);
             }
         }
-        
+
         private void GetAdminName()
         {
             lblAdminName.Text = LoginInfo.KullaniciAdi.ToUpper();
         }
 
         private void frmAdminPanel_Load(object sender, EventArgs e)
-        {            
+        {
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             GetAdminName();
             GetDashboardControl();
@@ -135,7 +138,7 @@ namespace StudyCheck.FormsUI.AdminForms
         private void pcbSignOut_Click(object sender, EventArgs e)
         {
             DialogResult sonuc = MessageBox.Show("Çıkış yapmak istediğinize emin misiniz?", "Çıkış Yap?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(sonuc == DialogResult.Yes)
+            if (sonuc == DialogResult.Yes)
             {
                 ClearLogin();
                 this.Hide();
@@ -153,7 +156,7 @@ namespace StudyCheck.FormsUI.AdminForms
 
         [CacheAspect(typeof(MemoryCacheManager))]
         private void btnDashboard_Click(object sender, EventArgs e)
-        {                        
+        {
             GetDashboardControl();
         }
 
