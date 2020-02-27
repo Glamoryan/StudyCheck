@@ -40,7 +40,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 foreach (var detay in _uyeDetaylar)
                 {
                     _rowsControl = new UserRowsControl();
-                    _rowsControl.Top = (i * 32);
+                    _rowsControl.Top = (i * 40);
                     pnlUserContent.Controls.Add(_rowsControl);
                     _rowsControl.lblUyeId.Text = detay.UyeId.ToString();
                     _rowsControl.lblUyeAd.Text = detay.UyeAd;
