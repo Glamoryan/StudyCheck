@@ -98,11 +98,19 @@ namespace StudyCheck.FormsUI.AdminForms
             }
             else
             {
-                _dashboardControl = new DashboardControl();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                pnlContent.Controls.Clear();
-                pnlContent.Controls.Add(_dashboardControl);
+                if (!pnlContent.Controls.ContainsKey("DashboardControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_dashboardControl);
+                }
+                else
+                {
+                    _dashboardControl = new DashboardControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_dashboardControl);
+                }                
             }
 
         }
@@ -117,11 +125,19 @@ namespace StudyCheck.FormsUI.AdminForms
             }
             else
             {
-                _accountsControl = new AccountsControl();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
-                pnlContent.Controls.Clear();
-                pnlContent.Controls.Add(_accountsControl);
+                if (!pnlContent.Controls.ContainsKey("AccountsControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_accountsControl);
+                }
+                else
+                {
+                    _accountsControl = new AccountsControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_accountsControl);
+                }                
             }
         }
 
@@ -132,6 +148,7 @@ namespace StudyCheck.FormsUI.AdminForms
 
         private void frmAdminPanel_Load(object sender, EventArgs e)
         {
+            lblTarih.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             GetAdminName();
             GetDashboardControl();

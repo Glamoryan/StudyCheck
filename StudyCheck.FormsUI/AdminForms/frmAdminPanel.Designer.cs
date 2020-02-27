@@ -42,6 +42,7 @@
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.lblTarih = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).BeginInit();
             this.pnlLogo.SuspendLayout();
@@ -178,6 +179,7 @@
             // pnlHeader
             // 
             this.pnlHeader.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlHeader.Controls.Add(this.lblTarih);
             this.pnlHeader.Controls.Add(this.pcbMinimize);
             this.pnlHeader.Controls.Add(this.pcbExit);
             this.pnlHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -219,6 +221,17 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1045, 649);
             this.pnlContent.TabIndex = 2;
+            // 
+            // lblTarih
+            // 
+            this.lblTarih.AutoSize = true;
+            this.lblTarih.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.lblTarih.Location = new System.Drawing.Point(33, 33);
+            this.lblTarih.Name = "lblTarih";
+            this.lblTarih.Size = new System.Drawing.Size(39, 19);
+            this.lblTarih.TabIndex = 2;
+            this.lblTarih.Text = "tarih";
             // 
             // frmAdminPanel
             // 
@@ -262,5 +275,6 @@
         private System.Windows.Forms.Button btnUyeler;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblTarih;
     }
 }

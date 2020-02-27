@@ -43,7 +43,7 @@
             // 
             this.lblUyeId.AutoSize = true;
             this.lblUyeId.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUyeId.ForeColor = System.Drawing.Color.White;
+            this.lblUyeId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.lblUyeId.Location = new System.Drawing.Point(15, 12);
             this.lblUyeId.Name = "lblUyeId";
             this.lblUyeId.Size = new System.Drawing.Size(46, 17);
@@ -121,7 +121,7 @@
             this.lblDurum.AutoSize = true;
             this.lblDurum.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDurum.ForeColor = System.Drawing.Color.White;
-            this.lblDurum.Location = new System.Drawing.Point(851, 12);
+            this.lblDurum.Location = new System.Drawing.Point(864, 12);
             this.lblDurum.Name = "lblDurum";
             this.lblDurum.Size = new System.Drawing.Size(52, 17);
             this.lblDurum.TabIndex = 0;
