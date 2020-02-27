@@ -148,6 +148,7 @@ namespace StudyCheck.FormsUI.AdminForms
 
         private void frmAdminPanel_Load(object sender, EventArgs e)
         {
+            WhichTab(dbPanel);
             lblTarih.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             GetAdminName();
@@ -168,6 +169,24 @@ namespace StudyCheck.FormsUI.AdminForms
             }
 
         }
+        private void WhichTab(Panel panel)
+        {
+            panel.BringToFront();
+            if (panel.Name != "dbPanel")
+            {
+                if (panel.Name == "acPanel")
+                {
+                    panel.BackColor = Color.FromArgb(255, 83, 17);
+                    dbPanel.BackColor = Color.Transparent;
+                }
+            }
+            else
+            {
+                panel.BackColor = Color.FromArgb(255, 83, 17);
+                acPanel.BackColor = Color.Transparent;
+            }
+
+        }
 
         private void pcbSignOut_MouseEnter(object sender, EventArgs e)
         {
@@ -177,11 +196,13 @@ namespace StudyCheck.FormsUI.AdminForms
         [CacheAspect(typeof(MemoryCacheManager))]
         private void btnDashboard_Click(object sender, EventArgs e)
         {
+            WhichTab(dbPanel);
             GetDashboardControl();
         }
 
         private void btnUyeler_Click(object sender, EventArgs e)
         {
+            WhichTab(acPanel);
             GetAccountControl();
         }
     }

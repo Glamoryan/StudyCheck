@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.acPanel = new System.Windows.Forms.Panel();
+            this.dbPanel = new System.Windows.Forms.Panel();
             this.btnUyeler = new System.Windows.Forms.Button();
             this.btnDashboard = new System.Windows.Forms.Button();
             this.pcbSignOut = new System.Windows.Forms.PictureBox();
@@ -54,8 +54,8 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.pnlSidebar.Controls.Add(this.panel2);
-            this.pnlSidebar.Controls.Add(this.panel1);
+            this.pnlSidebar.Controls.Add(this.acPanel);
+            this.pnlSidebar.Controls.Add(this.dbPanel);
             this.pnlSidebar.Controls.Add(this.btnUyeler);
             this.pnlSidebar.Controls.Add(this.btnDashboard);
             this.pnlSidebar.Controls.Add(this.pcbSignOut);
@@ -68,21 +68,21 @@
             this.pnlSidebar.Size = new System.Drawing.Size(200, 725);
             this.pnlSidebar.TabIndex = 0;
             // 
-            // panel2
+            // acPanel
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.panel2.Location = new System.Drawing.Point(190, 190);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(10, 56);
-            this.panel2.TabIndex = 5;
+            this.acPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.acPanel.Location = new System.Drawing.Point(194, 190);
+            this.acPanel.Name = "acPanel";
+            this.acPanel.Size = new System.Drawing.Size(10, 56);
+            this.acPanel.TabIndex = 5;
             // 
-            // panel1
+            // dbPanel
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.panel1.Location = new System.Drawing.Point(190, 128);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(10, 56);
-            this.panel1.TabIndex = 5;
+            this.dbPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.dbPanel.Location = new System.Drawing.Point(194, 128);
+            this.dbPanel.Name = "dbPanel";
+            this.dbPanel.Size = new System.Drawing.Size(10, 56);
+            this.dbPanel.TabIndex = 5;
             // 
             // btnUyeler
             // 
@@ -273,8 +273,8 @@
         private System.Windows.Forms.PictureBox pcbSignOut;
         private System.Windows.Forms.Button btnDashboard;
         private System.Windows.Forms.Button btnUyeler;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel dbPanel;
+        private System.Windows.Forms.Panel acPanel;
         private System.Windows.Forms.Label lblTarih;
     }
 }
