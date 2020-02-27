@@ -98,6 +98,9 @@ namespace StudyCheck.FormsUI.AdminForms
             }
             else
             {
+                _dashboardControl = new DashboardControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
                 pnlContent.Controls.Clear();
                 pnlContent.Controls.Add(_dashboardControl);
             }
