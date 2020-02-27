@@ -51,15 +51,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     if (detay.rol_id != (int)RoleInfo.Roller.Admin)
                     {
                         if (detay.rol_id == (int)RoleInfo.Roller.User)
-                        {
                             _rowsControl.lblRol.Text = "Kullanıcı";
-                            _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
-                        }                            
                     }
                     else
                     {
                         _rowsControl.lblRol.Text = "Admin";
-                        _rowsControl.lblRol.ForeColor = Color.FromArgb(255, 83, 17);
+                        _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
                     }
                     if (detay.sil_id == 0)
                     {

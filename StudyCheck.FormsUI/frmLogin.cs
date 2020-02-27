@@ -129,18 +129,25 @@ namespace StudyCheck.FormsUI
                     LoginInfo.SilId = user.sil_id;
                     LoginInfo.TemaId = user.tema_id;
                     LoginInfo.RolId = user.rol_id;
-                    if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
+                    if(LoginInfo.SilId == 0)
                     {
-                        if (this.InvokeRequired)
-                        {
-                            CallAdminFormDelegate del = new CallAdminFormDelegate(CallAdminForm);
-                            Invoke(del, new object[] { });
-                        }
+                        MessageBox.Show("Hesabınız pasif durumdadır! Admin ile iletişime geçin!", "Hesap Pasif", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        MessageBox.Show("Giriş Başarılı!");
-                    }
+                        if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
+                        {
+                            if (this.InvokeRequired)
+                            {
+                                CallAdminFormDelegate del = new CallAdminFormDelegate(CallAdminForm);
+                                Invoke(del, new object[] { });
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("Giriş Başarılı!");
+                        }
+                    }                    
                 }
                 else
                 {
