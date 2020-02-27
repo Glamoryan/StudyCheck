@@ -42,94 +42,94 @@
             // lblUyeId
             // 
             this.lblUyeId.AutoSize = true;
-            this.lblUyeId.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUyeId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblUyeId.Location = new System.Drawing.Point(15, 13);
+            this.lblUyeId.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUyeId.ForeColor = System.Drawing.Color.White;
+            this.lblUyeId.Location = new System.Drawing.Point(15, 12);
             this.lblUyeId.Name = "lblUyeId";
-            this.lblUyeId.Size = new System.Drawing.Size(39, 15);
+            this.lblUyeId.Size = new System.Drawing.Size(46, 17);
             this.lblUyeId.TabIndex = 0;
             this.lblUyeId.Text = "UyeId";
             // 
             // lblUyeAd
             // 
             this.lblUyeAd.AutoSize = true;
-            this.lblUyeAd.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUyeAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblUyeAd.Location = new System.Drawing.Point(93, 13);
+            this.lblUyeAd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUyeAd.ForeColor = System.Drawing.Color.White;
+            this.lblUyeAd.Location = new System.Drawing.Point(93, 12);
             this.lblUyeAd.Name = "lblUyeAd";
-            this.lblUyeAd.Size = new System.Drawing.Size(43, 15);
+            this.lblUyeAd.Size = new System.Drawing.Size(50, 17);
             this.lblUyeAd.TabIndex = 0;
             this.lblUyeAd.Text = "UyeAd";
             // 
             // lblUyeSoyad
             // 
             this.lblUyeSoyad.AutoSize = true;
-            this.lblUyeSoyad.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblUyeSoyad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblUyeSoyad.Location = new System.Drawing.Point(201, 13);
+            this.lblUyeSoyad.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblUyeSoyad.ForeColor = System.Drawing.Color.White;
+            this.lblUyeSoyad.Location = new System.Drawing.Point(201, 12);
             this.lblUyeSoyad.Name = "lblUyeSoyad";
-            this.lblUyeSoyad.Size = new System.Drawing.Size(61, 15);
+            this.lblUyeSoyad.Size = new System.Drawing.Size(71, 17);
             this.lblUyeSoyad.TabIndex = 0;
             this.lblUyeSoyad.Text = "UyeSoyad";
             // 
             // lblKullAd
             // 
             this.lblKullAd.AutoSize = true;
-            this.lblKullAd.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKullAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblKullAd.Location = new System.Drawing.Point(349, 13);
+            this.lblKullAd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblKullAd.ForeColor = System.Drawing.Color.White;
+            this.lblKullAd.Location = new System.Drawing.Point(349, 12);
             this.lblKullAd.Name = "lblKullAd";
-            this.lblKullAd.Size = new System.Drawing.Size(72, 15);
+            this.lblKullAd.Size = new System.Drawing.Size(80, 17);
             this.lblKullAd.TabIndex = 0;
             this.lblKullAd.Text = "KullanıcıAd";
             // 
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblEmail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblEmail.Location = new System.Drawing.Point(507, 13);
+            this.lblEmail.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblEmail.ForeColor = System.Drawing.Color.White;
+            this.lblEmail.Location = new System.Drawing.Point(507, 12);
             this.lblEmail.Name = "lblEmail";
-            this.lblEmail.Size = new System.Drawing.Size(39, 15);
+            this.lblEmail.Size = new System.Drawing.Size(44, 17);
             this.lblEmail.TabIndex = 0;
             this.lblEmail.Text = "EMail";
             // 
             // lblKayitTarih
             // 
             this.lblKayitTarih.AutoSize = true;
-            this.lblKayitTarih.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblKayitTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblKayitTarih.Location = new System.Drawing.Point(624, 13);
+            this.lblKayitTarih.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblKayitTarih.ForeColor = System.Drawing.Color.White;
+            this.lblKayitTarih.Location = new System.Drawing.Point(624, 12);
             this.lblKayitTarih.Name = "lblKayitTarih";
-            this.lblKayitTarih.Size = new System.Drawing.Size(69, 15);
+            this.lblKayitTarih.Size = new System.Drawing.Size(78, 17);
             this.lblKayitTarih.TabIndex = 0;
             this.lblKayitTarih.Text = "KayıtTarihi";
             // 
             // lblRol
             // 
             this.lblRol.AutoSize = true;
-            this.lblRol.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblRol.Location = new System.Drawing.Point(768, 13);
+            this.lblRol.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblRol.ForeColor = System.Drawing.Color.White;
+            this.lblRol.Location = new System.Drawing.Point(768, 12);
             this.lblRol.Name = "lblRol";
-            this.lblRol.Size = new System.Drawing.Size(26, 15);
+            this.lblRol.Size = new System.Drawing.Size(29, 17);
             this.lblRol.TabIndex = 0;
             this.lblRol.Text = "Rol";
             // 
             // lblDurum
             // 
             this.lblDurum.AutoSize = true;
-            this.lblDurum.Font = new System.Drawing.Font("Cambria", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblDurum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblDurum.Location = new System.Drawing.Point(851, 13);
+            this.lblDurum.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblDurum.ForeColor = System.Drawing.Color.White;
+            this.lblDurum.Location = new System.Drawing.Point(851, 12);
             this.lblDurum.Name = "lblDurum";
-            this.lblDurum.Size = new System.Drawing.Size(46, 15);
+            this.lblDurum.Size = new System.Drawing.Size(52, 17);
             this.lblDurum.TabIndex = 0;
             this.lblDurum.Text = "Durum";
             // 
             // btnDuzenle
             // 
-            this.btnDuzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(130)))), ((int)(((byte)(184)))));
+            this.btnDuzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(206)))), ((int)(((byte)(109)))));
             this.btnDuzenle.FlatAppearance.BorderSize = 0;
             this.btnDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDuzenle.Image = global::StudyCheck.FormsUI.Properties.Resources.edit_16px;
@@ -163,14 +163,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label lblUyeId;
-        private System.Windows.Forms.Label lblUyeAd;
-        private System.Windows.Forms.Label lblUyeSoyad;
-        private System.Windows.Forms.Label lblKullAd;
-        private System.Windows.Forms.Label lblEmail;
-        private System.Windows.Forms.Label lblKayitTarih;
-        private System.Windows.Forms.Label lblRol;
-        private System.Windows.Forms.Label lblDurum;
-        private System.Windows.Forms.Button btnDuzenle;
+        public System.Windows.Forms.Label lblUyeId;
+        public System.Windows.Forms.Label lblUyeAd;
+        public System.Windows.Forms.Label lblUyeSoyad;
+        public System.Windows.Forms.Label lblKullAd;
+        public System.Windows.Forms.Label lblEmail;
+        public System.Windows.Forms.Label lblKayitTarih;
+        public System.Windows.Forms.Label lblRol;
+        public System.Windows.Forms.Label lblDurum;
+        public System.Windows.Forms.Button btnDuzenle;
     }
 }
