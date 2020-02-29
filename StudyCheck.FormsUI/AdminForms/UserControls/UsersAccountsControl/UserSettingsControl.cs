@@ -69,7 +69,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 foreach (Control control in gbxHesap.Controls)
                 {
                     control.TextChanged += new EventHandler(Hesap_ControlDegisti);
-                }                               
+                }                
             }
             else if (btnUyeCancel.Visible)
             {
@@ -86,6 +86,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 AktifEt(gbxHesap);
                 btnUyeCancel.Visible = false;
                 btnUyeSuccess.Visible = false;
+                btnUyeDuzenle.Visible = true;
             }
             
         }
@@ -115,8 +116,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 AktifEt(gbxUye);
                 btnHesapCancel.Visible = false;
                 btnHesapSuccess.Visible = false;
-
-
+                btnHesapDuzenle.Visible = true;
             }
         }
 
@@ -137,23 +137,26 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         }
 
         void Uye_ControlDegisti(object sender,EventArgs e)
-        {                       
+        {
+            btnUyeDuzenle.Visible = false;
             btnUyeCancel.Visible = true;
             btnUyeSuccess.Visible = true;
         }
 
         void Hesap_ControlDegisti(object sender,EventArgs e)
         {
+            btnHesapDuzenle.Visible = false;
             btnHesapCancel.Visible = true;
             btnHesapSuccess.Visible = true;
         }
 
         private void btnUyeCancel_Click(object sender, EventArgs e)
-        {
+        {            
             gbxUye.Enabled = false;
             SetUyeDefault();
             btnUyeCancel.Visible = false;
             btnUyeSuccess.Visible = false;
+            btnUyeDuzenle.Visible = true;
         }
 
         private void btnIptal_Click(object sender, EventArgs e)
@@ -167,6 +170,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             SetHesapDefault();
             btnHesapCancel.Visible = false;
             btnHesapSuccess.Visible = false;
+            btnHesapDuzenle.Visible = true;
         }
 
         private void btnHesapSuccess_Click(object sender, EventArgs e)
@@ -176,6 +180,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             gbxHesap.Enabled = false;
             btnHesapCancel.Visible = false;
             btnHesapSuccess.Visible = false;
+            btnHesapDuzenle.Visible = true;
         }
 
         private void btnUyeSuccess_Click(object sender, EventArgs e)
@@ -185,6 +190,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             gbxUye.Enabled = false;
             btnUyeCancel.Visible = false;
             btnUyeSuccess.Visible = false;
+            btnUyeDuzenle.Visible = true;
         }
     }
 }
