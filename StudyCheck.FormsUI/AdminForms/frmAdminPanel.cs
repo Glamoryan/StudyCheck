@@ -5,6 +5,7 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.FormsUI.AdminForms.UserControls;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
+using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Utilities;
 using System;
 using System.Collections.Generic;
@@ -148,6 +149,7 @@ namespace StudyCheck.FormsUI.AdminForms
 
         private void frmAdminPanel_Load(object sender, EventArgs e)
         {
+            PageRoute.contentPanel = pnlContent;
             WhichTab(dbPanel);
             lblTarih.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);

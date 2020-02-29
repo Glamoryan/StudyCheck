@@ -115,6 +115,7 @@
     <Compile Include="SplashForms\StartLoadingScreen.Designer.cs">
       <DependentUpon>StartLoadingScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statikler\PageRoute.cs" />
     <EmbeddedResource Include="AdminForms\frmAdminPanel.resx">
       <DependentUpon>frmAdminPanel.cs</DependentUpon>
     </EmbeddedResource>

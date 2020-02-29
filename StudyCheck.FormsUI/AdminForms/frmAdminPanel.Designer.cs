@@ -39,10 +39,10 @@
             this.lblDashboardTitle = new System.Windows.Forms.Label();
             this.lblWelcome = new System.Windows.Forms.Label();
             this.pnlHeader = new System.Windows.Forms.Panel();
+            this.lblTarih = new System.Windows.Forms.Label();
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.lblTarih = new System.Windows.Forms.Label();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).BeginInit();
             this.pnlLogo.SuspendLayout();
@@ -189,6 +189,17 @@
             this.pnlHeader.TabIndex = 1;
             this.pnlHeader.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlHeader_MouseDown);
             // 
+            // lblTarih
+            // 
+            this.lblTarih.AutoSize = true;
+            this.lblTarih.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.lblTarih.Location = new System.Drawing.Point(33, 26);
+            this.lblTarih.Name = "lblTarih";
+            this.lblTarih.Size = new System.Drawing.Size(39, 19);
+            this.lblTarih.TabIndex = 2;
+            this.lblTarih.Text = "tarih";
+            // 
             // pcbMinimize
             // 
             this.pcbMinimize.Image = global::StudyCheck.FormsUI.Properties.Resources.minimize_window_16px;
@@ -221,17 +232,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1045, 649);
             this.pnlContent.TabIndex = 2;
-            // 
-            // lblTarih
-            // 
-            this.lblTarih.AutoSize = true;
-            this.lblTarih.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblTarih.Location = new System.Drawing.Point(33, 33);
-            this.lblTarih.Name = "lblTarih";
-            this.lblTarih.Size = new System.Drawing.Size(39, 19);
-            this.lblTarih.TabIndex = 2;
-            this.lblTarih.Text = "tarih";
             // 
             // frmAdminPanel
             // 

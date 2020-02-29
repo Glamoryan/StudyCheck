@@ -16,5 +16,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         {
             InitializeComponent();
         }
+
+        private void btnDuzenle_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
