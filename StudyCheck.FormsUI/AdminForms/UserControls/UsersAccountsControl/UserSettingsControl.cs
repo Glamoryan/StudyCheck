@@ -64,34 +64,104 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void btnHesapDuzenle_Click(object sender, EventArgs e)
         {
-            AktifEt(gbxHesap);
+            if (!btnUyeCancel.Visible)
+            {
+                AktifEt(gbxHesap);
+                foreach (Control control in gbxHesap.Controls)
+                {
+                    control.TextChanged += new EventHandler(Hesap_ControlDegisti);
+                }
+            }
+            else if (btnUyeCancel.Visible)
+            {
+                DialogResult sonuc = MessageBox.Show("Değişiklikler kaydedilsin mi?", "Değişiklikleri Kaydet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (sonuc == DialogResult.Yes)
+                {
+                    MessageBox.Show("Değişiklikler kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //update komutları
+                }
+                else if (sonuc == DialogResult.No)
+                {
+                    SetUyeDefault();
+                }
+                AktifEt(gbxHesap);
+                btnUyeCancel.Visible = false;
+            }
+            
         }
         
         private void btnUyeDuzenle_Click(object sender, EventArgs e)
         {
-            AktifEt(gbxUye);
-            foreach (Control control in gbxUye.Controls)
+            if (!btnHesapCancel.Visible)
             {
-                control.TextChanged += new EventHandler(C_ControlDegisti);
+                AktifEt(gbxUye);
+                foreach (Control control in gbxUye.Controls)
+                {
+                    control.TextChanged += new EventHandler(Uye_ControlDegisti);
+                }
+            }    
+            else if (btnHesapCancel.Visible)
+            {
+                DialogResult sonuc = MessageBox.Show("Değişiklikler kaydedilsin mi?", "Değişiklikleri Kaydet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (sonuc == DialogResult.Yes)
+                {
+                    MessageBox.Show("Değişiklikler kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //update komutları
+                }                    
+                else if (sonuc == DialogResult.No)
+                {
+                    SetHesapDefault();
+                }
+                AktifEt(gbxUye);
+                btnHesapCancel.Visible = false;
+
+
             }
         }
 
-        void C_ControlDegisti(object sender,EventArgs e)
+        private void SetUyeDefault()
+        {
+            tbxUyeAdi.Text = UserSettingsInfos.uyeAd;
+            tbxUyeSoyadi.Text = UserSettingsInfos.uyeSoyad;
+        }
+        private void SetHesapDefault()
+        {
+            tbxKullaniciAdi.Text = UserSettingsInfos.kullaniciAdi;
+            tbxKullaniciSifre.Text = UserSettingsInfos.kullaniciSifre;
+            tbxKullaniciMail.Text = UserSettingsInfos.kullaniciMail;
+            tbxKayitTarihi.Text = UserSettingsInfos.kayitTarihi;
+            cbxTema.SelectedIndex = UserSettingsInfos.temaIndex;
+            cbxRol.SelectedIndex = UserSettingsInfos.rolIndex;
+            cbxDurum.SelectedIndex = UserSettingsInfos.durumIndex;
+        }
+
+        void Uye_ControlDegisti(object sender,EventArgs e)
         {                       
             btnUyeCancel.Visible = true;
+        }
+
+        void Hesap_ControlDegisti(object sender,EventArgs e)
+        {
+            btnHesapCancel.Visible = true;
         }
 
         private void btnUyeCancel_Click(object sender, EventArgs e)
         {
             gbxUye.Enabled = false;
-            tbxUyeAdi.Text = UserSettingsInfos.uyeAd;
-            tbxUyeSoyadi.Text = UserSettingsInfos.uyeSoyad;
+            SetUyeDefault();
             btnUyeCancel.Visible = false;
         }
 
         private void btnIptal_Click(object sender, EventArgs e)
         {
             //user infos sıfırla
+        }
+
+        private void btnHesapCancel_Click(object sender, EventArgs e)
+        {
+            gbxHesap.Enabled = false;
+            SetHesapDefault();
+            btnHesapCancel.Visible = false;
         }
     }
 }
