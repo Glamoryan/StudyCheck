@@ -250,6 +250,12 @@
   <ItemGroup>
     <None Include="Resources\cancel_32px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_32px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok_32px1.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -32,6 +32,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserSettingsControl));
             this.lblKullaniciAdi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -64,8 +65,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnHesapDuzenle = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.btnIptal = new System.Windows.Forms.Button();
-            this.btnUyeCancel = new System.Windows.Forms.Button();
+            this.btnHesapSuccess = new System.Windows.Forms.Button();
             this.btnHesapCancel = new System.Windows.Forms.Button();
+            this.btnUyeCancel = new System.Windows.Forms.Button();
+            this.btnUyeSuccess = new System.Windows.Forms.Button();
             this.gbxUye.SuspendLayout();
             this.gbxHesap.SuspendLayout();
             this.SuspendLayout();
@@ -463,22 +466,22 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnIptal.UseVisualStyleBackColor = false;
             this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
-            // btnUyeCancel
+            // btnHesapSuccess
             // 
-            this.btnUyeCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
-            this.btnUyeCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUyeCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnUyeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUyeCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnUyeCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnUyeCancel.Image = global::StudyCheck.FormsUI.Properties.Resources.cancel_32px;
-            this.btnUyeCancel.Location = new System.Drawing.Point(857, 331);
-            this.btnUyeCancel.Name = "btnUyeCancel";
-            this.btnUyeCancel.Size = new System.Drawing.Size(41, 42);
-            this.btnUyeCancel.TabIndex = 7;
-            this.btnUyeCancel.UseVisualStyleBackColor = false;
-            this.btnUyeCancel.Visible = false;
-            this.btnUyeCancel.Click += new System.EventHandler(this.btnUyeCancel_Click);
+            this.btnHesapSuccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnHesapSuccess.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHesapSuccess.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnHesapSuccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHesapSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHesapSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnHesapSuccess.Image = ((System.Drawing.Image)(resources.GetObject("btnHesapSuccess.Image")));
+            this.btnHesapSuccess.Location = new System.Drawing.Point(152, 379);
+            this.btnHesapSuccess.Name = "btnHesapSuccess";
+            this.btnHesapSuccess.Size = new System.Drawing.Size(41, 42);
+            this.btnHesapSuccess.TabIndex = 7;
+            this.btnHesapSuccess.UseVisualStyleBackColor = false;
+            this.btnHesapSuccess.Visible = false;
+            this.btnHesapSuccess.Click += new System.EventHandler(this.btnHesapSuccess_Click);
             // 
             // btnHesapCancel
             // 
@@ -489,7 +492,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnHesapCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnHesapCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.btnHesapCancel.Image = global::StudyCheck.FormsUI.Properties.Resources.cancel_32px;
-            this.btnHesapCancel.Location = new System.Drawing.Point(152, 379);
+            this.btnHesapCancel.Location = new System.Drawing.Point(198, 379);
             this.btnHesapCancel.Name = "btnHesapCancel";
             this.btnHesapCancel.Size = new System.Drawing.Size(41, 42);
             this.btnHesapCancel.TabIndex = 7;
@@ -497,11 +500,47 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnHesapCancel.Visible = false;
             this.btnHesapCancel.Click += new System.EventHandler(this.btnHesapCancel_Click);
             // 
+            // btnUyeCancel
+            // 
+            this.btnUyeCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnUyeCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUyeCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUyeCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUyeCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeCancel.Image = global::StudyCheck.FormsUI.Properties.Resources.cancel_32px;
+            this.btnUyeCancel.Location = new System.Drawing.Point(904, 331);
+            this.btnUyeCancel.Name = "btnUyeCancel";
+            this.btnUyeCancel.Size = new System.Drawing.Size(41, 42);
+            this.btnUyeCancel.TabIndex = 7;
+            this.btnUyeCancel.UseVisualStyleBackColor = false;
+            this.btnUyeCancel.Visible = false;
+            this.btnUyeCancel.Click += new System.EventHandler(this.btnUyeCancel_Click);
+            // 
+            // btnUyeSuccess
+            // 
+            this.btnUyeSuccess.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnUyeSuccess.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUyeSuccess.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeSuccess.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUyeSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUyeSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeSuccess.Image = ((System.Drawing.Image)(resources.GetObject("btnUyeSuccess.Image")));
+            this.btnUyeSuccess.Location = new System.Drawing.Point(857, 331);
+            this.btnUyeSuccess.Name = "btnUyeSuccess";
+            this.btnUyeSuccess.Size = new System.Drawing.Size(41, 42);
+            this.btnUyeSuccess.TabIndex = 7;
+            this.btnUyeSuccess.UseVisualStyleBackColor = false;
+            this.btnUyeSuccess.Visible = false;
+            this.btnUyeSuccess.Click += new System.EventHandler(this.btnUyeSuccess_Click);
+            // 
             // UserSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.btnUyeSuccess);
+            this.Controls.Add(this.btnHesapSuccess);
             this.Controls.Add(this.btnHesapCancel);
             this.Controls.Add(this.btnUyeCancel);
             this.Controls.Add(this.btnIptal);
@@ -562,5 +601,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         public System.Windows.Forms.ComboBox cbxRol;
         private System.Windows.Forms.Button btnUyeCancel;
         private System.Windows.Forms.Button btnHesapCancel;
+        private System.Windows.Forms.Button btnHesapSuccess;
+        private System.Windows.Forms.Button btnUyeSuccess;
     }
 }
