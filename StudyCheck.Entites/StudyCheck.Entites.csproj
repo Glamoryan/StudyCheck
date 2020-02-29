@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AccountManagement\LoginInfo.cs" />
     <Compile Include="AccountManagement\RoleInfo.cs" />
+    <Compile Include="AccountManagement\UserInfos.cs" />
     <Compile Include="ComplexTypes\UserDetail.cs" />
     <Compile Include="Concrete\Calisma.cs" />
     <Compile Include="Concrete\Ders.cs" />

@@ -37,6 +37,9 @@
             this.lblRol = new System.Windows.Forms.Label();
             this.lblDurum = new System.Windows.Forms.Label();
             this.btnDuzenle = new System.Windows.Forms.Button();
+            this.lblKullaniciSifre = new System.Windows.Forms.Label();
+            this.lblTema = new System.Windows.Forms.Label();
+            this.lblGuncelleme = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUyeId
@@ -142,11 +145,44 @@
             this.btnDuzenle.UseVisualStyleBackColor = false;
             this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
             // 
+            // lblKullaniciSifre
+            // 
+            this.lblKullaniciSifre.AutoSize = true;
+            this.lblKullaniciSifre.Location = new System.Drawing.Point(293, 9);
+            this.lblKullaniciSifre.Name = "lblKullaniciSifre";
+            this.lblKullaniciSifre.Size = new System.Drawing.Size(50, 13);
+            this.lblKullaniciSifre.TabIndex = 3;
+            this.lblKullaniciSifre.Text = "gizliLabel";
+            this.lblKullaniciSifre.Visible = false;
+            // 
+            // lblTema
+            // 
+            this.lblTema.AutoSize = true;
+            this.lblTema.Location = new System.Drawing.Point(451, 9);
+            this.lblTema.Name = "lblTema";
+            this.lblTema.Size = new System.Drawing.Size(50, 13);
+            this.lblTema.TabIndex = 3;
+            this.lblTema.Text = "gizliLabel";
+            this.lblTema.Visible = false;
+            // 
+            // lblGuncelleme
+            // 
+            this.lblGuncelleme.AutoSize = true;
+            this.lblGuncelleme.Location = new System.Drawing.Point(568, 12);
+            this.lblGuncelleme.Name = "lblGuncelleme";
+            this.lblGuncelleme.Size = new System.Drawing.Size(50, 13);
+            this.lblGuncelleme.TabIndex = 3;
+            this.lblGuncelleme.Text = "gizliLabel";
+            this.lblGuncelleme.Visible = false;
+            // 
             // UserRowsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.Controls.Add(this.lblGuncelleme);
+            this.Controls.Add(this.lblTema);
+            this.Controls.Add(this.lblKullaniciSifre);
             this.Controls.Add(this.btnDuzenle);
             this.Controls.Add(this.lblDurum);
             this.Controls.Add(this.lblRol);
@@ -174,5 +210,8 @@
         public System.Windows.Forms.Label lblRol;
         public System.Windows.Forms.Label lblDurum;
         public System.Windows.Forms.Button btnDuzenle;
+        public System.Windows.Forms.Label lblKullaniciSifre;
+        public System.Windows.Forms.Label lblTema;
+        public System.Windows.Forms.Label lblGuncelleme;
     }
 }

@@ -6,13 +6,18 @@ using System.Threading.Tasks;
 
 namespace StudyCheck.Entites.AccountManagement
 {
-    public class RoleInfo
-    {        
-        public enum Roller
+    public class UserInfos
+    {
+        public enum Durumlar
         {
-            Admin=1,       
-            Kullanıcı=2
+            Pasif=0,
+            Aktif=1
         }
 
+        public enum Temalar
+        {
+            Default=1,
+            Dark=2
+        }
     }
 }

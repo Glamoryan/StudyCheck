@@ -162,12 +162,12 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             DialogResult sonuc = MessageBox.Show("Çıkış yapmak istediğinize emin misiniz?", "Çıkış Yap?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (sonuc == DialogResult.Yes)
-            {
+            {                
                 ClearLogin();
                 this.Hide();
                 _loginForm = new frmLogin();
                 _loginForm.FormClosed += (s, args) => this.Close();
-                _loginForm.Show();
+                _loginForm.Show();                
             }
 
         }

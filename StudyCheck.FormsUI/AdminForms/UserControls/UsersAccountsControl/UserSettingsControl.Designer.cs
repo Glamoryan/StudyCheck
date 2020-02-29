@@ -1,4 +1,8 @@
-﻿namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
+﻿using StudyCheck.Entites.AccountManagement;
+using StudyCheck.Entites.Concrete;
+using System.Collections.Generic;
+
+namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     partial class UserSettingsControl
     {
@@ -18,7 +22,7 @@
                 components.Dispose();
             }
             base.Dispose(disposing);
-        }
+        }      
 
         #region Component Designer generated code
 
@@ -40,22 +44,22 @@
             this.label5 = new System.Windows.Forms.Label();
             this.gbxUye = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.tbxKullaniciAdi = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbxKullaniciSifre = new System.Windows.Forms.TextBox();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
+            this.cbxTema = new System.Windows.Forms.ComboBox();
             this.cbxSifreGoster = new System.Windows.Forms.CheckBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.tbxKullaniciMail = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tbxKullaniciMail = new System.Windows.Forms.TextBox();
             this.tbxKayitTarihi = new System.Windows.Forms.TextBox();
+            this.tbxKullaniciSifre = new System.Windows.Forms.TextBox();
+            this.tbxKullaniciAdi = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tbxGuncellemeTarihi = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.cbxDurum = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbxTema = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.cbxRol = new System.Windows.Forms.ComboBox();
             this.btnUyeDuzenle = new System.Windows.Forms.Button();
             this.btnHesapDuzenle = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
@@ -207,33 +211,31 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Hesap Ayarları";
             // 
-            // tbxKullaniciAdi
+            // cbxRol
             // 
-            this.tbxKullaniciAdi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxKullaniciAdi.Location = new System.Drawing.Point(132, 47);
-            this.tbxKullaniciAdi.Name = "tbxKullaniciAdi";
-            this.tbxKullaniciAdi.Size = new System.Drawing.Size(148, 27);
-            this.tbxKullaniciAdi.TabIndex = 4;
+            this.cbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Items.AddRange(new object[] {
+            "Seçiniz...",
+            "Admin",
+            "Kullanıcı"});
+            this.cbxRol.Location = new System.Drawing.Point(501, 189);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(121, 27);
+            this.cbxRol.TabIndex = 8;
             // 
-            // label6
+            // cbxTema
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label6.Location = new System.Drawing.Point(387, 51);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(108, 19);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "Kullanıcı Şifresi";
-            // 
-            // tbxKullaniciSifre
-            // 
-            this.tbxKullaniciSifre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxKullaniciSifre.Location = new System.Drawing.Point(501, 48);
-            this.tbxKullaniciSifre.Name = "tbxKullaniciSifre";
-            this.tbxKullaniciSifre.PasswordChar = '*';
-            this.tbxKullaniciSifre.Size = new System.Drawing.Size(148, 27);
-            this.tbxKullaniciSifre.TabIndex = 4;
+            this.cbxTema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxTema.FormattingEnabled = true;
+            this.cbxTema.Items.AddRange(new object[] {
+            "Seçiniz...",
+            "Default",
+            "Dark"});
+            this.cbxTema.Location = new System.Drawing.Point(501, 122);
+            this.cbxTema.Name = "cbxTema";
+            this.cbxTema.Size = new System.Drawing.Size(121, 27);
+            this.cbxTema.TabIndex = 7;
             // 
             // cbxSifreGoster
             // 
@@ -245,25 +247,27 @@
             this.cbxSifreGoster.Text = "Şifreyi Göster";
             this.cbxSifreGoster.UseVisualStyleBackColor = true;
             // 
-            // label7
+            // label12
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label7.Location = new System.Drawing.Point(18, 122);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(97, 19);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Kullanıcı Mail";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label12.Location = new System.Drawing.Point(443, 195);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(30, 19);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Rol";
             // 
-            // tbxKullaniciMail
+            // label11
             // 
-            this.tbxKullaniciMail.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxKullaniciMail.Location = new System.Drawing.Point(132, 119);
-            this.tbxKullaniciMail.Name = "tbxKullaniciMail";
-            this.tbxKullaniciMail.PasswordChar = '*';
-            this.tbxKullaniciMail.Size = new System.Drawing.Size(224, 27);
-            this.tbxKullaniciMail.TabIndex = 4;
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label11.Location = new System.Drawing.Point(443, 125);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(44, 19);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Tema";
             // 
             // label8
             // 
@@ -276,14 +280,60 @@
             this.label8.TabIndex = 2;
             this.label8.Text = "Kayıt Tarihi";
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label7.Location = new System.Drawing.Point(18, 122);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(97, 19);
+            this.label7.TabIndex = 2;
+            this.label7.Text = "Kullanıcı Mail";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label6.Location = new System.Drawing.Point(387, 51);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(108, 19);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Kullanıcı Şifresi";
+            // 
+            // tbxKullaniciMail
+            // 
+            this.tbxKullaniciMail.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKullaniciMail.Location = new System.Drawing.Point(132, 119);
+            this.tbxKullaniciMail.Name = "tbxKullaniciMail";
+            this.tbxKullaniciMail.Size = new System.Drawing.Size(224, 27);
+            this.tbxKullaniciMail.TabIndex = 4;
+            // 
             // tbxKayitTarihi
             // 
             this.tbxKayitTarihi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxKayitTarihi.Location = new System.Drawing.Point(132, 189);
             this.tbxKayitTarihi.Name = "tbxKayitTarihi";
-            this.tbxKayitTarihi.PasswordChar = '*';
             this.tbxKayitTarihi.Size = new System.Drawing.Size(148, 27);
             this.tbxKayitTarihi.TabIndex = 4;
+            // 
+            // tbxKullaniciSifre
+            // 
+            this.tbxKullaniciSifre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKullaniciSifre.Location = new System.Drawing.Point(501, 48);
+            this.tbxKullaniciSifre.Name = "tbxKullaniciSifre";
+            this.tbxKullaniciSifre.PasswordChar = '*';
+            this.tbxKullaniciSifre.Size = new System.Drawing.Size(148, 27);
+            this.tbxKullaniciSifre.TabIndex = 4;
+            // 
+            // tbxKullaniciAdi
+            // 
+            this.tbxKullaniciAdi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKullaniciAdi.Location = new System.Drawing.Point(132, 47);
+            this.tbxKullaniciAdi.Name = "tbxKullaniciAdi";
+            this.tbxKullaniciAdi.Size = new System.Drawing.Size(148, 27);
+            this.tbxKullaniciAdi.TabIndex = 4;
             // 
             // label9
             // 
@@ -302,7 +352,6 @@
             this.tbxGuncellemeTarihi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxGuncellemeTarihi.Location = new System.Drawing.Point(151, 599);
             this.tbxGuncellemeTarihi.Name = "tbxGuncellemeTarihi";
-            this.tbxGuncellemeTarihi.PasswordChar = '*';
             this.tbxGuncellemeTarihi.Size = new System.Drawing.Size(148, 27);
             this.tbxGuncellemeTarihi.TabIndex = 4;
             // 
@@ -328,50 +377,6 @@
             this.cbxDurum.Name = "cbxDurum";
             this.cbxDurum.Size = new System.Drawing.Size(121, 21);
             this.cbxDurum.TabIndex = 6;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label11.Location = new System.Drawing.Point(443, 125);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 19);
-            this.label11.TabIndex = 2;
-            this.label11.Text = "Tema";
-            // 
-            // cbxTema
-            // 
-            this.cbxTema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.cbxTema.FormattingEnabled = true;
-            this.cbxTema.Items.AddRange(new object[] {
-            "Seçim yap"});
-            this.cbxTema.Location = new System.Drawing.Point(501, 122);
-            this.cbxTema.Name = "cbxTema";
-            this.cbxTema.Size = new System.Drawing.Size(121, 27);
-            this.cbxTema.TabIndex = 7;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label12.Location = new System.Drawing.Point(443, 195);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(30, 19);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Rol";
-            // 
-            // cbxRol
-            // 
-            this.cbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Items.AddRange(new object[] {
-            "Seçim yap"});
-            this.cbxRol.Location = new System.Drawing.Point(501, 189);
-            this.cbxRol.Name = "cbxRol";
-            this.cbxRol.Size = new System.Drawing.Size(121, 27);
-            this.cbxRol.TabIndex = 8;
             // 
             // btnUyeDuzenle
             // 
@@ -453,6 +458,7 @@
             this.Controls.Add(this.tbxGuncellemeTarihi);
             this.Name = "UserSettingsControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.UserSettingsControl_Load);
             this.gbxUye.ResumeLayout(false);
             this.gbxUye.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -463,38 +469,37 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblKullaniciAdi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbxUyeId;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxUyeAdi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxUyeSoyadi;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gbxUye;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox tbxKullaniciAdi;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbxKullaniciSifre;
         private System.Windows.Forms.CheckBox cbxSifreGoster;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.TextBox tbxKullaniciMail;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox tbxKayitTarihi;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.TextBox tbxGuncellemeTarihi;
-        private System.Windows.Forms.ComboBox cbxDurum;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox cbxTema;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ComboBox cbxRol;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button btnUyeDuzenle;
         private System.Windows.Forms.Button btnHesapDuzenle;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.Button btnIptal;
+        public System.Windows.Forms.Label lblKullaniciAdi;
+        public System.Windows.Forms.TextBox tbxUyeId;
+        public System.Windows.Forms.TextBox tbxUyeAdi;
+        public System.Windows.Forms.TextBox tbxUyeSoyadi;
+        public System.Windows.Forms.TextBox tbxKullaniciAdi;
+        public System.Windows.Forms.TextBox tbxKullaniciSifre;
+        public System.Windows.Forms.TextBox tbxKullaniciMail;
+        public System.Windows.Forms.TextBox tbxKayitTarihi;
+        public System.Windows.Forms.TextBox tbxGuncellemeTarihi;
+        public System.Windows.Forms.ComboBox cbxDurum;
+        public System.Windows.Forms.ComboBox cbxTema;
+        public System.Windows.Forms.ComboBox cbxRol;
     }
 }

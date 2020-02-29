@@ -48,9 +48,18 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     _rowsControl.lblKullAd.Text = detay.KullaniciAdi;
                     _rowsControl.lblEmail.Text = detay.KullaniciMail;
                     _rowsControl.lblKayitTarih.Text = detay.KayitTarihi.ToString();
+                    //Gizli LAbel şifre
+                    _rowsControl.lblKullaniciSifre.Text = detay.KullaniciSifre;
+                    //Gizli Label tema
+                    if (detay.tema_id == (int)UserInfos.Temalar.Default)
+                        _rowsControl.lblTema.Text = "Default";
+                    else if (detay.tema_id == (int)UserInfos.Temalar.Dark)
+                        _rowsControl.lblTema.Text = "Dark";
+                    //Gizli Label Güncelleme
+                    _rowsControl.lblGuncelleme.Text = detay.GuncellemeTarihi.ToString();
                     if (detay.rol_id != (int)RoleInfo.Roller.Admin)
                     {
-                        if (detay.rol_id == (int)RoleInfo.Roller.User)
+                        if (detay.rol_id == (int)RoleInfo.Roller.Kullanıcı)
                             _rowsControl.lblRol.Text = "Kullanıcı";
                     }
                     else
