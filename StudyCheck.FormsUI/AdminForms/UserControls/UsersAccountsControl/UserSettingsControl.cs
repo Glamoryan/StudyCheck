@@ -170,12 +170,20 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void btnHesapSuccess_Click(object sender, EventArgs e)
         {
-            SetSettingsInfo();
-            MessageBox.Show("Değişiklikler Kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            gbxHesap.Enabled = false;
-            btnHesapCancel.Visible = false;
-            btnHesapSuccess.Visible = false;
-            btnHesapDuzenle.Visible = true;
+            if (cbxTema.SelectedIndex == 0)
+                MessageBox.Show("Tema Seçimi zorunludur!", "Zorunlu Alan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (cbxRol.SelectedIndex == 0)
+                MessageBox.Show("Rol Seçimi zorunludur!", "Zorunlu Alan", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                SetSettingsInfo();
+                MessageBox.Show("Değişiklikler Kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                gbxHesap.Enabled = false;
+                btnHesapCancel.Visible = false;
+                btnHesapSuccess.Visible = false;
+                btnHesapDuzenle.Visible = true;
+            }
+            
         }
 
         private void btnUyeSuccess_Click(object sender, EventArgs e)
@@ -186,6 +194,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             btnUyeCancel.Visible = false;
             btnUyeSuccess.Visible = false;
             btnUyeDuzenle.Visible = true;
+        }
+
+        private void btnKaydet_Click(object sender, EventArgs e)
+        {
+            if (gbxHesap.Enabled || gbxUye.Enabled)
+                MessageBox.Show("Güncellemeden önce değişiklikler kayıt edilmeli!", "Kayıt Gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
     }
 }

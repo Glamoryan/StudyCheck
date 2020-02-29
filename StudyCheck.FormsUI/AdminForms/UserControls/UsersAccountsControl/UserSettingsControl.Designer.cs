@@ -446,8 +446,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnKaydet.Name = "btnKaydet";
             this.btnKaydet.Size = new System.Drawing.Size(162, 42);
             this.btnKaydet.TabIndex = 7;
-            this.btnKaydet.Text = "Kaydet";
+            this.btnKaydet.Text = "Güncelle";
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // btnIptal
             // 
