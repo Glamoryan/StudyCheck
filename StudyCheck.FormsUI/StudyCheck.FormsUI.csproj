@@ -95,6 +95,12 @@
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\UsersColumnControl.Designer.cs">
       <DependentUpon>UsersColumnControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\UsersAccountsControl\UserSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\UsersAccountsControl\UserSettingsControl.Designer.cs">
+      <DependentUpon>UserSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\WidgetsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\UsersColumnControl.resx">
       <DependentUpon>UsersColumnControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\UserSettingsControl.resx">
+      <DependentUpon>UserSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\WidgetsControl.resx">
       <DependentUpon>WidgetsControl.cs</DependentUpon>
