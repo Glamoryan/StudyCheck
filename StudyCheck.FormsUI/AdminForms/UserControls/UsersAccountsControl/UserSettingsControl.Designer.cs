@@ -79,6 +79,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.lblKullaniciAdi.Size = new System.Drawing.Size(127, 19);
             this.lblKullaniciAdi.TabIndex = 0;
             this.lblKullaniciAdi.Text = "kullaniciAdiLabel";
+            this.lblKullaniciAdi.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label1
             // 
@@ -180,6 +181,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.gbxUye.Controls.Add(this.tbxUyeAdi);
             this.gbxUye.Controls.Add(this.label3);
             this.gbxUye.Controls.Add(this.label4);
+            this.gbxUye.Enabled = false;
             this.gbxUye.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbxUye.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxUye.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
@@ -205,6 +207,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.groupBox1.Controls.Add(this.tbxKayitTarihi);
             this.groupBox1.Controls.Add(this.tbxKullaniciSifre);
             this.groupBox1.Controls.Add(this.tbxKullaniciAdi);
+            this.groupBox1.Enabled = false;
             this.groupBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.groupBox1.Location = new System.Drawing.Point(34, 71);
@@ -216,6 +219,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // 
             // cbxRol
             // 
+            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxRol.FormattingEnabled = true;
             this.cbxRol.Items.AddRange(new object[] {
@@ -229,6 +234,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // 
             // cbxTema
             // 
+            this.cbxTema.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxTema.FormattingEnabled = true;
             this.cbxTema.Items.AddRange(new object[] {
@@ -377,6 +384,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // 
             // cbxDurum
             // 
+            this.cbxDurum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDurum.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxDurum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxDurum.FormattingEnabled = true;
             this.cbxDurum.Items.AddRange(new object[] {
