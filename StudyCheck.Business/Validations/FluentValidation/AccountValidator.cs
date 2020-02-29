@@ -23,8 +23,8 @@ namespace StudyCheck.Business.Validations.FluentValidation
                 .Matches(Utility.regex).WithMessage("Kullanıcı şifresi özel karakterler içeremez.");
             RuleFor(x => x.kullanici_mail).NotEmpty().WithMessage("Kullanıcı maili boş geçilemez.")
                 .EmailAddress().WithMessage("Geçersiz mail adresi");
-            RuleFor(x => x.sil_id).NotEmpty().WithMessage("Bu alan boş geçilemez.")
-                .InclusiveBetween(0, 1).WithMessage("Sil id 0(pasif) yada 1(aktif) olmalıdır.");
+            RuleFor(x => x.sil_id)
+                .InclusiveBetween(0,1).WithMessage("Sil id 0(pasif) yada 1(aktif) olmalıdır.");
             RuleFor(x => x.tema_id).NotEmpty().WithMessage("Tema id boş geçilemez.");
             RuleFor(x => x.rol_id).NotEmpty().WithMessage("Rol id boş geçilemez.");
 

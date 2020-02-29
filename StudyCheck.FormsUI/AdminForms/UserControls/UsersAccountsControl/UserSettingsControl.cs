@@ -51,7 +51,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     tema_id = UserSettingsInfos.temaIndex,
                     rol_id = UserSettingsInfos.rolIndex,
                     sil_id = UserSettingsInfos.durumIndex,
-                    guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"))
+                    guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")),
+                    kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text)
                 };
                 
                 var HesapSonuc = _userManager.UpdateUserDetail(_uyedetay);
@@ -78,7 +79,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void UserSettingsControl_Load(object sender, EventArgs e)
         {
-            SetSettingsInfo();
+            SetSettingsInfo();            
         }
 
         private void AktifEt(GroupBox groupBox)
