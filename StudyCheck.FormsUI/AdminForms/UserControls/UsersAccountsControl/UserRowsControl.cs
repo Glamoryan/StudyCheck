@@ -38,6 +38,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             _userSettingsControl.tbxUyeId.Text = lblUyeId.Text;
             _userSettingsControl.tbxUyeAdi.Text = lblUyeAd.Text;
             _userSettingsControl.tbxUyeSoyadi.Text = lblUyeSoyad.Text;
+            _userSettingsControl.lblUyeDId.Text = lblUyeDetayId.Text;
             if (lblDurum.Text.Equals(UserInfos.Durumlar.Aktif.ToString()))
                 _userSettingsControl.cbxDurum.SelectedIndex = 1;
             else if (lblDurum.Text.Equals(UserInfos.Durumlar.Pasif.ToString()))

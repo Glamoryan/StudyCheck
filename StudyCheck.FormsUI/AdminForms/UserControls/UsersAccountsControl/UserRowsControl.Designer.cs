@@ -40,6 +40,7 @@
             this.lblKullaniciSifre = new System.Windows.Forms.Label();
             this.lblTema = new System.Windows.Forms.Label();
             this.lblGuncelleme = new System.Windows.Forms.Label();
+            this.lblUyeDetayId = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblUyeId
@@ -175,11 +176,22 @@
             this.lblGuncelleme.Text = "gizliLabel";
             this.lblGuncelleme.Visible = false;
             // 
+            // lblUyeDetayId
+            // 
+            this.lblUyeDetayId.AutoSize = true;
+            this.lblUyeDetayId.Location = new System.Drawing.Point(708, 9);
+            this.lblUyeDetayId.Name = "lblUyeDetayId";
+            this.lblUyeDetayId.Size = new System.Drawing.Size(50, 13);
+            this.lblUyeDetayId.TabIndex = 3;
+            this.lblUyeDetayId.Text = "gizliLabel";
+            this.lblUyeDetayId.Visible = false;
+            // 
             // UserRowsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.Controls.Add(this.lblUyeDetayId);
             this.Controls.Add(this.lblGuncelleme);
             this.Controls.Add(this.lblTema);
             this.Controls.Add(this.lblKullaniciSifre);
@@ -213,5 +225,6 @@
         public System.Windows.Forms.Label lblKullaniciSifre;
         public System.Windows.Forms.Label lblTema;
         public System.Windows.Forms.Label lblGuncelleme;
+        public System.Windows.Forms.Label lblUyeDetayId;
     }
 }

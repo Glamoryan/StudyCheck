@@ -39,6 +39,9 @@ namespace StudyCheck.DataAccess.Concrete.EntityFramework
             modelBuilder.Configurations.Add(new SinavMap());
             modelBuilder.Configurations.Add(new TemaMap());
             modelBuilder.Configurations.Add(new YetkiMap());
+            modelBuilder.Properties<DateTime>()
+                .Configure(c => c.HasColumnType("datetime2"));
+        
         }
 
 

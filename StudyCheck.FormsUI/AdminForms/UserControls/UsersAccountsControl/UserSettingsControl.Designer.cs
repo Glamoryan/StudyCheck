@@ -69,6 +69,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnHesapCancel = new System.Windows.Forms.Button();
             this.btnUyeCancel = new System.Windows.Forms.Button();
             this.btnUyeSuccess = new System.Windows.Forms.Button();
+            this.lblUyeDId = new System.Windows.Forms.Label();
             this.gbxUye.SuspendLayout();
             this.gbxHesap.SuspendLayout();
             this.SuspendLayout();
@@ -330,6 +331,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // 
             // tbxKayitTarihi
             // 
+            this.tbxKayitTarihi.Enabled = false;
             this.tbxKayitTarihi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxKayitTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxKayitTarihi.Location = new System.Drawing.Point(132, 189);
@@ -534,11 +536,22 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnUyeSuccess.Visible = false;
             this.btnUyeSuccess.Click += new System.EventHandler(this.btnUyeSuccess_Click);
             // 
+            // lblUyeDId
+            // 
+            this.lblUyeDId.AutoSize = true;
+            this.lblUyeDId.Location = new System.Drawing.Point(444, 23);
+            this.lblUyeDId.Name = "lblUyeDId";
+            this.lblUyeDId.Size = new System.Drawing.Size(41, 13);
+            this.lblUyeDId.TabIndex = 8;
+            this.lblUyeDId.Text = "label13";
+            this.lblUyeDId.Visible = false;
+            // 
             // UserSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.lblUyeDId);
             this.Controls.Add(this.btnUyeSuccess);
             this.Controls.Add(this.btnHesapSuccess);
             this.Controls.Add(this.btnHesapCancel);
@@ -603,5 +616,6 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private System.Windows.Forms.Button btnHesapCancel;
         private System.Windows.Forms.Button btnHesapSuccess;
         private System.Windows.Forms.Button btnUyeSuccess;
+        public System.Windows.Forms.Label lblUyeDId;
     }
 }

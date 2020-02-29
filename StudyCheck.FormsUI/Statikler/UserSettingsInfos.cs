@@ -8,6 +8,7 @@ namespace StudyCheck.FormsUI.Statikler
 {
     public static class UserSettingsInfos
     {
+        public static int uyeDetayId { get; set; }
         public static string uyeAd { get; set; }
         public static string uyeSoyad { get; set; }
         public static string kullaniciAdi { get; set; }

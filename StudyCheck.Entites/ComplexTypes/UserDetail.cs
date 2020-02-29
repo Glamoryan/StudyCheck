@@ -8,6 +8,7 @@ namespace StudyCheck.Entites.ComplexTypes
 {
     public class UserDetail
     {
+        public int UyeDetayId { get; set; }
         public int UyeId { get; set; }
         public string UyeAd { get; set; }
         public string UyeSoyad { get; set; }

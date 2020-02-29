@@ -14,7 +14,7 @@ namespace StudyCheck.Business.Validations.FluentValidation
     {        
         public AccountValidator()
         {
-            RuleFor(x => x.uye_id).NotEmpty().WithMessage("Üye id'si boş geçilemez.");
+            RuleFor(x => x.uye_id).NotEmpty().WithMessage("UyeId boş geçilemez.");
             RuleFor(x => x.kullanici_adi).NotEmpty().WithMessage("Kullanıcı adı boş geçilemez.")
                 .Length(5, 10).WithMessage("Kullanıcı adı 5-10 karakter arasında olmalıdır.")
                 .Matches(Utility.regex).WithMessage("Kullanıcı adı özel karakterler içeremez.");

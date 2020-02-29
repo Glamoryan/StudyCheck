@@ -27,6 +27,7 @@ namespace StudyCheck.DataAccess.Concrete.EntityFramework
                             join ud in context.UyeDetay on u.id equals ud.uye_id
                             select new UserDetail
                             {
+                                UyeDetayId = ud.id,
                                 UyeId = u.id,
                                 UyeAd = u.uye_ad,
                                 UyeSoyad = u.uye_soyad,

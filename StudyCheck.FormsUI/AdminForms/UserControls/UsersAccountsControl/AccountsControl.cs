@@ -11,6 +11,7 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.Entites.AccountManagement;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -25,7 +26,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private static UserRowsControl _rowsControl;
         private static UserManager _userManager;
-        private List<UserDetail> _uyeDetaylar;
+        private List<UserDetail> _uyeDetaylar; //Complex Type
 
         private void GetUserDetails()
         {            
@@ -57,6 +58,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                         _rowsControl.lblTema.Text = "Dark";
                     //Gizli Label Güncelleme
                     _rowsControl.lblGuncelleme.Text = detay.GuncellemeTarihi.ToString();
+                    //Gizli Label UyeDetayId
+                    _rowsControl.lblUyeDetayId.Text = detay.UyeDetayId.ToString();
                     if (detay.rol_id != (int)RoleInfo.Roller.Admin)
                     {
                         if (detay.rol_id == (int)RoleInfo.Roller.Kullanıcı)

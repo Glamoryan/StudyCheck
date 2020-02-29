@@ -12,15 +12,56 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.Statikler;
+using System.Data.SqlTypes;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class UserSettingsControl : UserControl
-    {        
+    {
+        private static EfUserDal _efUserDal = new EfUserDal();
+        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
+
+        private static Uye _uye;
+        private static Uyedetay _uyedetay;
         public UserSettingsControl()
         {           
             InitializeComponent();            
-        }        
+        }    
+        
+        private void KullaniciGuncelle()
+        {
+            try
+            {
+                _uye = new Uye
+                {
+                    id = Convert.ToInt32(tbxUyeId.Text),
+                    uye_ad = UserSettingsInfos.uyeAd,
+                    uye_soyad = UserSettingsInfos.uyeSoyad
+                };
+                var UyeSonuc = _userManager.UpdateUser(_uye);
+                MessageBox.Show(UyeSonuc.uye_ad + " üyesi başarıyla güncellendi", "Üye Güncellemesi Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                _uyedetay = new Uyedetay
+                {
+                    id = Convert.ToInt32(lblUyeDId.Text),
+                    uye_id = Convert.ToInt32(tbxUyeId.Text),
+                    kullanici_adi = UserSettingsInfos.kullaniciAdi,
+                    kullanici_sifre = UserSettingsInfos.kullaniciSifre,
+                    kullanici_mail = UserSettingsInfos.kullaniciMail,
+                    tema_id = UserSettingsInfos.temaIndex,
+                    rol_id = UserSettingsInfos.rolIndex,
+                    sil_id = UserSettingsInfos.durumIndex,
+                    guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff"))
+                };
+                
+                var HesapSonuc = _userManager.UpdateUserDetail(_uyedetay);
+                MessageBox.Show(HesapSonuc.kullanici_adi + " kullanıcısı başarıyla güncellendi", "Hesap Güncellemesi Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);                           
+            }            
+        }
 
         private void SetSettingsInfo()
         {
@@ -105,7 +146,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     MessageBox.Show("Değişiklikler kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else if (sonuc == DialogResult.No)
                 {
-                    SetHesapDefault();
+                    SetHesapDefault();                   
                 }
                 AktifEt(gbxUye);
                 btnHesapCancel.Visible = false;
@@ -182,8 +223,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 btnHesapCancel.Visible = false;
                 btnHesapSuccess.Visible = false;
                 btnHesapDuzenle.Visible = true;
-            }
-            
+            }                       
         }
 
         private void btnUyeSuccess_Click(object sender, EventArgs e)
@@ -200,6 +240,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         {
             if (gbxHesap.Enabled || gbxUye.Enabled)
                 MessageBox.Show("Güncellemeden önce değişiklikler kayıt edilmeli!", "Kayıt Gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else
+                KullaniciGuncelle();
         }
     }
 }
