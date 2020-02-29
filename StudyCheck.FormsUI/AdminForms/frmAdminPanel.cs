@@ -47,7 +47,7 @@ namespace StudyCheck.FormsUI.AdminForms
         }
 
         private void ClearLogin()
-        {
+        {            
             LoginInfo.Id = -1;
             LoginInfo.KullaniciAdi = null;
             LoginInfo.Mail = null;
@@ -117,12 +117,12 @@ namespace StudyCheck.FormsUI.AdminForms
         }
         [CacheAspect(typeof(MemoryCacheManager))]
         private void GetAccountControl()
-        {
+        {            
             if (_accountsControl == null)
             {
                 _accountsControl = new AccountsControl();                
                 pnlContent.Controls.Clear();
-                pnlContent.Controls.Add(_accountsControl);
+                pnlContent.Controls.Add(_accountsControl);                
             }
             else
             {
@@ -140,6 +140,7 @@ namespace StudyCheck.FormsUI.AdminForms
                     pnlContent.Controls.Add(_accountsControl);
                 }                
             }
+            Pages.accountsControl = _accountsControl;
         }
 
         private void GetAdminName()

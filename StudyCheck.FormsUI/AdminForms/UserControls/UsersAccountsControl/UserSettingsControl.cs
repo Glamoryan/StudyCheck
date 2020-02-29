@@ -161,7 +161,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void btnIptal_Click(object sender, EventArgs e)
         {
-            //user infos sıfırla
+            PageRoute.contentPanel.Controls.Clear();
+            PageRoute.contentPanel.Controls.Add(Pages.accountsControl);
         }
 
         private void btnHesapCancel_Click(object sender, EventArgs e)
