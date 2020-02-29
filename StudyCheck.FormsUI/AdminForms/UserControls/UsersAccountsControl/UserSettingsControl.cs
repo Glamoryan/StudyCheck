@@ -75,10 +75,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             {
                 DialogResult sonuc = MessageBox.Show("Değişiklikler kaydedilsin mi?", "Değişiklikleri Kaydet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (sonuc == DialogResult.Yes)
-                {
                     MessageBox.Show("Değişiklikler kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //update komutları
-                }
                 else if (sonuc == DialogResult.No)
                 {
                     SetUyeDefault();
@@ -105,10 +102,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             {
                 DialogResult sonuc = MessageBox.Show("Değişiklikler kaydedilsin mi?", "Değişiklikleri Kaydet", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (sonuc == DialogResult.Yes)
-                {
                     MessageBox.Show("Değişiklikler kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //update komutları
-                }                    
                 else if (sonuc == DialogResult.No)
                 {
                     SetHesapDefault();
