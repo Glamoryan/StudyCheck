@@ -43,7 +43,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.tbxUyeSoyadi = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.gbxUye = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbxHesap = new System.Windows.Forms.GroupBox();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.cbxTema = new System.Windows.Forms.ComboBox();
             this.cbxSifreGoster = new System.Windows.Forms.CheckBox();
@@ -64,8 +64,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnHesapDuzenle = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.btnIptal = new System.Windows.Forms.Button();
+            this.btnUyeCancel = new System.Windows.Forms.Button();
+            this.btnHesapCancel = new System.Windows.Forms.Button();
             this.gbxUye.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.gbxHesap.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblKullaniciAdi
@@ -192,30 +194,30 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.gbxUye.TabStop = false;
             this.gbxUye.Text = "Üye Ayarları";
             // 
-            // groupBox1
+            // gbxHesap
             // 
-            this.groupBox1.Controls.Add(this.cbxRol);
-            this.groupBox1.Controls.Add(this.cbxTema);
-            this.groupBox1.Controls.Add(this.cbxSifreGoster);
-            this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Controls.Add(this.label11);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Controls.Add(this.tbxKullaniciMail);
-            this.groupBox1.Controls.Add(this.tbxKayitTarihi);
-            this.groupBox1.Controls.Add(this.tbxKullaniciSifre);
-            this.groupBox1.Controls.Add(this.tbxKullaniciAdi);
-            this.groupBox1.Enabled = false;
-            this.groupBox1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.groupBox1.Location = new System.Drawing.Point(34, 71);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(703, 254);
-            this.groupBox1.TabIndex = 6;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Hesap Ayarları";
+            this.gbxHesap.Controls.Add(this.cbxRol);
+            this.gbxHesap.Controls.Add(this.cbxTema);
+            this.gbxHesap.Controls.Add(this.cbxSifreGoster);
+            this.gbxHesap.Controls.Add(this.label12);
+            this.gbxHesap.Controls.Add(this.label11);
+            this.gbxHesap.Controls.Add(this.label8);
+            this.gbxHesap.Controls.Add(this.label7);
+            this.gbxHesap.Controls.Add(this.label6);
+            this.gbxHesap.Controls.Add(this.label5);
+            this.gbxHesap.Controls.Add(this.tbxKullaniciMail);
+            this.gbxHesap.Controls.Add(this.tbxKayitTarihi);
+            this.gbxHesap.Controls.Add(this.tbxKullaniciSifre);
+            this.gbxHesap.Controls.Add(this.tbxKullaniciAdi);
+            this.gbxHesap.Enabled = false;
+            this.gbxHesap.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.gbxHesap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.gbxHesap.Location = new System.Drawing.Point(34, 71);
+            this.gbxHesap.Name = "gbxHesap";
+            this.gbxHesap.Size = new System.Drawing.Size(703, 254);
+            this.gbxHesap.TabIndex = 6;
+            this.gbxHesap.TabStop = false;
+            this.gbxHesap.Text = "Hesap Ayarları";
             // 
             // cbxRol
             // 
@@ -376,7 +378,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label10.Location = new System.Drawing.Point(174, 342);
+            this.label10.Location = new System.Drawing.Point(30, 400);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 19);
             this.label10.TabIndex = 2;
@@ -391,7 +393,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.cbxDurum.Items.AddRange(new object[] {
             "Pasif",
             "Aktif"});
-            this.cbxDurum.Location = new System.Drawing.Point(232, 343);
+            this.cbxDurum.Location = new System.Drawing.Point(88, 401);
             this.cbxDurum.Name = "cbxDurum";
             this.cbxDurum.Size = new System.Drawing.Size(121, 21);
             this.cbxDurum.TabIndex = 6;
@@ -410,6 +412,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnUyeDuzenle.TabIndex = 7;
             this.btnUyeDuzenle.Text = "Üye Düzenle";
             this.btnUyeDuzenle.UseVisualStyleBackColor = false;
+            this.btnUyeDuzenle.Click += new System.EventHandler(this.btnUyeDuzenle_Click);
             // 
             // btnHesapDuzenle
             // 
@@ -425,6 +428,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnHesapDuzenle.TabIndex = 7;
             this.btnHesapDuzenle.Text = "Hesap Düzenle";
             this.btnHesapDuzenle.UseVisualStyleBackColor = false;
+            this.btnHesapDuzenle.Click += new System.EventHandler(this.btnHesapDuzenle_Click);
             // 
             // btnKaydet
             // 
@@ -455,17 +459,53 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnIptal.TabIndex = 7;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
+            // 
+            // btnUyeCancel
+            // 
+            this.btnUyeCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnUyeCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUyeCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUyeCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUyeCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeCancel.Image = global::StudyCheck.FormsUI.Properties.Resources.cancel_32px;
+            this.btnUyeCancel.Location = new System.Drawing.Point(857, 331);
+            this.btnUyeCancel.Name = "btnUyeCancel";
+            this.btnUyeCancel.Size = new System.Drawing.Size(41, 42);
+            this.btnUyeCancel.TabIndex = 7;
+            this.btnUyeCancel.UseVisualStyleBackColor = false;
+            this.btnUyeCancel.Visible = false;
+            this.btnUyeCancel.Click += new System.EventHandler(this.btnUyeCancel_Click);
+            // 
+            // btnHesapCancel
+            // 
+            this.btnHesapCancel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnHesapCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnHesapCancel.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnHesapCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHesapCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnHesapCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnHesapCancel.Image = global::StudyCheck.FormsUI.Properties.Resources.cancel_32px;
+            this.btnHesapCancel.Location = new System.Drawing.Point(152, 331);
+            this.btnHesapCancel.Name = "btnHesapCancel";
+            this.btnHesapCancel.Size = new System.Drawing.Size(41, 42);
+            this.btnHesapCancel.TabIndex = 7;
+            this.btnHesapCancel.UseVisualStyleBackColor = false;
+            this.btnHesapCancel.Visible = false;
             // 
             // UserSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.btnHesapCancel);
+            this.Controls.Add(this.btnUyeCancel);
             this.Controls.Add(this.btnIptal);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.btnHesapDuzenle);
             this.Controls.Add(this.btnUyeDuzenle);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbxHesap);
             this.Controls.Add(this.gbxUye);
             this.Controls.Add(this.cbxDurum);
             this.Controls.Add(this.panel1);
@@ -479,8 +519,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.Load += new System.EventHandler(this.UserSettingsControl_Load);
             this.gbxUye.ResumeLayout(false);
             this.gbxUye.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gbxHesap.ResumeLayout(false);
+            this.gbxHesap.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -494,7 +534,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox gbxUye;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbxHesap;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.CheckBox cbxSifreGoster;
         private System.Windows.Forms.Label label7;
@@ -519,5 +559,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         public System.Windows.Forms.ComboBox cbxDurum;
         public System.Windows.Forms.ComboBox cbxTema;
         public System.Windows.Forms.ComboBox cbxRol;
+        private System.Windows.Forms.Button btnUyeCancel;
+        private System.Windows.Forms.Button btnHesapCancel;
     }
 }
