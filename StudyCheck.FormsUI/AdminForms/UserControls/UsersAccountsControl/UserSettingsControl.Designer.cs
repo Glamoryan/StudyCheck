@@ -114,6 +114,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // 
             this.tbxUyeId.Enabled = false;
             this.tbxUyeId.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxUyeId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxUyeId.Location = new System.Drawing.Point(109, 51);
             this.tbxUyeId.Name = "tbxUyeId";
             this.tbxUyeId.Size = new System.Drawing.Size(46, 27);
@@ -134,6 +135,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // tbxUyeAdi
             // 
             this.tbxUyeAdi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxUyeAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxUyeAdi.Location = new System.Drawing.Point(109, 122);
             this.tbxUyeAdi.Name = "tbxUyeAdi";
             this.tbxUyeAdi.Size = new System.Drawing.Size(148, 27);
@@ -153,6 +155,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // tbxUyeSoyadi
             // 
             this.tbxUyeSoyadi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxUyeSoyadi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxUyeSoyadi.Location = new System.Drawing.Point(109, 189);
             this.tbxUyeSoyadi.Name = "tbxUyeSoyadi";
             this.tbxUyeSoyadi.Size = new System.Drawing.Size(148, 27);
@@ -246,6 +249,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.cbxSifreGoster.TabIndex = 5;
             this.cbxSifreGoster.Text = "Şifreyi Göster";
             this.cbxSifreGoster.UseVisualStyleBackColor = true;
+            this.cbxSifreGoster.CheckedChanged += new System.EventHandler(this.cbxSifreGoster_CheckedChanged);
             // 
             // label12
             // 
@@ -305,6 +309,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // tbxKullaniciMail
             // 
             this.tbxKullaniciMail.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKullaniciMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxKullaniciMail.Location = new System.Drawing.Point(132, 119);
             this.tbxKullaniciMail.Name = "tbxKullaniciMail";
             this.tbxKullaniciMail.Size = new System.Drawing.Size(224, 27);
@@ -313,6 +318,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // tbxKayitTarihi
             // 
             this.tbxKayitTarihi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKayitTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxKayitTarihi.Location = new System.Drawing.Point(132, 189);
             this.tbxKayitTarihi.Name = "tbxKayitTarihi";
             this.tbxKayitTarihi.Size = new System.Drawing.Size(148, 27);
@@ -321,6 +327,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // tbxKullaniciSifre
             // 
             this.tbxKullaniciSifre.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKullaniciSifre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxKullaniciSifre.Location = new System.Drawing.Point(501, 48);
             this.tbxKullaniciSifre.Name = "tbxKullaniciSifre";
             this.tbxKullaniciSifre.PasswordChar = '*';
@@ -330,6 +337,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // tbxKullaniciAdi
             // 
             this.tbxKullaniciAdi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKullaniciAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxKullaniciAdi.Location = new System.Drawing.Point(132, 47);
             this.tbxKullaniciAdi.Name = "tbxKullaniciAdi";
             this.tbxKullaniciAdi.Size = new System.Drawing.Size(148, 27);
@@ -350,6 +358,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             // 
             this.tbxGuncellemeTarihi.Enabled = false;
             this.tbxGuncellemeTarihi.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxGuncellemeTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.tbxGuncellemeTarihi.Location = new System.Drawing.Point(151, 599);
             this.tbxGuncellemeTarihi.Name = "tbxGuncellemeTarihi";
             this.tbxGuncellemeTarihi.Size = new System.Drawing.Size(148, 27);

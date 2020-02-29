@@ -26,5 +26,13 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         {
             
         }
+
+        private void cbxSifreGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbxSifreGoster.Checked)
+                tbxKullaniciSifre.PasswordChar = '\0';
+            else if (!cbxSifreGoster.Checked)
+                tbxKullaniciSifre.PasswordChar = '*';
+        }
     }
 }
