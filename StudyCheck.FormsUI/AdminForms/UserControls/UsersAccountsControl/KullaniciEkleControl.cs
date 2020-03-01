@@ -19,9 +19,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class KullaniciEkleControl : UserControl
     {
-        private static Exception mainException;
-
-        private static AccountsControl _accountsControl;
+        private static Exception mainException;        
 
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
@@ -32,6 +30,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         List<Uyedetay> uyeDetaylari;
 
         private Uye uyeSonuc;
+
         public KullaniciEkleControl()
         {
             InitializeComponent();
@@ -99,8 +98,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void btnIptal_Click(object sender, EventArgs e)
         {
             PageRoute.contentPanel.Controls.Clear();
-            _accountsControl = new AccountsControl();
-            PageRoute.contentPanel.Controls.Add(_accountsControl);
+            PageRoute.contentPanel.Controls.Add(PageRoute.accountsControl);
         }
 
         private void KullaniciEkle()
@@ -135,13 +133,11 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             else if (mainException == null)
             {
                 PageRoute.contentPanel.Controls.Clear();
-                _accountsControl = new AccountsControl();
+                PageRoute.accountsControl = new AccountsControl();
                 GC.Collect();
                 GC.WaitForPendingFinalizers();
-                PageRoute.contentPanel.Controls.Add(_accountsControl);
+                PageRoute.contentPanel.Controls.Add(PageRoute.accountsControl);
             }
-                
-             
         }
     }
 }
