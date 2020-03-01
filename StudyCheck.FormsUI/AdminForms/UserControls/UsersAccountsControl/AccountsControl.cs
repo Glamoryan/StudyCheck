@@ -24,8 +24,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
 
-        private static UserRowsControl _rowsControl;        
-        
+        private static UserRowsControl _rowsControl;
+        private static KullaniciEkleControl _ekleControl;
 
 
         private static UserManager _userManager;
@@ -97,6 +97,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void btnKullaniciEkle_Click(object sender, EventArgs e)
         {
             PageRoute.contentPanel.Controls.Clear();
+            _ekleControl = new KullaniciEkleControl();
+            PageRoute.contentPanel.Controls.Add(_ekleControl);
         }
     }
 }
