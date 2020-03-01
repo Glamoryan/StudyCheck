@@ -98,7 +98,7 @@
             this.btnUyeler.Name = "btnUyeler";
             this.btnUyeler.Size = new System.Drawing.Size(194, 56);
             this.btnUyeler.TabIndex = 4;
-            this.btnUyeler.Text = "Hesaplar";
+            this.btnUyeler.Text = "Kullanıcılar";
             this.btnUyeler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnUyeler.UseVisualStyleBackColor = false;
             this.btnUyeler.Click += new System.EventHandler(this.btnUyeler_Click);
