@@ -13,6 +13,7 @@ using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -30,16 +31,15 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private static KullaniciEkleControl _ekleControl;
 
 
-        private static UserManager _userManager;
+        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private List<UserDetail> _uyeDetaylar; //Complex Type
 
         private void GetUserDetails()
-        {            
-            if (_userManager == null)
-            {
-                _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-            }
-            _uyeDetaylar = _userManager.GetAllUserDetails();
+        {                        
+            _uyeDetaylar = _userManager.GetAllUserDetails();            
+            if (_uyeDetaylar.Count <= 0)
+                throw new NoDataException("Hiçbir Kayıt Bulunamadı");
+
             if (!pnlUserContent.Controls.ContainsKey("UserRowsControl"))
             {
                 int i = 0;
@@ -94,8 +94,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void AccountsControl_Load(object sender, EventArgs e)
         {
             mainException = ExceptionHandling.HandleException(() => { GetUserDetails(); });
-            if (mainException != null)
-                MessageBox.Show(mainException.Message);
+            if (mainException is NoDataException)
+                MessageBox.Show(mainException.Message,"Kullanıcı Bulunamadı",MessageBoxButtons.OK,MessageBoxIcon.Warning);
         }
 
         private void btnKullaniciEkle_Click(object sender, EventArgs e)
