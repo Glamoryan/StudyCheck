@@ -46,6 +46,64 @@ namespace StudyCheck.FormsUI.AdminForms
             InitializeComponent();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        private void SetAccountControl()
+        {            
+            if (_accountsControl == null)
+            {
+                _accountsControl = new AccountsControl();
+                PageRoute.accountsControl = _accountsControl;
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_accountsControl);
+            }
+            else
+            {
+                if (!pnlContent.Controls.ContainsKey("AccountsControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_accountsControl);
+                }                
+                else if (pnlContent.Controls.ContainsKey("AccountsControl"))
+                {
+                    _accountsControl = new AccountsControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.accountsControl = _accountsControl;
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_accountsControl);
+                }
+            }            
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        private void SetDashboardControl()
+        {            
+            if(_dashboardControl == null)
+            {
+                _dashboardControl = new DashboardControl();
+                PageRoute.dashboardControl = _dashboardControl;
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_dashboardControl);
+            }
+            else
+            {
+                if(!pnlContent.Controls.ContainsKey("DashboardControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_dashboardControl);
+                }                
+                else if (pnlContent.Controls.ContainsKey("DashboardControl"))
+                {
+                    _dashboardControl = new DashboardControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.dashboardControl = _dashboardControl;
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_dashboardControl);
+                }
+            }
+        }
+
         private void ClearLogin()
         {            
             LoginInfo.Id = -1;
@@ -88,60 +146,8 @@ namespace StudyCheck.FormsUI.AdminForms
             }
         }
 
-        [CacheAspect(typeof(MemoryCacheManager))]
-        private void GetDashboardControl()
-        {
-            if (_dashboardControl == null)
-            {
-                _dashboardControl = new DashboardControl();
-                pnlContent.Controls.Clear();
-                pnlContent.Controls.Add(_dashboardControl);
-            }
-            else
-            {
-                if (!pnlContent.Controls.ContainsKey("DashboardControl"))
-                {
-                    pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_dashboardControl);
-                }
-                else
-                {
-                    _dashboardControl = new DashboardControl();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                    pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_dashboardControl);
-                }                
-            }
-
-        }
-        [CacheAspect(typeof(MemoryCacheManager))]
-        private void GetAccountControl()
-        {            
-            if (_accountsControl == null)
-            {
-                _accountsControl = new AccountsControl();                
-                pnlContent.Controls.Clear();
-                pnlContent.Controls.Add(_accountsControl);                
-            }
-            else
-            {
-                if (!pnlContent.Controls.ContainsKey("AccountsControl"))
-                {
-                    pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_accountsControl);
-                }
-                else
-                {
-                    _accountsControl = new AccountsControl();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
-                    pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_accountsControl);
-                }                
-            }
-            Pages.accountsControl = _accountsControl;
-        }
+        
+        
 
         private void GetAdminName()
         {
@@ -155,7 +161,7 @@ namespace StudyCheck.FormsUI.AdminForms
             lblTarih.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             GetAdminName();
-            GetDashboardControl();
+            SetDashboardControl();
         }
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]
@@ -200,13 +206,13 @@ namespace StudyCheck.FormsUI.AdminForms
         private void btnDashboard_Click(object sender, EventArgs e)
         {
             WhichTab(dbPanel);
-            GetDashboardControl();
+            SetDashboardControl();
         }
 
         private void btnUyeler_Click(object sender, EventArgs e)
         {
             WhichTab(acPanel);
-            GetAccountControl();
+            SetAccountControl();
         }
     }
 }

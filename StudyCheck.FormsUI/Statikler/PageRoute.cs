@@ -1,4 +1,6 @@
-﻿using System;
+﻿using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +12,7 @@ namespace StudyCheck.FormsUI.Statikler
     public static class PageRoute
     {
         public static Panel contentPanel { get; set; }
+        public static AccountsControl accountsControl { get; set; }
+        public static DashboardControl dashboardControl { get; set; }
     }
 }
