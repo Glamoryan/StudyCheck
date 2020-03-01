@@ -83,6 +83,12 @@
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.Designer.cs">
       <DependentUpon>AccountsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\UsersAccountsControl\AddUserControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\UsersAccountsControl\AddUserControl.Designer.cs">
+      <DependentUpon>AddUserControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\UserRowsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -132,6 +138,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.resx">
       <DependentUpon>AccountsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\AddUserControl.resx">
+      <DependentUpon>AddUserControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\UserRowsControl.resx">
       <DependentUpon>UserRowsControl.cs</DependentUpon>
@@ -259,6 +268,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eye_16px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
