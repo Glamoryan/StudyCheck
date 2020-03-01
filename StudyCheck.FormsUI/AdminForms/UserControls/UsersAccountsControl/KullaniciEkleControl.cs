@@ -12,11 +12,14 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.Concrete;
 using System.ComponentModel.DataAnnotations;
+using StudyCheck.FormsUI.ExceptionManage;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class KullaniciEkleControl : UserControl
     {
+        private static Exception mainException;
+
         private static AccountsControl _accountsControl;
 
         private static EfUserDal _efUserDal = new EfUserDal();
@@ -88,30 +91,31 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             PageRoute.contentPanel.Controls.Add(_accountsControl);
         }
 
+        private void KullaniciEkle()
+        {
+            SetKullanici();
+            if (isUserAdd(_uyedetay))
+            {                
+                throw new ValidationException("Kullanıcı Adı / Mail alınmış");
+            }
+            else
+            {
+                _userManager.AddUserDetail(_uyedetay);
+                MessageBox.Show("Kullanıcı Eklendi", "Ekleme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            try
+            mainException = ExceptionHandling.HandleException(() =>
             {
-                SetKullanici();
-                if (isUserAdd(_uyedetay))
-                {
-                    MessageBox.Show("Kullanıcı adı / Mail zaten kullanımda!", "Kullanıcı Adı / Mail alınmış", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    throw new ValidationException();
-                }
-                    
-                else
-                {
-                    _userManager.AddUserDetail(_uyedetay);
-                    MessageBox.Show("Kullanıcı Eklendi", "Ekleme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {               
-                MessageBox.Show(ex.Message);
-                _userManager.DeleteUser(uyeSonuc);                
-            }
-            
-
+                KullaniciEkle();
+            });
+            if (mainException != null)
+            {
+                MessageBox.Show(mainException.Message);
+                _userManager.DeleteUser(uyeSonuc);
+            }            
         }
     }
 }

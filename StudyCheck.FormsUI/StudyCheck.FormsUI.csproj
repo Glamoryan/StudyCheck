@@ -113,6 +113,7 @@
     <Compile Include="AdminForms\UserControls\WidgetsControl.Designer.cs">
       <DependentUpon>WidgetsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExceptionManage\ExceptionHandling.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
