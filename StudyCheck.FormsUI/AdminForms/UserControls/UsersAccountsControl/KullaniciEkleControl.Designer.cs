@@ -69,6 +69,7 @@
             this.btnIptal.TabIndex = 17;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnKaydet
             // 
@@ -84,6 +85,7 @@
             this.btnKaydet.TabIndex = 18;
             this.btnKaydet.Text = "Kullanıcı Ekle";
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // gbxUye
             // 

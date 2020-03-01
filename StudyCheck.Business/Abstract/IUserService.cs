@@ -22,6 +22,7 @@ namespace StudyCheck.Business.Abstract
         List<Uyedetay> GetActiveAccounts();
         Uyedetay GetByUsernamePassword(string username,string password);
         List<Uyedetay> GetAllAdmins(int rolid);
-
+        List<Uyedetay> GetAllUyeDetay();
+        void DeleteUser(Uye uye);
     }
 }

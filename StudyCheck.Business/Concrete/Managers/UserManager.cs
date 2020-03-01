@@ -56,6 +56,11 @@ namespace StudyCheck.Business.Concrete.Managers
             return _userDetailDal.GetList(x => x.sil_id == 1);
         }
         
+        /// <summary>
+        /// Üye id 'sine göre
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public UserDetail GetUserDetailById(int id)
         {
             return _userDal.GetUserDetails().Where(x => x.UyeId == id).SingleOrDefault();
@@ -101,7 +106,17 @@ namespace StudyCheck.Business.Concrete.Managers
         public List<Uyedetay> GetAllAdmins(int rolId)
         {
             return _userDetailDal.GetList(u => u.rol_id == rolId);
-        }        
+        }
+
+        public List<Uyedetay> GetAllUyeDetay()
+        {
+            return _userDetailDal.GetList();
+        }
+
+        public void DeleteUser(Uye uye)
+        {
+            _userDal.Delete(uye);
+        }
     }
 }
 
