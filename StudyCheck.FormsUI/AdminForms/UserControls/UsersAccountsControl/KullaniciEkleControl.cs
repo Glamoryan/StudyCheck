@@ -13,6 +13,7 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.Concrete;
 using System.ComponentModel.DataAnnotations;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -41,14 +42,25 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             uyeDetaylari = _userManager.GetAllUyeDetay();
             foreach (var detay in uyeDetaylari)
             {
-                if (uyedetay.kullanici_adi.Equals(detay.kullanici_adi) || uyedetay.kullanici_mail.Equals(detay.kullanici_mail))
+                if (uyedetay.kullanici_adi.ToLower().Equals(detay.kullanici_adi.ToLower()) || uyedetay.kullanici_mail.ToLower().Equals(detay.kullanici_mail.ToLower()))
                     return true;
             }
             return false;
         }
 
+        private void isFieldsNull()
+        {
+            if (tbxUyeAdi.Text.Equals(string.Empty) || tbxUyeSoyad.Text.Equals(string.Empty))
+                throw new RequiredFieldsException("Üye Bilgilerinde Boş Alan Bırakılamaz!");
+            else if (tbxKullaniciAd.Text.Equals(string.Empty) || tbxKullaniciSifre.Text.Equals(string.Empty) || tbxKullaniciMail.Text.Equals(string.Empty))
+                throw new RequiredFieldsException("Hesap Bilgilerinde Boş Alan Bırakılamaz!");     
+            else if (cbxRol.SelectedIndex == 0 || cbxTema.SelectedIndex == 0)
+                throw new RequiredFieldsException("Hesap Bilgilerinde Tema ve Rol Seçilmelidir!");
+        }
+
         private void SetKullanici()
-        {            
+        {
+            isFieldsNull(); 
             _uye = new Uye
             {
                 uye_ad = tbxUyeAdi.Text,
@@ -95,11 +107,11 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         {
             SetKullanici();
             if (isUserAdd(_uyedetay))
-            {                
-                throw new ValidationException("Kullanıcı Adı / Mail alınmış");
+            {
+                throw new DataAlreadyExistsException("Kullanıcı Adı / Mail alınmış");
             }
             else
-            {
+            {                
                 _userManager.AddUserDetail(_uyedetay);
                 MessageBox.Show("Kullanıcı Eklendi", "Ekleme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -111,11 +123,25 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             {
                 KullaniciEkle();
             });
-            if (mainException != null)
+            if (!(mainException is RequiredFieldsException) && mainException != null)
             {
-                MessageBox.Show(mainException.Message);
-                _userManager.DeleteUser(uyeSonuc);
-            }            
+                MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                _userManager.DeleteUser(_uye);
+            }
+            else if(mainException != null)
+            {
+                MessageBox.Show(mainException.Message,"Hatalı İşlem",MessageBoxButtons.OK,MessageBoxIcon.Error);                
+            }     
+            else if (mainException == null)
+            {
+                PageRoute.contentPanel.Controls.Clear();
+                _accountsControl = new AccountsControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                PageRoute.contentPanel.Controls.Add(_accountsControl);
+            }
+                
+             
         }
     }
 }

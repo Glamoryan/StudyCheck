@@ -113,6 +113,9 @@
     <Compile Include="AdminForms\UserControls\WidgetsControl.Designer.cs">
       <DependentUpon>WidgetsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="ExceptionManage\CustomExceptions\DataAlreadyExistsException.cs" />
+    <Compile Include="ExceptionManage\CustomExceptions\NoDataException.cs" />
+    <Compile Include="ExceptionManage\CustomExceptions\RequiredFieldsException.cs" />
     <Compile Include="ExceptionManage\ExceptionHandling.cs" />
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -273,6 +276,7 @@
   <ItemGroup>
     <None Include="Resources\eye_16px.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

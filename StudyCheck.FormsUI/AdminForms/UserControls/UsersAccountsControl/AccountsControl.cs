@@ -12,11 +12,13 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.FormsUI.ExceptionManage;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class AccountsControl : UserControl
     {
+        private static Exception mainException;
         public AccountsControl()
         {
             InitializeComponent();
@@ -91,7 +93,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void AccountsControl_Load(object sender, EventArgs e)
         {
-            GetUserDetails();
+            mainException = ExceptionHandling.HandleException(() => { GetUserDetails(); });
+            if (mainException != null)
+                MessageBox.Show(mainException.Message);
         }
 
         private void btnKullaniciEkle_Click(object sender, EventArgs e)
