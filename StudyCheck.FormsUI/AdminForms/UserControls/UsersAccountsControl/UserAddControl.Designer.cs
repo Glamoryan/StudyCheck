@@ -58,7 +58,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.panel1.Location = new System.Drawing.Point(34, 47);
+            this.panel1.Location = new System.Drawing.Point(34, 70);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1011, 2);
             this.panel1.TabIndex = 2;
@@ -68,7 +68,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(40, 16);
+            this.label1.Location = new System.Drawing.Point(40, 39);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 19);
             this.label1.TabIndex = 3;
@@ -269,7 +269,7 @@
             this.gbxHesap.Controls.Add(this.label8);
             this.gbxHesap.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxHesap.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.gbxHesap.Location = new System.Drawing.Point(34, 70);
+            this.gbxHesap.Location = new System.Drawing.Point(34, 93);
             this.gbxHesap.Name = "gbxHesap";
             this.gbxHesap.Size = new System.Drawing.Size(638, 238);
             this.gbxHesap.TabIndex = 10;
@@ -284,7 +284,7 @@
             this.gbxUye.Controls.Add(this.tbxUyeAdi);
             this.gbxUye.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxUye.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.gbxUye.Location = new System.Drawing.Point(685, 70);
+            this.gbxUye.Location = new System.Drawing.Point(685, 93);
             this.gbxUye.Name = "gbxUye";
             this.gbxUye.Size = new System.Drawing.Size(343, 238);
             this.gbxUye.TabIndex = 11;
@@ -378,6 +378,6 @@
         private System.Windows.Forms.GroupBox gbxUye;
         private System.Windows.Forms.Button btnKaydet;
         private System.Windows.Forms.Button btnIptal;
-        private System.Windows.Forms.CheckBox chbxSifreGoster;
+        public System.Windows.Forms.CheckBox chbxSifreGoster;
     }
 }

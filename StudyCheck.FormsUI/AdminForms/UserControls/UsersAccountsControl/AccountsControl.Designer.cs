@@ -64,6 +64,7 @@
             this.btnKullaniciEkle.Text = "Kullanıcı Ekle";
             this.btnKullaniciEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnKullaniciEkle.UseVisualStyleBackColor = false;
+            this.btnKullaniciEkle.Click += new System.EventHandler(this.btnKullaniciEkle_Click);
             // 
             // AccountsControl
             // 

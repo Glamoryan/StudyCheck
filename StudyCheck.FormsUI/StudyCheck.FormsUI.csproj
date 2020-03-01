@@ -83,11 +83,11 @@
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.Designer.cs">
       <DependentUpon>AccountsControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="AdminForms\UserControls\UsersAccountsControl\AddUserControl.cs">
+    <Compile Include="AdminForms\UserControls\UsersAccountsControl\UserAddControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="AdminForms\UserControls\UsersAccountsControl\AddUserControl.Designer.cs">
-      <DependentUpon>AddUserControl.cs</DependentUpon>
+    <Compile Include="AdminForms\UserControls\UsersAccountsControl\UserAddControl.Designer.cs">
+      <DependentUpon>UserAddControl.cs</DependentUpon>
     </Compile>
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\UserRowsControl.cs">
       <SubType>UserControl</SubType>
@@ -139,8 +139,8 @@
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.resx">
       <DependentUpon>AccountsControl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\AddUserControl.resx">
-      <DependentUpon>AddUserControl.cs</DependentUpon>
+    <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\UserAddControl.resx">
+      <DependentUpon>UserAddControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\UserRowsControl.resx">
       <DependentUpon>UserRowsControl.cs</DependentUpon>

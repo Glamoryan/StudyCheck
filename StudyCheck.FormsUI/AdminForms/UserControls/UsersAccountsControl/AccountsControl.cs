@@ -24,7 +24,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
 
-        private static UserRowsControl _rowsControl;
+        private static UserRowsControl _rowsControl;        
+        
+
+
         private static UserManager _userManager;
         private List<UserDetail> _uyeDetaylar; //Complex Type
 
@@ -89,6 +92,11 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void AccountsControl_Load(object sender, EventArgs e)
         {
             GetUserDetails();
+        }
+
+        private void btnKullaniciEkle_Click(object sender, EventArgs e)
+        {
+            PageRoute.contentPanel.Controls.Clear();
         }
     }
 }
