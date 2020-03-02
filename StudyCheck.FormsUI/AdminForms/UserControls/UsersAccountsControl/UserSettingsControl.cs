@@ -13,6 +13,9 @@ using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.Statikler;
 using System.Data.SqlTypes;
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.FormsUI.ExceptionManage;
+using FluentValidation;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -24,44 +27,65 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private static Uye _uye;
         private static Uyedetay _uyedetay;
+
+        private static Exception mainException;
+
         public UserSettingsControl()
         {           
             InitializeComponent();            
         }    
         
+        private void CheckFields(GroupBox groupBox=null)
+        {            
+            if (groupBox!=null&&groupBox.Name.Equals("gbxUye"))
+            {
+                if (tbxUyeAdi.Text.Equals(string.Empty) || tbxUyeSoyadi.Text.Equals(string.Empty))
+                    throw new RequiredFieldsException("Üye Ad ve Soyad Alanları Boş Bırakılamaz!!");
+            }
+            else if (groupBox != null && groupBox.Name.Equals("gbxHesap"))
+            {
+                if (tbxKullaniciAdi.Text.Equals(string.Empty) || tbxKullaniciSifre.Text.Equals(string.Empty) || tbxKullaniciMail.Text.Equals(string.Empty))
+                    throw new RequiredFieldsException("Kullanıcı Adı , Şifresi ve Mail Alanları Boş Bırakılamaz!!");
+                else if (cbxTema.SelectedIndex == 0 || cbxRol.SelectedIndex == 0)
+                    throw new RequiredFieldsException("Kullanıcı Tema ve Rol Alanları Boş Bırakılamaz!!");
+            }
+            else if (groupBox == null)
+            {
+                if (tbxUyeAdi.Text.Equals(string.Empty) || tbxUyeSoyadi.Text.Equals(string.Empty))
+                    throw new RequiredFieldsException("Üye Ad ve Soyad Alanları Boş Bırakılamaz!!");
+                else if (tbxKullaniciAdi.Text.Equals(string.Empty) || tbxKullaniciSifre.Text.Equals(string.Empty) || tbxKullaniciMail.Text.Equals(string.Empty))
+                    throw new RequiredFieldsException("Kullanıcı Adı , Şifresi ve Mail Alanları Boş Bırakılamaz!!");
+                else if (cbxTema.SelectedIndex == 0 || cbxRol.SelectedIndex == 0)
+                    throw new RequiredFieldsException("Kullanıcı Tema ve Rol Alanları Boş Bırakılamaz!!");
+            }
+            
+        }
+
         private void KullaniciGuncelle()
         {
-            try
+            CheckFields();
+            _uye = new Uye
             {
-                _uye = new Uye
-                {
-                    id = Convert.ToInt32(tbxUyeId.Text),
-                    uye_ad = UserSettingsInfos.uyeAd,
-                    uye_soyad = UserSettingsInfos.uyeSoyad
-                };
-                var UyeSonuc = _userManager.UpdateUser(_uye);
-                MessageBox.Show(UyeSonuc.uye_ad + " üyesi başarıyla güncellendi", "Üye Güncellemesi Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                _uyedetay = new Uyedetay
-                {
-                    id = Convert.ToInt32(lblUyeDId.Text),
-                    uye_id = Convert.ToInt32(tbxUyeId.Text),
-                    kullanici_adi = UserSettingsInfos.kullaniciAdi,
-                    kullanici_sifre = UserSettingsInfos.kullaniciSifre,
-                    kullanici_mail = UserSettingsInfos.kullaniciMail,
-                    tema_id = UserSettingsInfos.temaIndex,
-                    rol_id = UserSettingsInfos.rolIndex,
-                    sil_id = UserSettingsInfos.durumIndex,
-                    guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")),
-                    kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text)
-                };
-                
-                var HesapSonuc = _userManager.UpdateUserDetail(_uyedetay);
-                MessageBox.Show(HesapSonuc.kullanici_adi + " kullanıcısı başarıyla güncellendi", "Hesap Güncellemesi Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception e)
+                id = Convert.ToInt32(tbxUyeId.Text),
+                uye_ad = UserSettingsInfos.uyeAd,
+                uye_soyad = UserSettingsInfos.uyeSoyad
+            };            
+            _uyedetay = new Uyedetay
             {
-                MessageBox.Show(e.Message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);                           
-            }            
+                id = Convert.ToInt32(lblUyeDId.Text),
+                uye_id = Convert.ToInt32(tbxUyeId.Text),
+                kullanici_adi = UserSettingsInfos.kullaniciAdi,
+                kullanici_sifre = UserSettingsInfos.kullaniciSifre,
+                kullanici_mail = UserSettingsInfos.kullaniciMail,
+                tema_id = UserSettingsInfos.temaIndex,
+                rol_id = UserSettingsInfos.rolIndex,
+                sil_id = UserSettingsInfos.durumIndex,
+                guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")),
+                kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text)
+            };
+            _userManager.UpdateUser(_uye);
+            _userManager.UpdateUserDetail(_uyedetay);
+
         }
 
         private void SetSettingsInfo()
@@ -77,8 +101,48 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             UserSettingsInfos.durumIndex = cbxDurum.SelectedIndex;
         }
 
+        private void SetDefaultInfo()
+        {
+            UserDefaultInfos.uyeId = Convert.ToInt32(tbxUyeId.Text);
+            UserDefaultInfos.uyeDetayId = Convert.ToInt32(lblUyeDId.Text);
+            UserDefaultInfos.uyeAd = tbxUyeAdi.Text;
+            UserDefaultInfos.uyeSoyad = tbxUyeSoyadi.Text;
+            UserDefaultInfos.kullaniciAdi = tbxKullaniciAdi.Text;
+            UserDefaultInfos.kullaniciSifre = tbxKullaniciSifre.Text;
+            UserDefaultInfos.kullaniciMail = tbxKullaniciMail.Text;
+            UserDefaultInfos.kayitTarihi = tbxKayitTarihi.Text;
+            UserDefaultInfos.temaIndex = cbxTema.SelectedIndex;
+            UserDefaultInfos.rolIndex = cbxRol.SelectedIndex;
+            UserDefaultInfos.durumIndex = cbxDurum.SelectedIndex;
+            UserDefaultInfos.guncellemeTarihi = Convert.ToDateTime(tbxGuncellemeTarihi.Text);
+        }
+
+        private void ReturnToDefault()
+        {
+            _uye = new Uye
+            {
+                id = UserDefaultInfos.uyeId,
+                uye_ad = UserDefaultInfos.uyeAd,
+                uye_soyad = UserDefaultInfos.uyeSoyad
+            };
+            _uyedetay = new Uyedetay
+            {
+                id = UserDefaultInfos.uyeDetayId,
+                guncelleme_tarihi = UserDefaultInfos.guncellemeTarihi,
+                kayit_tarihi = Convert.ToDateTime(UserDefaultInfos.kayitTarihi),
+                kullanici_adi = UserDefaultInfos.kullaniciAdi,
+                kullanici_mail = UserDefaultInfos.kullaniciMail,
+                kullanici_sifre = UserDefaultInfos.kullaniciSifre,
+                rol_id = UserDefaultInfos.rolIndex,
+                sil_id = UserDefaultInfos.durumIndex,
+                tema_id = UserDefaultInfos.temaIndex,
+                uye_id = UserDefaultInfos.uyeId
+            };
+        }
+
         private void UserSettingsControl_Load(object sender, EventArgs e)
         {
+            SetDefaultInfo();
             SetSettingsInfo();            
         }
 
@@ -212,11 +276,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void btnHesapSuccess_Click(object sender, EventArgs e)
         {
-            if (cbxTema.SelectedIndex == 0)
-                MessageBox.Show("Tema Seçimi zorunludur!", "Zorunlu Alan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (cbxRol.SelectedIndex == 0)
-                MessageBox.Show("Rol Seçimi zorunludur!", "Zorunlu Alan", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else
+            mainException = ExceptionHandling.HandleException(() => { CheckFields(gbxHesap); });
+            if (mainException is RequiredFieldsException)
+                MessageBox.Show(mainException.Message, "Boş Alan Bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException == null)
             {
                 SetSettingsInfo();
                 MessageBox.Show("Değişiklikler Kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -224,25 +287,55 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 btnHesapCancel.Visible = false;
                 btnHesapSuccess.Visible = false;
                 btnHesapDuzenle.Visible = true;
-            }                       
+            }            
         }
 
         private void btnUyeSuccess_Click(object sender, EventArgs e)
         {
-            SetSettingsInfo();
-            MessageBox.Show("Değişiklikler Kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            gbxUye.Enabled = false;
-            btnUyeCancel.Visible = false;
-            btnUyeSuccess.Visible = false;
-            btnUyeDuzenle.Visible = true;
+            mainException = ExceptionHandling.HandleException(() => { CheckFields(gbxUye); });
+            if (mainException is RequiredFieldsException)
+                MessageBox.Show(mainException.Message, "Boş Alan Bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Error);            
+            else if (mainException == null)
+            {
+                SetSettingsInfo();
+                MessageBox.Show("Değişiklikler Kaydedildi", "Tamamlandı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                gbxUye.Enabled = false;
+                btnUyeCancel.Visible = false;
+                btnUyeSuccess.Visible = false;
+                btnUyeDuzenle.Visible = true;
+            }            
+            
         }
-
+        
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             if (gbxHesap.Enabled || gbxUye.Enabled)
                 MessageBox.Show("Güncellemeden önce değişiklikler kayıt edilmeli!", "Kayıt Gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else
-                KullaniciGuncelle();
+            {
+                mainException = ExceptionHandling.HandleException(() => { KullaniciGuncelle(); });
+                if (mainException is ValidationException)//FluentValidation
+                {
+                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ReturnToDefault();
+                    _userManager.UpdateUser(_uye);
+                    _userManager.UpdateUserDetail(_uyedetay);
+                }                
+                else if (mainException is RequiredFieldsException)
+                    MessageBox.Show(mainException.Message, "Boş Alan Bırakılamaz", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (mainException != null)
+                {
+                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ReturnToDefault();
+                    _userManager.UpdateUser(_uye);
+                    _userManager.UpdateUserDetail(_uyedetay);
+                }                    
+                else if (mainException == null)
+                {                    
+                    MessageBox.Show("Kullanıcı Başarıyla Güncellendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+                
         }
     }
 }

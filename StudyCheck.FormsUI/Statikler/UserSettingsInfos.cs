@@ -18,5 +18,21 @@ namespace StudyCheck.FormsUI.Statikler
         public static int temaIndex { get; set; }
         public static int rolIndex { get; set; }
         public static int durumIndex { get; set; }
+    } 
+
+    public static class UserDefaultInfos //ilk veriler
+    {
+        public static int uyeId { get; set; }
+        public static int uyeDetayId { get; set; }
+        public static string uyeAd { get; set; }
+        public static string uyeSoyad { get; set; }
+        public static string kullaniciAdi { get; set; }
+        public static string kullaniciSifre { get; set; }
+        public static string kullaniciMail { get; set; }
+        public static string kayitTarihi { get; set; }
+        public static int temaIndex { get; set; }
+        public static int rolIndex { get; set; }
+        public static int durumIndex { get; set; }
+        public static DateTime guncellemeTarihi { get; set; }
     }
 }
