@@ -2,7 +2,7 @@
 
 ## Önemli Gereksinimler
 
-PostSharp Kurulumu
+- PostSharp Kurulumu
 
 | Version | Supported          |
 | ------- | ------------------ |
@@ -12,17 +12,17 @@ https://www.postsharp.net/downloads/postsharp-4.2/v4.2.17/PostSharp-4.2.17.exe
 
 ## Supported Versions
 
-.NET Framework Support
+ - .NET Framework Support
 
 | Version | Supported          |
 | ------- | ------------------ |
 | 4.6.x   | :white_check_mark: |
 | < 4.0   | :x:                |
 
-## Database Requirements
--Microsoft Sql Server Management Studio
+## Database 
+- Microsoft Sql Server Management Studio
 
-| Version | Supported          |
+| Version | Used          |
 | ------- | ------------------ |
 |  2017   | :white_check_mark: |
 
