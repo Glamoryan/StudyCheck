@@ -1,5 +1,15 @@
 # Security Policy
 
+## Önemli Gereksinimler
+
+PostSharp Kurulumu
+
+| Version | Supported          |
+| ------- | ------------------ |
+| 4.2.17  | :white_check_mark: |
+
+https://www.postsharp.net/downloads/postsharp-4.2/v4.2.17/PostSharp-4.2.17.exe
+
 ## Supported Versions
 
 .NET Framework Support
