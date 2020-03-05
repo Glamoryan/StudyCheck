@@ -50,7 +50,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             {
                 if (tbxKullaniciAdi.Text.Equals(string.Empty) || tbxKullaniciSifre.Text.Equals(string.Empty) || tbxKullaniciMail.Text.Equals(string.Empty))
                     throw new RequiredFieldsException("Kullanıcı Adı , Şifresi ve Mail Alanları Boş Bırakılamaz!!");
-                else if (cbxTema.SelectedIndex == 0 || cbxRol.SelectedIndex == 0)
+                else if (cbxTema.SelectedIndex == -1 || cbxRol.SelectedIndex == -1)
                     throw new RequiredFieldsException("Kullanıcı Tema ve Rol Alanları Boş Bırakılamaz!!");
             }
             else if (groupBox == null)
@@ -59,14 +59,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     throw new RequiredFieldsException("Üye Ad ve Soyad Alanları Boş Bırakılamaz!!");
                 else if (tbxKullaniciAdi.Text.Equals(string.Empty) || tbxKullaniciSifre.Text.Equals(string.Empty) || tbxKullaniciMail.Text.Equals(string.Empty))
                     throw new RequiredFieldsException("Kullanıcı Adı , Şifresi ve Mail Alanları Boş Bırakılamaz!!");
-                else if (cbxTema.SelectedIndex == 0 || cbxRol.SelectedIndex == 0)
+                else if (cbxTema.SelectedIndex == -1 || cbxRol.SelectedIndex == -1)
                     throw new RequiredFieldsException("Kullanıcı Tema ve Rol Alanları Boş Bırakılamaz!!");
             }
             
         }
 
         private void KullaniciGuncelle()
-        {
+        {            
             CheckFields();
             _uye = new Uye
             {
@@ -81,8 +81,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 kullanici_adi = UserSettingsInfos.kullaniciAdi,
                 kullanici_sifre = UserSettingsInfos.kullaniciSifre,
                 kullanici_mail = UserSettingsInfos.kullaniciMail,
-                tema_id = UserSettingsInfos.temaIndex,
-                rol_id = UserSettingsInfos.rolIndex,
+                tema_id = Convert.ToInt32(cbxTema.SelectedValue),
+                rol_id = Convert.ToInt32(cbxRol.SelectedValue),
                 sil_id = UserSettingsInfos.durumIndex,
                 guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")),
                 kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text)
@@ -309,7 +309,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 btnUyeDuzenle.Visible = true;
             }            
             
-        }
+        }     
         
         private void btnKaydet_Click(object sender, EventArgs e)
         {

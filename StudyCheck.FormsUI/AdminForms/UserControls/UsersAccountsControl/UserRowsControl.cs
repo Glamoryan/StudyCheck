@@ -26,8 +26,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private static EfRolDal _efRolDal = new EfRolDal();
 
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
+        static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        static RoleManager _roleManager = new RoleManager(_efRolDal);
 
         private static UserDetail detay = new UserDetail();
 
@@ -38,29 +38,23 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         }
 
         private void GetThemes()
-        {
-            _userSettingsControl.cbxTema.Items.Insert(0, "Seçiniz...");
-            List<Tema> temalar = _themeManager.GetActiveThemes();
-            for (int i = 0; i <= temalar.Count - 1; i++)
-            {
-                _userSettingsControl.cbxTema.Items.Insert(i + 1, temalar[i].tema_adi);
-            }
+        {                                 
+            _userSettingsControl.cbxTema.ValueMember = "id";
+            _userSettingsControl.cbxTema.DisplayMember = "tema_adi";
+            _userSettingsControl.cbxTema.DataSource = AccountsControl.temalar;            
         }
 
         private void GetRoles()
-        {
-            _userSettingsControl.cbxRol.Items.Insert(0, "Seçiniz...");
-            List<Rol> roller = _roleManager.GetActiveRoles();
-            for (int i = 0; i <= roller.Count-1; i++)
-            {
-                _userSettingsControl.cbxRol.Items.Insert(i + 1, roller[i].rol_adi);
-            }
-        }      
+        {                      
+            _userSettingsControl.cbxRol.ValueMember = "id";
+            _userSettingsControl.cbxRol.DisplayMember = "rol_adi";
+            _userSettingsControl.cbxRol.DataSource = AccountsControl.roller;            
+        }
 
         private void KullaniciAyarlariGetir()
-        {            
+        {
             var uyeDetay = _userManager.GetUserDetailById(Convert.ToInt32(lblUyeId.Text));
-            PageRoute.contentPanel.Controls.Clear();            
+            PageRoute.contentPanel.Controls.Clear();
             _userSettingsControl = new UserSettingsControl();
             GetThemes();
             GetRoles();
@@ -73,10 +67,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             _userSettingsControl.tbxUyeAdi.Text = uyeDetay.UyeAd;
             _userSettingsControl.tbxUyeSoyadi.Text = uyeDetay.UyeSoyad;
             _userSettingsControl.lblUyeDId.Text = uyeDetay.UyeDetayId.ToString();
-            _userSettingsControl.cbxDurum.SelectedIndex = uyeDetay.sil_id;           
+            _userSettingsControl.cbxDurum.SelectedIndex = uyeDetay.sil_id;
             _userSettingsControl.tbxGuncellemeTarihi.Text = uyeDetay.GuncellemeTarihi.ToString();
-            _userSettingsControl.cbxTema.SelectedIndex = uyeDetay.tema_id;
-            _userSettingsControl.cbxRol.SelectedIndex = uyeDetay.rol_id;
+            _userSettingsControl.cbxTema.SelectedValue = AccountsControl.temalar.Where(x => x.id == uyeDetay.tema_id).Single().id;
+            _userSettingsControl.cbxRol.SelectedValue = AccountsControl.roller.Where(x => x.id == uyeDetay.rol_id).Single().id;
             PageRoute.contentPanel.Controls.Add(_userSettingsControl);
         }
 

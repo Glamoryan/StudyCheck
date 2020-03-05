@@ -14,6 +14,7 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.Entites.Concrete;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -29,16 +30,31 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfThemeDal _efThemeDal = new EfThemeDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
 
         private static UserRowsControl _rowsControl;
         private static KullaniciEkleControl _ekleControl;
 
 
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
+        static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        static RoleManager _roleManager = new RoleManager(_efRolDal);
+
         private List<UserDetail> _uyeDetaylar; //Complex Type
 
+        public static List<Tema> temalar;
+        public static List<Rol> roller;
+
+        private void GetThemesAndRoles()
+        {            
+            temalar = _themeManager.GetActiveThemes();
+            roller = _roleManager.GetActiveRoles();
+        }
+
         private void GetUserDetails()
-        {           
+        {
+            GetThemesAndRoles();
             _uyeDetaylar = _userManager.GetAllUserDetails();            
             if (_uyeDetaylar.Count <= 0)
                 throw new NoDataException("Hiçbir Kayıt Bulunamadı");
@@ -68,25 +84,19 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     _rowsControl.lblGuncelleme.Text = detay.GuncellemeTarihi.ToString();
                     //Gizli Label UyeDetayId
                     _rowsControl.lblUyeDetayId.Text = detay.UyeDetayId.ToString();
-                    if (detay.rol_id != (int)RoleInfo.Roller.Admin)
-                    {
-                        if (detay.rol_id == (int)RoleInfo.Roller.Kullanıcı)
-                            _rowsControl.lblRol.Text = "Kullanıcı";
-                    }
-                    else
-                    {
-                        _rowsControl.lblRol.Text = "Admin";
+                    _rowsControl.lblRol.Text = roller.Where(x => x.id == detay.rol_id).Single().rol_adi;
+                    if (_rowsControl.lblRol.Text.Equals("admin"))
                         _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
-                    }
-                    if (detay.sil_id == 0)
+                    switch (detay.sil_id)
                     {
-                        _rowsControl.lblDurum.Text = "Pasif";
-                        _rowsControl.lblDurum.ForeColor = Color.Red;
-                    }
-                    else if (detay.sil_id == 1)
-                    {
-                        _rowsControl.lblDurum.Text = "Aktif";
-                        _rowsControl.lblDurum.ForeColor = Color.Green;
+                        case 0:
+                            _rowsControl.lblDurum.Text = "Pasif";
+                            _rowsControl.lblDurum.ForeColor = Color.Red;
+                            break;
+                        case 1:
+                            _rowsControl.lblDurum.Text = "Aktif";
+                            _rowsControl.lblDurum.ForeColor = Color.Green;
+                            break;
                     }
                     pnlUserContent.Controls.Add(_rowsControl);
                     i++;
@@ -100,6 +110,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             mainException = ExceptionHandling.HandleException(() => { GetUserDetails(); });
             if (mainException is NoDataException)
                 MessageBox.Show(mainException.Message,"Kullanıcı Bulunamadı",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            else if (mainException != null)
+                MessageBox.Show(mainException.Message,"Hatalı İşlem",MessageBoxButtons.OK,MessageBoxIcon.Error);
         }
 
         private void btnKullaniciEkle_Click(object sender, EventArgs e)
