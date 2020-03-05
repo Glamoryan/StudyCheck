@@ -16,6 +16,7 @@ using System.Data.SqlTypes;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
+using StudyCheck.Entites.ComplexTypes;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -28,12 +29,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private static Uye _uye;
         private static Uyedetay _uyedetay;
+        private static UserDetail detay = new UserDetail();
 
         private static Exception mainException;
 
         public UserSettingsControl()
         {           
-            InitializeComponent();            
+            InitializeComponent();
+            AccountsControl.deger = detay;
         }    
 
         private void CheckFields(GroupBox groupBox=null)
@@ -263,7 +266,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void btnIptal_Click(object sender, EventArgs e)
         {
             PageRoute.contentPanel.Controls.Clear();
-            PageRoute.contentPanel.Controls.Add(Pages.accountsControl);
+            PageRoute.contentPanel.Controls.Add(PageRoute.accountsControl);
         }
 
         private void btnHesapCancel_Click(object sender, EventArgs e)

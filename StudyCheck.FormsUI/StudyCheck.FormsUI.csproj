@@ -138,7 +138,6 @@
       <DependentUpon>StartLoadingScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Statikler\PageRoute.cs" />
-    <Compile Include="Statikler\Pages.cs" />
     <Compile Include="Statikler\UserSettingsInfos.cs" />
     <EmbeddedResource Include="AdminForms\frmAdminPanel.resx">
       <DependentUpon>frmAdminPanel.cs</DependentUpon>
