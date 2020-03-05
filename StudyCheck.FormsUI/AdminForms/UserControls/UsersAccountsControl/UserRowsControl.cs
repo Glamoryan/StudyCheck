@@ -40,7 +40,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void GetThemes()
         {
             _userSettingsControl.cbxTema.Items.Insert(0, "Seçiniz...");
-            List<Tema> temalar = _themeManager.GetAllThemes();
+            List<Tema> temalar = _themeManager.GetActiveThemes();
             for (int i = 0; i <= temalar.Count - 1; i++)
             {
                 _userSettingsControl.cbxTema.Items.Insert(i + 1, temalar[i].tema_adi);
@@ -50,7 +50,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private void GetRoles()
         {
             _userSettingsControl.cbxRol.Items.Insert(0, "Seçiniz...");
-            List<Rol> roller = _roleManager.GetAllRoles();
+            List<Rol> roller = _roleManager.GetActiveRoles();
             for (int i = 0; i <= roller.Count-1; i++)
             {
                 _userSettingsControl.cbxRol.Items.Insert(i + 1, roller[i].rol_adi);
