@@ -4,7 +4,7 @@
 
 - PostSharp Kurulumu
 
-| Version | Supported          |
+| Version | Required          |
 | ------- | ------------------ |
 | 4.2.17  | :white_check_mark: |
 
