@@ -23,7 +23,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfThemeDal _efThemeDal = new EfThemeDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
+
         private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
+        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
 
         private static Uye _uye;
         private static Uyedetay _uyedetay;
@@ -34,6 +39,22 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         public KullaniciEkleControl()
         {
             InitializeComponent();
+        }
+
+        private void SetRolesAndThemes()
+        {
+            cbxRol.Items.Insert(0, "Seçiniz...");
+            List<Rol> roller = _roleManager.GetActiveRoles();
+            for (int i = 0; i <= roller.Count - 1; i++)
+            {
+                cbxRol.Items.Insert(i + 1, roller[i].rol_adi);
+            }
+            cbxTema.Items.Insert(0, "Seçiniz...");
+            List<Tema> temalar = _themeManager.GetActiveThemes();
+            for (int i = 0; i <= temalar.Count-1; i++)
+            {
+                cbxTema.Items.Insert(i + 1, temalar[i].tema_adi);
+            }
         }
 
         private bool isUserAdd(Uyedetay uyedetay)
@@ -82,9 +103,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void KullaniciEkleControl_Load(object sender, EventArgs e)
         {
+            SetRolesAndThemes();
             cbxDurum.SelectedIndex = 1;
             cbxRol.SelectedIndex = 0;
-            cbxTema.SelectedIndex = 0;
+            cbxTema.SelectedIndex = 0;            
         }
 
         private void chbxSifreGoster_CheckedChanged(object sender, EventArgs e)

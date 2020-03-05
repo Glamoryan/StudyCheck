@@ -36,6 +36,7 @@
             this.tbxUyeSoyad = new System.Windows.Forms.TextBox();
             this.tbxUyeAdi = new System.Windows.Forms.TextBox();
             this.gbxHesap = new System.Windows.Forms.GroupBox();
+            this.chbxSifreGoster = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.cbxRol = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
@@ -50,7 +51,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.chbxSifreGoster = new System.Windows.Forms.CheckBox();
             this.gbxUye.SuspendLayout();
             this.gbxHesap.SuspendLayout();
             this.SuspendLayout();
@@ -166,6 +166,18 @@
             this.gbxHesap.TabStop = false;
             this.gbxHesap.Text = "Hesap Bilgileri";
             // 
+            // chbxSifreGoster
+            // 
+            this.chbxSifreGoster.Image = global::StudyCheck.FormsUI.Properties.Resources.eye_16px;
+            this.chbxSifreGoster.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.chbxSifreGoster.Location = new System.Drawing.Point(303, 115);
+            this.chbxSifreGoster.Name = "chbxSifreGoster";
+            this.chbxSifreGoster.Size = new System.Drawing.Size(42, 19);
+            this.chbxSifreGoster.TabIndex = 10;
+            this.chbxSifreGoster.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
+            this.chbxSifreGoster.UseVisualStyleBackColor = true;
+            this.chbxSifreGoster.CheckedChanged += new System.EventHandler(this.chbxSifreGoster_CheckedChanged);
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -183,10 +195,6 @@
             this.cbxRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Items.AddRange(new object[] {
-            "Seçiniz...",
-            "Admin",
-            "Kullanıcı"});
             this.cbxRol.Location = new System.Drawing.Point(492, 170);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(121, 27);
@@ -209,10 +217,6 @@
             this.cbxTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxTema.FormattingEnabled = true;
-            this.cbxTema.Items.AddRange(new object[] {
-            "Seçiniz...",
-            "Default",
-            "Dark"});
             this.cbxTema.Location = new System.Drawing.Point(492, 113);
             this.cbxTema.Name = "cbxTema";
             this.cbxTema.Size = new System.Drawing.Size(121, 27);
@@ -322,18 +326,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1011, 2);
             this.panel1.TabIndex = 13;
-            // 
-            // chbxSifreGoster
-            // 
-            this.chbxSifreGoster.Image = global::StudyCheck.FormsUI.Properties.Resources.eye_16px;
-            this.chbxSifreGoster.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.chbxSifreGoster.Location = new System.Drawing.Point(303, 115);
-            this.chbxSifreGoster.Name = "chbxSifreGoster";
-            this.chbxSifreGoster.Size = new System.Drawing.Size(42, 19);
-            this.chbxSifreGoster.TabIndex = 10;
-            this.chbxSifreGoster.TextImageRelation = System.Windows.Forms.TextImageRelation.TextAboveImage;
-            this.chbxSifreGoster.UseVisualStyleBackColor = true;
-            this.chbxSifreGoster.CheckedChanged += new System.EventHandler(this.chbxSifreGoster_CheckedChanged);
             // 
             // KullaniciEkleControl
             // 
