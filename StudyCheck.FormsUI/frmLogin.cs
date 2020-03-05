@@ -153,7 +153,7 @@ namespace StudyCheck.FormsUI
             }
             else
             {
-                MessageBox.Show("Hatalı bilgiler!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                throw new InvalidAccountException("Kullanıcı Adı veya Şifre Hatalı");
             }
 
         }
@@ -185,20 +185,18 @@ namespace StudyCheck.FormsUI
         {
             if (CheckFields())
             {
-                mainException = ExceptionHandling.HandleException(() => DoLogin());
+                doLoadingAnimation(Properties.Resources._494);
+                await Task.Run(()=>mainException = ExceptionHandling.HandleException(() => DoLogin()));
+                pcbLoading.Visible = false;
+                pcbLoading.SendToBack();
                 if (mainException is ValidationException)
-                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mainException.Message, "Geçersiz Değerler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (mainException is InvalidAccountException)
+                    MessageBox.Show(mainException.Message, "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException is AccountInactiveException)
-                    MessageBox.Show(mainException.Message, "Hesap Aktif Değil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mainException.Message, "Hesap Aktif Değil", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 else if (mainException != null)
-                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                else
-                {
-                    doLoadingAnimation(Properties.Resources._494);
-                    await Task.Run(() => DoLogin());
-                    pcbLoading.Visible = false;
-                    pcbLoading.SendToBack();
-                }                
+                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);                               
             }            
         }
 
