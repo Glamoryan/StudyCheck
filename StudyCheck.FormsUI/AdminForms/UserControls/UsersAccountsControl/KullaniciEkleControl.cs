@@ -11,9 +11,9 @@ using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.Concrete;
-using System.ComponentModel.DataAnnotations;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using FluentValidation;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -43,18 +43,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void SetRolesAndThemes()
         {
-            cbxRol.Items.Insert(0, "Seçiniz...");
-            List<Rol> roller = _roleManager.GetActiveRoles();
-            for (int i = 0; i <= roller.Count - 1; i++)
-            {
-                cbxRol.Items.Insert(i + 1, roller[i].rol_adi);
-            }
-            cbxTema.Items.Insert(0, "Seçiniz...");
-            List<Tema> temalar = _themeManager.GetActiveThemes();
-            for (int i = 0; i <= temalar.Count-1; i++)
-            {
-                cbxTema.Items.Insert(i + 1, temalar[i].tema_adi);
-            }
+            cbxTema.ValueMember = "id";
+            cbxTema.DisplayMember = "tema_adi";
+            cbxTema.DataSource = AccountsControl.temalar;
+            cbxRol.ValueMember = "id";
+            cbxRol.DisplayMember = "rol_adi";
+            cbxRol.DataSource = AccountsControl.roller;
         }
 
         private bool isUserAdd(Uyedetay uyedetay)
@@ -74,7 +68,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 throw new RequiredFieldsException("Üye Bilgilerinde Boş Alan Bırakılamaz!");
             else if (tbxKullaniciAd.Text.Equals(string.Empty) || tbxKullaniciSifre.Text.Equals(string.Empty) || tbxKullaniciMail.Text.Equals(string.Empty))
                 throw new RequiredFieldsException("Hesap Bilgilerinde Boş Alan Bırakılamaz!");     
-            else if (cbxRol.SelectedIndex == 0 || cbxTema.SelectedIndex == 0)
+            else if (cbxRol.SelectedIndex == -1 || cbxTema.SelectedIndex == -1)
                 throw new RequiredFieldsException("Hesap Bilgilerinde Tema ve Rol Seçilmelidir!");
         }
 
@@ -95,9 +89,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 kullanici_mail = tbxKullaniciMail.Text,
                 kayit_tarihi = DateTime.Now,
                 guncelleme_tarihi = DateTime.Now,
-                rol_id = cbxRol.SelectedIndex,
+                rol_id = Convert.ToInt32(cbxRol.SelectedValue),
                 sil_id = cbxDurum.SelectedIndex,
-                tema_id = cbxTema.SelectedIndex                
+                tema_id = Convert.ToInt32(cbxTema.SelectedValue)
             };            
         }
 
@@ -148,10 +142,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _userManager.DeleteUser(_uye);
             }
-            else if(mainException != null)
-            {
-                MessageBox.Show(mainException.Message,"Hatalı İşlem",MessageBoxButtons.OK,MessageBoxIcon.Error);                
-            }     
+            else if (mainException is ValidationException)
+                MessageBox.Show(mainException.Message, "Doğrulama Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (mainException != null)
+                MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)
             {
                 PageRoute.contentPanel.Controls.Clear();

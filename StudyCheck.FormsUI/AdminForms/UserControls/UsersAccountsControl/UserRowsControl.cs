@@ -36,6 +36,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             InitializeComponent();
             AccountsControl.deger = detay;
         }
+  
 
         private void GetThemes()
         {                                 
@@ -51,7 +52,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             _userSettingsControl.cbxRol.DataSource = AccountsControl.roller;            
         }
 
-        private void KullaniciAyarlariGetir()
+        private void KullaniciAyarlarinaGit()
         {
             var uyeDetay = _userManager.GetUserDetailById(Convert.ToInt32(lblUyeId.Text));
             PageRoute.contentPanel.Controls.Clear();
@@ -76,7 +77,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void btnDuzenle_Click(object sender, EventArgs e)
         {
-            KullaniciAyarlariGetir();
+            KullaniciAyarlarinaGit();
         }
     }
 }

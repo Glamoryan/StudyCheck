@@ -337,6 +337,11 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 else if (mainException == null)
                 {                    
                     MessageBox.Show("Kullanıcı Başarıyla Güncellendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PageRoute.contentPanel.Controls.Clear();
+                    PageRoute.accountsControl = new AccountsControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.contentPanel.Controls.Add(PageRoute.accountsControl);
                 }
             }
                 
