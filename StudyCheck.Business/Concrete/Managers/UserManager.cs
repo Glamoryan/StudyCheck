@@ -57,7 +57,7 @@ namespace StudyCheck.Business.Concrete.Managers
         }
         
         /// <summary>
-        /// Üye id 'sine göre
+        /// Üye id 'sine göre ComplexType
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>

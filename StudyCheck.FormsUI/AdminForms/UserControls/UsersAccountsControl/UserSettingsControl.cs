@@ -23,6 +23,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
     {
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        
         private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
 
         private static Uye _uye;
@@ -34,7 +35,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         {           
             InitializeComponent();            
         }    
-        
+
         private void CheckFields(GroupBox groupBox=null)
         {            
             if (groupBox!=null&&groupBox.Name.Equals("gbxUye"))

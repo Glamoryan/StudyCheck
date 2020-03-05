@@ -230,10 +230,6 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.cbxRol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Items.AddRange(new object[] {
-            "Seçiniz...",
-            "Admin",
-            "Kullanıcı"});
             this.cbxRol.Location = new System.Drawing.Point(501, 189);
             this.cbxRol.Name = "cbxRol";
             this.cbxRol.Size = new System.Drawing.Size(121, 27);
@@ -245,10 +241,6 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.cbxTema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbxTema.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.cbxTema.FormattingEnabled = true;
-            this.cbxTema.Items.AddRange(new object[] {
-            "Seçiniz...",
-            "Default",
-            "Dark"});
             this.cbxTema.Location = new System.Drawing.Point(501, 122);
             this.cbxTema.Name = "cbxTema";
             this.cbxTema.Size = new System.Drawing.Size(121, 27);

@@ -23,7 +23,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         public AccountsControl()
         {
             InitializeComponent();
-        }
+        }        
+
+        public static UserDetail deger = null;
+
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
 
@@ -35,7 +38,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private List<UserDetail> _uyeDetaylar; //Complex Type
 
         private void GetUserDetails()
-        {                        
+        {           
             _uyeDetaylar = _userManager.GetAllUserDetails();            
             if (_uyeDetaylar.Count <= 0)
                 throw new NoDataException("Hiçbir Kayıt Bulunamadı");
@@ -44,7 +47,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             {
                 int i = 0;
                 foreach (var detay in _uyeDetaylar)
-                {
+                {                    
                     _rowsControl = new UserRowsControl();
                     _rowsControl.Top = (i * 40);
                     pnlUserContent.Controls.Add(_rowsControl);
@@ -87,6 +90,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     }
                     pnlUserContent.Controls.Add(_rowsControl);
                     i++;
+                    deger = detay;
                 }
             }
         }

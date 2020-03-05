@@ -12,40 +12,71 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.Concrete;
+using StudyCheck.Entites.ComplexTypes;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class UserRowsControl : UserControl
     {
         private static UserSettingsControl _userSettingsControl;
-        
 
-        
+        private static EfUserDal _efUserDal = new EfUserDal();
+        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfThemeDal _efThemeDal = new EfThemeDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
+
+        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
+        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
+
+        private static UserDetail detay = new UserDetail();
 
         public UserRowsControl()
         {
             InitializeComponent();
+            AccountsControl.deger = detay;
         }
+
+        private void GetThemes()
+        {
+            _userSettingsControl.cbxTema.Items.Insert(0, "Seçiniz...");
+            List<Tema> temalar = _themeManager.GetAllThemes();
+            for (int i = 0; i <= temalar.Count - 1; i++)
+            {
+                _userSettingsControl.cbxTema.Items.Insert(i + 1, temalar[i].tema_adi);
+            }
+        }
+
+        private void GetRoles()
+        {
+            _userSettingsControl.cbxRol.Items.Insert(0, "Seçiniz...");
+            List<Rol> roller = _roleManager.GetAllRoles();
+            for (int i = 0; i <= roller.Count-1; i++)
+            {
+                _userSettingsControl.cbxRol.Items.Insert(i + 1, roller[i].rol_adi);
+            }
+        }      
+
         private void KullaniciAyarlariGetir()
         {            
-            PageRoute.contentPanel.Controls.Clear();
+            var uyeDetay = _userManager.GetUserDetailById(Convert.ToInt32(lblUyeId.Text));
+            PageRoute.contentPanel.Controls.Clear();            
             _userSettingsControl = new UserSettingsControl();
-            _userSettingsControl.lblKullaniciAdi.Text = lblKullAd.Text;
-            _userSettingsControl.tbxKullaniciAdi.Text = lblKullAd.Text;
-            _userSettingsControl.tbxKullaniciSifre.Text = lblKullaniciSifre.Text;
-            _userSettingsControl.tbxKullaniciMail.Text = lblEmail.Text;
-            _userSettingsControl.tbxKayitTarihi.Text = lblKayitTarih.Text;
-            _userSettingsControl.tbxUyeId.Text = lblUyeId.Text;
-            _userSettingsControl.tbxUyeAdi.Text = lblUyeAd.Text;
-            _userSettingsControl.tbxUyeSoyadi.Text = lblUyeSoyad.Text;
-            _userSettingsControl.lblUyeDId.Text = lblUyeDetayId.Text;
-            if (lblDurum.Text.Equals(UserInfos.Durumlar.Aktif.ToString()))
-                _userSettingsControl.cbxDurum.SelectedIndex = 1;
-            else if (lblDurum.Text.Equals(UserInfos.Durumlar.Pasif.ToString()))
-                _userSettingsControl.cbxDurum.SelectedIndex = 0;            
-            _userSettingsControl.tbxGuncellemeTarihi.Text = lblGuncelleme.Text;
-            _userSettingsControl.cbxTema.SelectedIndex = lblTema.Text.Equals(UserInfos.Temalar.Default.ToString()) ? 1 : 2;
-            _userSettingsControl.cbxRol.SelectedIndex = lblRol.Text.Equals(RoleInfo.Roller.Admin.ToString()) ? 1 : 2;
+            GetThemes();
+            GetRoles();
+            _userSettingsControl.lblKullaniciAdi.Text = uyeDetay.KullaniciAdi; //Hangi kullanıcı için yapılan ayarları belirten label
+            _userSettingsControl.tbxKullaniciAdi.Text = uyeDetay.KullaniciAdi;
+            _userSettingsControl.tbxKullaniciSifre.Text = uyeDetay.KullaniciSifre;
+            _userSettingsControl.tbxKullaniciMail.Text = uyeDetay.KullaniciMail;
+            _userSettingsControl.tbxKayitTarihi.Text = uyeDetay.KayitTarihi.ToString();
+            _userSettingsControl.tbxUyeId.Text = uyeDetay.UyeId.ToString();
+            _userSettingsControl.tbxUyeAdi.Text = uyeDetay.UyeAd;
+            _userSettingsControl.tbxUyeSoyadi.Text = uyeDetay.UyeSoyad;
+            _userSettingsControl.lblUyeDId.Text = uyeDetay.UyeDetayId.ToString();
+            _userSettingsControl.cbxDurum.SelectedIndex = uyeDetay.sil_id;           
+            _userSettingsControl.tbxGuncellemeTarihi.Text = uyeDetay.GuncellemeTarihi.ToString();
+            _userSettingsControl.cbxTema.SelectedIndex = uyeDetay.tema_id;
+            _userSettingsControl.cbxRol.SelectedIndex = uyeDetay.rol_id;
             PageRoute.contentPanel.Controls.Add(_userSettingsControl);
         }
 
