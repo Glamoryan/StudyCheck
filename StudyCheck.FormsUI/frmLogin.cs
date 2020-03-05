@@ -20,7 +20,9 @@ using StudyCheck.FormsUI.AdminForms;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Utilities;
 using StudyCheck.FormsUI.SplashForms;
-
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.FormsUI.ExceptionManage;
+using FluentValidation;
 
 namespace StudyCheck.FormsUI
 {
@@ -46,6 +48,8 @@ namespace StudyCheck.FormsUI
         private static frmAdminPanel _adminForm;
 
         private static PictureBox pcbLoading;
+
+        private static Exception mainException;
 
         public frmLogin()
         {
@@ -116,43 +120,40 @@ namespace StudyCheck.FormsUI
         {
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
-            if (CheckFields())
+            var user = _userManager.GetByUsernamePassword(username, password);
+            if (user != null)
             {
-                var user = _userManager.GetByUsernamePassword(username, password);
-                if (user != null)
+                LoginInfo.Id = user.id;
+                LoginInfo.UyeId = user.uye_id;
+                LoginInfo.KullaniciAdi = user.kullanici_adi;
+                LoginInfo.Sifre = user.kullanici_sifre;
+                LoginInfo.Mail = user.kullanici_mail;
+                LoginInfo.SilId = user.sil_id;
+                LoginInfo.TemaId = user.tema_id;
+                LoginInfo.RolId = user.rol_id;
+                if (LoginInfo.SilId == 0)
                 {
-                    LoginInfo.Id = user.id;
-                    LoginInfo.UyeId = user.uye_id;
-                    LoginInfo.KullaniciAdi = user.kullanici_adi;
-                    LoginInfo.Sifre = user.kullanici_sifre;
-                    LoginInfo.Mail = user.kullanici_mail;
-                    LoginInfo.SilId = user.sil_id;
-                    LoginInfo.TemaId = user.tema_id;
-                    LoginInfo.RolId = user.rol_id;
-                    if(LoginInfo.SilId == 0)
-                    {
-                        MessageBox.Show("Hesabınız pasif durumdadır! Admin ile iletişime geçin!", "Hesap Pasif", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    else
-                    {
-                        if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
-                        {
-                            if (this.InvokeRequired)
-                            {
-                                CallAdminFormDelegate del = new CallAdminFormDelegate(CallAdminForm);
-                                Invoke(del, new object[] { });
-                            }
-                        }
-                        else
-                        {
-                            MessageBox.Show("Giriş Başarılı!");
-                        }
-                    }                    
+                    throw new AccountInactiveException("Hesabınız pasif durumdadır! Admin ile iletişime geçin!");
                 }
                 else
                 {
-                    MessageBox.Show("Hatalı bilgiler!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
+                    {
+                        if (this.InvokeRequired)
+                        {
+                            CallAdminFormDelegate del = new CallAdminFormDelegate(CallAdminForm);
+                            Invoke(del, new object[] { });
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Giriş Başarılı!");
+                    }
                 }
+            }
+            else
+            {
+                MessageBox.Show("Hatalı bilgiler!", "Giriş Başarısız", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
 
         }
@@ -182,10 +183,23 @@ namespace StudyCheck.FormsUI
 
         private async void btnLogin_Click(object sender, EventArgs e)
         {
-            doLoadingAnimation(Properties.Resources._494);
-            await Task.Run(() => DoLogin());
-            pcbLoading.Visible = false;
-            pcbLoading.SendToBack();
+            if (CheckFields())
+            {
+                mainException = ExceptionHandling.HandleException(() => DoLogin());
+                if (mainException is ValidationException)
+                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (mainException is AccountInactiveException)
+                    MessageBox.Show(mainException.Message, "Hesap Aktif Değil", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (mainException != null)
+                    MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                {
+                    doLoadingAnimation(Properties.Resources._494);
+                    await Task.Run(() => DoLogin());
+                    pcbLoading.Visible = false;
+                    pcbLoading.SendToBack();
+                }                
+            }            
         }
 
         private void frmLogin_Load(object sender, EventArgs e)
