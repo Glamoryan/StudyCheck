@@ -105,6 +105,7 @@
             // btnEkle
             // 
             this.btnEkle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnEkle.FlatAppearance.BorderSize = 0;
             this.btnEkle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnEkle.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -115,10 +116,12 @@
             this.btnEkle.TabIndex = 13;
             this.btnEkle.Text = "Hesap Oluştur";
             this.btnEkle.UseVisualStyleBackColor = false;
+            this.btnEkle.Click += new System.EventHandler(this.btnEkle_Click);
             // 
             // btnIptal
             // 
             this.btnIptal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.btnIptal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnIptal.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.btnIptal.FlatAppearance.BorderSize = 2;
             this.btnIptal.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -298,6 +301,7 @@
             this.Name = "frmRegister";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmRegister";
+            this.Load += new System.EventHandler(this.frmRegister_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).EndInit();
             this.ResumeLayout(false);

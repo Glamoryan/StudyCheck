@@ -141,13 +141,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             {
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 _userManager.DeleteUser(_uye);
-            }
+            }                
             else if (mainException is ValidationException)
                 MessageBox.Show(mainException.Message, "Doğrulama Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)
             {
+                MessageBox.Show("Kullanıcı Başarıyla Eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 PageRoute.contentPanel.Controls.Clear();
                 PageRoute.accountsControl = new AccountsControl();
                 GC.Collect();
