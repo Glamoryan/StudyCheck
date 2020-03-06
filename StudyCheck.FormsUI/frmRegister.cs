@@ -34,14 +34,12 @@ namespace StudyCheck.FormsUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        //----------------------------------------------
-
-        private static EfThemeDal _efThemeDal = new EfThemeDal();
+        //----------------------------------------------        
+        
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
 
-        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
-        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);        
 
         private static Exception mainException;
 
@@ -51,13 +49,7 @@ namespace StudyCheck.FormsUI
             InitializeComponent();
         }
 
-        private void SetThemes()
-        {
-            List<Tema> temalar = _themeManager.GetActiveThemes();
-            cbxTema.ValueMember = "id";
-            cbxTema.DisplayMember = "tema_adi";
-            cbxTema.DataSource = temalar;
-        }
+       
 
         private void CheckFields()
         {
@@ -141,12 +133,13 @@ namespace StudyCheck.FormsUI
 
         private void frmRegister_Load(object sender, EventArgs e)
         {
-            SetThemes();
+            
         }
+        
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
-            mainException = ExceptionHandling.HandleException(() => doRegister());
+            mainException = ExceptionHandling.HandleException(() => doRegister());            
             if (!(mainException is RequiredFieldsException) && mainException != null)
             {
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);

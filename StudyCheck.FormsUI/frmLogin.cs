@@ -43,7 +43,10 @@ namespace StudyCheck.FormsUI
         //----------------------------------------------
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfThemeDal _efThemeDal = new EfThemeDal();
+
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
+        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
 
         private static frmAdminPanel _adminForm;
         private static frmRegister _frmRegister;
@@ -61,8 +64,7 @@ namespace StudyCheck.FormsUI
         private void pcbCikisButon_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
-
+        }   
 
         private void pcbCikisButon_MouseEnter(object sender, EventArgs e)
         {
@@ -109,15 +111,7 @@ namespace StudyCheck.FormsUI
 
         }
 
-        private void CallRegisterForm()
-        {
-            this.Hide();
-            _frmRegister = new frmRegister();
-            _frmRegister.FormClosed += (s, args) => this.Close();
-            _frmRegister.Show();
-        }
-        delegate void CallRegisterFormDelegate();
-
+        
         private void CallAdminForm()
         {
             this.Hide();
@@ -195,7 +189,7 @@ namespace StudyCheck.FormsUI
             if (CheckFields())
             {
                 doLoadingAnimation(Properties.Resources._494);
-                await Task.Run(()=>mainException = ExceptionHandling.HandleException(() => DoLogin()));
+                await Task.Run(()=>mainException = ExceptionHandling.HandleException(() => DoLogin())); 
                 pcbLoading.Visible = false;
                 pcbLoading.SendToBack();
                 if (mainException is ValidationException)
@@ -215,10 +209,34 @@ namespace StudyCheck.FormsUI
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
 
-        private void btnRegister_Click(object sender, EventArgs e)
+        private void CallRegisterForm()
+        {                        
+            this.Hide();                  
+            _frmRegister.FormClosed += (s, args) => this.Close();
+            _frmRegister.Show();
+        }
+        delegate void CallRegisterFormDelegate();
+        private void GetRegisterForm()
         {
-            CallRegisterFormDelegate del = new CallRegisterFormDelegate(CallRegisterForm);
-            Invoke(del, new object[] { });
+            List<Tema> temalar = _themeManager.GetActiveThemes();
+            _frmRegister = new frmRegister();
+            _frmRegister.cbxTema.ValueMember = "id";
+            _frmRegister.cbxTema.DisplayMember = "tema_adi";
+            _frmRegister.cbxTema.DataSource = temalar;
+            if (this.InvokeRequired)
+            {
+                CallRegisterFormDelegate del = new CallRegisterFormDelegate(CallRegisterForm);
+                Invoke(del, new object[] { });
+            }
+        }
+
+        private async void btnRegister_Click(object sender, EventArgs e)
+        {
+            doLoadingAnimation(Properties.Resources._494);
+            await Task.Run(() => GetRegisterForm());
+            pcbLoading.Visible = false;
+            pcbLoading.SendToBack();
+                        
         }
     }
 }

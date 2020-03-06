@@ -317,17 +317,17 @@
         private System.Windows.Forms.Panel DragDropPanel;
         private System.Windows.Forms.Button btnEkle;
         private System.Windows.Forms.Button btnIptal;
-        private System.Windows.Forms.ComboBox cbxTema;
-        private System.Windows.Forms.TextBox tbxSifre;
-        private System.Windows.Forms.TextBox tbxMail;
-        private System.Windows.Forms.TextBox tbxKullanici;
-        private System.Windows.Forms.TextBox tbxAd;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbxSoyad;
         private System.Windows.Forms.Label label2;
+        public System.Windows.Forms.ComboBox cbxTema;
+        public System.Windows.Forms.TextBox tbxSifre;
+        public System.Windows.Forms.TextBox tbxMail;
+        public System.Windows.Forms.TextBox tbxKullanici;
+        public System.Windows.Forms.TextBox tbxAd;
+        public System.Windows.Forms.TextBox tbxSoyad;
     }
 }
