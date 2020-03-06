@@ -54,12 +54,10 @@ namespace StudyCheck.FormsUI
 
         private static PictureBox pcbLoading;
 
-        private static Exception mainException;
-
-        CallRegisterFormDelegate _del;
+        private static Exception mainException;                
 
         public frmLogin()
-        {
+        {            
             InitializeComponent();
         }
 
@@ -223,29 +221,15 @@ namespace StudyCheck.FormsUI
         private void GetRegisterForm()
         {
             List<Tema> temalar = _themeManager.GetActiveThemes();
-            if (FormRoute.registerForm == null)
+            _frmRegister = new frmRegister();
+            _frmRegister.cbxTema.ValueMember = "id";
+            _frmRegister.cbxTema.DisplayMember = "tema_adi";
+            _frmRegister.cbxTema.DataSource = temalar;
+            if (this.InvokeRequired)
             {
-                _frmRegister = new frmRegister();
-                _frmRegister.cbxTema.ValueMember = "id";
-                _frmRegister.cbxTema.DisplayMember = "tema_adi";
-                _frmRegister.cbxTema.DataSource = temalar;
-                if (this.InvokeRequired)
-                {
-                    _del = new CallRegisterFormDelegate(CallRegisterForm);
-                    Invoke(_del, new object[] { });
-                }
+                CallRegisterFormDelegate del= new CallRegisterFormDelegate(CallRegisterForm);
+                Invoke(del, new object[] { });
             }
-            else if (FormRoute.registerForm != null)
-            {
-                FormRoute.registerForm.cbxTema.ValueMember = "id";
-                FormRoute.registerForm.cbxTema.DisplayMember = "tema_adi";
-                FormRoute.registerForm.cbxTema.DataSource = temalar;
-                if (this.InvokeRequired)
-                {                    
-                    Invoke(_del, new object[] { });
-                }
-            }
-            
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)
@@ -255,6 +239,6 @@ namespace StudyCheck.FormsUI
             pcbLoading.Visible = false;
             pcbLoading.SendToBack();
                         
-        }
+        }       
     }
 }

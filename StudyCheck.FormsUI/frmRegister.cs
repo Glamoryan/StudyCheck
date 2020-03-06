@@ -44,6 +44,8 @@ namespace StudyCheck.FormsUI
 
         private static Exception mainException;
 
+        private static frmLogin _loginForm;
+
         private static Uye _uye;
         public frmRegister()
         {
@@ -137,12 +139,7 @@ namespace StudyCheck.FormsUI
             FormRoute.registerForm = this;
         }
         
-        private void ReturnLoginForm()
-        {
-            this.Hide();
-            FormRoute.loginForm.FormClosed += (s, args) => this.Close();
-            FormRoute.loginForm.Show();            
-        }
+     
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
@@ -162,15 +159,17 @@ namespace StudyCheck.FormsUI
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)
             {
-                MessageBox.Show("Kullanıcı Başarıyla Eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ReturnLoginForm();
+                MessageBox.Show("Kullanıcı Başarıyla Eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);                
             }
                 
         }
 
         private void btnIptal_Click(object sender, EventArgs e)
         {
-            ReturnLoginForm();
+            this.Hide();
+            _loginForm = new frmLogin();
+            _loginForm.FormClosed += (s, args) => this.Close();
+            _loginForm.Show();
         }
     }
 }
