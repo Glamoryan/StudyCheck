@@ -23,6 +23,7 @@ using StudyCheck.FormsUI.SplashForms;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI
 {
@@ -54,6 +55,8 @@ namespace StudyCheck.FormsUI
         private static PictureBox pcbLoading;
 
         private static Exception mainException;
+
+        CallRegisterFormDelegate _del;
 
         public frmLogin()
         {
@@ -207,6 +210,7 @@ namespace StudyCheck.FormsUI
         {
             //CheckForIllegalCrossThreadCalls = false; ----------- Thread Çakışmalarına izin ver
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
+            FormRoute.loginForm = this;
         }
 
         private void CallRegisterForm()
@@ -219,15 +223,29 @@ namespace StudyCheck.FormsUI
         private void GetRegisterForm()
         {
             List<Tema> temalar = _themeManager.GetActiveThemes();
-            _frmRegister = new frmRegister();
-            _frmRegister.cbxTema.ValueMember = "id";
-            _frmRegister.cbxTema.DisplayMember = "tema_adi";
-            _frmRegister.cbxTema.DataSource = temalar;
-            if (this.InvokeRequired)
+            if (FormRoute.registerForm == null)
             {
-                CallRegisterFormDelegate del = new CallRegisterFormDelegate(CallRegisterForm);
-                Invoke(del, new object[] { });
+                _frmRegister = new frmRegister();
+                _frmRegister.cbxTema.ValueMember = "id";
+                _frmRegister.cbxTema.DisplayMember = "tema_adi";
+                _frmRegister.cbxTema.DataSource = temalar;
+                if (this.InvokeRequired)
+                {
+                    _del = new CallRegisterFormDelegate(CallRegisterForm);
+                    Invoke(_del, new object[] { });
+                }
             }
+            else if (FormRoute.registerForm != null)
+            {
+                FormRoute.registerForm.cbxTema.ValueMember = "id";
+                FormRoute.registerForm.cbxTema.DisplayMember = "tema_adi";
+                FormRoute.registerForm.cbxTema.DataSource = temalar;
+                if (this.InvokeRequired)
+                {                    
+                    Invoke(_del, new object[] { });
+                }
+            }
+            
         }
 
         private async void btnRegister_Click(object sender, EventArgs e)

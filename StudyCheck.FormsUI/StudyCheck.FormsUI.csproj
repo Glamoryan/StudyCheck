@@ -145,6 +145,7 @@
     <Compile Include="SplashForms\StartLoadingScreen.Designer.cs">
       <DependentUpon>StartLoadingScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statikler\FormRoute.cs" />
     <Compile Include="Statikler\PageRoute.cs" />
     <Compile Include="Statikler\UserSettingsInfos.cs" />
     <EmbeddedResource Include="AdminForms\frmAdminPanel.resx">

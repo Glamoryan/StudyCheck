@@ -6,6 +6,7 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Utilities;
 using System;
 using System.Collections.Generic;
@@ -133,9 +134,15 @@ namespace StudyCheck.FormsUI
 
         private void frmRegister_Load(object sender, EventArgs e)
         {
-            
+            FormRoute.registerForm = this;
         }
         
+        private void ReturnLoginForm()
+        {
+            this.Hide();
+            FormRoute.loginForm.FormClosed += (s, args) => this.Close();
+            FormRoute.loginForm.Show();            
+        }
 
         private void btnEkle_Click(object sender, EventArgs e)
         {
@@ -154,7 +161,16 @@ namespace StudyCheck.FormsUI
             else if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)
+            {
                 MessageBox.Show("Kullanıcı Başarıyla Eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ReturnLoginForm();
+            }
+                
+        }
+
+        private void btnIptal_Click(object sender, EventArgs e)
+        {
+            ReturnLoginForm();
         }
     }
 }

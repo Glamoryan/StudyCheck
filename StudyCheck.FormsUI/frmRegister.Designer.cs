@@ -133,6 +133,7 @@
             this.btnIptal.TabIndex = 13;
             this.btnIptal.Text = "İptal";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // cbxTema
             // 
