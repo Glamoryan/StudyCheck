@@ -4,6 +4,7 @@ using StudyCheck.Core.Entities;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Utilities;
@@ -38,6 +39,8 @@ namespace StudyCheck.FormsUI.AdminForms
 
         private static DashboardControl _dashboardControl;
         private static AccountsControl _accountsControl;
+        private static RoleControl _roleControl;
+
         private static frmLogin _loginForm;
 
 
@@ -73,6 +76,34 @@ namespace StudyCheck.FormsUI.AdminForms
                     pnlContent.Controls.Add(_accountsControl);
                 }
             }            
+        }
+        [CacheAspect(typeof(MemoryCacheManager))]
+        private void SetRoleControl()
+        {
+            if(_roleControl == null)
+            {
+                _roleControl = new RoleControl();
+                PageRoute.roleControl = _roleControl;
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_roleControl);
+            }
+            else
+            {
+                if (!pnlContent.Controls.ContainsKey("RoleControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_roleControl);
+                }
+                else if (pnlContent.Controls.ContainsKey("RoleControl"))
+                {
+                    _roleControl = new RoleControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.roleControl = _roleControl;
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_roleControl);
+                }
+            }
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
@@ -214,6 +245,7 @@ namespace StudyCheck.FormsUI.AdminForms
         private void btnRoller_Click(object sender, EventArgs e)
         {
             WhichTab(rolPanel);
+            SetRoleControl();
         }
     }
 }

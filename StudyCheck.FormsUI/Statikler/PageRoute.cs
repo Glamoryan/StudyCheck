@@ -1,4 +1,5 @@
 ﻿using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
 using System;
 using System.Collections.Generic;
@@ -14,5 +15,6 @@ namespace StudyCheck.FormsUI.Statikler
         public static Panel contentPanel { get; set; }
         public static AccountsControl accountsControl { get; set; }
         public static DashboardControl dashboardControl { get; set; }
+        public static RoleControl roleControl { get; set; }
     }
 }
