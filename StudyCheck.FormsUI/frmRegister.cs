@@ -159,17 +159,22 @@ namespace StudyCheck.FormsUI
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)
             {
-                MessageBox.Show("Kullanıcı Başarıyla Eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);                
-            }
-                
+                MessageBox.Show("Kullanıcı Başarıyla Eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ReturnToLogin();
+            }                
         }
 
-        private void btnIptal_Click(object sender, EventArgs e)
+        private void ReturnToLogin()
         {
             this.Hide();
             _loginForm = new frmLogin();
             _loginForm.FormClosed += (s, args) => this.Close();
             _loginForm.Show();
+        }
+
+        private void btnIptal_Click(object sender, EventArgs e)
+        {
+            ReturnToLogin();
         }
     }
 }
