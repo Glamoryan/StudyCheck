@@ -46,6 +46,7 @@ namespace StudyCheck.FormsUI
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
 
         private static frmAdminPanel _adminForm;
+        private static frmRegister _frmRegister;
 
         private static PictureBox pcbLoading;
 
@@ -107,6 +108,15 @@ namespace StudyCheck.FormsUI
             return true;
 
         }
+
+        private void CallRegisterForm()
+        {
+            this.Hide();
+            _frmRegister = new frmRegister();
+            _frmRegister.FormClosed += (s, args) => this.Close();
+            _frmRegister.Show();
+        }
+        delegate void CallRegisterFormDelegate();
 
         private void CallAdminForm()
         {
@@ -177,7 +187,6 @@ namespace StudyCheck.FormsUI
                 pcbLoading.BringToFront();
                 pcbLoading.Visible = true;
             }
-
         }
 
 
@@ -206,5 +215,10 @@ namespace StudyCheck.FormsUI
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
         }
 
+        private void btnRegister_Click(object sender, EventArgs e)
+        {
+            CallRegisterFormDelegate del = new CallRegisterFormDelegate(CallRegisterForm);
+            Invoke(del, new object[] { });
+        }
     }
 }
