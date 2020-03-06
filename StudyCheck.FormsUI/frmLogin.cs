@@ -213,8 +213,8 @@ namespace StudyCheck.FormsUI
 
         private void CallRegisterForm()
         {                        
-            this.Hide();                  
-            _frmRegister.FormClosed += (s, args) => this.Close();
+            this.Hide();            
+            _frmRegister.FormClosed += (s, args) =>this.Close();
             _frmRegister.Show();
         }
         delegate void CallRegisterFormDelegate();
@@ -237,8 +237,7 @@ namespace StudyCheck.FormsUI
             doLoadingAnimation(Properties.Resources._494);
             await Task.Run(() => GetRegisterForm());
             pcbLoading.Visible = false;
-            pcbLoading.SendToBack();
-                        
+            pcbLoading.SendToBack();                        
         }       
     }
 }
