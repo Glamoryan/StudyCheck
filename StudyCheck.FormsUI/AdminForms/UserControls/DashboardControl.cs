@@ -20,11 +20,13 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
         private static EfExamDal _efExamDal = new EfExamDal();
         private static EfLessonDal _efLessonDal = new EfLessonDal();
         private static EfThemeDal _efThemeDal = new EfThemeDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
 
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private static ExamManager _examManager = new ExamManager(_efExamDal);
         private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
         private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
 
         public DashboardControl()
         {
@@ -69,6 +71,15 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             GetExamDetails();
             GetThemeDetails();
             GetLessonDetails();
+            GetRoleDetails();
+        }
+
+        private void GetRoleDetails()
+        {
+            int sonuc = _roleManager.GetAllRoles().Count;
+            rolWidget.lblWidgetTitle.Text = "Roller";
+            rolWidget.lblWidgetValue.Text = sonuc.ToString();
+            rolWidget.pcbWidgetIcon.Image = Properties.Resources.checked_user_male_32px;
         }
 
         private void GetThemeDetails()

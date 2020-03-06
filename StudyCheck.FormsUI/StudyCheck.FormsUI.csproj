@@ -296,6 +296,9 @@
   <ItemGroup>
     <None Include="Resources\icons8_paint_palette_32.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\checked_user_male_32px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

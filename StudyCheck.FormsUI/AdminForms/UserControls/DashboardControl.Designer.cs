@@ -30,11 +30,12 @@
         {
             this.lblDashboard = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.themeWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.lessonWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.examWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.adminWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.accountWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
-            this.themeWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
+            this.rolWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.SuspendLayout();
             // 
             // lblDashboard
@@ -55,6 +56,14 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1025, 2);
             this.panel1.TabIndex = 6;
+            // 
+            // themeWidget
+            // 
+            this.themeWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.themeWidget.Location = new System.Drawing.Point(829, 102);
+            this.themeWidget.Name = "themeWidget";
+            this.themeWidget.Size = new System.Drawing.Size(185, 155);
+            this.themeWidget.TabIndex = 7;
             // 
             // lessonWidget
             // 
@@ -88,19 +97,20 @@
             this.accountWidget.Size = new System.Drawing.Size(185, 155);
             this.accountWidget.TabIndex = 1;
             // 
-            // themeWidget
+            // rolWidget
             // 
-            this.themeWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.themeWidget.Location = new System.Drawing.Point(829, 102);
-            this.themeWidget.Name = "themeWidget";
-            this.themeWidget.Size = new System.Drawing.Size(185, 155);
-            this.themeWidget.TabIndex = 7;
+            this.rolWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.rolWidget.Location = new System.Drawing.Point(292, 321);
+            this.rolWidget.Name = "rolWidget";
+            this.rolWidget.Size = new System.Drawing.Size(185, 155);
+            this.rolWidget.TabIndex = 8;
             // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.rolWidget);
             this.Controls.Add(this.themeWidget);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblDashboard);
@@ -124,5 +134,6 @@
         private System.Windows.Forms.Label lblDashboard;
         private System.Windows.Forms.Panel panel1;
         private WidgetsControl themeWidget;
+        private WidgetsControl rolWidget;
     }
 }

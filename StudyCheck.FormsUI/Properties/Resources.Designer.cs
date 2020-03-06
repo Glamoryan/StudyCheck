@@ -123,6 +123,16 @@ namespace StudyCheck.FormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap checked_user_male_32px {
+            get {
+                object obj = ResourceManager.GetObject("checked_user_male_32px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_16px {
             get {
                 object obj = ResourceManager.GetObject("edit_16px", resourceCulture);
