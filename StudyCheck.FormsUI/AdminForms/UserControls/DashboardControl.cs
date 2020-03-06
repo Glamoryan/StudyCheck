@@ -19,10 +19,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
         private static EfExamDal _efExamDal = new EfExamDal();
         private static EfLessonDal _efLessonDal = new EfLessonDal();
+        private static EfThemeDal _efThemeDal = new EfThemeDal();
 
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private static ExamManager _examManager = new ExamManager(_efExamDal);
         private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
+        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
 
         public DashboardControl()
         {
@@ -59,23 +61,22 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             accountWidget.lblWidgetTitle.Text = "Kullanıcılar";
             accountWidget.lblWidgetValue.Text = sonuc.ToString();
             accountWidget.pcbWidgetIcon.Image = Properties.Resources.user_groups_32px;
-        }
-
-        private void GetUserDetails()
-        {
-            int sonuc = _userManager.GetAllUsers().Count;
-            userWidget.lblWidgetTitle.Text = "Üyeler";
-            userWidget.lblWidgetValue.Text = sonuc.ToString();
-            userWidget.pcbWidgetIcon.Image = Properties.Resources.icons8_user_account_32;
-        }
-
+        }        
         private void DashboardControl_Load(object sender, EventArgs e)
-        {
-            GetUserDetails();
+        {            
             GetAccountDetails();
             GetAdminDetails();
             GetExamDetails();
+            GetThemeDetails();
             GetLessonDetails();
+        }
+
+        private void GetThemeDetails()
+        {
+            int sonuc = _themeManager.GetAllThemes().Count;
+            themeWidget.lblWidgetTitle.Text = "Temalar";
+            themeWidget.lblWidgetValue.Text = sonuc.ToString();
+            themeWidget.pcbWidgetIcon.Image = Properties.Resources.icons8_paint_palette_32;
         }
     }
 }
