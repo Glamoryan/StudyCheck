@@ -83,6 +83,18 @@
     <Compile Include="AdminForms\UserControls\DashboardControl.Designer.cs">
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\RolesControl\RoleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\RolesControl\RoleControl.Designer.cs">
+      <DependentUpon>RoleControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\RolesControl\RolesColumnControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\RolesControl\RolesColumnControl.Designer.cs">
+      <DependentUpon>RolesColumnControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -153,6 +165,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\RolesControl\RoleControl.resx">
+      <DependentUpon>RoleControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\RolesControl\RolesColumnControl.resx">
+      <DependentUpon>RolesColumnControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.resx">
       <DependentUpon>AccountsControl.cs</DependentUpon>
