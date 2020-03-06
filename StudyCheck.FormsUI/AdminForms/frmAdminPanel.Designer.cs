@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
-            this.acPanel = new System.Windows.Forms.Panel();
-            this.dbPanel = new System.Windows.Forms.Panel();
-            this.btnUyeler = new System.Windows.Forms.Button();
-            this.btnDashboard = new System.Windows.Forms.Button();
             this.pcbSignOut = new System.Windows.Forms.PictureBox();
             this.lblAdminName = new System.Windows.Forms.Label();
             this.pnlLogo = new System.Windows.Forms.Panel();
@@ -43,6 +39,12 @@
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnDashboard = new System.Windows.Forms.Button();
+            this.btnUyeler = new System.Windows.Forms.Button();
+            this.btnRoller = new System.Windows.Forms.Button();
+            this.dbPanel = new System.Windows.Forms.Panel();
+            this.acPanel = new System.Windows.Forms.Panel();
+            this.rolPanel = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).BeginInit();
             this.pnlLogo.SuspendLayout();
@@ -54,8 +56,10 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlSidebar.Controls.Add(this.rolPanel);
             this.pnlSidebar.Controls.Add(this.acPanel);
             this.pnlSidebar.Controls.Add(this.dbPanel);
+            this.pnlSidebar.Controls.Add(this.btnRoller);
             this.pnlSidebar.Controls.Add(this.btnUyeler);
             this.pnlSidebar.Controls.Add(this.btnDashboard);
             this.pnlSidebar.Controls.Add(this.pcbSignOut);
@@ -67,60 +71,6 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(200, 725);
             this.pnlSidebar.TabIndex = 0;
-            // 
-            // acPanel
-            // 
-            this.acPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.acPanel.Location = new System.Drawing.Point(194, 190);
-            this.acPanel.Name = "acPanel";
-            this.acPanel.Size = new System.Drawing.Size(10, 56);
-            this.acPanel.TabIndex = 5;
-            // 
-            // dbPanel
-            // 
-            this.dbPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.dbPanel.Location = new System.Drawing.Point(194, 128);
-            this.dbPanel.Name = "dbPanel";
-            this.dbPanel.Size = new System.Drawing.Size(10, 56);
-            this.dbPanel.TabIndex = 5;
-            // 
-            // btnUyeler
-            // 
-            this.btnUyeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
-            this.btnUyeler.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnUyeler.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnUyeler.FlatAppearance.BorderSize = 0;
-            this.btnUyeler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUyeler.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnUyeler.ForeColor = System.Drawing.Color.White;
-            this.btnUyeler.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_admin_settings_male_32;
-            this.btnUyeler.Location = new System.Drawing.Point(0, 190);
-            this.btnUyeler.Name = "btnUyeler";
-            this.btnUyeler.Size = new System.Drawing.Size(194, 56);
-            this.btnUyeler.TabIndex = 4;
-            this.btnUyeler.Text = "Kullanıcılar";
-            this.btnUyeler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnUyeler.UseVisualStyleBackColor = false;
-            this.btnUyeler.Click += new System.EventHandler(this.btnUyeler_Click);
-            // 
-            // btnDashboard
-            // 
-            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
-            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnDashboard.FlatAppearance.BorderSize = 0;
-            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDashboard.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnDashboard.ForeColor = System.Drawing.Color.White;
-            this.btnDashboard.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_home_32;
-            this.btnDashboard.Location = new System.Drawing.Point(0, 128);
-            this.btnDashboard.Name = "btnDashboard";
-            this.btnDashboard.Size = new System.Drawing.Size(194, 56);
-            this.btnDashboard.TabIndex = 4;
-            this.btnDashboard.Text = "Dashboard";
-            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnDashboard.UseVisualStyleBackColor = false;
-            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
             // 
             // pcbSignOut
             // 
@@ -233,6 +183,87 @@
             this.pnlContent.Size = new System.Drawing.Size(1045, 649);
             this.pnlContent.TabIndex = 2;
             // 
+            // btnDashboard
+            // 
+            this.btnDashboard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnDashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDashboard.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnDashboard.FlatAppearance.BorderSize = 0;
+            this.btnDashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDashboard.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDashboard.ForeColor = System.Drawing.Color.White;
+            this.btnDashboard.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_home_32;
+            this.btnDashboard.Location = new System.Drawing.Point(0, 128);
+            this.btnDashboard.Name = "btnDashboard";
+            this.btnDashboard.Size = new System.Drawing.Size(194, 56);
+            this.btnDashboard.TabIndex = 4;
+            this.btnDashboard.Text = "Dashboard";
+            this.btnDashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnDashboard.UseVisualStyleBackColor = false;
+            this.btnDashboard.Click += new System.EventHandler(this.btnDashboard_Click);
+            // 
+            // btnUyeler
+            // 
+            this.btnUyeler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnUyeler.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUyeler.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnUyeler.FlatAppearance.BorderSize = 0;
+            this.btnUyeler.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUyeler.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnUyeler.ForeColor = System.Drawing.Color.White;
+            this.btnUyeler.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_admin_settings_male_32;
+            this.btnUyeler.Location = new System.Drawing.Point(0, 190);
+            this.btnUyeler.Name = "btnUyeler";
+            this.btnUyeler.Size = new System.Drawing.Size(194, 56);
+            this.btnUyeler.TabIndex = 4;
+            this.btnUyeler.Text = "Kullanıcılar";
+            this.btnUyeler.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUyeler.UseVisualStyleBackColor = false;
+            this.btnUyeler.Click += new System.EventHandler(this.btnUyeler_Click);
+            // 
+            // btnRoller
+            // 
+            this.btnRoller.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnRoller.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRoller.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnRoller.FlatAppearance.BorderSize = 0;
+            this.btnRoller.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRoller.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnRoller.ForeColor = System.Drawing.Color.White;
+            this.btnRoller.Image = global::StudyCheck.FormsUI.Properties.Resources.checked_user_male_32px;
+            this.btnRoller.Location = new System.Drawing.Point(0, 252);
+            this.btnRoller.Name = "btnRoller";
+            this.btnRoller.Size = new System.Drawing.Size(194, 56);
+            this.btnRoller.TabIndex = 4;
+            this.btnRoller.Text = "Roller";
+            this.btnRoller.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRoller.UseVisualStyleBackColor = false;
+            this.btnRoller.Click += new System.EventHandler(this.btnRoller_Click);
+            // 
+            // dbPanel
+            // 
+            this.dbPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.dbPanel.Location = new System.Drawing.Point(194, 128);
+            this.dbPanel.Name = "dbPanel";
+            this.dbPanel.Size = new System.Drawing.Size(10, 56);
+            this.dbPanel.TabIndex = 5;
+            // 
+            // acPanel
+            // 
+            this.acPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.acPanel.Location = new System.Drawing.Point(194, 190);
+            this.acPanel.Name = "acPanel";
+            this.acPanel.Size = new System.Drawing.Size(10, 56);
+            this.acPanel.TabIndex = 5;
+            // 
+            // rolPanel
+            // 
+            this.rolPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.rolPanel.Location = new System.Drawing.Point(194, 252);
+            this.rolPanel.Name = "rolPanel";
+            this.rolPanel.Size = new System.Drawing.Size(10, 56);
+            this.rolPanel.TabIndex = 5;
+            // 
             // frmAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -271,10 +302,12 @@
         private System.Windows.Forms.Label lblWelcome;
         private System.Windows.Forms.Label lblAdminName;
         private System.Windows.Forms.PictureBox pcbSignOut;
-        private System.Windows.Forms.Button btnDashboard;
-        private System.Windows.Forms.Button btnUyeler;
-        private System.Windows.Forms.Panel dbPanel;
-        private System.Windows.Forms.Panel acPanel;
         private System.Windows.Forms.Label lblTarih;
+        private System.Windows.Forms.Panel rolPanel;
+        private System.Windows.Forms.Panel acPanel;
+        private System.Windows.Forms.Panel dbPanel;
+        private System.Windows.Forms.Button btnRoller;
+        private System.Windows.Forms.Button btnUyeler;
+        private System.Windows.Forms.Button btnDashboard;
     }
 }

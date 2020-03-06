@@ -179,22 +179,18 @@ namespace StudyCheck.FormsUI.AdminForms
 
         }
         private void WhichTab(Panel panel)
-        {
+        {            
             panel.BringToFront();
-            if (panel.Name != "dbPanel")
+            foreach (Control ctrl in pnlSidebar.Controls)
             {
-                if (panel.Name == "acPanel")
+                if(ctrl is Panel && ctrl.Name != pnlLogo.Name)
                 {
-                    panel.BackColor = Color.FromArgb(255, 83, 17);
-                    dbPanel.BackColor = Color.Transparent;
+                    if (ctrl.Name == panel.Name)
+                        ctrl.BackColor = Color.FromArgb(255, 83, 17);
+                    else
+                        ctrl.BackColor = Color.Transparent;
                 }
-            }
-            else
-            {
-                panel.BackColor = Color.FromArgb(255, 83, 17);
-                acPanel.BackColor = Color.Transparent;
-            }
-
+            } 
         }
 
         private void pcbSignOut_MouseEnter(object sender, EventArgs e)
@@ -213,6 +209,11 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             WhichTab(acPanel);
             SetAccountControl();
+        }
+
+        private void btnRoller_Click(object sender, EventArgs e)
+        {
+            WhichTab(rolPanel);
         }
     }
 }
