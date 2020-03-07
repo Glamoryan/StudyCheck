@@ -104,6 +104,7 @@
             this.btnDuzenle.Size = new System.Drawing.Size(40, 23);
             this.btnDuzenle.TabIndex = 3;
             this.btnDuzenle.UseVisualStyleBackColor = false;
+            this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
             // 
             // RoleRowsControl
             // 

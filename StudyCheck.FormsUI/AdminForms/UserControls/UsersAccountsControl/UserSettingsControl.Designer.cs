@@ -79,7 +79,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.lblKullaniciAdi.AutoSize = true;
             this.lblKullaniciAdi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblKullaniciAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblKullaniciAdi.Location = new System.Drawing.Point(160, 18);
+            this.lblKullaniciAdi.Location = new System.Drawing.Point(160, 19);
             this.lblKullaniciAdi.Name = "lblKullaniciAdi";
             this.lblKullaniciAdi.Size = new System.Drawing.Size(127, 19);
             this.lblKullaniciAdi.TabIndex = 0;

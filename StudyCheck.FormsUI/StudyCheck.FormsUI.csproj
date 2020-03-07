@@ -101,6 +101,12 @@
     <Compile Include="AdminForms\UserControls\RolesControl\RolesColumnControl.Designer.cs">
       <DependentUpon>RolesColumnControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\RolesControl\RoleSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\RolesControl\RoleSettingsControl.Designer.cs">
+      <DependentUpon>RoleSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -180,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\RolesControl\RolesColumnControl.resx">
       <DependentUpon>RolesColumnControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\RolesControl\RoleSettingsControl.resx">
+      <DependentUpon>RoleSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\UsersAccountsControl\AccountsControl.resx">
       <DependentUpon>AccountsControl.cs</DependentUpon>

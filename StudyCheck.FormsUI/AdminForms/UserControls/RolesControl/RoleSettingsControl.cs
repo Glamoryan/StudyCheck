@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
-    public partial class RoleRowsControl : UserControl
+    public partial class RoleSettingsControl : UserControl
     {
-        public RoleRowsControl()
+        public RoleSettingsControl()
         {
             InitializeComponent();
-        }
-
-        private void btnDuzenle_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
