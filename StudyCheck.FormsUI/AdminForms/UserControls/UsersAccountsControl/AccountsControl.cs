@@ -79,7 +79,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                         case 1:
                             _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
                             break;
-                        case 7:
+                        case 3:
                             _rowsControl.lblRol.ForeColor = Color.FromArgb(232, 240, 68);
                             break;
                     }

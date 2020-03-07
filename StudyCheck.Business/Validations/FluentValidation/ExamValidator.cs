@@ -16,7 +16,7 @@ namespace StudyCheck.Business.Validations.FluentValidation
         {
             RuleFor(x => x.sinav_ad).NotEmpty().WithMessage("Sınav adı boş geçilemez.")
                 .Length(2,15).WithMessage("Sınav adı 2-15 karakter arasında olmalıdır.")
-                .Matches(Utility.regexAll).WithMessage("Sınav adı özel karakter içeremez.");
+                .Matches(Utility.regexTR).WithMessage("Sınav adı özel karakter içeremez.");
             RuleFor(x => x.sinav_tarih).NotEmpty().WithMessage("Sınav tarihi boş geçilemez.");
             RuleFor(x => x.ekleyen_id).NotEmpty().WithMessage("Ekleyen id boş geçilemez.");
             RuleFor(x => x.sil_id).NotEmpty().WithMessage("Sil id boş geçilemez.")
