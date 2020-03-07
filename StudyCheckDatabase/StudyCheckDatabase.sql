@@ -41,13 +41,6 @@ ekleyen_id int references UyeDetay(id),
 eklenme_tarihi datetime not null
 )
 go
-create table Rol_Yetkileri
-(
-id int PRIMARY KEY IDENTITY(1,1),
-rol_id int references Roller(id) not null,
-yetki_id int references Yetkiler(id) not null
-)
-go
 create table Sinavlar
 (
 id int PRIMARY KEY IDENTITY(1,1),
