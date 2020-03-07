@@ -68,6 +68,13 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                     _roleRowsControl.lblRolId.Text = rol.id.ToString();
                     _roleRowsControl.lblRolAd.Text = rol.rol_adi;
                     _roleRowsControl.lblRolKayit.Text = rol.rol_kayit_tarihi.ToString();
+                    _roleRowsControl.lblRolYetki.Text = yetkiler.Where(x => x.id == rol.yetki_id).Single().yetki_adi;
+                    switch (rol.yetki_id)
+                    {
+                        case 1:
+                            _roleRowsControl.lblRolYetki.ForeColor = Color.FromArgb(232, 240, 68);
+                            break;
+                    }
                     _roleRowsControl.lblEkleyen.Text = _uyeler.Where(x => x.id == rol.ekleyen_id).Single().kullanici_adi;
                     switch (rol.sil_id)
                     {

@@ -34,6 +34,7 @@
             this.lblEkleyen = new System.Windows.Forms.Label();
             this.lblDurum = new System.Windows.Forms.Label();
             this.btnDuzenle = new System.Windows.Forms.Button();
+            this.lblRolYetki = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblRolId
@@ -41,7 +42,7 @@
             this.lblRolId.AutoSize = true;
             this.lblRolId.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblRolId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblRolId.Location = new System.Drawing.Point(40, 12);
+            this.lblRolId.Location = new System.Drawing.Point(41, 12);
             this.lblRolId.Name = "lblRolId";
             this.lblRolId.Size = new System.Drawing.Size(42, 17);
             this.lblRolId.TabIndex = 1;
@@ -52,7 +53,7 @@
             this.lblRolAd.AutoSize = true;
             this.lblRolAd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblRolAd.ForeColor = System.Drawing.Color.White;
-            this.lblRolAd.Location = new System.Drawing.Point(191, 12);
+            this.lblRolAd.Location = new System.Drawing.Point(170, 12);
             this.lblRolAd.Name = "lblRolAd";
             this.lblRolAd.Size = new System.Drawing.Size(46, 17);
             this.lblRolAd.TabIndex = 2;
@@ -63,7 +64,7 @@
             this.lblRolKayit.AutoSize = true;
             this.lblRolKayit.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblRolKayit.ForeColor = System.Drawing.Color.White;
-            this.lblRolKayit.Location = new System.Drawing.Point(357, 12);
+            this.lblRolKayit.Location = new System.Drawing.Point(318, 12);
             this.lblRolKayit.Name = "lblRolKayit";
             this.lblRolKayit.Size = new System.Drawing.Size(62, 17);
             this.lblRolKayit.TabIndex = 2;
@@ -74,7 +75,7 @@
             this.lblEkleyen.AutoSize = true;
             this.lblEkleyen.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblEkleyen.ForeColor = System.Drawing.Color.White;
-            this.lblEkleyen.Location = new System.Drawing.Point(590, 12);
+            this.lblEkleyen.Location = new System.Drawing.Point(528, 12);
             this.lblEkleyen.Name = "lblEkleyen";
             this.lblEkleyen.Size = new System.Drawing.Size(59, 17);
             this.lblEkleyen.TabIndex = 2;
@@ -85,7 +86,7 @@
             this.lblDurum.AutoSize = true;
             this.lblDurum.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDurum.ForeColor = System.Drawing.Color.White;
-            this.lblDurum.Location = new System.Drawing.Point(794, 12);
+            this.lblDurum.Location = new System.Drawing.Point(824, 12);
             this.lblDurum.Name = "lblDurum";
             this.lblDurum.Size = new System.Drawing.Size(52, 17);
             this.lblDurum.TabIndex = 2;
@@ -99,12 +100,23 @@
             this.btnDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnDuzenle.Image = global::StudyCheck.FormsUI.Properties.Resources.edit_16px;
             this.btnDuzenle.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnDuzenle.Location = new System.Drawing.Point(947, 10);
+            this.btnDuzenle.Location = new System.Drawing.Point(952, 10);
             this.btnDuzenle.Name = "btnDuzenle";
             this.btnDuzenle.Size = new System.Drawing.Size(40, 23);
             this.btnDuzenle.TabIndex = 3;
             this.btnDuzenle.UseVisualStyleBackColor = false;
             this.btnDuzenle.Click += new System.EventHandler(this.btnDuzenle_Click);
+            // 
+            // lblRolYetki
+            // 
+            this.lblRolYetki.AutoSize = true;
+            this.lblRolYetki.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblRolYetki.ForeColor = System.Drawing.Color.White;
+            this.lblRolYetki.Location = new System.Drawing.Point(681, 12);
+            this.lblRolYetki.Name = "lblRolYetki";
+            this.lblRolYetki.Size = new System.Drawing.Size(61, 17);
+            this.lblRolYetki.TabIndex = 2;
+            this.lblRolYetki.Text = "RolYetki";
             // 
             // RoleRowsControl
             // 
@@ -113,6 +125,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
             this.Controls.Add(this.btnDuzenle);
             this.Controls.Add(this.lblDurum);
+            this.Controls.Add(this.lblRolYetki);
             this.Controls.Add(this.lblEkleyen);
             this.Controls.Add(this.lblRolKayit);
             this.Controls.Add(this.lblRolAd);
@@ -131,5 +144,6 @@
         public System.Windows.Forms.Label lblEkleyen;
         public System.Windows.Forms.Label lblDurum;
         public System.Windows.Forms.Button btnDuzenle;
+        public System.Windows.Forms.Label lblRolYetki;
     }
 }
