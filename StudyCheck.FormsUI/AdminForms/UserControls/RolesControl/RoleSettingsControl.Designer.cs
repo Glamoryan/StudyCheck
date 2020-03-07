@@ -33,20 +33,20 @@
             this.lblrolAdi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbxRol = new System.Windows.Forms.GroupBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tbxRolId = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbxRolAdi = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbxRolKayit = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbxEkleyen = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbxRolGuncelleme = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.cbxDurum = new System.Windows.Forms.ComboBox();
+            this.tbxEkleyen = new System.Windows.Forms.TextBox();
+            this.tbxRolAdi = new System.Windows.Forms.TextBox();
+            this.tbxRolKayit = new System.Windows.Forms.TextBox();
+            this.tbxYetkiId = new System.Windows.Forms.TextBox();
+            this.tbxRolGuncelleme = new System.Windows.Forms.TextBox();
+            this.tbxRolId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.btnRolSuccess = new System.Windows.Forms.Button();
             this.btnRolCancel = new System.Windows.Forms.Button();
             this.btnRolDuzenle = new System.Windows.Forms.Button();
@@ -92,7 +92,7 @@
             this.gbxRol.Controls.Add(this.tbxEkleyen);
             this.gbxRol.Controls.Add(this.tbxRolAdi);
             this.gbxRol.Controls.Add(this.tbxRolKayit);
-            this.gbxRol.Controls.Add(this.textBox1);
+            this.gbxRol.Controls.Add(this.tbxYetkiId);
             this.gbxRol.Controls.Add(this.tbxRolGuncelleme);
             this.gbxRol.Controls.Add(this.tbxRolId);
             this.gbxRol.Controls.Add(this.label5);
@@ -111,122 +111,6 @@
             this.gbxRol.TabStop = false;
             this.gbxRol.Text = "Rol Ayarları";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label2.Location = new System.Drawing.Point(47, 53);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 19);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Rol Id";
-            // 
-            // tbxRolId
-            // 
-            this.tbxRolId.Enabled = false;
-            this.tbxRolId.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxRolId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxRolId.Location = new System.Drawing.Point(110, 46);
-            this.tbxRolId.Name = "tbxRolId";
-            this.tbxRolId.Size = new System.Drawing.Size(43, 26);
-            this.tbxRolId.TabIndex = 6;
-            this.tbxRolId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label3.Location = new System.Drawing.Point(38, 126);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 19);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "Rol Adı";
-            // 
-            // tbxRolAdi
-            // 
-            this.tbxRolAdi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxRolAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxRolAdi.Location = new System.Drawing.Point(110, 120);
-            this.tbxRolAdi.Name = "tbxRolAdi";
-            this.tbxRolAdi.Size = new System.Drawing.Size(130, 26);
-            this.tbxRolAdi.TabIndex = 6;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label4.Location = new System.Drawing.Point(324, 126);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(106, 19);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Rol Kayıt Tarihi";
-            // 
-            // tbxRolKayit
-            // 
-            this.tbxRolKayit.Enabled = false;
-            this.tbxRolKayit.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxRolKayit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxRolKayit.Location = new System.Drawing.Point(436, 123);
-            this.tbxRolKayit.Name = "tbxRolKayit";
-            this.tbxRolKayit.Size = new System.Drawing.Size(156, 26);
-            this.tbxRolKayit.TabIndex = 6;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label5.Location = new System.Drawing.Point(338, 202);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(92, 19);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Rolü Ekleyen";
-            // 
-            // tbxEkleyen
-            // 
-            this.tbxEkleyen.Enabled = false;
-            this.tbxEkleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxEkleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxEkleyen.Location = new System.Drawing.Point(436, 199);
-            this.tbxEkleyen.Name = "tbxEkleyen";
-            this.tbxEkleyen.Size = new System.Drawing.Size(130, 26);
-            this.tbxEkleyen.TabIndex = 6;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label6.Location = new System.Drawing.Point(279, 49);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(153, 19);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Son Güncelleme Tarihi";
-            // 
-            // tbxRolGuncelleme
-            // 
-            this.tbxRolGuncelleme.Enabled = false;
-            this.tbxRolGuncelleme.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxRolGuncelleme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxRolGuncelleme.Location = new System.Drawing.Point(436, 46);
-            this.tbxRolGuncelleme.Name = "tbxRolGuncelleme";
-            this.tbxRolGuncelleme.Size = new System.Drawing.Size(156, 26);
-            this.tbxRolGuncelleme.TabIndex = 6;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label7.Location = new System.Drawing.Point(41, 202);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 19);
-            this.label7.TabIndex = 6;
-            this.label7.Text = "Durum";
-            // 
             // cbxDurum
             // 
             this.cbxDurum.BackColor = System.Drawing.Color.White;
@@ -241,6 +125,100 @@
             this.cbxDurum.Size = new System.Drawing.Size(121, 27);
             this.cbxDurum.TabIndex = 7;
             // 
+            // tbxEkleyen
+            // 
+            this.tbxEkleyen.Enabled = false;
+            this.tbxEkleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxEkleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxEkleyen.Location = new System.Drawing.Point(436, 199);
+            this.tbxEkleyen.Name = "tbxEkleyen";
+            this.tbxEkleyen.Size = new System.Drawing.Size(130, 26);
+            this.tbxEkleyen.TabIndex = 6;
+            // 
+            // tbxRolAdi
+            // 
+            this.tbxRolAdi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxRolAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxRolAdi.Location = new System.Drawing.Point(110, 120);
+            this.tbxRolAdi.Name = "tbxRolAdi";
+            this.tbxRolAdi.Size = new System.Drawing.Size(130, 26);
+            this.tbxRolAdi.TabIndex = 6;
+            // 
+            // tbxRolKayit
+            // 
+            this.tbxRolKayit.Enabled = false;
+            this.tbxRolKayit.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxRolKayit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxRolKayit.Location = new System.Drawing.Point(436, 123);
+            this.tbxRolKayit.Name = "tbxRolKayit";
+            this.tbxRolKayit.Size = new System.Drawing.Size(156, 26);
+            this.tbxRolKayit.TabIndex = 6;
+            // 
+            // tbxYetkiId
+            // 
+            this.tbxYetkiId.Enabled = false;
+            this.tbxYetkiId.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxYetkiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxYetkiId.Location = new System.Drawing.Point(719, 120);
+            this.tbxYetkiId.Name = "tbxYetkiId";
+            this.tbxYetkiId.Size = new System.Drawing.Size(43, 26);
+            this.tbxYetkiId.TabIndex = 6;
+            this.tbxYetkiId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // tbxRolGuncelleme
+            // 
+            this.tbxRolGuncelleme.Enabled = false;
+            this.tbxRolGuncelleme.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxRolGuncelleme.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxRolGuncelleme.Location = new System.Drawing.Point(436, 46);
+            this.tbxRolGuncelleme.Name = "tbxRolGuncelleme";
+            this.tbxRolGuncelleme.Size = new System.Drawing.Size(156, 26);
+            this.tbxRolGuncelleme.TabIndex = 6;
+            // 
+            // tbxRolId
+            // 
+            this.tbxRolId.Enabled = false;
+            this.tbxRolId.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxRolId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxRolId.Location = new System.Drawing.Point(110, 46);
+            this.tbxRolId.Name = "tbxRolId";
+            this.tbxRolId.Size = new System.Drawing.Size(43, 26);
+            this.tbxRolId.TabIndex = 6;
+            this.tbxRolId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label5.Location = new System.Drawing.Point(338, 202);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(92, 19);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Rolü Ekleyen";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label7.Location = new System.Drawing.Point(41, 202);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 19);
+            this.label7.TabIndex = 6;
+            this.label7.Text = "Durum";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label3.Location = new System.Drawing.Point(38, 126);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(55, 19);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Rol Adı";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -252,16 +230,38 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "Yetki Id";
             // 
-            // textBox1
+            // label4
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.textBox1.Location = new System.Drawing.Point(719, 120);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(43, 26);
-            this.textBox1.TabIndex = 6;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label4.Location = new System.Drawing.Point(324, 126);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(106, 19);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Rol Kayıt Tarihi";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label2.Location = new System.Drawing.Point(47, 53);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 19);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Rol Id";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label6.Location = new System.Drawing.Point(279, 49);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(153, 19);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Son Güncelleme Tarihi";
             // 
             // btnRolSuccess
             // 
@@ -370,23 +370,23 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox gbxRol;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox tbxRolId;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox tbxRolAdi;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox tbxRolKayit;
-        private System.Windows.Forms.TextBox tbxEkleyen;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox tbxRolGuncelleme;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cbxDurum;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnRolSuccess;
         private System.Windows.Forms.Button btnRolCancel;
         private System.Windows.Forms.Button btnRolDuzenle;
         private System.Windows.Forms.Button btnIptal;
         private System.Windows.Forms.Button btnKaydet;
+        public System.Windows.Forms.TextBox tbxRolId;
+        public System.Windows.Forms.TextBox tbxRolAdi;
+        public System.Windows.Forms.TextBox tbxRolKayit;
+        public System.Windows.Forms.TextBox tbxEkleyen;
+        public System.Windows.Forms.TextBox tbxRolGuncelleme;
+        public System.Windows.Forms.ComboBox cbxDurum;
+        public System.Windows.Forms.TextBox tbxYetkiId;
     }
 }
