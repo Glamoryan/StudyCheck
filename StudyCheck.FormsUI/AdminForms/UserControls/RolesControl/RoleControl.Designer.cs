@@ -49,6 +49,7 @@
             this.btnRolEkle.Text = "Rol Ekle";
             this.btnRolEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRolEkle.UseVisualStyleBackColor = false;
+            this.btnRolEkle.Click += new System.EventHandler(this.btnRolEkle_Click);
             // 
             // rolesColumnControl1
             // 

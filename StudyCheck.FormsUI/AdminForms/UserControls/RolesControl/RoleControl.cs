@@ -82,5 +82,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             else if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        private void btnRolEkle_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
