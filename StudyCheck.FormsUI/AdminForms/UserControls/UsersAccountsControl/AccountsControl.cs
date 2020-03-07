@@ -72,21 +72,17 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     _rowsControl.lblUyeSoyad.Text = detay.UyeSoyad;
                     _rowsControl.lblKullAd.Text = detay.KullaniciAdi;
                     _rowsControl.lblEmail.Text = detay.KullaniciMail;
-                    _rowsControl.lblKayitTarih.Text = detay.KayitTarihi.ToString();
-                    //Gizli LAbel şifre
-                    _rowsControl.lblKullaniciSifre.Text = detay.KullaniciSifre;
-                    //Gizli Label tema
-                    if (detay.tema_id == (int)UserInfos.Temalar.Default)
-                        _rowsControl.lblTema.Text = "Default";
-                    else if (detay.tema_id == (int)UserInfos.Temalar.Dark)
-                        _rowsControl.lblTema.Text = "Dark";
-                    //Gizli Label Güncelleme
-                    _rowsControl.lblGuncelleme.Text = detay.GuncellemeTarihi.ToString();
-                    //Gizli Label UyeDetayId
-                    _rowsControl.lblUyeDetayId.Text = detay.UyeDetayId.ToString();
-                    _rowsControl.lblRol.Text = roller.Where(x => x.id == detay.rol_id).Single().rol_adi;
-                    if (roller.Where(x=>x.id == detay.rol_id).Single().yetki_id == 1)
-                        _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
+                    _rowsControl.lblKayitTarih.Text = detay.KayitTarihi.ToString();                    
+                    _rowsControl.lblRol.Text = roller.Where(x => x.id == detay.rol_id).Single().rol_adi;                    
+                    switch (roller.Where(x => x.id == detay.rol_id).Single().yetki_id)
+                    {
+                        case 1:
+                            _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
+                            break;
+                        case 7:
+                            _rowsControl.lblRol.ForeColor = Color.FromArgb(232, 240, 68);
+                            break;
+                    }
                     switch (detay.sil_id)
                     {
                         case 0:
