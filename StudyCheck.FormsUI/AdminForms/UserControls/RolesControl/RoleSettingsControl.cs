@@ -88,7 +88,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 else if (mainException != null)
                     MessageBox.Show(mainException.Message, "Hatalı işlem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException == null)
+                {
                     MessageBox.Show("Rol başarıyla güncellendi", "İşlem başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PageRoute.roleControl = new RoleControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.contentPanel.Controls.Clear();
+                    PageRoute.contentPanel.Controls.Add(PageRoute.roleControl);
+                }
             }
             else
                 MessageBox.Show("Önce değişiklikler kaydedilmeli!", "Kayıt gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -116,7 +123,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void btnIptal_Click(object sender, EventArgs e)
         {
-
+            PageRoute.contentPanel.Controls.Clear();
+            PageRoute.contentPanel.Controls.Add(PageRoute.roleControl);
         }
 
         private void btnRolDuzenle_Click(object sender, EventArgs e)
