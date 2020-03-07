@@ -339,6 +339,7 @@
             this.btnKaydet.TabIndex = 12;
             this.btnKaydet.Text = "Güncelle";
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // RoleSettingsControl
             // 
