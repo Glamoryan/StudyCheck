@@ -16,5 +16,6 @@ namespace StudyCheck.Entites.AccountManagement
         public static int SilId { get; set; }
         public static int TemaId { get; set; }
         public static int RolId { get; set; }
+        public static int YetkiId { get; set; }
     }
 }

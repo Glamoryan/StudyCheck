@@ -45,9 +45,13 @@ namespace StudyCheck.FormsUI
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
         private static EfThemeDal _efThemeDal = new EfThemeDal();
+        private static EfRightDal _efRightDal = new EfRightDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
 
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
+        private static RightManager _rightManager = new RightManager(_efRightDal);
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
 
         private static frmAdminPanel _adminForm;
         private static frmRegister _frmRegister;
@@ -126,6 +130,9 @@ namespace StudyCheck.FormsUI
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
             var user = _userManager.GetByUsernamePassword(username, password);
+            var yetkiler = _rightManager.GetAllRights();
+            var rol = _roleManager.GetRoleById(user.rol_id);
+            int yetkiId = yetkiler.Where(x => x.id == rol.yetki_id).Single().id;
             if (user != null)
             {
                 LoginInfo.Id = user.id;
@@ -136,13 +143,14 @@ namespace StudyCheck.FormsUI
                 LoginInfo.SilId = user.sil_id;
                 LoginInfo.TemaId = user.tema_id;
                 LoginInfo.RolId = user.rol_id;
+                LoginInfo.YetkiId = yetkiId;
                 if (LoginInfo.SilId == 0)
                 {
                     throw new AccountInactiveException("Hesabınız pasif durumdadır! Admin ile iletişime geçin!");
                 }
                 else
                 {
-                    if (LoginInfo.RolId == (int)RoleInfo.Roller.Admin)
+                    if (LoginInfo.YetkiId == 1)
                     {
                         if (this.InvokeRequired)
                         {
