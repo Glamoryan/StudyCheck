@@ -9,6 +9,8 @@ namespace StudyCheck.FormsUI.Statikler
     public static class RoleSettingsInfos
     {
         public static int silId { get; set; }
-        public static string rolAdi { get; set; }        
+        public static string rolAdi { get; set; }
+        public static int yetkiId { get; set; }
+
     }   
 }

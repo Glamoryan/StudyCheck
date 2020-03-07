@@ -52,6 +52,8 @@
             this.btnIptal = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.btnRolDuzenle = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cbxYetki = new System.Windows.Forms.ComboBox();
             this.gbxRol.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -88,6 +90,7 @@
             // 
             // gbxRol
             // 
+            this.gbxRol.Controls.Add(this.cbxYetki);
             this.gbxRol.Controls.Add(this.cbxDurum);
             this.gbxRol.Controls.Add(this.tbxEkleyen);
             this.gbxRol.Controls.Add(this.tbxRolAdi);
@@ -98,6 +101,7 @@
             this.gbxRol.Controls.Add(this.label5);
             this.gbxRol.Controls.Add(this.label7);
             this.gbxRol.Controls.Add(this.label3);
+            this.gbxRol.Controls.Add(this.label9);
             this.gbxRol.Controls.Add(this.label8);
             this.gbxRol.Controls.Add(this.label4);
             this.gbxRol.Controls.Add(this.label2);
@@ -105,9 +109,9 @@
             this.gbxRol.Enabled = false;
             this.gbxRol.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.gbxRol.Location = new System.Drawing.Point(129, 59);
+            this.gbxRol.Location = new System.Drawing.Point(93, 59);
             this.gbxRol.Name = "gbxRol";
-            this.gbxRol.Size = new System.Drawing.Size(791, 276);
+            this.gbxRol.Size = new System.Drawing.Size(869, 276);
             this.gbxRol.TabIndex = 5;
             this.gbxRol.TabStop = false;
             this.gbxRol.Text = "Rol Ayarları";
@@ -160,7 +164,7 @@
             this.tbxYetkiId.Enabled = false;
             this.tbxYetkiId.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.tbxYetkiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxYetkiId.Location = new System.Drawing.Point(719, 120);
+            this.tbxYetkiId.Location = new System.Drawing.Point(707, 46);
             this.tbxYetkiId.Name = "tbxYetkiId";
             this.tbxYetkiId.Size = new System.Drawing.Size(43, 26);
             this.tbxYetkiId.TabIndex = 6;
@@ -225,7 +229,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label8.Location = new System.Drawing.Point(657, 123);
+            this.label8.Location = new System.Drawing.Point(645, 49);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(56, 19);
             this.label8.TabIndex = 6;
@@ -273,7 +277,7 @@
             this.btnRolSuccess.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRolSuccess.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.btnRolSuccess.Image = ((System.Drawing.Image)(resources.GetObject("btnRolSuccess.Image")));
-            this.btnRolSuccess.Location = new System.Drawing.Point(247, 341);
+            this.btnRolSuccess.Location = new System.Drawing.Point(211, 341);
             this.btnRolSuccess.Name = "btnRolSuccess";
             this.btnRolSuccess.Size = new System.Drawing.Size(41, 42);
             this.btnRolSuccess.TabIndex = 8;
@@ -290,7 +294,7 @@
             this.btnRolCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRolCancel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.btnRolCancel.Image = global::StudyCheck.FormsUI.Properties.Resources.cancel_32px;
-            this.btnRolCancel.Location = new System.Drawing.Point(294, 341);
+            this.btnRolCancel.Location = new System.Drawing.Point(258, 341);
             this.btnRolCancel.Name = "btnRolCancel";
             this.btnRolCancel.Size = new System.Drawing.Size(41, 42);
             this.btnRolCancel.TabIndex = 9;
@@ -338,13 +342,34 @@
             this.btnRolDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRolDuzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.btnRolDuzenle.ForeColor = System.Drawing.Color.White;
-            this.btnRolDuzenle.Location = new System.Drawing.Point(129, 341);
+            this.btnRolDuzenle.Location = new System.Drawing.Point(93, 341);
             this.btnRolDuzenle.Name = "btnRolDuzenle";
             this.btnRolDuzenle.Size = new System.Drawing.Size(112, 42);
             this.btnRolDuzenle.TabIndex = 13;
             this.btnRolDuzenle.Text = "Rol Düzenle";
             this.btnRolDuzenle.UseVisualStyleBackColor = false;
             this.btnRolDuzenle.Click += new System.EventHandler(this.btnRolDuzenle_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label9.Location = new System.Drawing.Point(657, 130);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 19);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Yetki ";
+            // 
+            // cbxYetki
+            // 
+            this.cbxYetki.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxYetki.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxYetki.FormattingEnabled = true;
+            this.cbxYetki.Location = new System.Drawing.Point(707, 127);
+            this.cbxYetki.Name = "cbxYetki";
+            this.cbxYetki.Size = new System.Drawing.Size(121, 27);
+            this.cbxYetki.TabIndex = 8;
             // 
             // RoleSettingsControl
             // 
@@ -395,5 +420,7 @@
         public System.Windows.Forms.ComboBox cbxDurum;
         public System.Windows.Forms.TextBox tbxYetkiId;
         private System.Windows.Forms.Button btnRolDuzenle;
+        private System.Windows.Forms.Label label9;
+        public System.Windows.Forms.ComboBox cbxYetki;
     }
 }

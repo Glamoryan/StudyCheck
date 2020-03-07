@@ -28,22 +28,24 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
         private static EfRolDal _efRolDal = new EfRolDal();
+        private static EfRightDal _efRightDal = new EfRightDal();
 
         private static RoleManager _roleManager = new RoleManager(_efRolDal);
         private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
+        private static RightManager _rightManager = new RightManager(_efRightDal);
 
         private static Rol _rol;
-        private static List<Uyedetay> _uyeler;
+        private static List<Uyedetay> _uyeler;        
 
         private void CheckFields()
         {
             if (tbxRolAdi.Text.Equals(string.Empty))
-                throw new RequiredFieldsException("Rol adı boş bırakılamaz!");
+                throw new RequiredFieldsException("Rol adı boş bırakılamaz!");            
         }
 
         private void GetUsers()
         {
-            _uyeler = _userManager.GetAllUyeDetay();
+            _uyeler = _userManager.GetAllUyeDetay();            
         }
 
         private void RolGuncelle()
@@ -57,7 +59,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 rol_guncelleme_tarihi = DateTime.Now,
                 rol_kayit_tarihi = Convert.ToDateTime(tbxRolKayit.Text),
                 sil_id = cbxDurum.SelectedIndex,
-                yetki_id = Convert.ToInt32(tbxYetkiId.Text),
+                yetki_id = Convert.ToInt32(cbxYetki.SelectedValue),
                 ekleyen_id = _uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id               
             };
             _roleManager.UpdateRole(_rol);
@@ -67,6 +69,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         {            
             RoleSettingsInfos.rolAdi = tbxRolAdi.Text;
             RoleSettingsInfos.silId = cbxDurum.SelectedIndex;
+            RoleSettingsInfos.yetkiId = Convert.ToInt32(cbxYetki.SelectedValue);
         }
 
         private bool CheckEdited()
@@ -113,12 +116,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         {
             RoleSettingsInfos.rolAdi = tbxRolAdi.Text;
             RoleSettingsInfos.silId = cbxDurum.SelectedIndex;
+            RoleSettingsInfos.yetkiId = Convert.ToInt32(cbxYetki.SelectedValue);
         }
 
         private void ReturnSettings()
         {
             tbxRolAdi.Text = RoleSettingsInfos.rolAdi;
             cbxDurum.SelectedIndex = RoleSettingsInfos.silId;
+            cbxYetki.SelectedValue = RoleSettingsInfos.yetkiId;
         }
 
         private void btnIptal_Click(object sender, EventArgs e)
@@ -165,7 +170,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void RoleSettingsControl_Load(object sender, EventArgs e)
         {
-            SetDefault();
+            SetDefault();            
         }
     }
 }
