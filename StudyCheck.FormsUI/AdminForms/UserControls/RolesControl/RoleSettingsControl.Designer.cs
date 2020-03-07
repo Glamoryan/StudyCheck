@@ -49,9 +49,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnRolSuccess = new System.Windows.Forms.Button();
             this.btnRolCancel = new System.Windows.Forms.Button();
-            this.btnRolDuzenle = new System.Windows.Forms.Button();
             this.btnIptal = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
+            this.btnRolDuzenle = new System.Windows.Forms.Button();
             this.gbxRol.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -102,6 +102,7 @@
             this.gbxRol.Controls.Add(this.label4);
             this.gbxRol.Controls.Add(this.label2);
             this.gbxRol.Controls.Add(this.label6);
+            this.gbxRol.Enabled = false;
             this.gbxRol.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxRol.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.gbxRol.Location = new System.Drawing.Point(129, 59);
@@ -278,6 +279,7 @@
             this.btnRolSuccess.TabIndex = 8;
             this.btnRolSuccess.UseVisualStyleBackColor = false;
             this.btnRolSuccess.Visible = false;
+            this.btnRolSuccess.Click += new System.EventHandler(this.btnRolSuccess_Click);
             // 
             // btnRolCancel
             // 
@@ -294,21 +296,7 @@
             this.btnRolCancel.TabIndex = 9;
             this.btnRolCancel.UseVisualStyleBackColor = false;
             this.btnRolCancel.Visible = false;
-            // 
-            // btnRolDuzenle
-            // 
-            this.btnRolDuzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnRolDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRolDuzenle.FlatAppearance.BorderSize = 0;
-            this.btnRolDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRolDuzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnRolDuzenle.ForeColor = System.Drawing.Color.White;
-            this.btnRolDuzenle.Location = new System.Drawing.Point(129, 341);
-            this.btnRolDuzenle.Name = "btnRolDuzenle";
-            this.btnRolDuzenle.Size = new System.Drawing.Size(112, 42);
-            this.btnRolDuzenle.TabIndex = 10;
-            this.btnRolDuzenle.Text = "Hesap Düzenle";
-            this.btnRolDuzenle.UseVisualStyleBackColor = false;
+            this.btnRolCancel.Click += new System.EventHandler(this.btnRolCancel_Click);
             // 
             // btnIptal
             // 
@@ -324,6 +312,7 @@
             this.btnIptal.TabIndex = 11;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnKaydet
             // 
@@ -341,22 +330,39 @@
             this.btnKaydet.UseVisualStyleBackColor = false;
             this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
+            // btnRolDuzenle
+            // 
+            this.btnRolDuzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnRolDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnRolDuzenle.FlatAppearance.BorderSize = 0;
+            this.btnRolDuzenle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRolDuzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnRolDuzenle.ForeColor = System.Drawing.Color.White;
+            this.btnRolDuzenle.Location = new System.Drawing.Point(129, 341);
+            this.btnRolDuzenle.Name = "btnRolDuzenle";
+            this.btnRolDuzenle.Size = new System.Drawing.Size(112, 42);
+            this.btnRolDuzenle.TabIndex = 13;
+            this.btnRolDuzenle.Text = "Rol Düzenle";
+            this.btnRolDuzenle.UseVisualStyleBackColor = false;
+            this.btnRolDuzenle.Click += new System.EventHandler(this.btnRolDuzenle_Click);
+            // 
             // RoleSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.btnRolDuzenle);
             this.Controls.Add(this.btnIptal);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.btnRolSuccess);
             this.Controls.Add(this.btnRolCancel);
-            this.Controls.Add(this.btnRolDuzenle);
             this.Controls.Add(this.gbxRol);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblrolAdi);
             this.Name = "RoleSettingsControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.RoleSettingsControl_Load);
             this.gbxRol.ResumeLayout(false);
             this.gbxRol.PerformLayout();
             this.ResumeLayout(false);
@@ -379,7 +385,6 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnRolSuccess;
         private System.Windows.Forms.Button btnRolCancel;
-        private System.Windows.Forms.Button btnRolDuzenle;
         private System.Windows.Forms.Button btnIptal;
         private System.Windows.Forms.Button btnKaydet;
         public System.Windows.Forms.TextBox tbxRolId;
@@ -389,5 +394,6 @@
         public System.Windows.Forms.TextBox tbxRolGuncelleme;
         public System.Windows.Forms.ComboBox cbxDurum;
         public System.Windows.Forms.TextBox tbxYetkiId;
+        private System.Windows.Forms.Button btnRolDuzenle;
     }
 }

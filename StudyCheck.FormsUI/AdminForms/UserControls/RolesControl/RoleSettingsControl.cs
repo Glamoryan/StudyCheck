@@ -13,6 +13,7 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
@@ -62,17 +63,101 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             _roleManager.UpdateRole(_rol);
         }
 
+        private void SetDefault()//ilk halleri
+        {            
+            RoleSettingsInfos.rolAdi = tbxRolAdi.Text;
+            RoleSettingsInfos.silId = cbxDurum.SelectedIndex;
+        }
+
+        private bool CheckEdited()
+        {
+            if (btnRolCancel.Visible || btnRolSuccess.Visible)
+                return false;
+            return true;
+        }
+
         private void btnKaydet_Click(object sender, EventArgs e)
         {
-            mainException = ExceptionHandling.HandleException(() => RolGuncelle());
-            if (mainException is RequiredFieldsException)
-                MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (mainException is ValidationException)
-                MessageBox.Show(mainException.Message, "Doğrulama hatası!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (mainException != null)
-                MessageBox.Show(mainException.Message, "Hatalı işlem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (mainException == null)
-                MessageBox.Show("Rol başarıyla güncellendi", "İşlem başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (CheckEdited())
+            {
+                mainException = ExceptionHandling.HandleException(() => RolGuncelle());
+                if (mainException is RequiredFieldsException)
+                    MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (mainException is ValidationException)
+                    MessageBox.Show(mainException.Message, "Doğrulama hatası!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (mainException != null)
+                    MessageBox.Show(mainException.Message, "Hatalı işlem!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (mainException == null)
+                    MessageBox.Show("Rol başarıyla güncellendi", "İşlem başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Önce değişiklikler kaydedilmeli!", "Kayıt gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+        }
+
+        private void rolControl_Changed(object sender,EventArgs e)
+        {
+            btnRolSuccess.Visible = true;
+            btnRolCancel.Visible = true;
+            btnRolDuzenle.Visible = false;
+        }
+
+        private void SetRoleSettings()
+        {
+            RoleSettingsInfos.rolAdi = tbxRolAdi.Text;
+            RoleSettingsInfos.silId = cbxDurum.SelectedIndex;
+        }
+
+        private void ReturnSettings()
+        {
+            tbxRolAdi.Text = RoleSettingsInfos.rolAdi;
+            cbxDurum.SelectedIndex = RoleSettingsInfos.silId;
+        }
+
+        private void btnIptal_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRolDuzenle_Click(object sender, EventArgs e)
+        {
+            gbxRol.Enabled = true;
+            if (!btnRolCancel.Visible)
+            {
+                foreach (Control control in gbxRol.Controls)
+                {
+                    control.TextChanged += new EventHandler(rolControl_Changed);
+                }
+            }
+            else if (btnRolCancel.Visible)
+            {
+                btnRolDuzenle.Visible = true;
+            }
+
+        }
+
+        private void btnRolSuccess_Click(object sender, EventArgs e)
+        {
+            SetRoleSettings();
+            MessageBox.Show("Değişiklikler kaydedildi , onaylamak için güncelleyin!", "Onaylama Gerekli", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            gbxRol.Enabled = false;
+            btnRolCancel.Visible = false;
+            btnRolSuccess.Visible = false;
+            btnRolDuzenle.Visible = true;
+        }
+
+        private void btnRolCancel_Click(object sender, EventArgs e)
+        {
+            ReturnSettings();
+            gbxRol.Enabled = false;
+            btnRolCancel.Visible = false;
+            btnRolSuccess.Visible = false;
+            btnRolDuzenle.Visible = true;
+        }
+
+        private void RoleSettingsControl_Load(object sender, EventArgs e)
+        {
+            SetDefault();
         }
     }
 }
