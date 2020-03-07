@@ -247,5 +247,10 @@ namespace StudyCheck.FormsUI.AdminForms
             WhichTab(rolPanel);
             SetRoleControl();
         }
+
+        private void btnYetkiler_Click(object sender, EventArgs e)
+        {
+            WhichTab(ytPanel);
+        }
     }
 }
