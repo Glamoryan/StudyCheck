@@ -27,8 +27,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private static EfRolDal _efRolDal = new EfRolDal();
 
         private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
-        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
+       
 
         private static Uye _uye;
         private static Uyedetay _uyedetay;

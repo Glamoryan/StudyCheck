@@ -155,6 +155,7 @@
             this.btnRolEkle.TabIndex = 18;
             this.btnRolEkle.Text = "Rol Ekle";
             this.btnRolEkle.UseVisualStyleBackColor = false;
+            this.btnRolEkle.Click += new System.EventHandler(this.btnRolEkle_Click);
             // 
             // RolEkleControl
             // 
@@ -167,6 +168,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "RolEkleControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.RolEkleControl_Load);
             this.gbxRol.ResumeLayout(false);
             this.gbxRol.PerformLayout();
             this.ResumeLayout(false);

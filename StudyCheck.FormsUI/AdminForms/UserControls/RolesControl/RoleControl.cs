@@ -12,6 +12,7 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
@@ -26,21 +27,32 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         private static EfRolDal _efRolDal = new EfRolDal();
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfRightDal _efRightDal = new EfRightDal();
 
         private static RoleManager _roleManager = new RoleManager(_efRolDal);
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
+        private static RightManager _rightManager = new RightManager(_efRightDal);
 
         private static List<Rol> _roller;
         private static RoleRowsControl _roleRowsControl;
         private static List<Uyedetay> _uyeler;
+        private static RolEkleControl _rolEkleControl;
+
+        public static List<Yetki> yetkiler;
 
         private void GetUsers()
         {
             _uyeler = _userManager.GetAllUyeDetay();
         }
 
+        private void GetRights()
+        {
+            yetkiler = _rightManager.GetActiveRights();
+        }
+
         private void GetRoleDetails()
         {
+            GetRights();
             GetUsers();
             _roller = _roleManager.GetAllRoles();
             if (_roller.Count <= 0)
@@ -85,7 +97,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void btnRolEkle_Click(object sender, EventArgs e)
         {
-
+            PageRoute.contentPanel.Controls.Clear();
+            _rolEkleControl = new RolEkleControl();
+            PageRoute.contentPanel.Controls.Add(_rolEkleControl);
         }
     }
 }
