@@ -85,7 +85,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     //Gizli Label UyeDetayId
                     _rowsControl.lblUyeDetayId.Text = detay.UyeDetayId.ToString();
                     _rowsControl.lblRol.Text = roller.Where(x => x.id == detay.rol_id).Single().rol_adi;
-                    if (_rowsControl.lblRol.Text.Equals("admin"))
+                    if (roller.Where(x=>x.id == detay.rol_id).Single().yetki_id == 1)
                         _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
                     switch (detay.sil_id)
                     {
