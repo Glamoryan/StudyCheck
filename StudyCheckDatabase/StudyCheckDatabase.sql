@@ -23,6 +23,15 @@ guncelleme_tarihi datetime,
 sil_id int default(1) -- 1->aktif 0->pasif
 )
 go
+create table Yetkiler
+(
+id int PRIMARY KEY IDENTITY(1,1),
+yetki_adi varchar(30) not null, -- Okuma , Güncelleme , Silme...
+ekleyen_id int references UyeDetay(id),
+eklenme_tarihi datetime not null,
+sil_id int default(1) -- 1->aktif 0->pasif
+)
+go
 create table Roller
 (
 id int PRIMARY KEY IDENTITY(1,1),
@@ -30,15 +39,8 @@ rol_adi varchar(20) not null,
 rol_kayit_tarihi datetime not null,
 ekleyen_id int references UyeDetay(id),
 rol_guncelleme_tarihi datetime,
-sil_id int default(1)
-)
-go
-create table Yetkiler
-(
-id int PRIMARY KEY IDENTITY(1,1),
-yetki_adi varchar(30) not null, -- Okuma , Güncelleme , Silme...
-ekleyen_id int references UyeDetay(id),
-eklenme_tarihi datetime not null
+sil_id int default(1),
+yetki_id int references Yetkiler(id)
 )
 go
 create table Sinavlar
@@ -78,7 +80,8 @@ create table Temalar
 id int PRIMARY KEY IDENTITY(1,1),--1 default
 tema_adi varchar(20) not null,
 eklenme_tarihi datetime not null,
-ekleyen_id int references UyeDetay(id)
+ekleyen_id int references UyeDetay(id),
+sil_id int default(1) -- 1->aktif 0->pasif
 )
 go
 Alter table UyeDetay add tema_id int references Temalar(id)
