@@ -30,6 +30,7 @@
         {
             this.btnRolEkle = new System.Windows.Forms.Button();
             this.rolesColumnControl1 = new StudyCheck.FormsUI.AdminForms.UserControls.RolesControl.RolesColumnControl();
+            this.pnlRoleContent = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnRolEkle
@@ -57,15 +58,24 @@
             this.rolesColumnControl1.Size = new System.Drawing.Size(1031, 46);
             this.rolesColumnControl1.TabIndex = 4;
             // 
+            // pnlRoleContent
+            // 
+            this.pnlRoleContent.Location = new System.Drawing.Point(8, 100);
+            this.pnlRoleContent.Name = "pnlRoleContent";
+            this.pnlRoleContent.Size = new System.Drawing.Size(1031, 525);
+            this.pnlRoleContent.TabIndex = 5;
+            // 
             // RoleControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.pnlRoleContent);
             this.Controls.Add(this.rolesColumnControl1);
             this.Controls.Add(this.btnRolEkle);
             this.Name = "RoleControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.RoleControl_Load);
             this.ResumeLayout(false);
 
         }
@@ -74,5 +84,6 @@
 
         private System.Windows.Forms.Button btnRolEkle;
         private RolesColumnControl rolesColumnControl1;
+        private System.Windows.Forms.Panel pnlRoleContent;
     }
 }

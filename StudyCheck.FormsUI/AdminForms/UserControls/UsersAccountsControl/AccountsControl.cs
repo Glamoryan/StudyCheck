@@ -66,7 +66,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 {                    
                     _rowsControl = new UserRowsControl();
                     _rowsControl.Top = (i * 40);
-                    pnlUserContent.Controls.Add(_rowsControl);
+                    //pnlUserContent.Controls.Add(_rowsControl); idu
                     _rowsControl.lblUyeId.Text = detay.UyeId.ToString();
                     _rowsControl.lblUyeAd.Text = detay.UyeAd;
                     _rowsControl.lblUyeSoyad.Text = detay.UyeSoyad;

@@ -74,7 +74,7 @@
             this.lblEkleyen.AutoSize = true;
             this.lblEkleyen.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblEkleyen.ForeColor = System.Drawing.Color.White;
-            this.lblEkleyen.Location = new System.Drawing.Point(564, 12);
+            this.lblEkleyen.Location = new System.Drawing.Point(590, 12);
             this.lblEkleyen.Name = "lblEkleyen";
             this.lblEkleyen.Size = new System.Drawing.Size(59, 17);
             this.lblEkleyen.TabIndex = 2;
@@ -85,7 +85,7 @@
             this.lblDurum.AutoSize = true;
             this.lblDurum.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDurum.ForeColor = System.Drawing.Color.White;
-            this.lblDurum.Location = new System.Drawing.Point(781, 12);
+            this.lblDurum.Location = new System.Drawing.Point(794, 12);
             this.lblDurum.Name = "lblDurum";
             this.lblDurum.Size = new System.Drawing.Size(52, 17);
             this.lblDurum.TabIndex = 2;
