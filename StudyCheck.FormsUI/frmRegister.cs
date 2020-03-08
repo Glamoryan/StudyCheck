@@ -96,7 +96,8 @@ namespace StudyCheck.FormsUI
                 guncelleme_tarihi = DateTime.Now,
                 sil_id = 1,
                 tema_id = Convert.ToInt32(cbxTema.SelectedValue),
-                rol_id = roller.Where(x=>x.yetki_id==1).Single().id
+                rol_id = roller.Where(x=>x.yetki_id==1).Single().id,
+                guncelleyen_id = 1
             };
             isAdd(uyedetay);
             _userManager.AddUserDetail(uyedetay);

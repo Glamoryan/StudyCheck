@@ -74,7 +74,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 ekleyen_id = LoginInfo.Id,
                 rol_guncelleme_tarihi = DateTime.Now,
                 sil_id = cbxDurum.SelectedIndex,
-                yetki_id = Convert.ToInt32(cbxYetki.SelectedValue)
+                yetki_id = Convert.ToInt32(cbxYetki.SelectedValue),
+                guncelleyen_id = LoginInfo.Id
             };
             isAdd(_rol);
             _roleManager.AddRole(_rol);

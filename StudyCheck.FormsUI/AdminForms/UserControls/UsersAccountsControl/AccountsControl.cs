@@ -76,12 +76,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                     _rowsControl.lblRol.Text = roller.Where(x => x.id == detay.rol_id).Single().rol_adi;                    
                     switch (roller.Where(x => x.id == detay.rol_id).Single().yetki_id)
                     {
-                        case 1:
+                        case 2:
                             _rowsControl.lblRol.ForeColor = Color.FromArgb(50, 130, 184);
-                            break;
-                        case 3:
-                            _rowsControl.lblRol.ForeColor = Color.FromArgb(232, 240, 68);
-                            break;
+                            break; 
                     }
                     switch (detay.sil_id)
                     {

@@ -11,6 +11,7 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 {
@@ -28,6 +29,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private static RightManager _rightManager = new RightManager(_efRightDal);
 
+        private static YetkiEkleControl _yetkiEkleControl;
         private static RightRowsControl _rightRowsControl;
         public static List<Uyedetay> _uyeler;
         public static List<Yetki> _yetkiler;
@@ -76,6 +78,13 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
             mainException = ExceptionHandling.HandleException(() => GetRightDetails());
             if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void btnYetkiEkle_Click(object sender, EventArgs e)
+        {
+            PageRoute.contentPanel.Controls.Clear();
+            _yetkiEkleControl = new YetkiEkleControl();
+            PageRoute.contentPanel.Controls.Add(_yetkiEkleControl);
         }
     }
 }

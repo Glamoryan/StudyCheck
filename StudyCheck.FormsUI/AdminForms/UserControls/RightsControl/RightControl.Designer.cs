@@ -64,6 +64,7 @@
             this.btnYetkiEkle.Text = "Yetki Ekle";
             this.btnYetkiEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnYetkiEkle.UseVisualStyleBackColor = false;
+            this.btnYetkiEkle.Click += new System.EventHandler(this.btnYetkiEkle_Click);
             // 
             // RightControl
             // 

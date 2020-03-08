@@ -150,7 +150,7 @@ namespace StudyCheck.FormsUI
                 }
                 else
                 {
-                    if (LoginInfo.YetkiId == 1)
+                    if (LoginInfo.YetkiId == 2)
                     {
                         if (this.InvokeRequired)
                         {
