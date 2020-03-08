@@ -106,6 +106,11 @@ namespace StudyCheck.FormsUI.AdminForms
             }
         }
 
+        private void SetRightControl()
+        {
+
+        }
+
         [CacheAspect(typeof(MemoryCacheManager))]
         private void SetDashboardControl()
         {            
