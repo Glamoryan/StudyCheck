@@ -90,8 +90,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 
         private void RightSettingsControl_Load(object sender, EventArgs e)
         {
-            SetDefault();
-            cbxDurum.SelectedIndex = 1;
+            SetDefault();            
         }
 
         private void btnYetkiDuzenle_Click(object sender, EventArgs e)
