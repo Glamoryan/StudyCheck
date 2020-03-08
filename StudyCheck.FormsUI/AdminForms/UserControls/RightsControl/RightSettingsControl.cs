@@ -142,9 +142,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                         throw new DataIsUsingException("Bu yetkiyi kullanan rol/roller var! Pasifleştirilemez!");
                 }
             }            
-        }//yetki id si 2 olan yönetici silinemez ve pasifleştirilemez
+        }
 
-        private void CheckBaseRight()
+        private void CheckBaseRight()//yetki id si 2 olan yönetici silinemez ve pasifleştirilemez
         {
             if(cbxDurum.SelectedIndex == 0)
             {
