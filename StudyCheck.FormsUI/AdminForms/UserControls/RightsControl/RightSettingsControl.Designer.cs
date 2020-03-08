@@ -33,16 +33,16 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblYetkiAdi = new System.Windows.Forms.Label();
             this.gbxYetki = new System.Windows.Forms.GroupBox();
-            this.tbxYetkiId = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tbxYetkiAdi = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.tbxEkleyen = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbxKayitTarih = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.cbxDurum = new System.Windows.Forms.ComboBox();
+            this.tbxKayitTarih = new System.Windows.Forms.TextBox();
+            this.tbxEkleyen = new System.Windows.Forms.TextBox();
+            this.tbxYetkiAdi = new System.Windows.Forms.TextBox();
+            this.tbxYetkiId = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.tbxGuncelleyen = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -98,6 +98,7 @@
             this.gbxYetki.Controls.Add(this.label6);
             this.gbxYetki.Controls.Add(this.label3);
             this.gbxYetki.Controls.Add(this.label2);
+            this.gbxYetki.Enabled = false;
             this.gbxYetki.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxYetki.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.gbxYetki.Location = new System.Drawing.Point(195, 79);
@@ -106,101 +107,6 @@
             this.gbxYetki.TabIndex = 8;
             this.gbxYetki.TabStop = false;
             this.gbxYetki.Text = "Yetki Ayarları";
-            // 
-            // tbxYetkiId
-            // 
-            this.tbxYetkiId.Enabled = false;
-            this.tbxYetkiId.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxYetkiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxYetkiId.Location = new System.Drawing.Point(153, 51);
-            this.tbxYetkiId.Name = "tbxYetkiId";
-            this.tbxYetkiId.Size = new System.Drawing.Size(43, 26);
-            this.tbxYetkiId.TabIndex = 7;
-            this.tbxYetkiId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label2.Location = new System.Drawing.Point(81, 55);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 19);
-            this.label2.TabIndex = 8;
-            this.label2.Text = "Yetki Id";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label3.Location = new System.Drawing.Point(81, 117);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 19);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "Yetki Adı";
-            // 
-            // tbxYetkiAdi
-            // 
-            this.tbxYetkiAdi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxYetkiAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxYetkiAdi.Location = new System.Drawing.Point(153, 114);
-            this.tbxYetkiAdi.Name = "tbxYetkiAdi";
-            this.tbxYetkiAdi.Size = new System.Drawing.Size(130, 26);
-            this.tbxYetkiAdi.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label4.Location = new System.Drawing.Point(371, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 19);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "Ekleyen";
-            // 
-            // tbxEkleyen
-            // 
-            this.tbxEkleyen.Enabled = false;
-            this.tbxEkleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxEkleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxEkleyen.Location = new System.Drawing.Point(436, 51);
-            this.tbxEkleyen.Name = "tbxEkleyen";
-            this.tbxEkleyen.Size = new System.Drawing.Size(130, 26);
-            this.tbxEkleyen.TabIndex = 9;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label5.Location = new System.Drawing.Point(31, 181);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(116, 19);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Yetki Kayıt Tarihi";
-            // 
-            // tbxKayitTarih
-            // 
-            this.tbxKayitTarih.Enabled = false;
-            this.tbxKayitTarih.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxKayitTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxKayitTarih.Location = new System.Drawing.Point(153, 178);
-            this.tbxKayitTarih.Name = "tbxKayitTarih";
-            this.tbxKayitTarih.Size = new System.Drawing.Size(168, 26);
-            this.tbxKayitTarih.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label6.Location = new System.Drawing.Point(378, 113);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 19);
-            this.label6.TabIndex = 8;
-            this.label6.Text = "Durum";
             // 
             // cbxDurum
             // 
@@ -214,6 +120,101 @@
             this.cbxDurum.Name = "cbxDurum";
             this.cbxDurum.Size = new System.Drawing.Size(121, 27);
             this.cbxDurum.TabIndex = 9;
+            // 
+            // tbxKayitTarih
+            // 
+            this.tbxKayitTarih.Enabled = false;
+            this.tbxKayitTarih.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKayitTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxKayitTarih.Location = new System.Drawing.Point(153, 178);
+            this.tbxKayitTarih.Name = "tbxKayitTarih";
+            this.tbxKayitTarih.Size = new System.Drawing.Size(168, 26);
+            this.tbxKayitTarih.TabIndex = 9;
+            // 
+            // tbxEkleyen
+            // 
+            this.tbxEkleyen.Enabled = false;
+            this.tbxEkleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxEkleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxEkleyen.Location = new System.Drawing.Point(436, 51);
+            this.tbxEkleyen.Name = "tbxEkleyen";
+            this.tbxEkleyen.Size = new System.Drawing.Size(130, 26);
+            this.tbxEkleyen.TabIndex = 9;
+            // 
+            // tbxYetkiAdi
+            // 
+            this.tbxYetkiAdi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxYetkiAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxYetkiAdi.Location = new System.Drawing.Point(153, 114);
+            this.tbxYetkiAdi.Name = "tbxYetkiAdi";
+            this.tbxYetkiAdi.Size = new System.Drawing.Size(130, 26);
+            this.tbxYetkiAdi.TabIndex = 9;
+            // 
+            // tbxYetkiId
+            // 
+            this.tbxYetkiId.Enabled = false;
+            this.tbxYetkiId.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxYetkiId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxYetkiId.Location = new System.Drawing.Point(153, 51);
+            this.tbxYetkiId.Name = "tbxYetkiId";
+            this.tbxYetkiId.Size = new System.Drawing.Size(43, 26);
+            this.tbxYetkiId.TabIndex = 7;
+            this.tbxYetkiId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label5.Location = new System.Drawing.Point(31, 181);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 19);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Yetki Kayıt Tarihi";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label4.Location = new System.Drawing.Point(371, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 19);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Ekleyen";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label6.Location = new System.Drawing.Point(378, 113);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(52, 19);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Durum";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label3.Location = new System.Drawing.Point(81, 117);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(65, 19);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "Yetki Adı";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label2.Location = new System.Drawing.Point(81, 55);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 19);
+            this.label2.TabIndex = 8;
+            this.label2.Text = "Yetki Id";
             // 
             // label7
             // 
@@ -271,6 +272,7 @@
             this.btnYetkiDuzenle.TabIndex = 16;
             this.btnYetkiDuzenle.Text = "Yetki Düzenle";
             this.btnYetkiDuzenle.UseVisualStyleBackColor = false;
+            this.btnYetkiDuzenle.Click += new System.EventHandler(this.btnYetkiDuzenle_Click);
             // 
             // btnYetkiSuccess
             // 
@@ -287,6 +289,7 @@
             this.btnYetkiSuccess.TabIndex = 14;
             this.btnYetkiSuccess.UseVisualStyleBackColor = false;
             this.btnYetkiSuccess.Visible = false;
+            this.btnYetkiSuccess.Click += new System.EventHandler(this.btnYetkiSuccess_Click);
             // 
             // btnYetkiCancel
             // 
@@ -303,6 +306,7 @@
             this.btnYetkiCancel.TabIndex = 15;
             this.btnYetkiCancel.UseVisualStyleBackColor = false;
             this.btnYetkiCancel.Visible = false;
+            this.btnYetkiCancel.Click += new System.EventHandler(this.btnYetkiCancel_Click);
             // 
             // btnIptal
             // 
@@ -333,6 +337,7 @@
             this.btnKaydet.TabIndex = 18;
             this.btnKaydet.Text = "Güncelle";
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // RightSettingsControl
             // 
@@ -354,6 +359,7 @@
             this.Controls.Add(this.label7);
             this.Name = "RightSettingsControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.RightSettingsControl_Load);
             this.gbxYetki.ResumeLayout(false);
             this.gbxYetki.PerformLayout();
             this.ResumeLayout(false);
