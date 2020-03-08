@@ -17,9 +17,7 @@ namespace StudyCheck.Business.Validations.FluentValidation
             RuleFor(x => x.yetki_adi).NotEmpty().WithMessage("Yetki adı boş geçilemez.")
                 .Length(2, 8).WithMessage("Yetki adı 2-8 karakter arasında olmalıdır.")
                 .Matches(Utility.regexTR).WithMessage("Yetki adı özel karakter içeremez.");
-            RuleFor(x => x.ekleyen_id).NotEmpty().WithMessage("Ekleyen id boş geçilemez.");
-            RuleFor(x => x.sil_id).NotEmpty().WithMessage("Sil id boş geçilemez.")
-                .InclusiveBetween(0, 1).WithMessage("Sil id 0(pasif) yada 1(aktif) olmalıdır.");
+            RuleFor(x => x.ekleyen_id).NotEmpty().WithMessage("Ekleyen id boş geçilemez.");            
         }
     }
 }
