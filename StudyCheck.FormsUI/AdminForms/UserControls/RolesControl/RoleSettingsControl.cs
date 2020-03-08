@@ -49,6 +49,16 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             _uyeler = _userManager.GetAllUyeDetay();            
         }
 
+        private void isAdd(Rol rol)
+        {
+            var roller = _roleManager.GetAllRoles();
+            foreach (var rl in roller)
+            {
+                if (rl.rol_adi.ToLower().Equals(rol.rol_adi.ToLower()))
+                    throw new DataAlreadyExistsException("Bu rol zaten mevcut!");
+            }
+        }
+
         private void RolGuncelle()
         {
             CheckFields();
@@ -64,6 +74,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 ekleyen_id = _uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id
             };
+            isAdd(_rol);
             _roleManager.UpdateRole(_rol);
         }
 
@@ -88,6 +99,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 mainException = ExceptionHandling.HandleException(() => RolGuncelle());
                 if (mainException is RequiredFieldsException)
                     MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (mainException is DataAlreadyExistsException)
+                    MessageBox.Show(mainException.Message, "Zaten Mevcut", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (mainException is ValidationException)
                     MessageBox.Show(mainException.Message, "Doğrulama hatası!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (mainException != null)

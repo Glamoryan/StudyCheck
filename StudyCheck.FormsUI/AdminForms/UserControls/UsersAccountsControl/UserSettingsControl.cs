@@ -65,6 +65,16 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             
         }
 
+        private void isAdd(Uyedetay uyedetay)
+        {
+            var uyeler = _userManager.GetAllUyeDetay();
+            foreach (var uye in uyeler)
+            {
+                if (uye.kullanici_adi.ToLower().Equals(uyedetay.kullanici_adi.ToLower()) || uye.kullanici_mail.ToLower().Equals(uyedetay.kullanici_mail.ToLower()))
+                    throw new DataAlreadyExistsException("Bu kullanıcı zaten mevcut!");
+            }
+        }
+
         private void KullaniciGuncelle()
         {            
             CheckFields();
@@ -88,6 +98,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text),
                 guncelleyen_id = LoginInfo.Id
             };
+            isAdd(_uyedetay);
             _userManager.UpdateUser(_uye);
             _userManager.UpdateUserDetail(_uyedetay);
 
@@ -328,6 +339,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 }                
                 else if (mainException is RequiredFieldsException)
                     MessageBox.Show(mainException.Message, "Boş Alan Bırakılamaz", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else if (mainException is DataAlreadyExistsException)
+                    MessageBox.Show(mainException.Message, "Zaten mevcut", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 else if (mainException != null)
                 {
                     MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
