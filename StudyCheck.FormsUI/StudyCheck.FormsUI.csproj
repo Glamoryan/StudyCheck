@@ -174,6 +174,7 @@
       <DependentUpon>WidgetsControl.cs</DependentUpon>
     </Compile>
     <Compile Include="ExceptionManage\CustomExceptions\AccountInactiveException.cs" />
+    <Compile Include="ExceptionManage\CustomExceptions\BaseRightException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\DataAlreadyExistsException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\DataIsUsingException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\InvalidAccountException.cs" />

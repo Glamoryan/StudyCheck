@@ -55,7 +55,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 ekleyen_id = RightControl._uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id,                
             };
-            CheckIfRightUsing();
+            CheckBaseRight();
+            CheckIfRightUsing();            
             _rightManager.UpdateRight(_yetki);
         }
 
@@ -140,8 +141,16 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                     if (rol.yetki_id == Convert.ToInt32(tbxYetkiId.Text))
                         throw new DataIsUsingException("Bu yetkiyi kullanan rol/roller var! Pasifleştirilemez!");
                 }
+            }            
+        }//yetki id si 2 olan yönetici silinemez ve pasifleştirilemez
+
+        private void CheckBaseRight()
+        {
+            if(cbxDurum.SelectedIndex == 0)
+            {
+                if (Convert.ToInt32(tbxYetkiId.Text) == 2 || Convert.ToInt32(tbxYetkiId.Text) == 1)
+                    throw new BaseRightException("Ana yetkiler pasifleştirilemez!");
             }
-            
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -153,6 +162,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                     MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
                 else if (mainException is DataIsUsingException)
                     MessageBox.Show(mainException.Message, "Yetki Kullanılıyor!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else if (mainException is BaseRightException)
+                    MessageBox.Show(mainException.Message, "Bu yetkiler pasifleştirilemez", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException is ValidationException)
                     MessageBox.Show(mainException.Message, "Doğrulama hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException != null)

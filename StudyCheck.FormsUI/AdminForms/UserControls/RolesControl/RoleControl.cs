@@ -71,7 +71,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                     _roleRowsControl.lblRolYetki.Text = yetkiler.Where(x => x.id == rol.yetki_id).Single().yetki_adi;
                     switch (rol.yetki_id)
                     {
-                        case 1:
+                        case 2:
                             _roleRowsControl.lblRolYetki.ForeColor = Color.FromArgb(232, 240, 68);
                             break;
                     }
