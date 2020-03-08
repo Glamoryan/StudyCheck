@@ -4,6 +4,7 @@ using StudyCheck.Core.Entities;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.RightsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
 using StudyCheck.FormsUI.Statikler;
@@ -40,6 +41,7 @@ namespace StudyCheck.FormsUI.AdminForms
         private static DashboardControl _dashboardControl;
         private static AccountsControl _accountsControl;
         private static RoleControl _roleControl;
+        private static RightControl _rightControl;
 
         private static frmLogin _loginForm;
 
@@ -108,7 +110,30 @@ namespace StudyCheck.FormsUI.AdminForms
 
         private void SetRightControl()
         {
-
+            if(_rightControl == null)
+            {
+                _rightControl = new RightControl();
+                PageRoute.rightControl = _rightControl;
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_rightControl);
+            }
+            else
+            {
+                if (!pnlContent.Controls.ContainsKey("RightControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_rightControl);
+                }
+                else if (pnlContent.Controls.ContainsKey("RightControl"))
+                {
+                    _rightControl = new RightControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.rightControl = _rightControl;
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_rightControl);
+                }
+            }
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
@@ -256,6 +281,7 @@ namespace StudyCheck.FormsUI.AdminForms
         private void btnYetkiler_Click(object sender, EventArgs e)
         {
             WhichTab(ytPanel);
+            SetRightControl();
         }
     }
 }
