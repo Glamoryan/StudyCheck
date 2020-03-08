@@ -73,7 +73,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 id = Convert.ToInt32(tbxUyeId.Text),
                 uye_ad = UserSettingsInfos.uyeAd,
                 uye_soyad = UserSettingsInfos.uyeSoyad
-            };            
+            };
             _uyedetay = new Uyedetay
             {
                 id = Convert.ToInt32(lblUyeDId.Text),
@@ -85,7 +85,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 rol_id = Convert.ToInt32(cbxRol.SelectedValue),
                 sil_id = UserSettingsInfos.durumIndex,
                 guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")),
-                kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text)
+                kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text),
+                guncelleyen_id = LoginInfo.Id
             };
             _userManager.UpdateUser(_uye);
             _userManager.UpdateUserDetail(_uyedetay);

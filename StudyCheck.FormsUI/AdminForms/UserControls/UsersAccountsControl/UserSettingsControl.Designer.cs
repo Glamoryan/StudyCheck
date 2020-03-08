@@ -70,6 +70,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.btnUyeCancel = new System.Windows.Forms.Button();
             this.btnUyeSuccess = new System.Windows.Forms.Button();
             this.lblUyeDId = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.tbxGuncelleyen = new System.Windows.Forms.TextBox();
             this.gbxUye.SuspendLayout();
             this.gbxHesap.SuspendLayout();
             this.SuspendLayout();
@@ -538,6 +540,27 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.lblUyeDId.Text = "uyeIdLabel";
             this.lblUyeDId.Visible = false;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label13.Location = new System.Drawing.Point(27, 540);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(116, 19);
+            this.label13.TabIndex = 2;
+            this.label13.Text = "Son Güncelleyen";
+            // 
+            // tbxGuncelleyen
+            // 
+            this.tbxGuncelleyen.Enabled = false;
+            this.tbxGuncelleyen.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxGuncelleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxGuncelleyen.Location = new System.Drawing.Point(151, 537);
+            this.tbxGuncelleyen.Name = "tbxGuncelleyen";
+            this.tbxGuncelleyen.Size = new System.Drawing.Size(148, 27);
+            this.tbxGuncelleyen.TabIndex = 4;
+            // 
             // UserSettingsControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -556,8 +579,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             this.Controls.Add(this.gbxUye);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.lblKullaniciAdi);
+            this.Controls.Add(this.tbxGuncelleyen);
             this.Controls.Add(this.tbxGuncellemeTarihi);
             this.Name = "UserSettingsControl";
             this.Size = new System.Drawing.Size(1045, 649);
@@ -609,5 +634,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
         private System.Windows.Forms.Button btnHesapSuccess;
         private System.Windows.Forms.Button btnUyeSuccess;
         public System.Windows.Forms.Label lblUyeDId;
+        private System.Windows.Forms.Label label13;
+        public System.Windows.Forms.TextBox tbxGuncelleyen;
     }
 }

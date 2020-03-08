@@ -130,11 +130,11 @@ namespace StudyCheck.FormsUI
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
             var user = _userManager.GetByUsernamePassword(username, password);
-            var yetkiler = _rightManager.GetAllRights();
-            var rol = _roleManager.GetRoleById(user.rol_id);
-            int yetkiId = yetkiler.Where(x => x.id == rol.yetki_id).Single().id;
+            var yetkiler = _rightManager.GetAllRights();            
             if (user != null)
             {
+                var rol = _roleManager.GetRoleById(user.rol_id);
+                int yetkiId = yetkiler.Where(x => x.id == rol.yetki_id).Single().id;
                 LoginInfo.Id = user.id;
                 LoginInfo.UyeId = user.uye_id;
                 LoginInfo.KullaniciAdi = user.kullanici_adi;
