@@ -95,6 +95,12 @@
     <Compile Include="AdminForms\UserControls\RightsControl\RightControl.Designer.cs">
       <DependentUpon>RightControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\RightsControl\RightRowsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\RightsControl\RightRowsControl.Designer.cs">
+      <DependentUpon>RightRowsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\RolesControl\RoleControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -202,6 +208,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\RightsControl\RightControl.resx">
       <DependentUpon>RightControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\RightsControl\RightRowsControl.resx">
+      <DependentUpon>RightRowsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\RolesControl\RoleControl.resx">
       <DependentUpon>RoleControl.cs</DependentUpon>

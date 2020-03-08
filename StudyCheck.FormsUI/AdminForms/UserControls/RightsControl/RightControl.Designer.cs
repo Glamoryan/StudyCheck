@@ -28,10 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnYetkiEkle = new System.Windows.Forms.Button();
-            this.rightColumnControl1 = new StudyCheck.FormsUI.AdminForms.UserControls.RightsControl.RightColumnControl();
             this.pnlRightContent = new System.Windows.Forms.Panel();
+            this.rightColumnControl1 = new StudyCheck.FormsUI.AdminForms.UserControls.RightsControl.RightColumnControl();
+            this.btnYetkiEkle = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // pnlRightContent
+            // 
+            this.pnlRightContent.Location = new System.Drawing.Point(8, 100);
+            this.pnlRightContent.Name = "pnlRightContent";
+            this.pnlRightContent.Size = new System.Drawing.Size(1031, 528);
+            this.pnlRightContent.TabIndex = 6;
+            // 
+            // rightColumnControl1
+            // 
+            this.rightColumnControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.rightColumnControl1.Location = new System.Drawing.Point(8, 48);
+            this.rightColumnControl1.Name = "rightColumnControl1";
+            this.rightColumnControl1.Size = new System.Drawing.Size(1031, 46);
+            this.rightColumnControl1.TabIndex = 5;
             // 
             // btnYetkiEkle
             // 
@@ -50,21 +65,6 @@
             this.btnYetkiEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnYetkiEkle.UseVisualStyleBackColor = false;
             // 
-            // rightColumnControl1
-            // 
-            this.rightColumnControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.rightColumnControl1.Location = new System.Drawing.Point(8, 48);
-            this.rightColumnControl1.Name = "rightColumnControl1";
-            this.rightColumnControl1.Size = new System.Drawing.Size(1031, 46);
-            this.rightColumnControl1.TabIndex = 5;
-            // 
-            // pnlRightContent
-            // 
-            this.pnlRightContent.Location = new System.Drawing.Point(8, 100);
-            this.pnlRightContent.Name = "pnlRightContent";
-            this.pnlRightContent.Size = new System.Drawing.Size(1031, 528);
-            this.pnlRightContent.TabIndex = 6;
-            // 
             // RightControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -75,6 +75,7 @@
             this.Controls.Add(this.btnYetkiEkle);
             this.Name = "RightControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.RightControl_Load);
             this.ResumeLayout(false);
 
         }
