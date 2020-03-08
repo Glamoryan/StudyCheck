@@ -143,6 +143,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "YetkiEkleControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.YetkiEkleControl_Load);
             this.gbxYetkiEkle.ResumeLayout(false);
             this.gbxYetkiEkle.PerformLayout();
             this.ResumeLayout(false);

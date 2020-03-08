@@ -126,10 +126,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 throw new DataAlreadyExistsException("Kullanıcı Adı / Mail alınmış");
             }
             else
-            {                
                 _userManager.AddUserDetail(_uyedetay);
-                MessageBox.Show("Kullanıcı Eklendi", "Ekleme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
