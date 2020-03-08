@@ -16,7 +16,7 @@ namespace StudyCheck.Entites.Concrete
         public DateTime rol_guncelleme_tarihi { get; set; }
         public int sil_id { get; set; }
         public int yetki_id { get; set; }
-
+        public int guncelleyen_id { get; set; }
 
     }
 }

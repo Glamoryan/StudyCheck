@@ -20,6 +20,6 @@ namespace StudyCheck.Entites.Concrete
         public int sil_id { get; set; }
         public int tema_id { get; set; }
         public int rol_id { get; set; }
-
+        public int guncelleyen_id { get; set; }
     }
 }

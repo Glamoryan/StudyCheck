@@ -14,7 +14,8 @@ namespace StudyCheck.Entites.Concrete
         public int ekleyen_id { get; set; }
         public DateTime eklenme_tarihi { get; set; }
         public int sil_id { get; set; }
-
+        public int guncelleyen_id { get; set; }
+        public DateTime guncelleme_tarihi { get; set; }
 
     }
 }

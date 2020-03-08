@@ -38,7 +38,8 @@ namespace StudyCheck.DataAccess.Concrete.EntityFramework
                                 GuncellemeTarihi = ud.guncelleme_tarihi,
                                 sil_id = ud.sil_id,
                                 tema_id = ud.tema_id,
-                                rol_id = ud.rol_id
+                                rol_id = ud.rol_id,
+                                guncelleyen_id = ud.guncelleyen_id
                             };
                 return sonuc.ToList();
             }

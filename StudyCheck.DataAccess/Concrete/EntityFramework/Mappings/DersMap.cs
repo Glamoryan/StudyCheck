@@ -22,6 +22,7 @@ namespace StudyCheck.DataAccess.Concrete.EntityFramework.Mappings
             Property(x => x.ekleyen_id).HasColumnName("ekleyen_id");
             Property(x => x.guncelleme_tarihi).HasColumnName("guncelleme_tarihi");
             Property(x => x.sil_id).HasColumnName("sil_id");
+            Property(x => x.guncelleyen_id).HasColumnName("guncelleyen_id");
         }
     }
 }
