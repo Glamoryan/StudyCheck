@@ -18,3 +18,15 @@ go
 insert into Temalar (tema_adi,eklenme_tarihi,ekleyen_id,sil_id) values ('default',GETDATE(),1,1)
 go
 update UyeDetay set rol_id = 1, tema_id=1 where id = 1
+go
+update UyeDetay set guncelleyen_id = 1
+go
+update Dersler set guncelleyen_id = 1
+go
+update Roller set guncelleyen_id = 1
+go
+update Sinavlar set guncelleyen_id = 1
+go
+update Yetkiler set guncelleyen_id = 1
+go
+update Yetkiler set guncelleme_tarihi = GETDATE()
