@@ -197,6 +197,9 @@
     <EmbeddedResource Include="AdminForms\UserControls\DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\RightsControl\RightColumnControl.resx">
+      <DependentUpon>RightColumnControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\RightsControl\RightControl.resx">
       <DependentUpon>RightControl.cs</DependentUpon>
     </EmbeddedResource>
