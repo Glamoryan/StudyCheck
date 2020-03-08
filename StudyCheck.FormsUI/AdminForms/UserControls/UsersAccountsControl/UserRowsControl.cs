@@ -73,7 +73,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             _userSettingsControl.tbxGuncellemeTarihi.Text = uyeDetay.GuncellemeTarihi.ToString();
             _userSettingsControl.cbxTema.SelectedValue = AccountsControl.temalar.Where(x => x.id == uyeDetay.tema_id).Single().id;
             _userSettingsControl.cbxRol.SelectedValue = AccountsControl.roller.Where(x => x.id == uyeDetay.rol_id).Single().id;
-            _userSettingsControl.tbxGuncelleyen.Text = uyeler.Where(x => x.guncelleyen_id == detay.guncelleyen_id).Single().kullanici_adi;
+            _userSettingsControl.tbxGuncelleyen.Text = uyeler.Where(x => x.id == uyeDetay.guncelleyen_id).Single().kullanici_adi;
             PageRoute.contentPanel.Controls.Add(_userSettingsControl);
         }
 

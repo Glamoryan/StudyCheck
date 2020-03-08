@@ -14,6 +14,7 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Entites.AccountManagement;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
@@ -60,7 +61,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 rol_kayit_tarihi = Convert.ToDateTime(tbxRolKayit.Text),
                 sil_id = cbxDurum.SelectedIndex,
                 yetki_id = Convert.ToInt32(cbxYetki.SelectedValue),
-                ekleyen_id = _uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id               
+                ekleyen_id = _uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
+                guncelleyen_id = LoginInfo.Id
             };
             _roleManager.UpdateRole(_rol);
         }

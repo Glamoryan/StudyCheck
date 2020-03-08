@@ -22,9 +22,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         }
         private static EfRolDal _efRolDal = new EfRolDal();
         private static EfRightDal _efRightDal = new EfRightDal();
+        private static EfUserDal _efUserDal = new EfUserDal();
+        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
 
         private static RightManager _rightManager = new RightManager(_efRightDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);        
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
+        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
 
         private static RoleSettingsControl _roleSettingsControl;
 
@@ -42,6 +45,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         {            
             var rol = _roleManager.GetRoleById(Convert.ToInt32(lblRolId.Text));
             var yetki = _rightManager.GetRightById(rol.yetki_id);
+            var uyeler = _userManager.GetAllUyeDetay();
             PageRoute.contentPanel.Controls.Clear();
             _roleSettingsControl = new RoleSettingsControl();
             SetRights();
@@ -54,6 +58,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             _roleSettingsControl.tbxEkleyen.Text = lblEkleyen.Text;
             _roleSettingsControl.tbxYetkiId.Text = rol.yetki_id.ToString();
             _roleSettingsControl.cbxYetki.SelectedValue = yetki.id;
+            _roleSettingsControl.tbxGuncelleyen.Text = uyeler.Where(x => x.id == rol.guncelleyen_id).Single().kullanici_adi;
             PageRoute.contentPanel.Controls.Add(_roleSettingsControl);
         }
 

@@ -33,6 +33,7 @@
             this.lblrolAdi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.gbxRol = new System.Windows.Forms.GroupBox();
+            this.cbxYetki = new System.Windows.Forms.ComboBox();
             this.cbxDurum = new System.Windows.Forms.ComboBox();
             this.tbxEkleyen = new System.Windows.Forms.TextBox();
             this.tbxRolAdi = new System.Windows.Forms.TextBox();
@@ -43,6 +44,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,8 +54,8 @@
             this.btnIptal = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.btnRolDuzenle = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbxYetki = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tbxGuncelleyen = new System.Windows.Forms.TextBox();
             this.gbxRol.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +117,16 @@
             this.gbxRol.TabIndex = 5;
             this.gbxRol.TabStop = false;
             this.gbxRol.Text = "Rol Ayarları";
+            // 
+            // cbxYetki
+            // 
+            this.cbxYetki.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxYetki.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxYetki.FormattingEnabled = true;
+            this.cbxYetki.Location = new System.Drawing.Point(707, 127);
+            this.cbxYetki.Name = "cbxYetki";
+            this.cbxYetki.Size = new System.Drawing.Size(121, 27);
+            this.cbxYetki.TabIndex = 8;
             // 
             // cbxDurum
             // 
@@ -223,6 +235,17 @@
             this.label3.Size = new System.Drawing.Size(55, 19);
             this.label3.TabIndex = 6;
             this.label3.Text = "Rol Adı";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label9.Location = new System.Drawing.Point(657, 130);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(44, 19);
+            this.label9.TabIndex = 6;
+            this.label9.Text = "Yetki ";
             // 
             // label8
             // 
@@ -350,26 +373,26 @@
             this.btnRolDuzenle.UseVisualStyleBackColor = false;
             this.btnRolDuzenle.Click += new System.EventHandler(this.btnRolDuzenle_Click);
             // 
-            // label9
+            // label10
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label9.Location = new System.Drawing.Point(657, 130);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(44, 19);
-            this.label9.TabIndex = 6;
-            this.label9.Text = "Yetki ";
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label10.Location = new System.Drawing.Point(91, 594);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 19);
+            this.label10.TabIndex = 6;
+            this.label10.Text = "Son Güncelleyen";
             // 
-            // cbxYetki
+            // tbxGuncelleyen
             // 
-            this.cbxYetki.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxYetki.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.cbxYetki.FormattingEnabled = true;
-            this.cbxYetki.Location = new System.Drawing.Point(707, 127);
-            this.cbxYetki.Name = "cbxYetki";
-            this.cbxYetki.Size = new System.Drawing.Size(121, 27);
-            this.cbxYetki.TabIndex = 8;
+            this.tbxGuncelleyen.Enabled = false;
+            this.tbxGuncelleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxGuncelleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxGuncelleyen.Location = new System.Drawing.Point(211, 591);
+            this.tbxGuncelleyen.Name = "tbxGuncelleyen";
+            this.tbxGuncelleyen.Size = new System.Drawing.Size(156, 26);
+            this.tbxGuncelleyen.TabIndex = 6;
             // 
             // RoleSettingsControl
             // 
@@ -380,11 +403,13 @@
             this.Controls.Add(this.btnIptal);
             this.Controls.Add(this.btnKaydet);
             this.Controls.Add(this.btnRolSuccess);
+            this.Controls.Add(this.tbxGuncelleyen);
             this.Controls.Add(this.btnRolCancel);
             this.Controls.Add(this.gbxRol);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblrolAdi);
+            this.Controls.Add(this.label10);
             this.Name = "RoleSettingsControl";
             this.Size = new System.Drawing.Size(1045, 649);
             this.Load += new System.EventHandler(this.RoleSettingsControl_Load);
@@ -422,5 +447,7 @@
         private System.Windows.Forms.Button btnRolDuzenle;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.ComboBox cbxYetki;
+        private System.Windows.Forms.Label label10;
+        public System.Windows.Forms.TextBox tbxGuncelleyen;
     }
 }
