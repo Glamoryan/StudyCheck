@@ -40,29 +40,19 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 throw new RequiredFieldsException("Yetki adı boş bırakılamaz!");
         }
 
-        private void isAdd(Yetki yetki)
-        {
-            var yetkiler = _rightManager.GetAllRights();
-            foreach (var yt in yetkiler)
-            {
-                if (yt.yetki_adi.ToLower().Equals(yetki.yetki_adi.ToLower()))
-                    throw new DataAlreadyExistsException("Bu yetki zaten mevcut!");
-            }
-        }
-
         private void yetkiGuncelle()
         {
             CheckFields();
             _yetki = new Yetki
             {
+                id = Convert.ToInt32(tbxYetkiId.Text),
                 yetki_adi = tbxYetkiAdi.Text,
                 eklenme_tarihi = Convert.ToDateTime(tbxKayitTarih.Text),
-                guncelleme_tarihi = Convert.ToDateTime(tbxGuncellemeTarih.Text),
+                guncelleme_tarihi = DateTime.Now,
                 sil_id = cbxDurum.SelectedIndex,
                 ekleyen_id = RightControl._uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id,                
-            };
-            isAdd(_yetki);
+            };            
             _rightManager.UpdateRight(_yetki);
         }
 
@@ -144,15 +134,20 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
             {
                 mainException = ExceptionHandling.HandleException(() => yetkiGuncelle());
                 if (mainException is RequiredFieldsException)
-                    MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                else if (mainException is DataAlreadyExistsException)
-                    MessageBox.Show(mainException.Message, "Zaten mevcut", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Warning);   
                 else if (mainException is ValidationException)
                     MessageBox.Show(mainException.Message, "Doğrulama hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException != null)
                     MessageBox.Show(mainException.Message, "Hatalı işlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException == null)
-                    MessageBox.Show("Yetki başarıyla güncellendi","Güncelleme başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                {
+                    MessageBox.Show("Yetki başarıyla güncellendi", "Güncelleme başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    PageRoute.rightControl = new RightControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.contentPanel.Controls.Clear();
+                    PageRoute.contentPanel.Controls.Add(PageRoute.rightControl);
+                }                    
             }
             else
                 MessageBox.Show("Önce değişiklikler kaydedilmeli!", "Kayıt gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);

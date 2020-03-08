@@ -382,7 +382,6 @@
         public System.Windows.Forms.TextBox tbxKayitTarih;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cbxDurum;
         public System.Windows.Forms.TextBox tbxGuncelleyen;
         private System.Windows.Forms.Label label7;
         public System.Windows.Forms.TextBox tbxGuncellemeTarih;
@@ -392,5 +391,6 @@
         private System.Windows.Forms.Button btnYetkiCancel;
         private System.Windows.Forms.Button btnIptal;
         private System.Windows.Forms.Button btnKaydet;
+        public System.Windows.Forms.ComboBox cbxDurum;
     }
 }
