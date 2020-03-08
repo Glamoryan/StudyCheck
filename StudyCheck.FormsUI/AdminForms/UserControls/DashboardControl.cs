@@ -21,12 +21,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
         private static EfLessonDal _efLessonDal = new EfLessonDal();
         private static EfThemeDal _efThemeDal = new EfThemeDal();
         private static EfRolDal _efRolDal = new EfRolDal();
+        private static EfRightDal _efRightDal = new EfRightDal();
 
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
         private static ExamManager _examManager = new ExamManager(_efExamDal);
         private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
         private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
         private static RoleManager _roleManager = new RoleManager(_efRolDal);
+        private static RightManager _rightManager = new RightManager(_efRightDal);
 
         public DashboardControl()
         {
@@ -51,7 +53,16 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
 
         private void GetAdminDetails()
         {
-            int sonuc = _userManager.GetAllAdmins((int)RoleInfo.Roller.Admin).Count;
+            var roller = _roleManager.GetAllRoles();
+            var yetkiler = _rightManager.GetAllRights();
+            int sonuc=0;
+            foreach (var dd in roller)
+            {
+                if(dd.yetki_id == 2)
+                {
+                    sonuc = _userManager.GetAllUyeDetay().Where(x => x.rol_id == dd.id).Count();
+                }
+            }
             adminWidget.lblWidgetTitle.Text = "Adminler";
             adminWidget.lblWidgetValue.Text = sonuc.ToString();
             adminWidget.pcbWidgetIcon.Image = Properties.Resources.admin;
