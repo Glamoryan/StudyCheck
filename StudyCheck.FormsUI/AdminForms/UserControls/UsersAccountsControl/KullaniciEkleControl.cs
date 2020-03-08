@@ -14,6 +14,7 @@ using StudyCheck.Entites.Concrete;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using FluentValidation;
+using StudyCheck.Entites.AccountManagement;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
@@ -90,7 +91,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 guncelleme_tarihi = DateTime.Now,
                 rol_id = Convert.ToInt32(cbxRol.SelectedValue),
                 sil_id = cbxDurum.SelectedIndex,
-                tema_id = Convert.ToInt32(cbxTema.SelectedValue)
+                tema_id = Convert.ToInt32(cbxTema.SelectedValue),
+                guncelleyen_id = LoginInfo.Id
             };            
         }
 

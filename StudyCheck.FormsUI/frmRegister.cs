@@ -39,8 +39,10 @@ namespace StudyCheck.FormsUI
         
         private static EfUserDal _efUserDal = new EfUserDal();
         private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
 
-        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);        
+        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
 
         private static Exception mainException;
 
@@ -83,6 +85,7 @@ namespace StudyCheck.FormsUI
                 uye_soyad = tbxSoyad.Text
             };
             var uyeSonuc = _userManager.AddUser(_uye);
+            var roller = _roleManager.GetAllRoles();
             Uyedetay uyedetay = new Uyedetay
             {
                 uye_id = uyeSonuc.id,
@@ -93,7 +96,7 @@ namespace StudyCheck.FormsUI
                 guncelleme_tarihi = DateTime.Now,
                 sil_id = 1,
                 tema_id = Convert.ToInt32(cbxTema.SelectedValue),
-                rol_id = 2
+                rol_id = roller.Where(x=>x.yetki_id==1).Single().id
             };
             isAdd(uyedetay);
             _userManager.AddUserDetail(uyedetay);

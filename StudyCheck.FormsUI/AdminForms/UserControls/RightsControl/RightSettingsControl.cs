@@ -28,8 +28,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
         private static Exception mainException;
 
         private static EfRightDal _efRightDal = new EfRightDal();
+        private static EfRolDal _efRolDal = new EfRolDal();
 
         private static RightManager _rightManager = new RightManager(_efRightDal);
+        private static RoleManager _roleManager = new RoleManager(_efRolDal);
 
         private static Yetki _yetki;        
 
@@ -52,7 +54,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 sil_id = cbxDurum.SelectedIndex,
                 ekleyen_id = RightControl._uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id,                
-            };            
+            };
+            CheckIfRightUsing();
             _rightManager.UpdateRight(_yetki);
         }
 
@@ -127,13 +130,29 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
             btnYetkiDuzenle.Visible = true;
         }
 
+        private void CheckIfRightUsing() //yeki kullanılıyorsa
+        {
+            if(cbxDurum.SelectedIndex == 0)
+            {
+                var roller = _roleManager.GetActiveRoles();
+                foreach (var rol in roller)
+                {
+                    if (rol.yetki_id == Convert.ToInt32(tbxYetkiId.Text))
+                        throw new DataIsUsingException("Bu yetkiyi kullanan rol/roller var! Pasifleştirilemez!");
+                }
+            }
+            
+        }
+
         private void btnKaydet_Click(object sender, EventArgs e)
         {
             if (CheckEdited())
             {
                 mainException = ExceptionHandling.HandleException(() => yetkiGuncelle());
                 if (mainException is RequiredFieldsException)
-                    MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Warning);   
+                    MessageBox.Show(mainException.Message, "Boş alan bırakılamaz!", MessageBoxButtons.OK, MessageBoxIcon.Warning); 
+                else if (mainException is DataIsUsingException)
+                    MessageBox.Show(mainException.Message, "Yetki Kullanılıyor!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException is ValidationException)
                     MessageBox.Show(mainException.Message, "Doğrulama hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 else if (mainException != null)
