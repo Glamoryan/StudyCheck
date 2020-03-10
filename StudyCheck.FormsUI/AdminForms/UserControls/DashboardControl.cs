@@ -67,6 +67,14 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             adminWidget.lblWidgetValue.Text = sonuc.ToString();
             adminWidget.pcbWidgetIcon.Image = Properties.Resources.admin;
         }
+
+        private void GetRightDetails()
+        {
+            int sonuc = _rightManager.GetAllRights().Count;
+            yetkiWidget.lblWidgetTitle.Text = "Yetkiler";
+            yetkiWidget.lblWidgetValue.Text = sonuc.ToString();
+            yetkiWidget.pcbWidgetIcon.Image = Properties.Resources.security_lock_32px;
+        }
         
         private void GetAccountDetails()
         {
@@ -83,6 +91,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
             GetThemeDetails();
             GetLessonDetails();
             GetRoleDetails();
+            GetRightDetails();
         }
 
         private void GetRoleDetails()

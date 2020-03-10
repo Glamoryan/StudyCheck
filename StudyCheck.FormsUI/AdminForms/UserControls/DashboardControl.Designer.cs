@@ -36,6 +36,7 @@
             this.adminWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.accountWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.rolWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
+            this.yetkiWidget = new StudyCheck.FormsUI.AdminForms.UserControls.WidgetsControl();
             this.SuspendLayout();
             // 
             // lblDashboard
@@ -105,11 +106,20 @@
             this.rolWidget.Size = new System.Drawing.Size(185, 155);
             this.rolWidget.TabIndex = 8;
             // 
+            // yetkiWidget
+            // 
+            this.yetkiWidget.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.yetkiWidget.Location = new System.Drawing.Point(566, 321);
+            this.yetkiWidget.Name = "yetkiWidget";
+            this.yetkiWidget.Size = new System.Drawing.Size(185, 155);
+            this.yetkiWidget.TabIndex = 9;
+            // 
             // DashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.yetkiWidget);
             this.Controls.Add(this.rolWidget);
             this.Controls.Add(this.themeWidget);
             this.Controls.Add(this.panel1);
@@ -135,5 +145,6 @@
         private System.Windows.Forms.Panel panel1;
         private WidgetsControl themeWidget;
         private WidgetsControl rolWidget;
+        private WidgetsControl yetkiWidget;
     }
 }
