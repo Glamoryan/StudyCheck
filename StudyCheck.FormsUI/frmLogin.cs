@@ -58,11 +58,14 @@ namespace StudyCheck.FormsUI
 
         private static PictureBox pcbLoading;
 
-        private static Exception mainException;                
+        private static Exception mainException;
 
         public frmLogin()
-        {            
+        {
             InitializeComponent();
+            Thread.Sleep(2000);
+            if (Program.SplashScreen != null && !Program.SplashScreen.Disposing && !Program.SplashScreen.IsDisposed)
+                Program.SplashScreen.Invoke(new Action(() => Program.SplashScreen.Close()));
         }
 
         [CacheApplicationExitAspect(typeof(MemoryCacheManager))]

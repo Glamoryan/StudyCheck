@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace StudyCheck.FormsUI
 {
-    static class Program
+    public static class Program
     {
-        static Form SplashScreen;
+        public static Form SplashScreen;
         static Form MainForm;
         /// <summary>
         /// The main entry point for the application.
@@ -28,18 +28,14 @@ namespace StudyCheck.FormsUI
             splashThread.SetApartmentState(ApartmentState.STA);
             splashThread.Start();
 
-            MainForm = new frmLogin();            
+            MainForm = new frmLogin();
             MainForm.Load += MainForm_LoadCompleted;
-            Thread.Sleep(2000);
             Application.Run(MainForm);
-
         }
 
-        private static void MainForm_LoadCompleted(object sender,EventArgs e)
+        private static void MainForm_LoadCompleted(object sender, EventArgs e)
         {
-            if (SplashScreen != null && !SplashScreen.Disposing && !SplashScreen.IsDisposed)
-                SplashScreen.Invoke(new Action(() => SplashScreen.Close()));            
-            MainForm.TopMost = true;            
+            MainForm.TopMost = true;
             MainForm.Activate();
             MainForm.TopMost = false;
         }
