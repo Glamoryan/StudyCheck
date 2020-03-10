@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.btnDersEkle = new System.Windows.Forms.Button();
+            this.lessonColumnControl1 = new StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl.LessonColumnControl();
+            this.pnlLessonContent = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // btnDersEkle
@@ -48,11 +50,28 @@
             this.btnDersEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDersEkle.UseVisualStyleBackColor = false;
             // 
+            // lessonColumnControl1
+            // 
+            this.lessonColumnControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.lessonColumnControl1.Location = new System.Drawing.Point(8, 48);
+            this.lessonColumnControl1.Name = "lessonColumnControl1";
+            this.lessonColumnControl1.Size = new System.Drawing.Size(1031, 46);
+            this.lessonColumnControl1.TabIndex = 6;
+            // 
+            // pnlLessonContent
+            // 
+            this.pnlLessonContent.Location = new System.Drawing.Point(8, 100);
+            this.pnlLessonContent.Name = "pnlLessonContent";
+            this.pnlLessonContent.Size = new System.Drawing.Size(1031, 525);
+            this.pnlLessonContent.TabIndex = 7;
+            // 
             // LessonControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.pnlLessonContent);
+            this.Controls.Add(this.lessonColumnControl1);
             this.Controls.Add(this.btnDersEkle);
             this.Name = "LessonControl";
             this.Size = new System.Drawing.Size(1045, 649);
@@ -63,5 +82,7 @@
         #endregion
 
         private System.Windows.Forms.Button btnDersEkle;
+        private LessonColumnControl lessonColumnControl1;
+        private System.Windows.Forms.Panel pnlLessonContent;
     }
 }
