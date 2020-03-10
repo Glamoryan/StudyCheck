@@ -16,5 +16,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         {
             InitializeComponent();
         }
+        
+        private void LessonSettingsControl_Load(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
