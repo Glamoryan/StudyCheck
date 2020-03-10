@@ -4,6 +4,7 @@ using StudyCheck.Core.Entities;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RightsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
@@ -38,10 +39,11 @@ namespace StudyCheck.FormsUI.AdminForms
         public static extern bool ReleaseCapture();
         //----------------------------------------------
 
-        private static DashboardControl _dashboardControl;
-        private static AccountsControl _accountsControl;
-        private static RoleControl _roleControl;
-        private static RightControl _rightControl;
+        private DashboardControl _dashboardControl;
+        private AccountsControl _accountsControl;
+        private RoleControl _roleControl;
+        private RightControl _rightControl;
+        private LessonControl _lessonControl;
 
         private static frmLogin _loginForm;
 
@@ -132,6 +134,33 @@ namespace StudyCheck.FormsUI.AdminForms
                     PageRoute.rightControl = _rightControl;
                     pnlContent.Controls.Clear();
                     pnlContent.Controls.Add(_rightControl);
+                }
+            }
+        }
+
+        private void SetLessonControl()
+        {
+            if(_lessonControl == null)
+            {
+                _lessonControl = new LessonControl();
+                PageRoute.lessonControl = _lessonControl;
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_lessonControl);
+            }
+            else
+            {
+                if (!pnlContent.Controls.ContainsKey("LessonControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_lessonControl);
+                }
+                else if (pnlContent.Controls.ContainsKey("LessonControl"))
+                {
+                    _lessonControl = new LessonControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.lessonControl = _lessonControl;
+                    pnlContent.Controls.Add(_lessonControl);
                 }
             }
         }
@@ -282,6 +311,12 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             WhichTab(ytPanel);
             SetRightControl();
+        }
+
+        private void btnDersler_Click(object sender, EventArgs e)
+        {
+            WhichTab(drsPanel);
+            SetLessonControl();
         }
     }
 }
