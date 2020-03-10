@@ -11,6 +11,7 @@ using StudyCheck.Entites.Concrete;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 {
@@ -33,6 +34,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
 
         private static LessonRowsControl _lessonRowsControl;
+        private static DersEkleControl _dersEkleControl;
         public static List<Ders> _dersler;
         public static List<Sinav> _sinavlar;
         public static List<Uyedetay> _uyeler;
@@ -81,6 +83,13 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
                     i++;
                 }
             }
+        }
+
+        private void btnDersEkle_Click(object sender, EventArgs e)
+        {
+            PageRoute.contentPanel.Controls.Clear();
+            _dersEkleControl = new DersEkleControl();
+            PageRoute.contentPanel.Controls.Add(_dersEkleControl);
         }
     }
 }

@@ -49,6 +49,7 @@
             this.btnDersEkle.Text = "Ders Ekle";
             this.btnDersEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnDersEkle.UseVisualStyleBackColor = false;
+            this.btnDersEkle.Click += new System.EventHandler(this.btnDersEkle_Click);
             // 
             // lessonColumnControl1
             // 
