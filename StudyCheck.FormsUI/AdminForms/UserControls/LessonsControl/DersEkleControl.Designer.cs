@@ -31,12 +31,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbxDers = new System.Windows.Forms.GroupBox();
-            this.tbxDersAdi = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxDersSinav = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.cbxDurum = new System.Windows.Forms.ComboBox();
+            this.cbxDersSinav = new System.Windows.Forms.ComboBox();
+            this.tbxDersAdi = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnDersEkle = new System.Windows.Forms.Button();
             this.gbxDers.SuspendLayout();
             this.SuspendLayout();
@@ -77,57 +77,6 @@
             this.gbxDers.TabStop = false;
             this.gbxDers.Text = "Ders Bilgileri";
             // 
-            // tbxDersAdi
-            // 
-            this.tbxDersAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxDersAdi.Location = new System.Drawing.Point(132, 57);
-            this.tbxDersAdi.Name = "tbxDersAdi";
-            this.tbxDersAdi.Size = new System.Drawing.Size(143, 27);
-            this.tbxDersAdi.TabIndex = 23;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label2.Location = new System.Drawing.Point(61, 60);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(64, 19);
-            this.label2.TabIndex = 22;
-            this.label2.Text = "Ders Adı";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label3.Location = new System.Drawing.Point(303, 60);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(93, 19);
-            this.label3.TabIndex = 22;
-            this.label3.Text = "Hangi Sınava";
-            // 
-            // cbxDersSinav
-            // 
-            this.cbxDersSinav.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDersSinav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.cbxDersSinav.FormattingEnabled = true;
-            this.cbxDersSinav.Location = new System.Drawing.Point(402, 57);
-            this.cbxDersSinav.Name = "cbxDersSinav";
-            this.cbxDersSinav.Size = new System.Drawing.Size(121, 27);
-            this.cbxDersSinav.TabIndex = 24;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label4.Location = new System.Drawing.Point(73, 127);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 19);
-            this.label4.TabIndex = 22;
-            this.label4.Text = "Durum";
-            // 
             // cbxDurum
             // 
             this.cbxDurum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -140,6 +89,57 @@
             this.cbxDurum.Name = "cbxDurum";
             this.cbxDurum.Size = new System.Drawing.Size(121, 27);
             this.cbxDurum.TabIndex = 25;
+            // 
+            // cbxDersSinav
+            // 
+            this.cbxDersSinav.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDersSinav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxDersSinav.FormattingEnabled = true;
+            this.cbxDersSinav.Location = new System.Drawing.Point(402, 57);
+            this.cbxDersSinav.Name = "cbxDersSinav";
+            this.cbxDersSinav.Size = new System.Drawing.Size(121, 27);
+            this.cbxDersSinav.TabIndex = 24;
+            // 
+            // tbxDersAdi
+            // 
+            this.tbxDersAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxDersAdi.Location = new System.Drawing.Point(132, 57);
+            this.tbxDersAdi.Name = "tbxDersAdi";
+            this.tbxDersAdi.Size = new System.Drawing.Size(143, 27);
+            this.tbxDersAdi.TabIndex = 23;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label4.Location = new System.Drawing.Point(73, 127);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 19);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "Durum";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label3.Location = new System.Drawing.Point(303, 60);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(93, 19);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Hangi Sınava";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label2.Location = new System.Drawing.Point(61, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(64, 19);
+            this.label2.TabIndex = 22;
+            this.label2.Text = "Ders Adı";
             // 
             // btnDersEkle
             // 
@@ -155,6 +155,7 @@
             this.btnDersEkle.TabIndex = 22;
             this.btnDersEkle.Text = "Ders Ekle";
             this.btnDersEkle.UseVisualStyleBackColor = false;
+            this.btnDersEkle.Click += new System.EventHandler(this.btnDersEkle_Click);
             // 
             // DersEkleControl
             // 
@@ -167,6 +168,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "DersEkleControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.DersEkleControl_Load);
             this.gbxDers.ResumeLayout(false);
             this.gbxDers.PerformLayout();
             this.ResumeLayout(false);
