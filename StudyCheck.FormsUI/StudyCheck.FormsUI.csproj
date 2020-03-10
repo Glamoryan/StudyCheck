@@ -238,6 +238,7 @@
       <DependentUpon>StartLoadingScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Statikler\FormRoute.cs" />
+    <Compile Include="Statikler\LessonSettingsInfos.cs" />
     <Compile Include="Statikler\PageRoute.cs" />
     <Compile Include="Statikler\RightSettingsInfos.cs" />
     <Compile Include="Statikler\RoleSettingsInfos.cs" />

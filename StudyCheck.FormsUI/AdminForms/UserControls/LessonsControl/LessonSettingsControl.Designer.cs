@@ -102,6 +102,7 @@
             this.gbxDers.Controls.Add(this.label4);
             this.gbxDers.Controls.Add(this.label3);
             this.gbxDers.Controls.Add(this.label2);
+            this.gbxDers.Enabled = false;
             this.gbxDers.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.gbxDers.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.gbxDers.Location = new System.Drawing.Point(210, 92);
@@ -296,6 +297,7 @@
             this.btnDersDuzenle.TabIndex = 19;
             this.btnDersDuzenle.Text = "Ders Düzenle";
             this.btnDersDuzenle.UseVisualStyleBackColor = false;
+            this.btnDersDuzenle.Click += new System.EventHandler(this.btnDersDuzenle_Click);
             // 
             // btnDersSuccess
             // 
@@ -312,6 +314,7 @@
             this.btnDersSuccess.TabIndex = 17;
             this.btnDersSuccess.UseVisualStyleBackColor = false;
             this.btnDersSuccess.Visible = false;
+            this.btnDersSuccess.Click += new System.EventHandler(this.btnDersSuccess_Click);
             // 
             // btnDersCancel
             // 
@@ -328,6 +331,7 @@
             this.btnDersCancel.TabIndex = 18;
             this.btnDersCancel.UseVisualStyleBackColor = false;
             this.btnDersCancel.Visible = false;
+            this.btnDersCancel.Click += new System.EventHandler(this.btnDersCancel_Click);
             // 
             // btnIptal
             // 
@@ -343,6 +347,7 @@
             this.btnIptal.TabIndex = 20;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnKaydet
             // 
@@ -358,6 +363,7 @@
             this.btnKaydet.TabIndex = 21;
             this.btnKaydet.Text = "Güncelle";
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // LessonSettingsControl
             // 
