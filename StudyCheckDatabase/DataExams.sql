@@ -17,7 +17,7 @@ values ('user',GETDATE(),1,GETDATE(),1,1) , ('admin',GETDATE(),1,GETDATE(),1,2)
 go
 insert into Temalar (tema_adi,eklenme_tarihi,ekleyen_id,sil_id) values ('default',GETDATE(),1,1)
 go
-update UyeDetay set rol_id = 1, tema_id=1 where id = 1
+update UyeDetay set rol_id = 2, tema_id=1 where id = 1
 go
 update UyeDetay set guncelleyen_id = 1
 go
