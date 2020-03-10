@@ -56,7 +56,7 @@
             this.lblDersId.AutoSize = true;
             this.lblDersId.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDersId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblDersId.Location = new System.Drawing.Point(23, 12);
+            this.lblDersId.Location = new System.Drawing.Point(34, 12);
             this.lblDersId.Name = "lblDersId";
             this.lblDersId.Size = new System.Drawing.Size(50, 17);
             this.lblDersId.TabIndex = 6;
@@ -67,7 +67,7 @@
             this.lblDersAd.AutoSize = true;
             this.lblDersAd.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblDersAd.ForeColor = System.Drawing.Color.White;
-            this.lblDersAd.Location = new System.Drawing.Point(138, 12);
+            this.lblDersAd.Location = new System.Drawing.Point(132, 12);
             this.lblDersAd.Name = "lblDersAd";
             this.lblDersAd.Size = new System.Drawing.Size(54, 17);
             this.lblDersAd.TabIndex = 7;
@@ -78,7 +78,7 @@
             this.lblSinavi.AutoSize = true;
             this.lblSinavi.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblSinavi.ForeColor = System.Drawing.Color.White;
-            this.lblSinavi.Location = new System.Drawing.Point(285, 12);
+            this.lblSinavi.Location = new System.Drawing.Point(301, 12);
             this.lblSinavi.Name = "lblSinavi";
             this.lblSinavi.Size = new System.Drawing.Size(75, 17);
             this.lblSinavi.TabIndex = 7;
@@ -100,7 +100,7 @@
             this.lblEkleyen.AutoSize = true;
             this.lblEkleyen.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblEkleyen.ForeColor = System.Drawing.Color.White;
-            this.lblEkleyen.Location = new System.Drawing.Point(677, 12);
+            this.lblEkleyen.Location = new System.Drawing.Point(690, 12);
             this.lblEkleyen.Name = "lblEkleyen";
             this.lblEkleyen.Size = new System.Drawing.Size(88, 17);
             this.lblEkleyen.TabIndex = 7;

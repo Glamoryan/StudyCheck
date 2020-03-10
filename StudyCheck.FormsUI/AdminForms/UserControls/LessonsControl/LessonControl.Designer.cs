@@ -75,6 +75,7 @@
             this.Controls.Add(this.btnDersEkle);
             this.Name = "LessonControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.LessonControl_Load);
             this.ResumeLayout(false);
 
         }

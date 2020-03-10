@@ -39,11 +39,11 @@ namespace StudyCheck.FormsUI.AdminForms
         public static extern bool ReleaseCapture();
         //----------------------------------------------
 
-        private DashboardControl _dashboardControl;
-        private AccountsControl _accountsControl;
-        private RoleControl _roleControl;
-        private RightControl _rightControl;
-        private LessonControl _lessonControl;
+        private static DashboardControl _dashboardControl;
+        private static AccountsControl _accountsControl;
+        private static RoleControl _roleControl;
+        private static RightControl _rightControl;
+        private static LessonControl _lessonControl;
 
         private static frmLogin _loginForm;
 
