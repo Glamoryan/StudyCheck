@@ -101,6 +101,12 @@
     <Compile Include="AdminForms\UserControls\LessonsControl\LessonRowsControl.Designer.cs">
       <DependentUpon>LessonRowsControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\LessonsControl\LessonSettingsControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\LessonsControl\LessonSettingsControl.Designer.cs">
+      <DependentUpon>LessonSettingsControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\RightsControl\RightColumnControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -244,6 +250,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\LessonsControl\LessonRowsControl.resx">
       <DependentUpon>LessonRowsControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\LessonsControl\LessonSettingsControl.resx">
+      <DependentUpon>LessonSettingsControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\RightsControl\RightColumnControl.resx">
       <DependentUpon>RightColumnControl.cs</DependentUpon>
