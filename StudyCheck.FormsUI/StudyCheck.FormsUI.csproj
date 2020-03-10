@@ -83,6 +83,12 @@
     <Compile Include="AdminForms\UserControls\DashboardControl.Designer.cs">
       <DependentUpon>DashboardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminForms\UserControls\LessonsControl\DersEkleControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AdminForms\UserControls\LessonsControl\DersEkleControl.Designer.cs">
+      <DependentUpon>DersEkleControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminForms\UserControls\LessonsControl\LessonColumnControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -241,6 +247,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\DashboardControl.resx">
       <DependentUpon>DashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminForms\UserControls\LessonsControl\DersEkleControl.resx">
+      <DependentUpon>DersEkleControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminForms\UserControls\LessonsControl\LessonColumnControl.resx">
       <DependentUpon>LessonColumnControl.cs</DependentUpon>
