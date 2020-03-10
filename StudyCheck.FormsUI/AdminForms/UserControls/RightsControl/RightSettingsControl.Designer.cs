@@ -322,6 +322,7 @@
             this.btnIptal.TabIndex = 17;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnKaydet
             // 

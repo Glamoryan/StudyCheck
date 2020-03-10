@@ -181,5 +181,11 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
             else
                 MessageBox.Show("Önce değişiklikler kaydedilmeli!", "Kayıt gerekli", MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+
+        private void btnIptal_Click(object sender, EventArgs e)
+        {
+            PageRoute.contentPanel.Controls.Clear();
+            PageRoute.contentPanel.Controls.Add(PageRoute.rightControl);
+        }
     }
 }
