@@ -165,6 +165,8 @@ namespace StudyCheck.FormsUI.AdminForms
             }
         }
 
+        
+
         [CacheAspect(typeof(MemoryCacheManager))]
         private void SetDashboardControl()
         {            
@@ -317,6 +319,11 @@ namespace StudyCheck.FormsUI.AdminForms
         {
             WhichTab(drsPanel);
             SetLessonControl();
+        }
+
+        private void btnSinavlar_Click(object sender, EventArgs e)
+        {
+            WhichTab(snvPanel);
         }
     }
 }
