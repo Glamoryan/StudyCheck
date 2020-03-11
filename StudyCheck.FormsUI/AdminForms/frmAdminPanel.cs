@@ -4,6 +4,7 @@ using StudyCheck.Core.Entities;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.Entites.ComplexTypes;
 using StudyCheck.FormsUI.AdminForms.UserControls;
+using StudyCheck.FormsUI.AdminForms.UserControls.ExamControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RightsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
@@ -44,6 +45,7 @@ namespace StudyCheck.FormsUI.AdminForms
         private static RoleControl _roleControl;
         private static RightControl _rightControl;
         private static LessonControl _lessonControl;
+        private static ExamControl _examControl;
 
         private static frmLogin _loginForm;
 
@@ -165,7 +167,33 @@ namespace StudyCheck.FormsUI.AdminForms
             }
         }
 
-        
+        private void SetExamControl()
+        {
+            if(_examControl == null)
+            {
+                _examControl = new ExamControl();
+                PageRoute.examControl = _examControl;
+                pnlContent.Controls.Clear();
+                pnlContent.Controls.Add(_examControl);
+            }
+            else
+            {
+                if (!pnlContent.Controls.ContainsKey("ExamControl"))
+                {
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_examControl);
+                }
+                else if (pnlContent.Controls.ContainsKey("ExamControl"))
+                {
+                    _examControl = new ExamControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.examControl = _examControl;
+                    pnlContent.Controls.Clear();
+                    pnlContent.Controls.Add(_examControl);
+                }
+            }
+        }
 
         [CacheAspect(typeof(MemoryCacheManager))]
         private void SetDashboardControl()
@@ -324,6 +352,7 @@ namespace StudyCheck.FormsUI.AdminForms
         private void btnSinavlar_Click(object sender, EventArgs e)
         {
             WhichTab(snvPanel);
+            SetExamControl();
         }
     }
 }
