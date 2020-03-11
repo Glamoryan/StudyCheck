@@ -135,7 +135,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
         {
             if(cbxDurum.SelectedIndex == 0)
             {
-                var roller = _roleManager.GetActiveRoles();
+                var roller = _roleManager.GetAllRoles();
                 foreach (var rol in roller)
                 {
                     if (rol.yetki_id == Convert.ToInt32(tbxYetkiId.Text))

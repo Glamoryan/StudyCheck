@@ -35,7 +35,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         {
             cbxDersSinav.ValueMember = "id";
             cbxDersSinav.DisplayMember = "sinav_ad";
-            cbxDersSinav.DataSource = _lessonManager.GetActiveLessons();
+            cbxDersSinav.DataSource = LessonControl._sinavlar;
         }
 
         private void isAdd(Ders ders)
