@@ -67,7 +67,7 @@
             this.lblSinavId.AutoSize = true;
             this.lblSinavId.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblSinavId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblSinavId.Location = new System.Drawing.Point(15, 12);
+            this.lblSinavId.Location = new System.Drawing.Point(34, 12);
             this.lblSinavId.Name = "lblSinavId";
             this.lblSinavId.Size = new System.Drawing.Size(55, 17);
             this.lblSinavId.TabIndex = 8;

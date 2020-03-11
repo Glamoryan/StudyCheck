@@ -29,11 +29,13 @@
         private void InitializeComponent()
         {
             this.pnlSidebar = new System.Windows.Forms.Panel();
+            this.snvPanel = new System.Windows.Forms.Panel();
             this.drsPanel = new System.Windows.Forms.Panel();
             this.ytPanel = new System.Windows.Forms.Panel();
             this.rolPanel = new System.Windows.Forms.Panel();
             this.acPanel = new System.Windows.Forms.Panel();
             this.dbPanel = new System.Windows.Forms.Panel();
+            this.btnSinavlar = new System.Windows.Forms.Button();
             this.btnDersler = new System.Windows.Forms.Button();
             this.btnYetkiler = new System.Windows.Forms.Button();
             this.btnRoller = new System.Windows.Forms.Button();
@@ -49,8 +51,6 @@
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
-            this.btnSinavlar = new System.Windows.Forms.Button();
-            this.snvPanel = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).BeginInit();
             this.pnlLogo.SuspendLayout();
@@ -83,6 +83,14 @@
             this.pnlSidebar.Name = "pnlSidebar";
             this.pnlSidebar.Size = new System.Drawing.Size(200, 725);
             this.pnlSidebar.TabIndex = 0;
+            // 
+            // snvPanel
+            // 
+            this.snvPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.snvPanel.Location = new System.Drawing.Point(194, 438);
+            this.snvPanel.Name = "snvPanel";
+            this.snvPanel.Size = new System.Drawing.Size(10, 56);
+            this.snvPanel.TabIndex = 5;
             // 
             // drsPanel
             // 
@@ -123,6 +131,25 @@
             this.dbPanel.Name = "dbPanel";
             this.dbPanel.Size = new System.Drawing.Size(10, 56);
             this.dbPanel.TabIndex = 5;
+            // 
+            // btnSinavlar
+            // 
+            this.btnSinavlar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnSinavlar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSinavlar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnSinavlar.FlatAppearance.BorderSize = 0;
+            this.btnSinavlar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSinavlar.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSinavlar.ForeColor = System.Drawing.Color.White;
+            this.btnSinavlar.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_exam_32;
+            this.btnSinavlar.Location = new System.Drawing.Point(0, 438);
+            this.btnSinavlar.Name = "btnSinavlar";
+            this.btnSinavlar.Size = new System.Drawing.Size(194, 56);
+            this.btnSinavlar.TabIndex = 4;
+            this.btnSinavlar.Text = "Sınavlar";
+            this.btnSinavlar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSinavlar.UseVisualStyleBackColor = false;
+            this.btnSinavlar.Click += new System.EventHandler(this.btnSinavlar_Click);
             // 
             // btnDersler
             // 
@@ -329,33 +356,6 @@
             this.pnlContent.Name = "pnlContent";
             this.pnlContent.Size = new System.Drawing.Size(1045, 649);
             this.pnlContent.TabIndex = 2;
-            // 
-            // btnSinavlar
-            // 
-            this.btnSinavlar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
-            this.btnSinavlar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSinavlar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnSinavlar.FlatAppearance.BorderSize = 0;
-            this.btnSinavlar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSinavlar.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.btnSinavlar.ForeColor = System.Drawing.Color.White;
-            this.btnSinavlar.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_exam_32;
-            this.btnSinavlar.Location = new System.Drawing.Point(0, 438);
-            this.btnSinavlar.Name = "btnSinavlar";
-            this.btnSinavlar.Size = new System.Drawing.Size(194, 56);
-            this.btnSinavlar.TabIndex = 4;
-            this.btnSinavlar.Text = "Sınvalar";
-            this.btnSinavlar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnSinavlar.UseVisualStyleBackColor = false;
-            this.btnSinavlar.Click += new System.EventHandler(this.btnSinavlar_Click);
-            // 
-            // snvPanel
-            // 
-            this.snvPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.snvPanel.Location = new System.Drawing.Point(194, 438);
-            this.snvPanel.Name = "snvPanel";
-            this.snvPanel.Size = new System.Drawing.Size(10, 56);
-            this.snvPanel.TabIndex = 5;
             // 
             // frmAdminPanel
             // 

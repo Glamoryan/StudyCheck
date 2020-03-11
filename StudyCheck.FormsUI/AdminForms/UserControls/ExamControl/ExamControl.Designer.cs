@@ -49,6 +49,7 @@
             this.btnSinavEkle.Text = "Sınav Ekle";
             this.btnSinavEkle.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnSinavEkle.UseVisualStyleBackColor = false;
+            this.btnSinavEkle.Click += new System.EventHandler(this.btnSinavEkle_Click);
             // 
             // examColumnControl1
             // 
@@ -75,6 +76,7 @@
             this.Controls.Add(this.btnSinavEkle);
             this.Name = "ExamControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.ExamControl_Load);
             this.ResumeLayout(false);
 
         }
