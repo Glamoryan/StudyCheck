@@ -64,7 +64,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 yetki_id = Convert.ToInt32(cbxYetki.SelectedValue),
                 ekleyen_id = _uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id
-            };            
+            };
+            CheckIfRoleUsing();
             _roleManager.UpdateRole(_rol);
         }
 
@@ -160,6 +161,19 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             btnRolCancel.Visible = false;
             btnRolSuccess.Visible = false;
             btnRolDuzenle.Visible = true;
+        }
+
+        private void CheckIfRoleUsing()
+        {
+            if(cbxDurum.SelectedIndex == 0)
+            {
+                var uyedetaylar = _userManager.GetAllUyeDetay();
+                foreach (var uye in uyedetaylar)
+                {
+                    if(uye.rol_id == Convert.ToInt32(tbxRolId.Text))
+                        throw new DataIsUsingException("Bu rolü kullanan kullanıcılar var! Pasifleştirilemez!");
+                }
+            }
         }
 
         private void btnRolCancel_Click(object sender, EventArgs e)
