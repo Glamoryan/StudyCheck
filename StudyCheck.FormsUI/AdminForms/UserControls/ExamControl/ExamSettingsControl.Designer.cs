@@ -33,25 +33,25 @@
             this.lblSinavAdi = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.gbxSinav = new System.Windows.Forms.GroupBox();
+            this.cbxDurum = new System.Windows.Forms.ComboBox();
+            this.mtbxSinavTarihi = new System.Windows.Forms.MaskedTextBox();
+            this.tbxSinavAd = new System.Windows.Forms.TextBox();
+            this.tbxEkleyen = new System.Windows.Forms.TextBox();
+            this.tbxKayitTarihi = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.tbxSinavId = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.tbxKayitTarihi = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.btnSinavDuzenle = new System.Windows.Forms.Button();
             this.btnSinavSuccess = new System.Windows.Forms.Button();
             this.btnSinavCancel = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.mtbxSinavTarihi = new System.Windows.Forms.MaskedTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.tbxSinavAd = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbxEkleyen = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.tbxGuncelleme = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.tbxGuncelleyen = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.cbxDurum = new System.Windows.Forms.ComboBox();
             this.btnIptal = new System.Windows.Forms.Button();
             this.btnKaydet = new System.Windows.Forms.Button();
             this.gbxSinav.SuspendLayout();
@@ -112,6 +112,113 @@
             this.gbxSinav.TabStop = false;
             this.gbxSinav.Text = "Sınav Ayarları";
             // 
+            // cbxDurum
+            // 
+            this.cbxDurum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxDurum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxDurum.FormattingEnabled = true;
+            this.cbxDurum.Items.AddRange(new object[] {
+            "Pasif",
+            "Aktif"});
+            this.cbxDurum.Location = new System.Drawing.Point(388, 115);
+            this.cbxDurum.Name = "cbxDurum";
+            this.cbxDurum.Size = new System.Drawing.Size(121, 27);
+            this.cbxDurum.TabIndex = 28;
+            // 
+            // mtbxSinavTarihi
+            // 
+            this.mtbxSinavTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.mtbxSinavTarihi.Location = new System.Drawing.Point(131, 169);
+            this.mtbxSinavTarihi.Mask = "00/00/0000";
+            this.mtbxSinavTarihi.Name = "mtbxSinavTarihi";
+            this.mtbxSinavTarihi.Size = new System.Drawing.Size(99, 27);
+            this.mtbxSinavTarihi.TabIndex = 27;
+            this.mtbxSinavTarihi.ValidatingType = typeof(System.DateTime);
+            // 
+            // tbxSinavAd
+            // 
+            this.tbxSinavAd.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxSinavAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxSinavAd.Location = new System.Drawing.Point(131, 115);
+            this.tbxSinavAd.Name = "tbxSinavAd";
+            this.tbxSinavAd.Size = new System.Drawing.Size(130, 26);
+            this.tbxSinavAd.TabIndex = 17;
+            // 
+            // tbxEkleyen
+            // 
+            this.tbxEkleyen.Enabled = false;
+            this.tbxEkleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxEkleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxEkleyen.Location = new System.Drawing.Point(388, 61);
+            this.tbxEkleyen.Name = "tbxEkleyen";
+            this.tbxEkleyen.Size = new System.Drawing.Size(130, 26);
+            this.tbxEkleyen.TabIndex = 17;
+            // 
+            // tbxKayitTarihi
+            // 
+            this.tbxKayitTarihi.Enabled = false;
+            this.tbxKayitTarihi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.tbxKayitTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.tbxKayitTarihi.Location = new System.Drawing.Point(388, 169);
+            this.tbxKayitTarihi.Name = "tbxKayitTarihi";
+            this.tbxKayitTarihi.Size = new System.Drawing.Size(153, 26);
+            this.tbxKayitTarihi.TabIndex = 17;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label6.Location = new System.Drawing.Point(314, 64);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 19);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Ekleyen";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label5.Location = new System.Drawing.Point(269, 172);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(104, 19);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Eklenme Tarihi";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label4.Location = new System.Drawing.Point(33, 172);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 19);
+            this.label4.TabIndex = 16;
+            this.label4.Text = "Sınav Tarihi";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label9.Location = new System.Drawing.Point(321, 118);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(52, 19);
+            this.label9.TabIndex = 16;
+            this.label9.Text = "Durum";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label3.Location = new System.Drawing.Point(46, 118);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 19);
+            this.label3.TabIndex = 16;
+            this.label3.Text = "Sınav Adı";
+            // 
             // tbxSinavId
             // 
             this.tbxSinavId.Enabled = false;
@@ -134,27 +241,6 @@
             this.label2.TabIndex = 14;
             this.label2.Text = "Sınav Id";
             // 
-            // tbxKayitTarihi
-            // 
-            this.tbxKayitTarihi.Enabled = false;
-            this.tbxKayitTarihi.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxKayitTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxKayitTarihi.Location = new System.Drawing.Point(388, 169);
-            this.tbxKayitTarihi.Name = "tbxKayitTarihi";
-            this.tbxKayitTarihi.Size = new System.Drawing.Size(153, 26);
-            this.tbxKayitTarihi.TabIndex = 17;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label3.Location = new System.Drawing.Point(46, 118);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(68, 19);
-            this.label3.TabIndex = 16;
-            this.label3.Text = "Sınav Adı";
-            // 
             // btnSinavDuzenle
             // 
             this.btnSinavDuzenle.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
@@ -169,6 +255,7 @@
             this.btnSinavDuzenle.TabIndex = 22;
             this.btnSinavDuzenle.Text = "Sınav Düzenle";
             this.btnSinavDuzenle.UseVisualStyleBackColor = false;
+            this.btnSinavDuzenle.Click += new System.EventHandler(this.btnSinavDuzenle_Click);
             // 
             // btnSinavSuccess
             // 
@@ -185,6 +272,7 @@
             this.btnSinavSuccess.TabIndex = 20;
             this.btnSinavSuccess.UseVisualStyleBackColor = false;
             this.btnSinavSuccess.Visible = false;
+            this.btnSinavSuccess.Click += new System.EventHandler(this.btnSinavSuccess_Click);
             // 
             // btnSinavCancel
             // 
@@ -201,68 +289,7 @@
             this.btnSinavCancel.TabIndex = 21;
             this.btnSinavCancel.UseVisualStyleBackColor = false;
             this.btnSinavCancel.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label4.Location = new System.Drawing.Point(33, 172);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 19);
-            this.label4.TabIndex = 16;
-            this.label4.Text = "Sınav Tarihi";
-            // 
-            // mtbxSinavTarihi
-            // 
-            this.mtbxSinavTarihi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.mtbxSinavTarihi.Location = new System.Drawing.Point(131, 169);
-            this.mtbxSinavTarihi.Mask = "00/00/0000";
-            this.mtbxSinavTarihi.Name = "mtbxSinavTarihi";
-            this.mtbxSinavTarihi.Size = new System.Drawing.Size(99, 27);
-            this.mtbxSinavTarihi.TabIndex = 27;
-            this.mtbxSinavTarihi.ValidatingType = typeof(System.DateTime);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label5.Location = new System.Drawing.Point(269, 172);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(104, 19);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "Eklenme Tarihi";
-            // 
-            // tbxSinavAd
-            // 
-            this.tbxSinavAd.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxSinavAd.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxSinavAd.Location = new System.Drawing.Point(131, 115);
-            this.tbxSinavAd.Name = "tbxSinavAd";
-            this.tbxSinavAd.Size = new System.Drawing.Size(130, 26);
-            this.tbxSinavAd.TabIndex = 17;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label6.Location = new System.Drawing.Point(314, 64);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(59, 19);
-            this.label6.TabIndex = 16;
-            this.label6.Text = "Ekleyen";
-            // 
-            // tbxEkleyen
-            // 
-            this.tbxEkleyen.Enabled = false;
-            this.tbxEkleyen.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.tbxEkleyen.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.tbxEkleyen.Location = new System.Drawing.Point(388, 61);
-            this.tbxEkleyen.Name = "tbxEkleyen";
-            this.tbxEkleyen.Size = new System.Drawing.Size(130, 26);
-            this.tbxEkleyen.TabIndex = 17;
+            this.btnSinavCancel.Click += new System.EventHandler(this.btnSinavCancel_Click);
             // 
             // label7
             // 
@@ -306,30 +333,6 @@
             this.tbxGuncelleyen.Size = new System.Drawing.Size(153, 26);
             this.tbxGuncelleyen.TabIndex = 17;
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label9.Location = new System.Drawing.Point(321, 118);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(52, 19);
-            this.label9.TabIndex = 16;
-            this.label9.Text = "Durum";
-            // 
-            // cbxDurum
-            // 
-            this.cbxDurum.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxDurum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.cbxDurum.FormattingEnabled = true;
-            this.cbxDurum.Items.AddRange(new object[] {
-            "Pasif",
-            "Aktif"});
-            this.cbxDurum.Location = new System.Drawing.Point(388, 115);
-            this.cbxDurum.Name = "cbxDurum";
-            this.cbxDurum.Size = new System.Drawing.Size(121, 27);
-            this.cbxDurum.TabIndex = 28;
-            // 
             // btnIptal
             // 
             this.btnIptal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
@@ -344,6 +347,7 @@
             this.btnIptal.TabIndex = 23;
             this.btnIptal.Text = "İptal Et";
             this.btnIptal.UseVisualStyleBackColor = false;
+            this.btnIptal.Click += new System.EventHandler(this.btnIptal_Click);
             // 
             // btnKaydet
             // 
@@ -359,6 +363,7 @@
             this.btnKaydet.TabIndex = 24;
             this.btnKaydet.Text = "Güncelle";
             this.btnKaydet.UseVisualStyleBackColor = false;
+            this.btnKaydet.Click += new System.EventHandler(this.btnKaydet_Click);
             // 
             // ExamSettingsControl
             // 
@@ -380,6 +385,7 @@
             this.Controls.Add(this.label1);
             this.Name = "ExamSettingsControl";
             this.Size = new System.Drawing.Size(1045, 649);
+            this.Load += new System.EventHandler(this.ExamSettingsControl_Load);
             this.gbxSinav.ResumeLayout(false);
             this.gbxSinav.PerformLayout();
             this.ResumeLayout(false);

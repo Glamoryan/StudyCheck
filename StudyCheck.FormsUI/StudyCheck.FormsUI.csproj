@@ -267,6 +267,7 @@
     <Compile Include="SplashForms\StartLoadingScreen.Designer.cs">
       <DependentUpon>StartLoadingScreen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Statikler\ExamSettingsInfos.cs" />
     <Compile Include="Statikler\FormRoute.cs" />
     <Compile Include="Statikler\LessonSettingsInfos.cs" />
     <Compile Include="Statikler\PageRoute.cs" />
