@@ -53,7 +53,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
                     _examRowsControl.Top = (i * 40);
                     _examRowsControl.lblSinavId.Text = exam.id.ToString();
                     _examRowsControl.lblSinavAd.Text = exam.sinav_ad;
-                    _examRowsControl.lblSinavTarihi.Text = exam.sinav_tarih.ToShortDateString();
+                    _examRowsControl.lblSinavTarihi.Text = exam.sinav_tarih.ToString("dd/MM/yyyy");
                     _examRowsControl.lblKayitTarihi.Text = exam.eklenme_tarihi.ToString();
                     _examRowsControl.lblEkleyen.Text = _uyeler.Where(x => x.uye_id == exam.ekleyen_id).Single().kullanici_adi;
                     switch (exam.sil_id)
