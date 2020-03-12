@@ -7,6 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudyCheck.Entites.Concrete;
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.Entites.AccountManagement;
+using StudyCheck.DataAccess.Concrete.EntityFramework;
+using StudyCheck.Business.Concrete.Managers;
+using StudyCheck.FormsUI.ExceptionManage;
+using FluentValidation;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
 {
@@ -15,6 +23,74 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
         public SinavEkleControl()
         {
             InitializeComponent();
+        }
+        private static Exception mainException;
+
+        private static EfExamDal _efExamDal = new EfExamDal();
+
+        private static ExamManager _examManager = new ExamManager(_efExamDal);
+
+        private static Sinav _sinav;
+
+        private void isAdd(Sinav sinav)
+        {
+            var sinavlar = ExamControl._sinavlar;
+            foreach (var snv in sinavlar)
+            {
+                if (snv.sinav_ad.ToLower().Equals(sinav.sinav_ad.ToLower()))
+                    throw new DataAlreadyExistsException("Bu sınav zaten mevcut!");
+            }
+        }
+
+        private void CheckFields()
+        {
+            if (tbxSinavAdi.Text.Equals(string.Empty) || !(mtbxSinavTarihi.MaskCompleted))
+                throw new RequiredFieldsException("Sınav adı ve Tarihi boş bırakılamaz!");
+        }
+
+        private void SetExam()
+        {
+            CheckFields();
+            _sinav = new Sinav
+            {
+                sinav_ad = tbxSinavAdi.Text,
+                sinav_tarih = Convert.ToDateTime(mtbxSinavTarihi.Text),
+                eklenme_tarihi = DateTime.Now,
+                ekleyen_id = LoginInfo.Id,
+                guncelleme_tarihi = DateTime.Now,
+                sil_id = cbxDurum.SelectedIndex,
+                guncelleyen_id = LoginInfo.Id
+            };
+            isAdd(_sinav);
+            _examManager.AddExam(_sinav);
+        }
+
+        private void btnSinavEkle_Click(object sender, EventArgs e)
+        {
+            mainException = ExceptionHandling.HandleException(() => SetExam());
+            if (mainException is RequiredFieldsException)
+                MessageBox.Show(mainException.Message, "Boş alan bırakılamaz", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (mainException is DataAlreadyExistsException)
+                MessageBox.Show(mainException.Message, "Sınav Zaten Mevcut", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException is ValidationException)
+                MessageBox.Show(mainException.Message, "Doğrulama Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException != null)
+                MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException == null)
+            {
+                MessageBox.Show("Sınav başarıyla eklendi", "Ekleme başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                PageRoute.contentPanel.Controls.Clear();
+                PageRoute.examControl = new ExamControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                PageRoute.contentPanel.Controls.Add(PageRoute.examControl);
+            }
+
+        }
+
+        private void SinavEkleControl_Load(object sender, EventArgs e)
+        {
+            cbxDurum.SelectedIndex = 1;
         }
     }
 }
