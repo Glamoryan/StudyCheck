@@ -51,6 +51,8 @@
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pnlContent = new System.Windows.Forms.Panel();
+            this.btnTemalar = new System.Windows.Forms.Button();
+            this.tmPanel = new System.Windows.Forms.Panel();
             this.pnlSidebar.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignOut)).BeginInit();
             this.pnlLogo.SuspendLayout();
@@ -62,12 +64,14 @@
             // pnlSidebar
             // 
             this.pnlSidebar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlSidebar.Controls.Add(this.tmPanel);
             this.pnlSidebar.Controls.Add(this.snvPanel);
             this.pnlSidebar.Controls.Add(this.drsPanel);
             this.pnlSidebar.Controls.Add(this.ytPanel);
             this.pnlSidebar.Controls.Add(this.rolPanel);
             this.pnlSidebar.Controls.Add(this.acPanel);
             this.pnlSidebar.Controls.Add(this.dbPanel);
+            this.pnlSidebar.Controls.Add(this.btnTemalar);
             this.pnlSidebar.Controls.Add(this.btnSinavlar);
             this.pnlSidebar.Controls.Add(this.btnDersler);
             this.pnlSidebar.Controls.Add(this.btnYetkiler);
@@ -357,6 +361,33 @@
             this.pnlContent.Size = new System.Drawing.Size(1045, 649);
             this.pnlContent.TabIndex = 2;
             // 
+            // btnTemalar
+            // 
+            this.btnTemalar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnTemalar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnTemalar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnTemalar.FlatAppearance.BorderSize = 0;
+            this.btnTemalar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTemalar.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnTemalar.ForeColor = System.Drawing.Color.White;
+            this.btnTemalar.Image = global::StudyCheck.FormsUI.Properties.Resources.icons8_paint_palette_32;
+            this.btnTemalar.Location = new System.Drawing.Point(0, 500);
+            this.btnTemalar.Name = "btnTemalar";
+            this.btnTemalar.Size = new System.Drawing.Size(194, 56);
+            this.btnTemalar.TabIndex = 4;
+            this.btnTemalar.Text = "Temalar";
+            this.btnTemalar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTemalar.UseVisualStyleBackColor = false;
+            this.btnTemalar.Click += new System.EventHandler(this.btnTemalar_Click);
+            // 
+            // tmPanel
+            // 
+            this.tmPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.tmPanel.Location = new System.Drawing.Point(194, 500);
+            this.tmPanel.Name = "tmPanel";
+            this.tmPanel.Size = new System.Drawing.Size(10, 56);
+            this.tmPanel.TabIndex = 5;
+            // 
             // frmAdminPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -408,5 +439,7 @@
         private System.Windows.Forms.Button btnDersler;
         private System.Windows.Forms.Panel snvPanel;
         private System.Windows.Forms.Button btnSinavlar;
+        private System.Windows.Forms.Panel tmPanel;
+        private System.Windows.Forms.Button btnTemalar;
     }
 }

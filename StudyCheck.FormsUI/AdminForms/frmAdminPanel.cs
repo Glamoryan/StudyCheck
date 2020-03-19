@@ -354,5 +354,10 @@ namespace StudyCheck.FormsUI.AdminForms
             WhichTab(snvPanel);
             SetExamControl();
         }
+
+        private void btnTemalar_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Tema ayarları yakında eklencektir", "Tema Ayarları Mevcut Değil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
     }
 }
