@@ -62,8 +62,8 @@ namespace StudyCheck.FormsUI
 
         public frmLogin()
         {
-            InitializeComponent();
-            Thread.Sleep(2000);
+            //Thread.Sleep(500);
+            InitializeComponent();            
             if (Program.SplashScreen != null && !Program.SplashScreen.Disposing && !Program.SplashScreen.IsDisposed)
                 Program.SplashScreen.Invoke(new Action(() => Program.SplashScreen.Close()));
         }
