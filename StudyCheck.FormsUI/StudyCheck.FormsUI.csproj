@@ -274,6 +274,12 @@
     <Compile Include="Statikler\RightSettingsInfos.cs" />
     <Compile Include="Statikler\RoleSettingsInfos.cs" />
     <Compile Include="Statikler\UserSettingsInfos.cs" />
+    <Compile Include="UserForms\frmUserPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserForms\frmUserPanel.Designer.cs">
+      <DependentUpon>frmUserPanel.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminForms\frmAdminPanel.resx">
       <DependentUpon>frmAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -376,6 +382,9 @@
     </Compile>
     <EmbeddedResource Include="SplashForms\StartLoadingScreen.resx">
       <DependentUpon>StartLoadingScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\frmUserPanel.resx">
+      <DependentUpon>frmUserPanel.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
