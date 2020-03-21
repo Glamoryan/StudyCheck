@@ -281,6 +281,12 @@
     <Compile Include="UserForms\frmUserPanel.Designer.cs">
       <DependentUpon>frmUserPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\ExamControl\ExamInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\ExamControl\ExamInfoControl.Designer.cs">
+      <DependentUpon>ExamInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForms\UserControls\UserDashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -399,6 +405,9 @@
     <EmbeddedResource Include="UserForms\frmUserPanel.resx">
       <DependentUpon>frmUserPanel.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\ExamControl\ExamInfoControl.resx">
+      <DependentUpon>ExamInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\UserDashboardControl.resx">
       <DependentUpon>UserDashboardControl.cs</DependentUpon>
     </EmbeddedResource>
@@ -516,7 +525,9 @@
   <ItemGroup>
     <None Include="Resources\security_lock_32px.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="UserForms\UserControls\LessonControl\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

@@ -29,21 +29,31 @@
         private void InitializeComponent()
         {
             this.userWidgetBilgiler = new StudyCheck.FormsUI.UserForms.UserControls.UserWidgetControl();
+            this.userWidgetSonSinav = new StudyCheck.FormsUI.UserForms.UserControls.ExamControl.ExamInfoControl();
             this.SuspendLayout();
             // 
             // userWidgetBilgiler
             // 
             this.userWidgetBilgiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.userWidgetBilgiler.Location = new System.Drawing.Point(12, 15);
+            this.userWidgetBilgiler.Location = new System.Drawing.Point(14, 15);
             this.userWidgetBilgiler.Name = "userWidgetBilgiler";
-            this.userWidgetBilgiler.Size = new System.Drawing.Size(270, 182);
+            this.userWidgetBilgiler.Size = new System.Drawing.Size(270, 264);
             this.userWidgetBilgiler.TabIndex = 0;
+            // 
+            // userWidgetSonSinav
+            // 
+            this.userWidgetSonSinav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.userWidgetSonSinav.Location = new System.Drawing.Point(307, 15);
+            this.userWidgetSonSinav.Name = "userWidgetSonSinav";
+            this.userWidgetSonSinav.Size = new System.Drawing.Size(278, 127);
+            this.userWidgetSonSinav.TabIndex = 1;
             // 
             // UserDashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.userWidgetSonSinav);
             this.Controls.Add(this.userWidgetBilgiler);
             this.Name = "UserDashboardControl";
             this.Size = new System.Drawing.Size(980, 416);
@@ -54,5 +64,6 @@
         #endregion
 
         private UserWidgetControl userWidgetBilgiler;
+        private ExamControl.ExamInfoControl userWidgetSonSinav;
     }
 }
