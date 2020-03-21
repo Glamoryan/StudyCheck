@@ -60,6 +60,7 @@
     </Reference>
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -280,6 +281,12 @@
     <Compile Include="UserForms\frmUserPanel.Designer.cs">
       <DependentUpon>frmUserPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\UserWidgetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\UserWidgetControl.Designer.cs">
+      <DependentUpon>UserWidgetControl.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminForms\frmAdminPanel.resx">
       <DependentUpon>frmAdminPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -385,6 +392,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\frmUserPanel.resx">
       <DependentUpon>frmUserPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\UserWidgetControl.resx">
+      <DependentUpon>UserWidgetControl.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
