@@ -34,6 +34,7 @@
             this.pcbSignout = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTarih = new System.Windows.Forms.Label();
+            this.pnlUserContent = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
@@ -75,7 +76,7 @@
             // pcbSignout
             // 
             this.pcbSignout.Image = global::StudyCheck.FormsUI.Properties.Resources.exit_sign_32px;
-            this.pcbSignout.Location = new System.Drawing.Point(16, 466);
+            this.pcbSignout.Location = new System.Drawing.Point(16, 471);
             this.pcbSignout.Name = "pcbSignout";
             this.pcbSignout.Size = new System.Drawing.Size(32, 32);
             this.pcbSignout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -87,7 +88,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(54, 472);
+            this.label1.Location = new System.Drawing.Point(54, 477);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 19);
             this.label1.TabIndex = 2;
@@ -104,18 +105,27 @@
             this.lblTarih.TabIndex = 3;
             this.lblTarih.Text = "tarih";
             // 
+            // pnlUserContent
+            // 
+            this.pnlUserContent.Location = new System.Drawing.Point(5, 49);
+            this.pnlUserContent.Name = "pnlUserContent";
+            this.pnlUserContent.Size = new System.Drawing.Size(980, 416);
+            this.pnlUserContent.TabIndex = 3;
+            // 
             // frmUserPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(990, 510);
+            this.Controls.Add(this.pnlUserContent);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pcbSignout);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserPanel";
             this.Text = "frmUserPanel";
+            this.Load += new System.EventHandler(this.frmUserPanel_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).EndInit();
@@ -134,5 +144,6 @@
         private System.Windows.Forms.PictureBox pcbSignout;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTarih;
+        private System.Windows.Forms.Panel pnlUserContent;
     }
 }

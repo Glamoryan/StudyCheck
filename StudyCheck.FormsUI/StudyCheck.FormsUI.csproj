@@ -281,6 +281,12 @@
     <Compile Include="UserForms\frmUserPanel.Designer.cs">
       <DependentUpon>frmUserPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\UserDashboardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\UserDashboardControl.Designer.cs">
+      <DependentUpon>UserDashboardControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForms\UserControls\UserWidgetControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -392,6 +398,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\frmUserPanel.resx">
       <DependentUpon>frmUserPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\UserDashboardControl.resx">
+      <DependentUpon>UserDashboardControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\UserWidgetControl.resx">
       <DependentUpon>UserWidgetControl.cs</DependentUpon>

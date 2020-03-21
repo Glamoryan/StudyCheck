@@ -16,5 +16,10 @@ namespace StudyCheck.FormsUI.UserForms
         {
             InitializeComponent();
         }
+
+        private void frmUserPanel_Load(object sender, EventArgs e)
+        {
+            lblTarih.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+        }
     }
 }
