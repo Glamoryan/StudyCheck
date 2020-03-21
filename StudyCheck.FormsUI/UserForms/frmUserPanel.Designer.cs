@@ -33,6 +33,7 @@
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pcbSignout = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.lblTarih = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
@@ -42,6 +43,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.panel1.Controls.Add(this.lblTarih);
             this.panel1.Controls.Add(this.pcbMinimize);
             this.panel1.Controls.Add(this.pcbExit);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -91,6 +93,17 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Çıkış Yap";
             // 
+            // lblTarih
+            // 
+            this.lblTarih.AutoSize = true;
+            this.lblTarih.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.lblTarih.Location = new System.Drawing.Point(12, 13);
+            this.lblTarih.Name = "lblTarih";
+            this.lblTarih.Size = new System.Drawing.Size(39, 19);
+            this.lblTarih.TabIndex = 3;
+            this.lblTarih.Text = "tarih";
+            // 
             // frmUserPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -120,5 +133,6 @@
         private System.Windows.Forms.PictureBox pcbMinimize;
         private System.Windows.Forms.PictureBox pcbSignout;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblTarih;
     }
 }
