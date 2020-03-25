@@ -34,6 +34,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btnStartNew = new System.Windows.Forms.Button();
+            this.userInfoControl1 = new StudyCheck.FormsUI.UserForms.UserControls.UserDetailControl.UserInfoControl();
             this.SuspendLayout();
             // 
             // userWidgetBilgiler
@@ -68,7 +69,7 @@
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(240, 342);
+            this.button1.Location = new System.Drawing.Point(228, 342);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(180, 45);
             this.button1.TabIndex = 3;
@@ -84,7 +85,7 @@
             this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.ForeColor = System.Drawing.Color.White;
             this.button2.Image = global::StudyCheck.FormsUI.Properties.Resources.resume_button_16px;
-            this.button2.Location = new System.Drawing.Point(435, 342);
+            this.button2.Location = new System.Drawing.Point(420, 342);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(187, 45);
             this.button2.TabIndex = 3;
@@ -103,17 +104,26 @@
             this.btnStartNew.Image = global::StudyCheck.FormsUI.Properties.Resources.add_16px;
             this.btnStartNew.Location = new System.Drawing.Point(31, 342);
             this.btnStartNew.Name = "btnStartNew";
-            this.btnStartNew.Size = new System.Drawing.Size(192, 45);
+            this.btnStartNew.Size = new System.Drawing.Size(186, 45);
             this.btnStartNew.TabIndex = 3;
             this.btnStartNew.Text = "Yeni Çalışma Başlat";
             this.btnStartNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStartNew.UseVisualStyleBackColor = false;
+            // 
+            // userInfoControl1
+            // 
+            this.userInfoControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.userInfoControl1.Location = new System.Drawing.Point(649, 76);
+            this.userInfoControl1.Name = "userInfoControl1";
+            this.userInfoControl1.Size = new System.Drawing.Size(288, 193);
+            this.userInfoControl1.TabIndex = 4;
             // 
             // UserDashboardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.userInfoControl1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnStartNew);
@@ -134,5 +144,6 @@
         private System.Windows.Forms.Button btnStartNew;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private UserDetailControl.UserInfoControl userInfoControl1;
     }
 }

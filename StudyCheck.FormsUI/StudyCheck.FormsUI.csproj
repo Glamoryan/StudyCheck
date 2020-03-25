@@ -299,6 +299,12 @@
     <Compile Include="UserForms\UserControls\UserDashboardControl.Designer.cs">
       <DependentUpon>UserDashboardControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\UserDetailControl\UserInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\UserDetailControl\UserInfoControl.Designer.cs">
+      <DependentUpon>UserInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForms\UserControls\UserWidgetControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -419,6 +425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\UserDashboardControl.resx">
       <DependentUpon>UserDashboardControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\UserDetailControl\UserInfoControl.resx">
+      <DependentUpon>UserInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\UserWidgetControl.resx">
       <DependentUpon>UserWidgetControl.cs</DependentUpon>
