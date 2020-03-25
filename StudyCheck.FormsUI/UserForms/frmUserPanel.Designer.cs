@@ -35,10 +35,12 @@
             this.pcbSignout = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUserContent = new System.Windows.Forms.Panel();
+            this.pcbRefresh = new System.Windows.Forms.PictureBox();
             this.pnlDragDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignout)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbRefresh)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlDragDrop
@@ -119,12 +121,25 @@
             this.pnlUserContent.Size = new System.Drawing.Size(980, 416);
             this.pnlUserContent.TabIndex = 3;
             // 
+            // pcbRefresh
+            // 
+            this.pcbRefresh.Image = global::StudyCheck.FormsUI.Properties.Resources.refresh_32px;
+            this.pcbRefresh.Location = new System.Drawing.Point(946, 471);
+            this.pcbRefresh.Name = "pcbRefresh";
+            this.pcbRefresh.Size = new System.Drawing.Size(32, 32);
+            this.pcbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pcbRefresh.TabIndex = 4;
+            this.pcbRefresh.TabStop = false;
+            this.pcbRefresh.Click += new System.EventHandler(this.pcbRefresh_Click);
+            this.pcbRefresh.MouseEnter += new System.EventHandler(this.pcbRefresh_MouseEnter);
+            // 
             // frmUserPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(990, 510);
+            this.Controls.Add(this.pcbRefresh);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pcbSignout);
             this.Controls.Add(this.pnlUserContent);
@@ -139,6 +154,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignout)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pcbRefresh)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -153,5 +169,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTarih;
         private System.Windows.Forms.Panel pnlUserContent;
+        private System.Windows.Forms.PictureBox pcbRefresh;
     }
 }

@@ -43,9 +43,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
         private Tema _tema;
         private Rol _rol;
         private DateTime _sonCalisma;
-        private int _toplamDakika = 0;
-        private int _sinavToplam = 0;
-        private int _dersToplam = 0;
+        private TimeSpan _toplamDakika;
+        private TimeSpan _sinavToplam;
+        private TimeSpan _dersToplam;
 
         public UserDashboardControl()
         {
@@ -77,15 +77,15 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
                 {
                     if (calisma.uye_id == LoginInfo.UyeId && calisma.sinav_id == _sonSinav.id)
                     {
-                        _sinavToplam += Convert.ToInt32(calisma.calisilan_zaman.TotalMinutes);
+                        _sinavToplam += calisma.calisilan_zaman;
                     }
                     if (calisma.uye_id == LoginInfo.UyeId && calisma.ders_id == _sonDers.id)
                     {
-                        _dersToplam += Convert.ToInt32(calisma.calisilan_zaman.TotalMinutes);
+                        _dersToplam += calisma.calisilan_zaman;
                     }
                     if (calisma.uye_id == LoginInfo.UyeId)
                     {
-                        _toplamDakika += Convert.ToInt32(calisma.calisilan_zaman.TotalMinutes);
+                        _toplamDakika += calisma.calisilan_zaman;
                     }
                 }
             }            

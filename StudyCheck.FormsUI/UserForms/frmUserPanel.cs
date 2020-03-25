@@ -133,5 +133,20 @@ namespace StudyCheck.FormsUI.UserForms
                 _frmLogin.Show();
             }
         }
+
+        private void pcbRefresh_MouseEnter(object sender, EventArgs e)
+        {
+            pcbRefresh.Cursor = Cursors.Hand;
+        }
+
+        private void pcbRefresh_Click(object sender, EventArgs e)
+        {
+            _userDashboardControl = new UserDashboardControl();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+            PageRoute.userDashboardControl = _userDashboardControl;
+            pnlUserContent.Controls.Clear();
+            pnlUserContent.Controls.Add(_userDashboardControl);
+        }
     }
 }

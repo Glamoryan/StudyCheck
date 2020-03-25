@@ -52,11 +52,11 @@
             this.lblToplamCalisilanSaat.AutoSize = true;
             this.lblToplamCalisilanSaat.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblToplamCalisilanSaat.ForeColor = System.Drawing.Color.White;
-            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(227, 51);
+            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(225, 51);
             this.lblToplamCalisilanSaat.Name = "lblToplamCalisilanSaat";
-            this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(16, 17);
+            this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(64, 17);
             this.lblToplamCalisilanSaat.TabIndex = 18;
-            this.lblToplamCalisilanSaat.Text = "0";
+            this.lblToplamCalisilanSaat.Text = "00:00:00";
             // 
             // lblSinavAd
             // 
@@ -87,9 +87,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.label1.Location = new System.Drawing.Point(13, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(208, 17);
+            this.label1.Size = new System.Drawing.Size(206, 17);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Sınava Çalışılan Toplam Dakika :";
+            this.label1.Text = "Sınava Çalışılan Toplam Zaman :";
             // 
             // label2
             // 
@@ -114,7 +114,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Name = "ExamInfoControl";
-            this.Size = new System.Drawing.Size(278, 127);
+            this.Size = new System.Drawing.Size(297, 127);
             this.ResumeLayout(false);
             this.PerformLayout();
 
