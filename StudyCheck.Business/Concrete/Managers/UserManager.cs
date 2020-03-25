@@ -117,6 +117,13 @@ namespace StudyCheck.Business.Concrete.Managers
         {
             _userDal.Delete(uye);
         }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
+        [PerformanceCounterAspect(3)]//3 saniyeden fazla gelirse   
+        public Uyedetay GetUyeDetayById(int id)
+        {
+            return _userDetailDal.Get(d => d.uye_id == id);
+        }
     }
 }
 
