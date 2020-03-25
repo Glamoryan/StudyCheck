@@ -54,8 +54,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 sil_id = cbxDurum.SelectedIndex,
                 ekleyen_id = RightControl._uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id,                
-            };
-            CheckBaseRight();
+            };            
             CheckIfRightUsing();            
             _rightManager.UpdateRight(_yetki);
         }
@@ -94,6 +93,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 
         private void RightSettingsControl_Load(object sender, EventArgs e)
         {
+            CheckBaseRight();
             SetDefault();            
         }
 
@@ -144,12 +144,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
             }            
         }
 
-        private void CheckBaseRight()//yetki id si 2 olan yönetici silinemez ve pasifleştirilemez
+        private void CheckBaseRight()
         {
-            if(cbxDurum.SelectedIndex == 0)
+            if(tbxYetkiId.Text.Equals("1") || tbxYetkiId.Text.Equals("2"))
             {
-                if (Convert.ToInt32(tbxYetkiId.Text) == 2 || Convert.ToInt32(tbxYetkiId.Text) == 1)
-                    throw new BaseRightException("Ana yetkiler pasifleştirilemez!");
+                label6.Visible = false;
+                cbxDurum.Visible = false;
             }
         }
 

@@ -49,6 +49,16 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             _uyeler = _userManager.GetAllUyeDetay();            
         }
        
+        private void CheckIfRoleBase()
+        {
+            if(tbxRolId.Text.Equals("1") || tbxRolId.Text.Equals("2"))
+            {
+                label7.Visible = false;
+                label9.Visible = false;
+                cbxDurum.Visible = false;
+                cbxYetki.Visible = false;
+            }
+        }
 
         private void RolGuncelle()
         {
@@ -64,7 +74,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 yetki_id = Convert.ToInt32(cbxYetki.SelectedValue),
                 ekleyen_id = _uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id
-            };
+            };            
             CheckIfRoleUsing();
             _roleManager.UpdateRole(_rol);
         }
@@ -187,6 +197,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void RoleSettingsControl_Load(object sender, EventArgs e)
         {
+            CheckIfRoleBase();
             SetDefault();            
         }
     }
