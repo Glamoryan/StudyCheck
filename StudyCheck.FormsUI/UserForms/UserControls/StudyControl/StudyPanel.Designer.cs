@@ -90,6 +90,7 @@
             this.Controls.Add(this.pnlExamInfo);
             this.Name = "StudyPanel";
             this.Size = new System.Drawing.Size(980, 416);
+            this.Load += new System.EventHandler(this.StudyPanel_Load);
             this.ResumeLayout(false);
 
         }

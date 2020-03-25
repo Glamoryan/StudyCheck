@@ -31,5 +31,7 @@ namespace StudyCheck.FormsUI.Statikler
         public static Panel userContentPanel { get; set; }
         public static UserDashboardControl userDashboardControl { get; set; }
         public static StudyPanel studyPanel { get; set; }
+        public static examInfoControl examInfoControl { get; set; }
+        public static lessonInfoControl lessonInfoControl { get; set; }
     }
 }
