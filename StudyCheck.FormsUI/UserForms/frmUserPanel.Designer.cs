@@ -28,30 +28,31 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlDragDrop = new System.Windows.Forms.Panel();
             this.lblTarih = new System.Windows.Forms.Label();
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
             this.pcbSignout = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUserContent = new System.Windows.Forms.Panel();
-            this.panel1.SuspendLayout();
+            this.pnlDragDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignout)).BeginInit();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlDragDrop
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.panel1.Controls.Add(this.lblTarih);
-            this.panel1.Controls.Add(this.pcbMinimize);
-            this.panel1.Controls.Add(this.pcbExit);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(990, 42);
-            this.panel1.TabIndex = 0;
+            this.pnlDragDrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlDragDrop.Controls.Add(this.lblTarih);
+            this.pnlDragDrop.Controls.Add(this.pcbMinimize);
+            this.pnlDragDrop.Controls.Add(this.pcbExit);
+            this.pnlDragDrop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnlDragDrop.Location = new System.Drawing.Point(0, 0);
+            this.pnlDragDrop.Name = "pnlDragDrop";
+            this.pnlDragDrop.Size = new System.Drawing.Size(990, 42);
+            this.pnlDragDrop.TabIndex = 0;
+            this.pnlDragDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragDrop_MouseDown);
             // 
             // lblTarih
             // 
@@ -73,6 +74,8 @@
             this.pcbMinimize.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcbMinimize.TabIndex = 1;
             this.pcbMinimize.TabStop = false;
+            this.pcbMinimize.Click += new System.EventHandler(this.pcbMinimize_Click);
+            this.pcbMinimize.MouseEnter += new System.EventHandler(this.pcbMinimize_MouseEnter);
             // 
             // pcbExit
             // 
@@ -83,23 +86,27 @@
             this.pcbExit.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcbExit.TabIndex = 1;
             this.pcbExit.TabStop = false;
+            this.pcbExit.Click += new System.EventHandler(this.pcbExit_Click);
+            this.pcbExit.MouseEnter += new System.EventHandler(this.pcbExit_MouseEnter);
             // 
             // pcbSignout
             // 
+            this.pcbSignout.Cursor = System.Windows.Forms.Cursors.Hand;
             this.pcbSignout.Image = global::StudyCheck.FormsUI.Properties.Resources.exit_sign_32px;
-            this.pcbSignout.Location = new System.Drawing.Point(16, 471);
+            this.pcbSignout.Location = new System.Drawing.Point(16, 472);
             this.pcbSignout.Name = "pcbSignout";
             this.pcbSignout.Size = new System.Drawing.Size(32, 32);
             this.pcbSignout.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.pcbSignout.TabIndex = 1;
             this.pcbSignout.TabStop = false;
+            this.pcbSignout.Click += new System.EventHandler(this.pcbSignout_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(54, 477);
+            this.label1.Location = new System.Drawing.Point(54, 478);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 19);
             this.label1.TabIndex = 2;
@@ -118,17 +125,17 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.ClientSize = new System.Drawing.Size(990, 510);
-            this.Controls.Add(this.pnlUserContent);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.pcbSignout);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.pcbSignout);
+            this.Controls.Add(this.pnlUserContent);
+            this.Controls.Add(this.pnlDragDrop);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmUserPanel";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmUserPanel";
             this.Load += new System.EventHandler(this.frmUserPanel_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.pnlDragDrop.ResumeLayout(false);
+            this.pnlDragDrop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbSignout)).EndInit();
@@ -139,7 +146,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlDragDrop;
         private System.Windows.Forms.PictureBox pcbExit;
         private System.Windows.Forms.PictureBox pcbMinimize;
         private System.Windows.Forms.PictureBox pcbSignout;
