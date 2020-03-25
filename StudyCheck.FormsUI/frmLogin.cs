@@ -24,6 +24,7 @@ using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.FormsUI.UserForms;
 
 namespace StudyCheck.FormsUI
 {
@@ -53,6 +54,7 @@ namespace StudyCheck.FormsUI
         private static RightManager _rightManager = new RightManager(_efRightDal);
         private static RoleManager _roleManager = new RoleManager(_efRolDal);
 
+        private static frmUserPanel _userPanel;
         private static frmAdminPanel _adminForm;
         private static frmRegister _frmRegister;
 
@@ -116,9 +118,16 @@ namespace StudyCheck.FormsUI
                 return false;
             }
             return true;
-
         }
 
+        private void CallUserForm()
+        {
+            this.Hide();
+            _userPanel = new frmUserPanel();
+            _userPanel.FormClosed += (s, args) => this.Close();
+            _userPanel.Show();
+        }
+        delegate void CallUserFormDelegate();
         
         private void CallAdminForm()
         {
@@ -163,7 +172,11 @@ namespace StudyCheck.FormsUI
                     }
                     else
                     {
-                        MessageBox.Show("Giriş Başarılı!");
+                        if (this.InvokeRequired)
+                        {
+                            CallUserFormDelegate del = new CallUserFormDelegate(CallUserForm);
+                            Invoke(del, new object[] { });
+                        }
                     }
                 }
             }
