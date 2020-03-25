@@ -35,6 +35,12 @@ namespace StudyCheck.Business.Concrete.Managers
         }
 
         [CacheAspect(typeof(MemoryCacheManager))]
+        public List<Ders> GetActiveLessonsById(int sinavId)
+        {
+            return _lessonDal.GetList(x => x.sil_id == 1 && x.sinav_id == sinavId);    
+        }
+
+        [CacheAspect(typeof(MemoryCacheManager))]
         public List<Ders> GetAllLessons()
         {
             return _lessonDal.GetList();

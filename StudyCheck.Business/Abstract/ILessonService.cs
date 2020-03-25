@@ -15,5 +15,6 @@ namespace StudyCheck.Business.Abstract
         Ders AddLesson(Ders ders);
         Ders UpdateLesson(Ders ders);
         List<Ders> GetActiveLessons();
+        List<Ders> GetActiveLessonsById(int sinavId);
     }
 }
