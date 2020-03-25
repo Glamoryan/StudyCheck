@@ -28,38 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.pnlExamInfo = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // pnlExamInfo
             // 
-            this.panel1.Location = new System.Drawing.Point(21, 47);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(257, 142);
-            this.panel1.TabIndex = 0;
+            this.pnlExamInfo.Location = new System.Drawing.Point(21, 47);
+            this.pnlExamInfo.Name = "pnlExamInfo";
+            this.pnlExamInfo.Size = new System.Drawing.Size(295, 162);
+            this.pnlExamInfo.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(21, 207);
+            this.panel2.Location = new System.Drawing.Point(21, 215);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(257, 142);
+            this.panel2.Size = new System.Drawing.Size(295, 142);
             this.panel2.TabIndex = 0;
             // 
             // panel3
             // 
-            this.panel3.Location = new System.Drawing.Point(317, 47);
+            this.panel3.Location = new System.Drawing.Point(342, 47);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 302);
+            this.panel3.Size = new System.Drawing.Size(200, 310);
             this.panel3.TabIndex = 1;
             // 
             // panel4
             // 
-            this.panel4.Location = new System.Drawing.Point(556, 47);
+            this.panel4.Location = new System.Drawing.Point(570, 47);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 302);
+            this.panel4.Size = new System.Drawing.Size(200, 310);
             this.panel4.TabIndex = 1;
             // 
             // StudyPanel
@@ -70,7 +70,7 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlExamInfo);
             this.Name = "StudyPanel";
             this.Size = new System.Drawing.Size(980, 416);
             this.ResumeLayout(false);
@@ -79,7 +79,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel pnlExamInfo;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;

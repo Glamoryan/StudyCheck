@@ -299,6 +299,12 @@
     <Compile Include="UserForms\UserControls\StudyControl\examInfoControl.Designer.cs">
       <DependentUpon>examInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\StudyControl\lessonInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\StudyControl\lessonInfoControl.Designer.cs">
+      <DependentUpon>lessonInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForms\UserControls\StudyControl\StudyPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -437,6 +443,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\StudyControl\examInfoControl.resx">
       <DependentUpon>examInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\StudyControl\lessonInfoControl.resx">
+      <DependentUpon>lessonInfoControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\StudyControl\StudyPanel.resx">
       <DependentUpon>StudyPanel.cs</DependentUpon>
