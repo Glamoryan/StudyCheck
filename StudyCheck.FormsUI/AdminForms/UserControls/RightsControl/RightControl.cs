@@ -52,6 +52,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 {
                     _rightRowsControl = new RightRowsControl();
                     _rightRowsControl.Top = (i * 40);
+                    if (yetki.id == 1 || yetki.id == 2)
+                        _rightRowsControl.lblYetkiAd.ForeColor = Color.FromArgb(255, 83, 17);
                     _rightRowsControl.lblYetkiId.Text = yetki.id.ToString();
                     _rightRowsControl.lblYetkiAd.Text = yetki.yetki_adi;
                     _rightRowsControl.lblTarih.Text = yetki.eklenme_tarihi.ToString();

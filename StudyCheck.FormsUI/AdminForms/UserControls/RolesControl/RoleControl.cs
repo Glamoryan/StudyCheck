@@ -65,6 +65,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                     _roleRowsControl = new RoleRowsControl();
                     _roleRowsControl.Top = (i * 40);
                     //pnlRoleContent.Controls.Add(_roleRowsControl);  idu
+                    if (rol.id == 1 || rol.id == 2)
+                        _roleRowsControl.lblRolAd.ForeColor = Color.FromArgb(255, 83, 17);
                     _roleRowsControl.lblRolId.Text = rol.id.ToString();
                     _roleRowsControl.lblRolAd.Text = rol.rol_adi;
                     _roleRowsControl.lblRolKayit.Text = rol.rol_kayit_tarihi.ToString();
