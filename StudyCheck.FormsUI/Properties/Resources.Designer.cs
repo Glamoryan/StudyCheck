@@ -133,6 +133,16 @@ namespace StudyCheck.FormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down_arrow_16px {
+            get {
+                object obj = ResourceManager.GetObject("down_arrow_16px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_16px {
             get {
                 object obj = ResourceManager.GetObject("edit_16px", resourceCulture);
@@ -316,6 +326,16 @@ namespace StudyCheck.FormsUI.Properties {
         internal static System.Drawing.Bitmap test_passed_38px {
             get {
                 object obj = ResourceManager.GetObject("test_passed_38px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap up_16px {
+            get {
+                object obj = ResourceManager.GetObject("up_16px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

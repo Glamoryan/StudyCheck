@@ -31,11 +31,17 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private List<Sinav> _sinavlar;
         private List<Ders> _dersler;
 
+        //Scroolbar
+        private int location = 0;
+        //--------------------------------
+
         public StudyPanel(byte? durum=null)
         {
             InitializeComponent();
             if (durum != null)
                 _durum = durum;
+
+            pnlSinavContent.AutoScrollPosition = new Point(0, 0);            
         }
 
         private void GetExamInfoControl()
@@ -127,12 +133,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     _examRows.lblSinavId.Text = exam.id.ToString();
                     pnlSinavContent.Controls.Add(_examRows);
                     i++;
-                }
-                pnlSinavContent.AutoScroll = false;
-                pnlSinavContent.HorizontalScroll.Enabled = false;
-                pnlSinavContent.HorizontalScroll.Visible = false;
-                pnlSinavContent.HorizontalScroll.Maximum = 0;
-                pnlSinavContent.AutoScroll = true;
+                }                
             }
         }
 
@@ -140,7 +141,36 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         {
             GetExamInfoControl();
             GetLessonInfoControl();
-            GetExamDetails();            
+            GetExamDetails();
+            pnlSinavContent.VerticalScroll.Maximum = pnlSinavContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();
+        }
+
+        private void btnYukari_Click(object sender, EventArgs e)
+        {
+            if (location - 20 > 0)
+            {
+                location -= 20;
+                pnlSinavContent.VerticalScroll.Value = location;
+            }
+            else
+            {
+                location = 0;
+                pnlSinavContent.AutoScrollPosition = new Point(0, location);
+            }
+        }
+
+        private void btnAsagi_Click(object sender, EventArgs e)
+        {
+            if (location + 20 < pnlSinavContent.VerticalScroll.Maximum)
+            {
+                location += 20;
+                pnlSinavContent.VerticalScroll.Value = location;
+            }
+            else
+            {
+                location = pnlSinavContent.VerticalScroll.Maximum;
+                pnlSinavContent.AutoScrollPosition = new Point(0, location);
+            }
         }
     }
 }

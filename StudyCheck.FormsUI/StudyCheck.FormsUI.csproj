@@ -600,6 +600,12 @@
   <ItemGroup>
     <None Include="Resources\test_passed_38px.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\up_16px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\down_arrow_16px.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

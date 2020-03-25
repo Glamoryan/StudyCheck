@@ -33,6 +33,8 @@
             this.pnlSinavContent = new System.Windows.Forms.Panel();
             this.pnlDersContent = new System.Windows.Forms.Panel();
             this.btnStart = new System.Windows.Forms.Button();
+            this.btnAsagi = new System.Windows.Forms.Button();
+            this.btnYukari = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pnlExamInfo
@@ -80,11 +82,45 @@
             this.btnStart.Text = "Başla";
             this.btnStart.UseVisualStyleBackColor = false;
             // 
+            // btnAsagi
+            // 
+            this.btnAsagi.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnAsagi.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnAsagi.FlatAppearance.BorderSize = 0;
+            this.btnAsagi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAsagi.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnAsagi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(29)))));
+            this.btnAsagi.Image = global::StudyCheck.FormsUI.Properties.Resources.down_arrow_16px;
+            this.btnAsagi.Location = new System.Drawing.Point(342, 363);
+            this.btnAsagi.Name = "btnAsagi";
+            this.btnAsagi.Size = new System.Drawing.Size(200, 30);
+            this.btnAsagi.TabIndex = 5;
+            this.btnAsagi.UseVisualStyleBackColor = false;
+            this.btnAsagi.Click += new System.EventHandler(this.btnAsagi_Click);
+            // 
+            // btnYukari
+            // 
+            this.btnYukari.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnYukari.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnYukari.FlatAppearance.BorderSize = 0;
+            this.btnYukari.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnYukari.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnYukari.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(29)))));
+            this.btnYukari.Image = global::StudyCheck.FormsUI.Properties.Resources.up_16px;
+            this.btnYukari.Location = new System.Drawing.Point(342, 11);
+            this.btnYukari.Name = "btnYukari";
+            this.btnYukari.Size = new System.Drawing.Size(200, 30);
+            this.btnYukari.TabIndex = 5;
+            this.btnYukari.UseVisualStyleBackColor = false;
+            this.btnYukari.Click += new System.EventHandler(this.btnYukari_Click);
+            // 
             // StudyPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.btnAsagi);
+            this.Controls.Add(this.btnYukari);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pnlDersContent);
             this.Controls.Add(this.pnlSinavContent);
@@ -104,5 +140,7 @@
         private System.Windows.Forms.Panel pnlSinavContent;
         private System.Windows.Forms.Panel pnlDersContent;
         private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.Button btnYukari;
+        private System.Windows.Forms.Button btnAsagi;
     }
 }
