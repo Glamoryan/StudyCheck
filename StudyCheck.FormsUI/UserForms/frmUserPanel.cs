@@ -1,4 +1,8 @@
-﻿using StudyCheck.Entites.AccountManagement;
+﻿using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
+using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
+using StudyCheck.Entites.AccountManagement;
+using StudyCheck.FormsUI.Statikler;
+using StudyCheck.FormsUI.UserForms.UserControls;
 using StudyCheck.Utilities;
 using System;
 using System.Collections.Generic;
@@ -30,16 +34,50 @@ namespace StudyCheck.FormsUI.UserForms
         //----------------------------------------------
 
         private frmLogin _frmLogin;
+
+        private UserDashboardControl _userDashboardControl;
+
         public frmUserPanel()
         {
             InitializeComponent();
         }
 
+        [CacheAspect(typeof(MemoryCacheManager))]
+        private void SetUserDashboardControl()
+        {
+            if(_userDashboardControl == null)
+            {
+                _userDashboardControl = new UserDashboardControl();
+                PageRoute.userDashboardControl = _userDashboardControl;
+                pnlUserContent.Controls.Clear();
+                pnlUserContent.Controls.Add(_userDashboardControl);
+            }
+            else
+            {
+                if (!pnlUserContent.Controls.ContainsKey("UserDashboardControl"))
+                {
+                    pnlUserContent.Controls.Clear();
+                    pnlUserContent.Controls.Add(PageRoute.userDashboardControl);
+                }
+                else if (pnlUserContent.Controls.ContainsKey("UserDashboardControl"))
+                {
+                    _userDashboardControl = new UserDashboardControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.userDashboardControl = _userDashboardControl;
+                    pnlUserContent.Controls.Clear();
+                    pnlUserContent.Controls.Add(_userDashboardControl);
+                }
+            }
+        }
+
         private void frmUserPanel_Load(object sender, EventArgs e)
         {
+            PageRoute.userContentPanel = pnlUserContent;
             //CheckForIllegalCrossThreadCalls = false; ----------- Thread Çakışmalarına izin ver
             AnimateWindow(this.Handle, 500, FormAnimates.AnimateWindowFlags.AW_BLEND);
             lblTarih.Text = DateTime.Now.ToString("dddd, dd MMMM yyyy");
+            SetUserDashboardControl();
         }
 
         private void pcbMinimize_Click(object sender, EventArgs e)

@@ -4,6 +4,7 @@ using StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RightsControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
+using StudyCheck.FormsUI.UserForms.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,7 @@ namespace StudyCheck.FormsUI.Statikler
 {
     public static class PageRoute
     {
+        // Admin Controls
         public static Panel contentPanel { get; set; }
         public static AccountsControl accountsControl { get; set; }
         public static DashboardControl dashboardControl { get; set; }
@@ -22,5 +24,10 @@ namespace StudyCheck.FormsUI.Statikler
         public static RightControl rightControl { get; set; }
         public static LessonControl lessonControl { get; set; }
         public static ExamControl examControl { get; set; }
+        //-----------------------------------------------------------
+
+        // User Controls
+        public static Panel userContentPanel { get; set; }
+        public static UserDashboardControl userDashboardControl { get; set; }
     }
 }
