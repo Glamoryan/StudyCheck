@@ -51,6 +51,7 @@
             // 
             // pnlSinavContent
             // 
+            this.pnlSinavContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlSinavContent.Location = new System.Drawing.Point(342, 47);
             this.pnlSinavContent.Name = "pnlSinavContent";
             this.pnlSinavContent.Size = new System.Drawing.Size(200, 310);

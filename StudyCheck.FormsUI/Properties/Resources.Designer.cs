@@ -143,6 +143,16 @@ namespace StudyCheck.FormsUI.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap exam_38px {
+            get {
+                object obj = ResourceManager.GetObject("exam_38px", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap exit_sign_32px {
             get {
                 object obj = ResourceManager.GetObject("exit_sign_32px", resourceCulture);
