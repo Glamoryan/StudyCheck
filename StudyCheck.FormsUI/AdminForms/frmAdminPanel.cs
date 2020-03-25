@@ -70,7 +70,7 @@ namespace StudyCheck.FormsUI.AdminForms
                 if (!pnlContent.Controls.ContainsKey("AccountsControl"))
                 {
                     pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_accountsControl);
+                    pnlContent.Controls.Add(PageRoute.accountsControl);
                 }                
                 else if (pnlContent.Controls.ContainsKey("AccountsControl"))
                 {
@@ -98,7 +98,7 @@ namespace StudyCheck.FormsUI.AdminForms
                 if (!pnlContent.Controls.ContainsKey("RoleControl"))
                 {
                     pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_roleControl);
+                    pnlContent.Controls.Add(PageRoute.roleControl);
                 }
                 else if (pnlContent.Controls.ContainsKey("RoleControl"))
                 {
@@ -126,7 +126,7 @@ namespace StudyCheck.FormsUI.AdminForms
                 if (!pnlContent.Controls.ContainsKey("RightControl"))
                 {
                     pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_rightControl);
+                    pnlContent.Controls.Add(PageRoute.rightControl);
                 }
                 else if (pnlContent.Controls.ContainsKey("RightControl"))
                 {
@@ -154,7 +154,7 @@ namespace StudyCheck.FormsUI.AdminForms
                 if (!pnlContent.Controls.ContainsKey("LessonControl"))
                 {
                     pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_lessonControl);
+                    pnlContent.Controls.Add(PageRoute.lessonControl);
                 }
                 else if (pnlContent.Controls.ContainsKey("LessonControl"))
                 {
@@ -181,7 +181,7 @@ namespace StudyCheck.FormsUI.AdminForms
                 if (!pnlContent.Controls.ContainsKey("ExamControl"))
                 {
                     pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_examControl);
+                    pnlContent.Controls.Add(PageRoute.examControl);
                 }
                 else if (pnlContent.Controls.ContainsKey("ExamControl"))
                 {
@@ -210,7 +210,7 @@ namespace StudyCheck.FormsUI.AdminForms
                 if(!pnlContent.Controls.ContainsKey("DashboardControl"))
                 {
                     pnlContent.Controls.Clear();
-                    pnlContent.Controls.Add(_dashboardControl);
+                    pnlContent.Controls.Add(PageRoute.dashboardControl);
                 }                
                 else if (pnlContent.Controls.ContainsKey("DashboardControl"))
                 {
@@ -357,7 +357,7 @@ namespace StudyCheck.FormsUI.AdminForms
 
         private void btnTemalar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Tema ayarları yakında eklencektir", "Tema Ayarları Mevcut Değil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Tema ayarları yakında eklenecektir", "Tema Ayarları Mevcut Değil", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
