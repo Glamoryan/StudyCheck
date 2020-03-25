@@ -122,7 +122,7 @@ namespace StudyCheck.Business.Concrete.Managers
         [PerformanceCounterAspect(3)]//3 saniyeden fazla gelirse   
         public Uyedetay GetUyeDetayById(int id)
         {
-            return _userDetailDal.Get(d => d.uye_id == id);
+            return _userDetailDal.Get(d => d.id == id);
         }
     }
 }

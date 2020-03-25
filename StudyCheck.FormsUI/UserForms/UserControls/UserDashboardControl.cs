@@ -122,6 +122,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
             mainException = ExceptionHandling.HandleException(() => GetInfoDetail());
             if (mainException is NoDataException)
                 MessageBox.Show(mainException.Message, "Çalışma Bulunamadı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (mainException != null)
+                MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
