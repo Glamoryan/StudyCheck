@@ -311,6 +311,12 @@
     <Compile Include="UserForms\UserControls\StudyControl\lessonInfoControl.Designer.cs">
       <DependentUpon>lessonInfoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\StudyControl\lessonRows.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\StudyControl\lessonRows.Designer.cs">
+      <DependentUpon>lessonRows.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForms\UserControls\StudyControl\StudyPanel.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -456,6 +462,9 @@
     <EmbeddedResource Include="UserForms\UserControls\StudyControl\lessonInfoControl.resx">
       <DependentUpon>lessonInfoControl.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\StudyControl\lessonRows.resx">
+      <DependentUpon>lessonRows.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\StudyControl\StudyPanel.resx">
       <DependentUpon>StudyPanel.cs</DependentUpon>
     </EmbeddedResource>
@@ -587,6 +596,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\exam_38px.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test_passed_38px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

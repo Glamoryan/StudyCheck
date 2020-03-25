@@ -59,6 +59,7 @@
             // 
             // pnlDersContent
             // 
+            this.pnlDersContent.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlDersContent.Location = new System.Drawing.Point(570, 47);
             this.pnlDersContent.Name = "pnlDersContent";
             this.pnlDersContent.Size = new System.Drawing.Size(200, 310);

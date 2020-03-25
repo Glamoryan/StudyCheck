@@ -30,6 +30,7 @@
         {
             this.pcbExamIcon = new System.Windows.Forms.PictureBox();
             this.lblSinavAdi = new System.Windows.Forms.Label();
+            this.lblSinavId = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExamIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -53,12 +54,24 @@
             this.lblSinavAdi.Size = new System.Drawing.Size(97, 25);
             this.lblSinavAdi.TabIndex = 1;
             this.lblSinavAdi.Text = "Sınav Adı";
+            this.lblSinavAdi.Click += new System.EventHandler(this.lblSinavAdi_Click);
+            // 
+            // lblSinavId
+            // 
+            this.lblSinavId.AutoSize = true;
+            this.lblSinavId.Location = new System.Drawing.Point(117, 4);
+            this.lblSinavId.Name = "lblSinavId";
+            this.lblSinavId.Size = new System.Drawing.Size(62, 13);
+            this.lblSinavId.TabIndex = 2;
+            this.lblSinavId.Text = "gizliSinavID";
+            this.lblSinavId.Visible = false;
             // 
             // examRows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.lblSinavId);
             this.Controls.Add(this.lblSinavAdi);
             this.Controls.Add(this.pcbExamIcon);
             this.Name = "examRows";
@@ -73,5 +86,6 @@
 
         private System.Windows.Forms.PictureBox pcbExamIcon;
         public System.Windows.Forms.Label lblSinavAdi;
+        public System.Windows.Forms.Label lblSinavId;
     }
 }

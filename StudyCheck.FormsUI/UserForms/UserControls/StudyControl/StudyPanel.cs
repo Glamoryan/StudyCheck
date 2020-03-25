@@ -19,13 +19,17 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private static examInfoControl _examInfoControl;
         private static lessonInfoControl _lessonInfoControl;
         private static examRows _examRows;
+        private static lessonRows _lessonRows;
 
         private static EfExamDal _efExamDal = new EfExamDal();
+        private static EfLessonDal _efLessonDal = new EfLessonDal();
 
         private static ExamManager _examManager = new ExamManager(_efExamDal);
+        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
 
         private byte? _durum; // null = Yeni , 1 = Sınav Seçili , 2 = Son dersten devam
         private List<Sinav> _sinavlar;
+        private List<Ders> _dersler;
 
         public StudyPanel(byte? durum=null)
         {
@@ -81,6 +85,34 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             _sinavlar = _examManager.GetActiveExams();
         }
 
+        private void GetLessons(int sinavId)
+        {
+            _dersler = _lessonManager.GetActiveLessonsById(sinavId);
+        }
+
+        public void GetLessonDetails(int sinavId)
+        {
+            pnlDersContent.Controls.Clear();
+            GetLessons(sinavId);
+            if (!pnlLessonInfo.Controls.ContainsKey("lessonRows"))
+            {
+                int i = 0;
+                foreach (var lesson in _dersler)
+                {
+                    _lessonRows = new lessonRows();
+                    _lessonRows.Top = (i * 82);
+                    _lessonRows.lblDersAdi.Text = lesson.ders_ad;                    
+                    pnlDersContent.Controls.Add(_lessonRows);
+                    i++;
+                }
+                pnlDersContent.AutoScroll = false;
+                pnlDersContent.HorizontalScroll.Enabled = false;
+                pnlDersContent.HorizontalScroll.Visible = false;
+                pnlDersContent.HorizontalScroll.Maximum = 0;
+                pnlDersContent.AutoScroll = true;
+            }
+        }
+
         private void GetExamDetails()
         {
             GetExams();
@@ -92,6 +124,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     _examRows = new examRows();
                     _examRows.Top = (i * 82);
                     _examRows.lblSinavAdi.Text = exam.sinav_ad;
+                    _examRows.lblSinavId.Text = exam.id.ToString();
                     pnlSinavContent.Controls.Add(_examRows);
                     i++;
                 }
@@ -107,7 +140,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         {
             GetExamInfoControl();
             GetLessonInfoControl();
-            GetExamDetails();
+            GetExamDetails();            
         }
     }
 }

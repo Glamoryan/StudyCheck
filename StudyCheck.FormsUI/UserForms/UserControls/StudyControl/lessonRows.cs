@@ -7,20 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 {
-    public partial class examRows : UserControl
+    public partial class lessonRows : UserControl
     {
-        public examRows()
+        public lessonRows()
         {
             InitializeComponent();
-        }
-        
-        private void lblSinavAdi_Click(object sender, EventArgs e)
-        {            
-            PageRoute.studyPanel.GetLessonDetails(Convert.ToInt32(lblSinavId.Text));
         }
     }
 }
