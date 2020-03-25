@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             this.pnlExamInfo = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.pnlLessonInfo = new System.Windows.Forms.Panel();
+            this.pnlSinavContent = new System.Windows.Forms.Panel();
+            this.pnlDersContent = new System.Windows.Forms.Panel();
+            this.btnStart = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pnlExamInfo
@@ -41,35 +42,51 @@
             this.pnlExamInfo.Size = new System.Drawing.Size(295, 162);
             this.pnlExamInfo.TabIndex = 0;
             // 
-            // panel2
+            // pnlLessonInfo
             // 
-            this.panel2.Location = new System.Drawing.Point(21, 215);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(295, 142);
-            this.panel2.TabIndex = 0;
+            this.pnlLessonInfo.Location = new System.Drawing.Point(21, 226);
+            this.pnlLessonInfo.Name = "pnlLessonInfo";
+            this.pnlLessonInfo.Size = new System.Drawing.Size(295, 131);
+            this.pnlLessonInfo.TabIndex = 0;
             // 
-            // panel3
+            // pnlSinavContent
             // 
-            this.panel3.Location = new System.Drawing.Point(342, 47);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(200, 310);
-            this.panel3.TabIndex = 1;
+            this.pnlSinavContent.Location = new System.Drawing.Point(342, 47);
+            this.pnlSinavContent.Name = "pnlSinavContent";
+            this.pnlSinavContent.Size = new System.Drawing.Size(200, 310);
+            this.pnlSinavContent.TabIndex = 1;
             // 
-            // panel4
+            // pnlDersContent
             // 
-            this.panel4.Location = new System.Drawing.Point(570, 47);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(200, 310);
-            this.panel4.TabIndex = 1;
+            this.pnlDersContent.Location = new System.Drawing.Point(570, 47);
+            this.pnlDersContent.Name = "pnlDersContent";
+            this.pnlDersContent.Size = new System.Drawing.Size(200, 310);
+            this.pnlDersContent.TabIndex = 1;
+            // 
+            // btnStart
+            // 
+            this.btnStart.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnStart.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStart.FlatAppearance.BorderSize = 0;
+            this.btnStart.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStart.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnStart.ForeColor = System.Drawing.Color.White;
+            this.btnStart.Location = new System.Drawing.Point(798, 317);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(161, 40);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "Başla";
+            this.btnStart.UseVisualStyleBackColor = false;
             // 
             // StudyPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.btnStart);
+            this.Controls.Add(this.pnlDersContent);
+            this.Controls.Add(this.pnlSinavContent);
+            this.Controls.Add(this.pnlLessonInfo);
             this.Controls.Add(this.pnlExamInfo);
             this.Name = "StudyPanel";
             this.Size = new System.Drawing.Size(980, 416);
@@ -80,8 +97,9 @@
         #endregion
 
         private System.Windows.Forms.Panel pnlExamInfo;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel pnlLessonInfo;
+        private System.Windows.Forms.Panel pnlSinavContent;
+        private System.Windows.Forms.Panel pnlDersContent;
+        private System.Windows.Forms.Button btnStart;
     }
 }

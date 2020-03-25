@@ -85,6 +85,7 @@
             this.btnStartNew.Text = "Yeni Çalışma Başlat";
             this.btnStartNew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnStartNew.UseVisualStyleBackColor = false;
+            this.btnStartNew.Click += new System.EventHandler(this.btnStartNew_Click);
             // 
             // userWidgetAccountInfo
             // 

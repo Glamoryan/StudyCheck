@@ -13,6 +13,8 @@ using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.UserForms.UserControls.StudyControl;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls
 {
@@ -46,6 +48,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
         private TimeSpan _toplamDakika;
         private TimeSpan _sinavToplam;
         private TimeSpan _dersToplam;
+
+        private StudyPanel _studyPanel;
 
         public UserDashboardControl()
         {
@@ -124,6 +128,39 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
                 MessageBox.Show(mainException.Message, "Çalışma Bulunamadı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             else if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void SetStudyPanel()
+        {
+            if(_studyPanel == null)
+            {
+                _studyPanel = new StudyPanel();
+                PageRoute.studyPanel = _studyPanel;
+                PageRoute.userContentPanel.Controls.Clear();
+                PageRoute.userContentPanel.Controls.Add(_studyPanel);
+            }
+            else
+            {
+                if (!PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                {
+                    PageRoute.userContentPanel.Controls.Clear();
+                    PageRoute.userContentPanel.Controls.Add(PageRoute.studyPanel);
+                }
+                else if (PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                {
+                    _studyPanel = new StudyPanel();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.studyPanel = _studyPanel;
+                    PageRoute.userContentPanel.Controls.Clear();
+                    PageRoute.userContentPanel.Controls.Add(_studyPanel);
+                }
+            }
+        }
+
+        private void btnStartNew_Click(object sender, EventArgs e)
+        {
+            SetStudyPanel();
         }
     }
 }
