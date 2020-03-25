@@ -36,6 +36,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUserContent = new System.Windows.Forms.Panel();
             this.pcbRefresh = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlDragDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
@@ -46,6 +47,7 @@
             // pnlDragDrop
             // 
             this.pnlDragDrop.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.pnlDragDrop.Controls.Add(this.label2);
             this.pnlDragDrop.Controls.Add(this.lblTarih);
             this.pnlDragDrop.Controls.Add(this.pcbMinimize);
             this.pnlDragDrop.Controls.Add(this.pcbExit);
@@ -61,7 +63,7 @@
             this.lblTarih.AutoSize = true;
             this.lblTarih.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblTarih.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblTarih.Location = new System.Drawing.Point(12, 13);
+            this.lblTarih.Location = new System.Drawing.Point(158, 13);
             this.lblTarih.Name = "lblTarih";
             this.lblTarih.Size = new System.Drawing.Size(39, 19);
             this.lblTarih.TabIndex = 3;
@@ -133,6 +135,17 @@
             this.pcbRefresh.Click += new System.EventHandler(this.pcbRefresh_Click);
             this.pcbRefresh.MouseEnter += new System.EventHandler(this.pcbRefresh_MouseEnter);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "StudyCheck";
+            // 
             // frmUserPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -170,5 +183,6 @@
         private System.Windows.Forms.Label lblTarih;
         private System.Windows.Forms.Panel pnlUserContent;
         private System.Windows.Forms.PictureBox pcbRefresh;
+        private System.Windows.Forms.Label label2;
     }
 }

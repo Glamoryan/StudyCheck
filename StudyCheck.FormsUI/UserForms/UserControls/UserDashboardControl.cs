@@ -113,6 +113,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
             userWidgetSonSinav.lblSinavTarih.Text = _sonSinav.sinav_tarih.ToString("dd/MM/yyyy");
             userWidgetSonDers.lblDersAd.Text = _sonDers.ders_ad;
             userWidgetSonDers.lblToplamCalisilanSaat.Text = _dersToplam.ToString();
+            userWidgetSonDers.lblSonZaman.Text = _calismalar.Last().calisilan_zaman.ToString();
             
         }
 

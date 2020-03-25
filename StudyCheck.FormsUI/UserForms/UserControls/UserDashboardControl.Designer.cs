@@ -113,9 +113,9 @@
             // userWidgetSonDers
             // 
             this.userWidgetSonDers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.userWidgetSonDers.Location = new System.Drawing.Point(324, 209);
+            this.userWidgetSonDers.Location = new System.Drawing.Point(324, 182);
             this.userWidgetSonDers.Name = "userWidgetSonDers";
-            this.userWidgetSonDers.Size = new System.Drawing.Size(297, 92);
+            this.userWidgetSonDers.Size = new System.Drawing.Size(297, 119);
             this.userWidgetSonDers.TabIndex = 10;
             // 
             // UserDashboardControl
