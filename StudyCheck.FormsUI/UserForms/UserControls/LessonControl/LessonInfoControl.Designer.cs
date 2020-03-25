@@ -52,9 +52,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.label1.Location = new System.Drawing.Point(13, 52);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(185, 17);
+            this.label1.Size = new System.Drawing.Size(203, 17);
             this.label1.TabIndex = 17;
-            this.label1.Text = "Derse Çalışılan Toplam Saat :";
+            this.label1.Text = "Derse Çalışılan Toplam Dakika :";
             // 
             // lblDersAd
             // 
@@ -63,20 +63,20 @@
             this.lblDersAd.ForeColor = System.Drawing.Color.White;
             this.lblDersAd.Location = new System.Drawing.Point(144, 19);
             this.lblDersAd.Name = "lblDersAd";
-            this.lblDersAd.Size = new System.Drawing.Size(61, 17);
+            this.lblDersAd.Size = new System.Drawing.Size(32, 17);
             this.lblDersAd.TabIndex = 20;
-            this.lblDersAd.Text = "Ders Adı";
+            this.lblDersAd.Text = "Yok";
             // 
             // lblToplamCalisilanSaat
             // 
             this.lblToplamCalisilanSaat.AutoSize = true;
             this.lblToplamCalisilanSaat.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblToplamCalisilanSaat.ForeColor = System.Drawing.Color.White;
-            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(204, 52);
+            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(222, 52);
             this.lblToplamCalisilanSaat.Name = "lblToplamCalisilanSaat";
             this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(16, 17);
             this.lblToplamCalisilanSaat.TabIndex = 20;
-            this.lblToplamCalisilanSaat.Text = "8";
+            this.lblToplamCalisilanSaat.Text = "0";
             // 
             // LessonInfoControl
             // 

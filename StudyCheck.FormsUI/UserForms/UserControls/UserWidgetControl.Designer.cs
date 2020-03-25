@@ -49,20 +49,20 @@
             this.lblSonCalismaTarihi.ForeColor = System.Drawing.Color.White;
             this.lblSonCalismaTarihi.Location = new System.Drawing.Point(151, 218);
             this.lblSonCalismaTarihi.Name = "lblSonCalismaTarihi";
-            this.lblSonCalismaTarihi.Size = new System.Drawing.Size(78, 17);
+            this.lblSonCalismaTarihi.Size = new System.Drawing.Size(13, 17);
             this.lblSonCalismaTarihi.TabIndex = 4;
-            this.lblSonCalismaTarihi.Text = "21.03.2020";
+            this.lblSonCalismaTarihi.Text = "-";
             // 
             // lblToplamCalisilanSaat
             // 
             this.lblToplamCalisilanSaat.AutoSize = true;
             this.lblToplamCalisilanSaat.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblToplamCalisilanSaat.ForeColor = System.Drawing.Color.White;
-            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(168, 102);
+            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(186, 102);
             this.lblToplamCalisilanSaat.Name = "lblToplamCalisilanSaat";
-            this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(35, 17);
+            this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(16, 17);
             this.lblToplamCalisilanSaat.TabIndex = 5;
-            this.lblToplamCalisilanSaat.Text = "244 ";
+            this.lblToplamCalisilanSaat.Text = "0";
             // 
             // lblUyeSoyad
             // 
@@ -104,9 +104,9 @@
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.label6.Location = new System.Drawing.Point(16, 102);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(146, 17);
+            this.label6.Size = new System.Drawing.Size(164, 17);
             this.label6.TabIndex = 9;
-            this.label6.Text = "Toplam Çalışılan Saat :";
+            this.label6.Text = "Toplam Çalışılan Dakika :";
             // 
             // label4
             // 
@@ -159,9 +159,9 @@
             this.lblSonSinav.ForeColor = System.Drawing.Color.White;
             this.lblSonSinav.Location = new System.Drawing.Point(152, 140);
             this.lblSonSinav.Name = "lblSonSinav";
-            this.lblSonSinav.Size = new System.Drawing.Size(34, 17);
+            this.lblSonSinav.Size = new System.Drawing.Size(32, 17);
             this.lblSonSinav.TabIndex = 5;
-            this.lblSonSinav.Text = "AYT";
+            this.lblSonSinav.Text = "Yok";
             // 
             // lblSonDers
             // 
@@ -170,9 +170,9 @@
             this.lblSonDers.ForeColor = System.Drawing.Color.White;
             this.lblSonDers.Location = new System.Drawing.Point(147, 180);
             this.lblSonDers.Name = "lblSonDers";
-            this.lblSonDers.Size = new System.Drawing.Size(75, 17);
+            this.lblSonDers.Size = new System.Drawing.Size(32, 17);
             this.lblSonDers.TabIndex = 5;
-            this.lblSonDers.Text = "Matematik";
+            this.lblSonDers.Text = "Yok";
             // 
             // UserWidgetControl
             // 

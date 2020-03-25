@@ -43,20 +43,20 @@
             this.lblSinavTarih.ForeColor = System.Drawing.Color.White;
             this.lblSinavTarih.Location = new System.Drawing.Point(108, 89);
             this.lblSinavTarih.Name = "lblSinavTarih";
-            this.lblSinavTarih.Size = new System.Drawing.Size(78, 17);
+            this.lblSinavTarih.Size = new System.Drawing.Size(13, 17);
             this.lblSinavTarih.TabIndex = 17;
-            this.lblSinavTarih.Text = "15.05.2020";
+            this.lblSinavTarih.Text = "-";
             // 
             // lblToplamCalisilanSaat
             // 
             this.lblToplamCalisilanSaat.AutoSize = true;
             this.lblToplamCalisilanSaat.Font = new System.Drawing.Font("Cambria", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.lblToplamCalisilanSaat.ForeColor = System.Drawing.Color.White;
-            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(209, 51);
+            this.lblToplamCalisilanSaat.Location = new System.Drawing.Point(227, 51);
             this.lblToplamCalisilanSaat.Name = "lblToplamCalisilanSaat";
-            this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(24, 17);
+            this.lblToplamCalisilanSaat.Size = new System.Drawing.Size(16, 17);
             this.lblToplamCalisilanSaat.TabIndex = 18;
-            this.lblToplamCalisilanSaat.Text = "15";
+            this.lblToplamCalisilanSaat.Text = "0";
             // 
             // lblSinavAd
             // 
@@ -65,9 +65,9 @@
             this.lblSinavAd.ForeColor = System.Drawing.Color.White;
             this.lblSinavAd.Location = new System.Drawing.Point(149, 16);
             this.lblSinavAd.Name = "lblSinavAd";
-            this.lblSinavAd.Size = new System.Drawing.Size(66, 17);
+            this.lblSinavAd.Size = new System.Drawing.Size(32, 17);
             this.lblSinavAd.TabIndex = 19;
-            this.lblSinavAd.Text = "Sınav Adı";
+            this.lblSinavAd.Text = "Yok";
             // 
             // label3
             // 
@@ -87,9 +87,9 @@
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
             this.label1.Location = new System.Drawing.Point(13, 51);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(190, 17);
+            this.label1.Size = new System.Drawing.Size(208, 17);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Sınava Çalışılan Toplam Saat :";
+            this.label1.Text = "Sınava Çalışılan Toplam Dakika :";
             // 
             // label2
             // 
