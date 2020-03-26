@@ -107,7 +107,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                 {
                     _lessonRows = new lessonRows();
                     _lessonRows.Top = (i * 82);
-                    _lessonRows.lblDersAdi.Text = lesson.ders_ad;                    
+                    _lessonRows.btnDers.Text = lesson.ders_ad;
+                    _lessonRows.lblDersId.Text = lesson.id.ToString();
+                    //_lessonRows.lblDersAdi.Text = lesson.ders_ad;                    
                     pnlDersContent.Controls.Add(_lessonRows);
                     i++;
                 }
@@ -169,6 +171,26 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     foreach (Button c in uControl.Controls.OfType<Button>())
                     {
                         if (c.Text == button.Text)
+                        {
+                            c.FlatAppearance.BorderSize = 2;
+                            c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);
+                        }
+                        else
+                            c.FlatAppearance.BorderSize = 0;
+                    }
+                }
+            }
+        }
+
+        public void WhichLesson(Button button)
+        {
+            foreach (lessonRows lControl in pnlDersContent.Controls)
+            {
+                if (lControl is lessonRows)
+                {
+                    foreach (Button c in lControl.Controls.OfType<Button>())
+                    {
+                        if(c.Text == button.Text)
                         {
                             c.FlatAppearance.BorderSize = 2;
                             c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);

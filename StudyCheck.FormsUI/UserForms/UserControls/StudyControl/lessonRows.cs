@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 {
@@ -15,6 +16,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         public lessonRows()
         {
             InitializeComponent();
+        }
+
+        private void btnDers_Click(object sender, EventArgs e)
+        {
+            PageRoute.studyPanel.WhichLesson((Button)sender);
         }
     }
 }
