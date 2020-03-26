@@ -36,6 +36,11 @@ namespace StudyCheck.Business.Concrete.Managers
             return _studyDal.GetList();
         }
 
+        public List<Calisma> GetStudiesByUyeId(int uyeId)
+        {
+            return _studyDal.GetList(x => x.uye_id == uyeId);
+        }
+
         [CacheAspect(typeof(MemoryCacheManager))]
         public List<Calisma> GetUserStudies(Uyedetay uyedetay)
         {

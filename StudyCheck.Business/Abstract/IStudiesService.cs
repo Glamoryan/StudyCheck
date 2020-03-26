@@ -12,5 +12,6 @@ namespace StudyCheck.Business.Abstract
         List<Calisma> GetUserStudies(Uyedetay uyedetay);
         List<Calisma> GetAllStudies();
         Calisma AddStudy(Calisma calisma);
+        List<Calisma> GetStudiesByUyeId(int uyeId);
     }
 }
