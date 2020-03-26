@@ -35,6 +35,8 @@
             this.btnStart = new System.Windows.Forms.Button();
             this.btnAsagi = new System.Windows.Forms.Button();
             this.btnYukari = new System.Windows.Forms.Button();
+            this.btnDersUp = new System.Windows.Forms.Button();
+            this.btnDersDown = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // pnlExamInfo
@@ -114,12 +116,46 @@
             this.btnYukari.UseVisualStyleBackColor = false;
             this.btnYukari.Click += new System.EventHandler(this.btnYukari_Click);
             // 
+            // btnDersUp
+            // 
+            this.btnDersUp.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnDersUp.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDersUp.FlatAppearance.BorderSize = 0;
+            this.btnDersUp.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDersUp.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDersUp.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(29)))));
+            this.btnDersUp.Image = global::StudyCheck.FormsUI.Properties.Resources.up_16px;
+            this.btnDersUp.Location = new System.Drawing.Point(570, 11);
+            this.btnDersUp.Name = "btnDersUp";
+            this.btnDersUp.Size = new System.Drawing.Size(200, 30);
+            this.btnDersUp.TabIndex = 5;
+            this.btnDersUp.UseVisualStyleBackColor = false;
+            this.btnDersUp.Click += new System.EventHandler(this.btnDersUp_Click);
+            // 
+            // btnDersDown
+            // 
+            this.btnDersDown.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.btnDersDown.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDersDown.FlatAppearance.BorderSize = 0;
+            this.btnDersDown.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDersDown.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnDersDown.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(29)))));
+            this.btnDersDown.Image = global::StudyCheck.FormsUI.Properties.Resources.down_arrow_16px;
+            this.btnDersDown.Location = new System.Drawing.Point(570, 363);
+            this.btnDersDown.Name = "btnDersDown";
+            this.btnDersDown.Size = new System.Drawing.Size(200, 30);
+            this.btnDersDown.TabIndex = 5;
+            this.btnDersDown.UseVisualStyleBackColor = false;
+            this.btnDersDown.Click += new System.EventHandler(this.btnDersDown_Click);
+            // 
             // StudyPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.btnDersDown);
             this.Controls.Add(this.btnAsagi);
+            this.Controls.Add(this.btnDersUp);
             this.Controls.Add(this.btnYukari);
             this.Controls.Add(this.btnStart);
             this.Controls.Add(this.pnlDersContent);
@@ -142,5 +178,7 @@
         private System.Windows.Forms.Button btnStart;
         private System.Windows.Forms.Button btnYukari;
         private System.Windows.Forms.Button btnAsagi;
+        private System.Windows.Forms.Button btnDersUp;
+        private System.Windows.Forms.Button btnDersDown;
     }
 }

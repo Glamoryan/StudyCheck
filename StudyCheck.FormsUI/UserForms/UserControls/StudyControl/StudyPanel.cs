@@ -44,6 +44,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         //Scroolbar
         private int location = 0;
+        private int dersLocation = 0;
         //--------------------------------
 
         public StudyPanel(byte? durum=null)
@@ -52,7 +53,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             if (durum != null)
                 _durum = durum;
 
-            pnlSinavContent.AutoScrollPosition = new Point(0, 0);            
+            pnlSinavContent.AutoScrollPosition = new Point(0, 0);
+            pnlDersContent.AutoScrollPosition = new Point(0, 0);
         }
 
         private void GetExamInfoControl()
@@ -123,12 +125,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     //_lessonRows.lblDersAdi.Text = lesson.ders_ad;                    
                     pnlDersContent.Controls.Add(_lessonRows);
                     i++;
-                }
-                pnlDersContent.AutoScroll = false;
-                pnlDersContent.HorizontalScroll.Enabled = false;
-                pnlDersContent.HorizontalScroll.Visible = false;
-                pnlDersContent.HorizontalScroll.Maximum = 0;
-                pnlDersContent.AutoScroll = true;
+                }                
             }
         }
 
@@ -205,6 +202,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             GetStudies();
             if (GetLesson(dersId))
             {
+                pnlDersContent.VerticalScroll.Maximum = pnlDersContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();
                 pnlLessonInfo.Controls.Clear();
                 _lessonInfoControl.lblDersAdi.Text = _dersler.Where(l => l.id == dersId).Single().ders_ad;
                 _lessonInfoControl.lblDersToplam.Text = _dersToplam.ToString();
@@ -257,7 +255,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             GetExamInfoControl();
             GetLessonInfoControl();
             GetExamDetails();
-            pnlSinavContent.VerticalScroll.Maximum = pnlSinavContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();
+            pnlSinavContent.VerticalScroll.Maximum = pnlSinavContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();            
         }
 
         private void btnYukari_Click(object sender, EventArgs e)
@@ -325,6 +323,34 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             {
                 location = pnlSinavContent.VerticalScroll.Maximum;
                 pnlSinavContent.AutoScrollPosition = new Point(0, location);
+            }
+        }
+
+        private void btnDersUp_Click(object sender, EventArgs e)
+        {
+            if (dersLocation - 40 > 0)
+            {
+                dersLocation -= 40;
+                pnlDersContent.VerticalScroll.Value = dersLocation;                
+            }
+            else
+            {
+                dersLocation = 0;
+                pnlDersContent.AutoScrollPosition = new Point(0, dersLocation);
+            }
+        }
+
+        private void btnDersDown_Click(object sender, EventArgs e)
+        {
+            if(dersLocation + 40 < pnlDersContent.VerticalScroll.Maximum)
+            {
+                dersLocation += 40;
+                pnlDersContent.VerticalScroll.Value = dersLocation;
+            }
+            else
+            {
+                dersLocation = pnlDersContent.VerticalScroll.Maximum;
+                pnlDersContent.AutoScrollPosition = new Point(0, dersLocation);
             }
         }
     }
