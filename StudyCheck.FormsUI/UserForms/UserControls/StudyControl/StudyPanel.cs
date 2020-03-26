@@ -36,8 +36,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private List<Ders> _dersler;
         private List<Calisma> _calismalar;
         private TimeSpan _sinavToplam;
+        private TimeSpan _dersToplam;
         private string _ortalama;
-        private List<Calisma> _sinavCalisma;
+        private List<Calisma> _calisma;        
         private int _kalanGun;
 
 
@@ -157,31 +158,77 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private bool CalculateOrtalama(int sinavId)
         {
-            _sinavCalisma = _calismalar.Where(e => e.sinav_id == sinavId).ToList();
-            if (_sinavCalisma.Count > 0)
+            _calisma = _calismalar.Where(e => e.sinav_id == sinavId).ToList();
+            if (_calisma.Count > 0)
             {
-                foreach (var calis in _sinavCalisma)
+                _sinavToplam = TimeSpan.Zero;
+                foreach (var calis in _calisma)
                 {
                     _sinavToplam += calis.calisilan_zaman;
                 }
 
-                if ((_sinavToplam.TotalMinutes / _sinavCalisma.Count) <= 20)
+                if ((_sinavToplam.TotalMinutes / _calisma.Count) <= 20)
                     _ortalama = "Yetersiz";
-                else if ((_sinavToplam.TotalMinutes / _sinavCalisma.Count) <= 40)
+                else if ((_sinavToplam.TotalMinutes / _calisma.Count) <= 40)
                     _ortalama = "Yeterli";
-                else if ((_sinavToplam.TotalMinutes / _sinavCalisma.Count) >= 41)
+                else if ((_sinavToplam.TotalMinutes / _calisma.Count) >= 41)
                     _ortalama = "Çok iyi";
 
                 var sinavTarihi = _sinavlar.Where(s => s.id == sinavId).Single().sinav_tarih;
                 _kalanGun = Convert.ToInt32((DateTime.Now - sinavTarihi).TotalDays);
                 return true;
             }
+            return false;            
+        }
+
+        private bool GetLesson(int dersId)
+        {
+            if(dersId != -1)
+            {
+                _calisma = _calismalar.Where(l => l.ders_id == dersId).ToList();
+                if (_calisma.Count > 0)
+                {
+                    _dersToplam = TimeSpan.Zero;
+                    foreach (var calis in _calisma)
+                    {
+                        _dersToplam += calis.calisilan_zaman;
+                    }
+                    return true;
+                }                
+            }
             return false;
+        }
             
+
+        public void GetLessonInfo(int dersId)
+        {
+            GetStudies();
+            if (GetLesson(dersId))
+            {
+                pnlLessonInfo.Controls.Clear();
+                _lessonInfoControl.lblDersAdi.Text = _dersler.Where(l => l.id == dersId).Single().ders_ad;
+                _lessonInfoControl.lblDersToplam.Text = _dersToplam.ToString();
+                pnlLessonInfo.Controls.Add(_lessonInfoControl);
+            }
+            else if (dersId == -1)
+            {
+                pnlLessonInfo.Controls.Clear();
+                _lessonInfoControl.lblDersAdi.Text = "-";
+                _lessonInfoControl.lblDersToplam.Text = "00:00:00";
+                pnlLessonInfo.Controls.Add(_lessonInfoControl);
+            }
+            else
+            {
+                pnlLessonInfo.Controls.Clear();
+                _lessonInfoControl.lblDersAdi.Text = _dersler.Where(l => l.id == dersId).Single().ders_ad;
+                _lessonInfoControl.lblDersToplam.Text = "00:00:00";
+                pnlLessonInfo.Controls.Add(_lessonInfoControl);
+            }
         }
 
         public void GetExamInfo(int sinavId)
         {
+            GetLessonInfo(-1); //sınav seçildikten sonra ders silinsin
             GetStudies();            
             if (CalculateOrtalama(sinavId))
             {

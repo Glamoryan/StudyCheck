@@ -21,6 +21,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private void btnDers_Click(object sender, EventArgs e)
         {
             PageRoute.studyPanel.WhichLesson((Button)sender);
+            PageRoute.studyPanel.GetLessonInfo(Convert.ToInt32(lblDersId.Text));
         }
     }
 }
