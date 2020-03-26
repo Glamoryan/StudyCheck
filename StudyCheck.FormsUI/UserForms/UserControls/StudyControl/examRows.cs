@@ -19,7 +19,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         }
         
         private void lblSinavAdi_Click(object sender, EventArgs e)
-        {            
+        {
+            this.BorderStyle = BorderStyle.FixedSingle;
             PageRoute.studyPanel.GetLessonDetails(Convert.ToInt32(lblSinavId.Text));
         }
     }

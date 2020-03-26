@@ -147,9 +147,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnYukari_Click(object sender, EventArgs e)
         {
-            if (location - 20 > 0)
+            if (location - 40 > 0)
             {
-                location -= 20;
+                location -= 40;
                 pnlSinavContent.VerticalScroll.Value = location;
             }
             else
@@ -161,9 +161,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnAsagi_Click(object sender, EventArgs e)
         {
-            if (location + 20 < pnlSinavContent.VerticalScroll.Maximum)
+            if (location + 40 < pnlSinavContent.VerticalScroll.Maximum)
             {
-                location += 20;
+                location += 40;
                 pnlSinavContent.VerticalScroll.Value = location;
             }
             else
