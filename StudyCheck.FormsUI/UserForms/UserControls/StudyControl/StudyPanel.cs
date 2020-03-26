@@ -11,6 +11,7 @@ using StudyCheck.FormsUI.Statikler;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
+using StudyCheck.Entites.AccountManagement;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 {
@@ -20,16 +21,25 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private static lessonInfoControl _lessonInfoControl;
         private static examRows _examRows;
         private static lessonRows _lessonRows;
+        
 
         private static EfExamDal _efExamDal = new EfExamDal();
         private static EfLessonDal _efLessonDal = new EfLessonDal();
+        private static EfStudyDal _efStudyDal = new EfStudyDal();
 
         private static ExamManager _examManager = new ExamManager(_efExamDal);
         private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
+        private static StudyManager _studyManager = new StudyManager(_efStudyDal);
 
         private byte? _durum; // null = Yeni , 1 = Sınav Seçili , 2 = Son dersten devam
         private List<Sinav> _sinavlar;
         private List<Ders> _dersler;
+        private List<Calisma> _calismalar;
+        private TimeSpan _sinavToplam;
+        private string _ortalama;
+        private List<Calisma> _sinavCalisma;
+        private int _kalanGun;
+
 
         //Scroolbar
         private int location = 0;
@@ -138,6 +148,61 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     i++;
                 }                
             }
+        }
+
+        private void GetStudies()
+        {
+            _calismalar = _studyManager.GetStudiesByUyeId(LoginInfo.UyeId);
+        }
+
+        private bool CalculateOrtalama(int sinavId)
+        {
+            _sinavCalisma = _calismalar.Where(e => e.sinav_id == sinavId).ToList();
+            if (_sinavCalisma.Count > 0)
+            {
+                foreach (var calis in _sinavCalisma)
+                {
+                    _sinavToplam += calis.calisilan_zaman;
+                }
+
+                if ((_sinavToplam.TotalMinutes / _sinavCalisma.Count) <= 20)
+                    _ortalama = "Yetersiz";
+                else if ((_sinavToplam.TotalMinutes / _sinavCalisma.Count) <= 40)
+                    _ortalama = "Yeterli";
+                else if ((_sinavToplam.TotalMinutes / _sinavCalisma.Count) >= 41)
+                    _ortalama = "Çok iyi";
+
+                var sinavTarihi = _sinavlar.Where(s => s.id == sinavId).Single().sinav_tarih;
+                _kalanGun = Convert.ToInt32((DateTime.Now - sinavTarihi).TotalDays);
+                return true;
+            }
+            return false;
+            
+        }
+
+        public void GetExamInfo(int sinavId)
+        {
+            GetStudies();            
+            if (CalculateOrtalama(sinavId))
+            {
+                pnlExamInfo.Controls.Clear();
+                //_examInfoControl = new examInfoControl();
+                _examInfoControl.lblSinavAdi.Text = _sinavlar.Where(s => s.id == sinavId).Single().sinav_ad;
+                _examInfoControl.lblCalisilanToplam.Text = _sinavToplam.ToString();
+                _examInfoControl.lblCalismaDurum.Text = _ortalama;
+                _examInfoControl.lblKalanGun.Text = _kalanGun.ToString();
+                pnlExamInfo.Controls.Add(_examInfoControl);
+            }
+            else
+            {
+                pnlExamInfo.Controls.Clear();
+                _examInfoControl.lblSinavAdi.Text = _sinavlar.Where(s => s.id == sinavId).Single().sinav_ad;
+                _examInfoControl.lblCalisilanToplam.Text = "00:00:00";
+                _examInfoControl.lblCalismaDurum.Text = "-";
+                _examInfoControl.lblKalanGun.Text = _kalanGun.ToString();
+                pnlExamInfo.Controls.Add(_examInfoControl);
+            }
+            
         }
 
         private void StudyPanel_Load(object sender, EventArgs e)

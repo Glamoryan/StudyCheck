@@ -22,6 +22,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         {            
             PageRoute.studyPanel.WhichExam((Button)sender);
             PageRoute.studyPanel.GetLessonDetails(Convert.ToInt32(lblSinavId.Text));
+            PageRoute.studyPanel.GetExamInfo(Convert.ToInt32(lblSinavId.Text));
         }
     }
 }
