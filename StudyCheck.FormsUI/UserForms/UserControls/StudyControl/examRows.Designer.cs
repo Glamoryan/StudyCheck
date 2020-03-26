@@ -28,33 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pcbExamIcon = new System.Windows.Forms.PictureBox();
-            this.lblSinavAdi = new System.Windows.Forms.Label();
             this.lblSinavId = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pcbExamIcon)).BeginInit();
+            this.btnSinav = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // pcbExamIcon
-            // 
-            this.pcbExamIcon.Image = global::StudyCheck.FormsUI.Properties.Resources.exam_38px;
-            this.pcbExamIcon.Location = new System.Drawing.Point(12, 18);
-            this.pcbExamIcon.Name = "pcbExamIcon";
-            this.pcbExamIcon.Size = new System.Drawing.Size(38, 38);
-            this.pcbExamIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pcbExamIcon.TabIndex = 0;
-            this.pcbExamIcon.TabStop = false;
-            // 
-            // lblSinavAdi
-            // 
-            this.lblSinavAdi.AutoSize = true;
-            this.lblSinavAdi.Font = new System.Drawing.Font("Cambria", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblSinavAdi.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.lblSinavAdi.Location = new System.Drawing.Point(56, 25);
-            this.lblSinavAdi.Name = "lblSinavAdi";
-            this.lblSinavAdi.Size = new System.Drawing.Size(97, 25);
-            this.lblSinavAdi.TabIndex = 1;
-            this.lblSinavAdi.Text = "Sınav Adı";
-            this.lblSinavAdi.Click += new System.EventHandler(this.lblSinavAdi_Click);
             // 
             // lblSinavId
             // 
@@ -66,26 +42,40 @@
             this.lblSinavId.Text = "gizliSinavID";
             this.lblSinavId.Visible = false;
             // 
+            // btnSinav
+            // 
+            this.btnSinav.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.btnSinav.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnSinav.FlatAppearance.BorderSize = 0;
+            this.btnSinav.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSinav.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnSinav.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnSinav.Image = global::StudyCheck.FormsUI.Properties.Resources.exam_38px;
+            this.btnSinav.Location = new System.Drawing.Point(3, 3);
+            this.btnSinav.Name = "btnSinav";
+            this.btnSinav.Size = new System.Drawing.Size(194, 72);
+            this.btnSinav.TabIndex = 3;
+            this.btnSinav.Text = "Sınav Adı";
+            this.btnSinav.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnSinav.UseVisualStyleBackColor = false;
+            this.btnSinav.Click += new System.EventHandler(this.btnSinav_Click);
+            // 
             // examRows
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(70)))), ((int)(((byte)(93)))));
+            this.Controls.Add(this.btnSinav);
             this.Controls.Add(this.lblSinavId);
-            this.Controls.Add(this.lblSinavAdi);
-            this.Controls.Add(this.pcbExamIcon);
             this.Name = "examRows";
             this.Size = new System.Drawing.Size(200, 78);
-            ((System.ComponentModel.ISupportInitialize)(this.pcbExamIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox pcbExamIcon;
-        public System.Windows.Forms.Label lblSinavAdi;
         public System.Windows.Forms.Label lblSinavId;
+        public System.Windows.Forms.Button btnSinav;
     }
 }

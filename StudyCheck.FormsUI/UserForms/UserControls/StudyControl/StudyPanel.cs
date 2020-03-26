@@ -129,7 +129,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                 {
                     _examRows = new examRows();
                     _examRows.Top = (i * 82);
-                    _examRows.lblSinavAdi.Text = exam.sinav_ad;
+                    _examRows.btnSinav.Text = exam.sinav_ad;
+                    //_examRows.lblSinavAdi.Text = exam.sinav_ad;
                     _examRows.lblSinavId.Text = exam.id.ToString();
                     pnlSinavContent.Controls.Add(_examRows);
                     i++;
@@ -156,6 +157,26 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             {
                 location = 0;
                 pnlSinavContent.AutoScrollPosition = new Point(0, location);
+            }
+        }
+
+        public void WhichExam(Button button)
+        {
+            foreach (examRows uControl in pnlSinavContent.Controls)
+            {
+                if(uControl is examRows)
+                {
+                    foreach (Button c in uControl.Controls.OfType<Button>())
+                    {
+                        if (c.Text == button.Text)
+                        {
+                            c.FlatAppearance.BorderSize = 2;
+                            c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);
+                        }
+                        else
+                            c.FlatAppearance.BorderSize = 0;
+                    }
+                }
             }
         }
 

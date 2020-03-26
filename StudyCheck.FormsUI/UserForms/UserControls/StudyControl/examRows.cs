@@ -17,10 +17,10 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         {
             InitializeComponent();
         }
-        
-        private void lblSinavAdi_Click(object sender, EventArgs e)
-        {
-            this.BorderStyle = BorderStyle.FixedSingle;
+
+        private void btnSinav_Click(object sender, EventArgs e)
+        {            
+            PageRoute.studyPanel.WhichExam((Button)sender);
             PageRoute.studyPanel.GetLessonDetails(Convert.ToInt32(lblSinavId.Text));
         }
     }
