@@ -28,46 +28,47 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnStartWExam = new System.Windows.Forms.Button();
+            this.btnStartWLesson = new System.Windows.Forms.Button();
             this.btnStartNew = new System.Windows.Forms.Button();
-            this.userWidgetAccountInfo = new StudyCheck.FormsUI.UserForms.UserControls.UserDetailControl.UserInfoControl();
-            this.userWidgetBilgiler = new StudyCheck.FormsUI.UserForms.UserControls.UserWidgetControl();
-            this.userWidgetSonSinav = new StudyCheck.FormsUI.UserForms.UserControls.ExamControl.ExamInfoControl();
             this.userWidgetSonDers = new StudyCheck.FormsUI.UserForms.UserControls.LessonControl.LessonInfoControl();
+            this.userWidgetSonSinav = new StudyCheck.FormsUI.UserForms.UserControls.ExamControl.ExamInfoControl();
+            this.userWidgetBilgiler = new StudyCheck.FormsUI.UserForms.UserControls.UserWidgetControl();
+            this.userWidgetAccountInfo = new StudyCheck.FormsUI.UserForms.UserControls.UserDetailControl.UserInfoControl();
             this.SuspendLayout();
             // 
-            // button1
+            // btnStartWExam
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(204)))));
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.ForeColor = System.Drawing.Color.White;
-            this.button1.Location = new System.Drawing.Point(228, 342);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(180, 45);
-            this.button1.TabIndex = 3;
-            this.button1.Text = "Son Sınavdan Devam Et";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnStartWExam.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(168)))), ((int)(((byte)(204)))));
+            this.btnStartWExam.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartWExam.FlatAppearance.BorderSize = 0;
+            this.btnStartWExam.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartWExam.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnStartWExam.ForeColor = System.Drawing.Color.White;
+            this.btnStartWExam.Location = new System.Drawing.Point(228, 342);
+            this.btnStartWExam.Name = "btnStartWExam";
+            this.btnStartWExam.Size = new System.Drawing.Size(180, 45);
+            this.btnStartWExam.TabIndex = 3;
+            this.btnStartWExam.Text = "Son Sınavdan Devam Et";
+            this.btnStartWExam.UseVisualStyleBackColor = false;
+            this.btnStartWExam.Click += new System.EventHandler(this.btnStartWExam_Click);
             // 
-            // button2
+            // btnStartWLesson
             // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(191)))), ((int)(((byte)(115)))));
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Image = global::StudyCheck.FormsUI.Properties.Resources.resume_button_16px;
-            this.button2.Location = new System.Drawing.Point(420, 342);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(187, 45);
-            this.button2.TabIndex = 3;
-            this.button2.Text = "Son Dersten Devam Et";
-            this.button2.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button2.UseVisualStyleBackColor = false;
+            this.btnStartWLesson.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(191)))), ((int)(((byte)(115)))));
+            this.btnStartWLesson.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnStartWLesson.FlatAppearance.BorderSize = 0;
+            this.btnStartWLesson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnStartWLesson.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.btnStartWLesson.ForeColor = System.Drawing.Color.White;
+            this.btnStartWLesson.Image = global::StudyCheck.FormsUI.Properties.Resources.resume_button_16px;
+            this.btnStartWLesson.Location = new System.Drawing.Point(420, 342);
+            this.btnStartWLesson.Name = "btnStartWLesson";
+            this.btnStartWLesson.Size = new System.Drawing.Size(187, 45);
+            this.btnStartWLesson.TabIndex = 3;
+            this.btnStartWLesson.Text = "Son Dersten Devam Et";
+            this.btnStartWLesson.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnStartWLesson.UseVisualStyleBackColor = false;
             // 
             // btnStartNew
             // 
@@ -87,21 +88,13 @@
             this.btnStartNew.UseVisualStyleBackColor = false;
             this.btnStartNew.Click += new System.EventHandler(this.btnStartNew_Click);
             // 
-            // userWidgetAccountInfo
+            // userWidgetSonDers
             // 
-            this.userWidgetAccountInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.userWidgetAccountInfo.Location = new System.Drawing.Point(669, 76);
-            this.userWidgetAccountInfo.Name = "userWidgetAccountInfo";
-            this.userWidgetAccountInfo.Size = new System.Drawing.Size(288, 193);
-            this.userWidgetAccountInfo.TabIndex = 4;
-            // 
-            // userWidgetBilgiler
-            // 
-            this.userWidgetBilgiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.userWidgetBilgiler.Location = new System.Drawing.Point(31, 37);
-            this.userWidgetBilgiler.Name = "userWidgetBilgiler";
-            this.userWidgetBilgiler.Size = new System.Drawing.Size(265, 264);
-            this.userWidgetBilgiler.TabIndex = 8;
+            this.userWidgetSonDers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.userWidgetSonDers.Location = new System.Drawing.Point(324, 182);
+            this.userWidgetSonDers.Name = "userWidgetSonDers";
+            this.userWidgetSonDers.Size = new System.Drawing.Size(297, 119);
+            this.userWidgetSonDers.TabIndex = 10;
             // 
             // userWidgetSonSinav
             // 
@@ -111,13 +104,21 @@
             this.userWidgetSonSinav.Size = new System.Drawing.Size(297, 127);
             this.userWidgetSonSinav.TabIndex = 9;
             // 
-            // userWidgetSonDers
+            // userWidgetBilgiler
             // 
-            this.userWidgetSonDers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.userWidgetSonDers.Location = new System.Drawing.Point(324, 182);
-            this.userWidgetSonDers.Name = "userWidgetSonDers";
-            this.userWidgetSonDers.Size = new System.Drawing.Size(297, 119);
-            this.userWidgetSonDers.TabIndex = 10;
+            this.userWidgetBilgiler.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.userWidgetBilgiler.Location = new System.Drawing.Point(31, 37);
+            this.userWidgetBilgiler.Name = "userWidgetBilgiler";
+            this.userWidgetBilgiler.Size = new System.Drawing.Size(265, 264);
+            this.userWidgetBilgiler.TabIndex = 8;
+            // 
+            // userWidgetAccountInfo
+            // 
+            this.userWidgetAccountInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.userWidgetAccountInfo.Location = new System.Drawing.Point(669, 76);
+            this.userWidgetAccountInfo.Name = "userWidgetAccountInfo";
+            this.userWidgetAccountInfo.Size = new System.Drawing.Size(288, 193);
+            this.userWidgetAccountInfo.TabIndex = 4;
             // 
             // UserDashboardControl
             // 
@@ -128,8 +129,8 @@
             this.Controls.Add(this.userWidgetSonSinav);
             this.Controls.Add(this.userWidgetBilgiler);
             this.Controls.Add(this.userWidgetAccountInfo);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnStartWLesson);
+            this.Controls.Add(this.btnStartWExam);
             this.Controls.Add(this.btnStartNew);
             this.Name = "UserDashboardControl";
             this.Size = new System.Drawing.Size(980, 416);
@@ -140,8 +141,8 @@
 
         #endregion
         private System.Windows.Forms.Button btnStartNew;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnStartWExam;
+        private System.Windows.Forms.Button btnStartWLesson;
         private UserDetailControl.UserInfoControl userWidgetAccountInfo;
         private UserWidgetControl userWidgetBilgiler;
         private ExamControl.ExamInfoControl userWidgetSonSinav;

@@ -130,37 +130,73 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        private void SetStudyPanel()
+        private void SetStudyPanel(byte? durum=null)
         {
-            if(_studyPanel == null)
+            if(durum == null)
             {
-                _studyPanel = new StudyPanel();
-                PageRoute.studyPanel = _studyPanel;
-                PageRoute.userContentPanel.Controls.Clear();
-                PageRoute.userContentPanel.Controls.Add(_studyPanel);
-            }
-            else
-            {
-                if (!PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
-                {
-                    PageRoute.userContentPanel.Controls.Clear();
-                    PageRoute.userContentPanel.Controls.Add(PageRoute.studyPanel);
-                }
-                else if (PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                if (_studyPanel == null)
                 {
                     _studyPanel = new StudyPanel();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
                     PageRoute.studyPanel = _studyPanel;
                     PageRoute.userContentPanel.Controls.Clear();
                     PageRoute.userContentPanel.Controls.Add(_studyPanel);
                 }
+                else
+                {
+                    if (!PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                    {
+                        PageRoute.userContentPanel.Controls.Clear();
+                        PageRoute.userContentPanel.Controls.Add(PageRoute.studyPanel);
+                    }
+                    else if (PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                    {
+                        _studyPanel = new StudyPanel();
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        PageRoute.studyPanel = _studyPanel;
+                        PageRoute.userContentPanel.Controls.Clear();
+                        PageRoute.userContentPanel.Controls.Add(_studyPanel);
+                    }
+                }
             }
+            else
+            {
+                if (_studyPanel == null)
+                {
+                    _studyPanel = new StudyPanel(durum,_sonSinav.id,_sonDers.id);
+                    PageRoute.studyPanel = _studyPanel;
+                    PageRoute.userContentPanel.Controls.Clear();
+                    PageRoute.userContentPanel.Controls.Add(_studyPanel);
+                }
+                else
+                {
+                    if (!PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                    {
+                        PageRoute.userContentPanel.Controls.Clear();
+                        PageRoute.userContentPanel.Controls.Add(PageRoute.studyPanel);
+                    }
+                    else if (PageRoute.userContentPanel.Controls.ContainsKey("StudyPanel"))
+                    {
+                        _studyPanel = new StudyPanel(durum, _sonSinav.id, _sonDers.id);
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        PageRoute.studyPanel = _studyPanel;
+                        PageRoute.userContentPanel.Controls.Clear();
+                        PageRoute.userContentPanel.Controls.Add(_studyPanel);
+                    }
+                }
+            }
+            
         }
 
         private void btnStartNew_Click(object sender, EventArgs e)
         {
             SetStudyPanel();
+        }
+
+        private void btnStartWExam_Click(object sender, EventArgs e)
+        {
+            SetStudyPanel(1);
         }
     }
 }

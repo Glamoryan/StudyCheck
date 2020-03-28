@@ -42,16 +42,23 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private int _kalanGun;
 
 
+        private int? _sinavId , _dersId;
+
         //Scroolbar
         private int location = 0;
         private int dersLocation = 0;
         //--------------------------------
 
-        public StudyPanel(byte? durum=null)
+        public StudyPanel(byte? durum=null,int? sinavId=null,int? dersId=null)
         {
             InitializeComponent();
             if (durum != null)
+            {
                 _durum = durum;
+                _sinavId = sinavId;
+                _dersId = dersId;
+            }
+                
 
             pnlSinavContent.AutoScrollPosition = new Point(0, 0);
             pnlDersContent.AutoScrollPosition = new Point(0, 0);
@@ -75,28 +82,62 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                         pnlExamInfo.Controls.Add(PageRoute.examInfoControl);
                     }
                     break;
+                case 1:
+                    if(_examInfoControl == null)
+                    {
+                        _examInfoControl = new examInfoControl();
+                        pnlExamInfo.Controls.Clear();
+                        pnlExamInfo.Controls.Add(_examInfoControl);
+                        PageRoute.examInfoControl = _examInfoControl;                        
+                        foreach (examRows ctrl in pnlSinavContent.Controls)
+                        {
+                            foreach (Button btn in ctrl.Controls.OfType<Button>())
+                            {
+                                if (btn.Text.Equals(_sinavlar.Where(s => s.id == _sinavId).Single().sinav_ad))
+                                {
+                                    WhichExam(btn);
+                                    GetLessonDetails(Convert.ToInt32(_sinavId));
+                                    GetExamInfo(Convert.ToInt32(_sinavId));
+                                    GetLessonInfo(-1);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        pnlExamInfo.Controls.Clear();
+                        pnlExamInfo.Controls.Add(PageRoute.examInfoControl);
+                        foreach (examRows ctrl in pnlSinavContent.Controls)
+                        {
+                            foreach (Button btn in ctrl.Controls.OfType<Button>())
+                            {
+                                if (btn.Text.Equals(_sinavlar.Where(s => s.id == _sinavId).Single().sinav_ad))
+                                {
+                                    WhichExam(btn);
+                                }
+                            }
+                        }
+                    }
+                    break;
+                    
+
             }    
         }
 
         private void GetLessonInfoControl()
         {
-            switch (_durum)
+            if (_lessonInfoControl == null)
             {
-                case null:
-                    if (_lessonInfoControl == null)
-                    {
-                        _lessonInfoControl = new lessonInfoControl();
-                        pnlLessonInfo.Controls.Clear();
-                        pnlLessonInfo.Controls.Add(_lessonInfoControl);
-                        PageRoute.lessonInfoControl = _lessonInfoControl;
-                    }
-                    else
-                    {
-                        pnlLessonInfo.Controls.Clear();
-                        pnlLessonInfo.Controls.Add(PageRoute.lessonInfoControl);
-                    }
-                    break;
-            }            
+                _lessonInfoControl = new lessonInfoControl();
+                pnlLessonInfo.Controls.Clear();
+                pnlLessonInfo.Controls.Add(_lessonInfoControl);
+                PageRoute.lessonInfoControl = _lessonInfoControl;
+            }
+            else
+            {
+                pnlLessonInfo.Controls.Clear();
+                pnlLessonInfo.Controls.Add(PageRoute.lessonInfoControl);
+            }
         }
 
         private void GetExams()
@@ -200,21 +241,24 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         public void GetLessonInfo(int dersId)
         {
             GetStudies();
-            if (GetLesson(dersId))
+            if (dersId == -1)
+            {
+                pnlLessonInfo.Controls.Clear();
+                _lessonInfoControl = new lessonInfoControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                _lessonInfoControl.lblDersAdi.Text = "-";
+                _lessonInfoControl.lblDersToplam.Text = "00:00:00";
+                pnlLessonInfo.Controls.Add(_lessonInfoControl);
+            }
+            else if (GetLesson(dersId))
             {
                 pnlDersContent.VerticalScroll.Maximum = pnlDersContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();
                 pnlLessonInfo.Controls.Clear();
                 _lessonInfoControl.lblDersAdi.Text = _dersler.Where(l => l.id == dersId).Single().ders_ad;
                 _lessonInfoControl.lblDersToplam.Text = _dersToplam.ToString();
                 pnlLessonInfo.Controls.Add(_lessonInfoControl);
-            }
-            else if (dersId == -1)
-            {
-                pnlLessonInfo.Controls.Clear();
-                _lessonInfoControl.lblDersAdi.Text = "-";
-                _lessonInfoControl.lblDersToplam.Text = "00:00:00";
-                pnlLessonInfo.Controls.Add(_lessonInfoControl);
-            }
+            }            
             else
             {
                 pnlLessonInfo.Controls.Clear();
@@ -259,9 +303,10 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private void StudyPanel_Load(object sender, EventArgs e)
         {
             ClearInfos();
+            GetExamDetails();
             GetExamInfoControl();
             GetLessonInfoControl();
-            GetExamDetails();
+            
             pnlSinavContent.VerticalScroll.Maximum = pnlSinavContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();            
         }
 
