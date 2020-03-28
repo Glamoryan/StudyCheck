@@ -250,8 +250,15 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             
         }
 
+        private void ClearInfos()
+        {
+            _examInfoControl = null;
+            _lessonInfoControl = null;
+        }
+
         private void StudyPanel_Load(object sender, EventArgs e)
         {
+            ClearInfos();
             GetExamInfoControl();
             GetLessonInfoControl();
             GetExamDetails();
