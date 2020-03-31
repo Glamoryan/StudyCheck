@@ -323,6 +323,12 @@
     <Compile Include="UserForms\UserControls\StudyControl\StudyPanel.Designer.cs">
       <DependentUpon>StudyPanel.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserForms\UserControls\StudyControl\StudyStartControl\studyControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserForms\UserControls\StudyControl\StudyStartControl\studyControl.Designer.cs">
+      <DependentUpon>studyControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserForms\UserControls\UserDashboardControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -467,6 +473,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\StudyControl\StudyPanel.resx">
       <DependentUpon>StudyPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserForms\UserControls\StudyControl\StudyStartControl\studyControl.resx">
+      <DependentUpon>studyControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserForms\UserControls\UserDashboardControl.resx">
       <DependentUpon>UserDashboardControl.cs</DependentUpon>
