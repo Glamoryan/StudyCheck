@@ -392,6 +392,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             }
         }
 
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnDersDown_Click(object sender, EventArgs e)
         {
             if(dersLocation + 40 < pnlDersContent.VerticalScroll.Maximum)

@@ -15,6 +15,7 @@ using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.UserForms.UserControls.StudyControl;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls
 {
@@ -197,6 +198,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
         private void btnStartWExam_Click(object sender, EventArgs e)
         {
             SetStudyPanel(1);
+        }
+
+        private void btnStartWLesson_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

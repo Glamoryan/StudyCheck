@@ -83,6 +83,7 @@
             this.btnStart.TabIndex = 2;
             this.btnStart.Text = "Başla";
             this.btnStart.UseVisualStyleBackColor = false;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // btnAsagi
             // 

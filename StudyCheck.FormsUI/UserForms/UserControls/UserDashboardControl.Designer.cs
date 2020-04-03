@@ -69,6 +69,7 @@
             this.btnStartWLesson.Text = "Son Dersten Devam Et";
             this.btnStartWLesson.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnStartWLesson.UseVisualStyleBackColor = false;
+            this.btnStartWLesson.Click += new System.EventHandler(this.btnStartWLesson_Click);
             // 
             // btnStartNew
             // 
