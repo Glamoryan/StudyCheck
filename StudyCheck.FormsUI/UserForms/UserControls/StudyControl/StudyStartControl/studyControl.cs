@@ -53,7 +53,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnDurdur_Click(object sender, EventArgs e)
         {
             _timer.Stop();
             _timerRunning = false;
