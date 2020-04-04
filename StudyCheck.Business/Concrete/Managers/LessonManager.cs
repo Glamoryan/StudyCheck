@@ -52,7 +52,7 @@ namespace StudyCheck.Business.Concrete.Managers
             return _lessonDal.GetList(x => x.sinav_id == sinav.id);
         }
         
-        public Ders GetLesson(int dersId)
+        public Ders GetLessonById(int dersId)
         {
             return _lessonDal.Get(x => x.id == dersId);
         }

@@ -10,7 +10,7 @@ namespace StudyCheck.Business.Abstract
     public interface ILessonService
     {
         List<Ders> GetAllLessons();
-        Ders GetLesson(int dersId);
+        Ders GetLessonById(int dersId);
         List<Ders> GetAllLessonsByExam(Sinav sinav);
         Ders AddLesson(Ders ders);
         Ders UpdateLesson(Ders ders);
