@@ -394,7 +394,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            PageRoute.userDashboardControl.SetStudyControl();
+            
         }
 
         private void btnDersDown_Click(object sender, EventArgs e)

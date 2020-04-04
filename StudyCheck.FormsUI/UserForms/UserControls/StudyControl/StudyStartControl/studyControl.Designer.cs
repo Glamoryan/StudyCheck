@@ -30,7 +30,6 @@
         {
             this.lblGecenZaman = new System.Windows.Forms.Label();
             this.lblBaslamaTarihi = new System.Windows.Forms.Label();
-            this.examInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.examInfoControl();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,8 +39,9 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblVerilenAra = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lessonInfoControl1 = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.lessonInfoControl();
             this.btnGeri = new System.Windows.Forms.Button();
+            this.lessonInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.lessonInfoControl();
+            this.examInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.examInfoControl();
             this.SuspendLayout();
             // 
             // lblGecenZaman
@@ -65,14 +65,6 @@
             this.lblBaslamaTarihi.Size = new System.Drawing.Size(18, 26);
             this.lblBaslamaTarihi.TabIndex = 0;
             this.lblBaslamaTarihi.Text = "-";
-            // 
-            // examInfo
-            // 
-            this.examInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.examInfo.Location = new System.Drawing.Point(20, 61);
-            this.examInfo.Name = "examInfo";
-            this.examInfo.Size = new System.Drawing.Size(295, 162);
-            this.examInfo.TabIndex = 2;
             // 
             // label1
             // 
@@ -186,14 +178,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Çalışılan Ders";
             // 
-            // lessonInfoControl1
-            // 
-            this.lessonInfoControl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
-            this.lessonInfoControl1.Location = new System.Drawing.Point(671, 61);
-            this.lessonInfoControl1.Name = "lessonInfoControl1";
-            this.lessonInfoControl1.Size = new System.Drawing.Size(295, 131);
-            this.lessonInfoControl1.TabIndex = 3;
-            // 
             // btnGeri
             // 
             this.btnGeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
@@ -209,13 +193,29 @@
             this.btnGeri.Text = "Geri";
             this.btnGeri.UseVisualStyleBackColor = false;
             // 
+            // lessonInfo
+            // 
+            this.lessonInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.lessonInfo.Location = new System.Drawing.Point(671, 61);
+            this.lessonInfo.Name = "lessonInfo";
+            this.lessonInfo.Size = new System.Drawing.Size(295, 131);
+            this.lessonInfo.TabIndex = 3;
+            // 
+            // examInfo
+            // 
+            this.examInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
+            this.examInfo.Location = new System.Drawing.Point(20, 61);
+            this.examInfo.Name = "examInfo";
+            this.examInfo.Size = new System.Drawing.Size(295, 162);
+            this.examInfo.TabIndex = 2;
+            // 
             // studyControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
             this.Controls.Add(this.btnGeri);
-            this.Controls.Add(this.lessonInfoControl1);
+            this.Controls.Add(this.lessonInfo);
             this.Controls.Add(this.examInfo);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDurdur);
@@ -230,6 +230,7 @@
             this.Controls.Add(this.lblGecenZaman);
             this.Name = "studyControl";
             this.Size = new System.Drawing.Size(980, 416);
+            this.Load += new System.EventHandler(this.studyControl_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -249,7 +250,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblVerilenAra;
         private System.Windows.Forms.Label label5;
-        private lessonInfoControl lessonInfoControl1;
+        private lessonInfoControl lessonInfo;
         private System.Windows.Forms.Button btnGeri;
     }
 }

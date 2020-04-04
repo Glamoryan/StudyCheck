@@ -89,7 +89,7 @@ namespace StudyCheck.Tests.EntityFrameworkTests
         {
             EfLessonDal efLessonDal = new EfLessonDal();
             LessonManager lessonManager = new LessonManager(efLessonDal);
-            var sonuc = lessonManager.GetLesson(1);
+            var sonuc = lessonManager.GetLessonById(1);
             Assert.IsNotNull(sonuc);
         }
         [TestMethod]

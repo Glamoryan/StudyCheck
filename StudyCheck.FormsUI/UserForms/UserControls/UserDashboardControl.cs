@@ -52,6 +52,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
 
         private StudyPanel _studyPanel;
         private studyControl _studyControl;
+        
 
         public UserDashboardControl()
         {
@@ -77,7 +78,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
                 int dersId = _calismalar.Last().ders_id;
                 _sonCalisma = _calismalar.Last().calisilan_tarih;
                 _sonSinav = _examManager.GetExamById(sinavId);
-                _sonDers = _lessonManager.GetLesson(dersId);
+                _sonDers = _lessonManager.GetLessonById(dersId);
 
                 foreach (var calisma in _calismalar)
                 {
@@ -134,9 +135,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
 
         public void SetStudyControl()
         {
+            int sonSinavId = _calismalar.Last().sinav_id;
+            int sonDersId = _calismalar.Last().ders_id;
             if(_studyControl == null)
             {
-                _studyControl = new studyControl();
+                _studyControl = new studyControl(sonSinavId,sonDersId);
                 PageRoute.studyControl = _studyControl;
                 PageRoute.userContentPanel.Controls.Clear();
                 PageRoute.userContentPanel.Controls.Add(_studyControl);
@@ -150,7 +153,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
                 }
                 else if (PageRoute.userContentPanel.Controls.ContainsKey("studyControl"))
                 {
-                    _studyControl = new studyControl();
+                    _studyControl = new studyControl(sonSinavId, sonDersId);
                     GC.Collect();
                     GC.WaitForPendingFinalizers();
                     PageRoute.studyControl = _studyControl;
