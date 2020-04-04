@@ -51,6 +51,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
         private TimeSpan _dersToplam;
 
         private StudyPanel _studyPanel;
+        private studyControl _studyControl;
 
         public UserDashboardControl()
         {
@@ -131,6 +132,34 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
+        public void SetStudyControl()
+        {
+            if(_studyControl == null)
+            {
+                _studyControl = new studyControl();
+                PageRoute.studyControl = _studyControl;
+                PageRoute.userContentPanel.Controls.Clear();
+                PageRoute.userContentPanel.Controls.Add(_studyControl);
+            }
+            else
+            {
+                if (!PageRoute.userContentPanel.Controls.ContainsKey("studyControl"))
+                {
+                    PageRoute.userContentPanel.Controls.Clear();
+                    PageRoute.userContentPanel.Controls.Add(PageRoute.studyControl);
+                }
+                else if (PageRoute.userContentPanel.Controls.ContainsKey("studyControl"))
+                {
+                    _studyControl = new studyControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.studyControl = _studyControl;
+                    PageRoute.userContentPanel.Controls.Clear();
+                    PageRoute.userContentPanel.Controls.Add(_studyControl);
+                }
+            }
+        }
+
         private void SetStudyPanel(byte? durum=null)
         {
             if(durum == null)
@@ -202,7 +231,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
 
         private void btnStartWLesson_Click(object sender, EventArgs e)
         {
-            
+            SetStudyControl();
         }
     }
 }

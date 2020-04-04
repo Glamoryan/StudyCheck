@@ -6,6 +6,7 @@ using StudyCheck.FormsUI.AdminForms.UserControls.RolesControl;
 using StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl;
 using StudyCheck.FormsUI.UserForms.UserControls;
 using StudyCheck.FormsUI.UserForms.UserControls.StudyControl;
+using StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,5 +34,6 @@ namespace StudyCheck.FormsUI.Statikler
         public static StudyPanel studyPanel { get; set; }
         public static examInfoControl examInfoControl { get; set; }
         public static lessonInfoControl lessonInfoControl { get; set; }
+        public static studyControl studyControl { get; set; }
     }
 }
