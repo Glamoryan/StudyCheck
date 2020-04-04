@@ -41,6 +41,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         private Sinav _sinav;
         private Ders _ders;
         private List<Calisma> _calismalar;
+        private List<Calisma> _calisma;
 
         private Calisma _suankiCalisma;
 
@@ -131,6 +132,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         {
             TimeSpan toplamSinav = TimeSpan.Zero;
             _calismalar = _studyManager.GetAllStudies().Where(s => s.uye_id == LoginInfo.UyeId).ToList();
+            _calisma = _calismalar.Where(e => e.sinav_id == _sinavId).ToList();
             _sinav = _examManager.GetExamById(_sinavId);            
             examInfo.lblSinavAdi.Text = _sinav.sinav_ad;
             foreach (var cls in _calismalar.Where(s=>s.sinav_id==_sinavId))
@@ -140,11 +142,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
             examInfo.lblCalisilanToplam.Text = toplamSinav.ToString();
 
-            if ((toplamSinav.TotalMinutes / _calismalar.Count) <= 20)
+            if ((toplamSinav.TotalMinutes / _calisma.Count) <= 20)
                 examInfo.lblCalismaDurum.Text = "Yetersiz";
-            else if ((toplamSinav.TotalMinutes / _calismalar.Count) <= 40)
+            else if ((toplamSinav.TotalMinutes / _calisma.Count) <= 40)
                 examInfo.lblCalismaDurum.Text = "Yeterli";
-            else if ((toplamSinav.TotalMinutes / _calismalar.Count) >= 41)
+            else if ((toplamSinav.TotalMinutes / _calisma.Count) >= 41)
                 examInfo.lblCalismaDurum.Text = "Çok iyi";
 
             var sinavTarihi = _sinav.sinav_tarih;
