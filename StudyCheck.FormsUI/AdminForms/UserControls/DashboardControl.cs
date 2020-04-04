@@ -53,15 +53,11 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls
 
         private void GetAdminDetails()
         {
-            var roller = _roleManager.GetAllRoles();
-            var yetkiler = _rightManager.GetAllRights();
+            var roller = _roleManager.GetAllRoles();            
             int sonuc=0;
-            foreach (var dd in roller)
-            {
-                if(dd.yetki_id == 2)
-                {
-                    sonuc = _userManager.GetAllUyeDetay().Where(x => x.rol_id == dd.id).Count();
-                }
+            foreach (var dd in roller.Where(r=>r.yetki_id == 2).ToList())
+            {                
+                sonuc += _userManager.GetAllUyeDetay().Where(x => x.rol_id == dd.id).Count();
             }
             adminWidget.lblWidgetTitle.Text = "Adminler";
             adminWidget.lblWidgetValue.Text = sonuc.ToString();
