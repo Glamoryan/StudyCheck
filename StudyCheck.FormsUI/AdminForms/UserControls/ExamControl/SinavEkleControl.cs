@@ -15,22 +15,24 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
 {
     public partial class SinavEkleControl : UserControl
     {
+        private Exception mainException;
+
+        private IExamService _examService;
+
         public SinavEkleControl()
         {
             InitializeComponent();
-        }
-        private static Exception mainException;
+            _examService = InstanceFactory.GetInstance<IExamService>();
+        }                
 
-        private static EfExamDal _efExamDal = new EfExamDal();
-
-        private static ExamManager _examManager = new ExamManager(_efExamDal);
-
-        private static Sinav _sinav;
+        private Sinav _sinav;
 
         private void isAdd(Sinav sinav)
         {
@@ -62,7 +64,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
                 guncelleyen_id = LoginInfo.Id
             };
             isAdd(_sinav);
-            _examManager.AddExam(_sinav);
+            _examService.AddExam(_sinav);
         }
 
         private void btnSinavEkle_Click(object sender, EventArgs e)

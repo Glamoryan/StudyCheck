@@ -17,7 +17,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
         {
             InitializeComponent();
         }
-        private static ExamSettingsControl _examSettingsControl;
+        private ExamSettingsControl _examSettingsControl;
 
         private void SinavAyarlarinaGit()
         {

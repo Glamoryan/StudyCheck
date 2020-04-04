@@ -15,26 +15,29 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
 {
     public partial class ExamSettingsControl : UserControl
     {
+        private static Exception mainException;
+
+        private IStudiesService _studiesService;
+        private IExamService _examService;
+        private ILessonService _lessonService;
+
+        private Sinav _sinav;
+
         public ExamSettingsControl()
         {
             InitializeComponent();
-        }
-        private static Exception mainException;
-
-        private static EfStudyDal _efStudyDal = new EfStudyDal();
-        private static EfExamDal _efExamDal = new EfExamDal();
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-
-        private static StudyManager _studyManager = new StudyManager(_efStudyDal);
-        private static ExamManager _examManager = new ExamManager(_efExamDal);
-        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
-
-        private static Sinav _sinav;
+            _studiesService = InstanceFactory.GetInstance<IStudiesService>();
+            _examService = InstanceFactory.GetInstance<IExamService>();
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+        }        
+        
 
         private void CheckFields()
         {
@@ -46,8 +49,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
         {
             if(cbxDurum.SelectedIndex == 0)
             {
-                var calismalar = _studyManager.GetAllStudies();
-                var dersler = _lessonManager.GetAllLessons();
+                var calismalar = _studiesService.GetAllStudies();
+                var dersler = _lessonService.GetAllLessons();
                 foreach (var calisma in calismalar)
                 {
                     if(calisma.sinav_id == Convert.ToInt32(tbxSinavId.Text))
@@ -76,7 +79,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
                 sinav_tarih = Convert.ToDateTime(mtbxSinavTarihi.Text)
             };
             CheckIfExamUsing();
-            _examManager.UpdateExam(_sinav);
+            _examService.UpdateExam(_sinav);
         }
 
         private void SetDefault()
