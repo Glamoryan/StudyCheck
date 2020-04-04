@@ -13,6 +13,7 @@ using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.Statikler;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl
 {
@@ -39,11 +40,15 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
         private Sinav _sinav;
         private Ders _ders;
-        private List<Calisma> _calismalar;        
+        private List<Calisma> _calismalar;
+
+        private Calisma _suankiCalisma;
 
         private bool _timerRunning = false;
 
         private int _sinavId, _dersId;
+
+        private UserDashboardControl _userDashboardControl;
         public studyControl(int sinavId ,int dersId)
         {
             InitializeComponent();
@@ -175,6 +180,16 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             _timer.Stop();
             _timerRunning = false;
 
+            _suankiCalisma = new Calisma
+            {
+                uye_id = LoginInfo.UyeId,
+                sinav_id = _sinavId,
+                ders_id = _dersId,
+                calisilan_zaman = _gecenZaman,
+                calisilan_tarih = DateTime.Now
+            };
+            _studyManager.AddStudy(_suankiCalisma);
+
             _toplamZaman = TimeSpan.Zero;
             _gecenZaman = TimeSpan.Zero;
 
@@ -193,8 +208,16 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             else if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)
+            {
+                MessageBox.Show("Çalışma başarıyla kaydedildi", "Çalışma Kaydedildi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CheckButtons((Button)sender);
-
+                _userDashboardControl = new UserDashboardControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                PageRoute.userDashboardControl = _userDashboardControl;
+                PageRoute.userContentPanel.Controls.Clear();
+                PageRoute.userContentPanel.Controls.Add(_userDashboardControl);
+            }
         }        
 
         private void btnDurdur_Click(object sender, EventArgs e)
