@@ -33,7 +33,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnBitir = new System.Windows.Forms.Button();
             this.btnDurdur = new System.Windows.Forms.Button();
             this.btnBasla = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -99,19 +99,19 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Şuan Çalışılan Zaman";
             // 
-            // button1
+            // btnBitir
             // 
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Enabled = false;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = global::StudyCheck.FormsUI.Properties.Resources.stop_32px;
-            this.button1.Location = new System.Drawing.Point(537, 172);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(58, 42);
-            this.button1.TabIndex = 1;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnBitir.BackColor = System.Drawing.Color.Red;
+            this.btnBitir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBitir.Enabled = false;
+            this.btnBitir.FlatAppearance.BorderSize = 0;
+            this.btnBitir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBitir.Image = global::StudyCheck.FormsUI.Properties.Resources.stop_32px;
+            this.btnBitir.Location = new System.Drawing.Point(537, 172);
+            this.btnBitir.Name = "btnBitir";
+            this.btnBitir.Size = new System.Drawing.Size(58, 42);
+            this.btnBitir.TabIndex = 1;
+            this.btnBitir.UseVisualStyleBackColor = false;
             // 
             // btnDurdur
             // 
@@ -217,7 +217,7 @@
             this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.lessonInfo);
             this.Controls.Add(this.examInfo);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnBitir);
             this.Controls.Add(this.btnDurdur);
             this.Controls.Add(this.btnBasla);
             this.Controls.Add(this.label3);
@@ -246,7 +246,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBitir;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblVerilenAra;
         private System.Windows.Forms.Label label5;

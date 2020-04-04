@@ -54,24 +54,26 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             baslamaZamani = new TimeSpan(baslamaZamani.Hours, baslamaZamani.Minutes, baslamaZamani.Seconds);
 
             _gecenZaman = baslamaZamani + _toplamZaman;
-            lblGecenZaman.Text = _gecenZaman.ToString();
-            lblBaslamaTarihi.Text = _baslangic.ToString();
+            lblGecenZaman.Text = _gecenZaman.ToString();            
         }
 
         private void btnBasla_Click(object sender, EventArgs e)
         {
             if (!_timerRunning)
-            {
+            {                
                 _baslangic = DateTime.Now;
                 _toplamZaman = _gecenZaman;
                 _timer.Start();
                 _timerRunning = true;
+
+                btnBasla.Enabled = false;
+                btnBitir.Enabled = true;
+                btnDurdur.Enabled = true;
+
+                if(_gecenZaman == TimeSpan.Zero)
+                    lblBaslamaTarihi.Text = _baslangic.ToString();
             }
-            else
-            {
-                _timer.Stop();
-                _timerRunning = false;
-            }
+            
         }
 
         private void GetExamDetails()
@@ -120,11 +122,12 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         }
 
         private void btnDurdur_Click(object sender, EventArgs e)
-        {
+        {  
             _timer.Stop();
             _timerRunning = false;
-            _toplamZaman = TimeSpan.Zero;
-            _gecenZaman = TimeSpan.Zero;
+
+            btnBasla.Enabled = true;
+            btnDurdur.Enabled = false;
         }
     }
 }
