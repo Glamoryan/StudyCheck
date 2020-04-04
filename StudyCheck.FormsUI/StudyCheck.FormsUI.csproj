@@ -244,6 +244,7 @@
     <Compile Include="ExceptionManage\CustomExceptions\BaseRightException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\DataAlreadyExistsException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\DataIsUsingException.cs" />
+    <Compile Include="ExceptionManage\CustomExceptions\InsufficientTimeException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\InvalidAccountException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\NoDataException.cs" />
     <Compile Include="ExceptionManage\CustomExceptions\RequiredFieldsException.cs" />

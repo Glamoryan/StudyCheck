@@ -11,11 +11,15 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.AccountManagement;
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.FormsUI.ExceptionManage;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl
 {
     public partial class studyControl : UserControl
-    {       
+    {
+        private Exception mainException;
+
         private Timer _timer;
         private DateTime _baslangic = DateTime.MinValue;
         private TimeSpan _gecenZaman = TimeSpan.Zero;
@@ -35,7 +39,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
         private Sinav _sinav;
         private Ders _ders;
-        private List<Calisma> _calismalar;
+        private List<Calisma> _calismalar;        
 
         private bool _timerRunning = false;
 
@@ -92,7 +96,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                     btnBitir.Enabled = false;
                     btnBasla.Enabled = true;
                     btnBitir.BackColor = Color.FromArgb(85, 85, 85);
-                    btnDurdur.BackColor = Color.FromArgb(255, 83, 17);
+                    btnDurdur.BackColor = Color.FromArgb(85,85,85);
                     btnBasla.BackColor = Color.FromArgb(33, 191, 115);
                     break;
             }
@@ -163,10 +167,14 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             GetLessonDetails();
         }
 
-        private void btnBitir_Click(object sender, EventArgs e)
-        {
+        private void SaveStudy()
+        {       
+            if (_gecenZaman <= TimeSpan.FromMinutes(3))
+                throw new InsufficientTimeException("Çalışmayı kaydetmek için en az 3 dakika çalışmalısınız!");
+
             _timer.Stop();
             _timerRunning = false;
+
             _toplamZaman = TimeSpan.Zero;
             _gecenZaman = TimeSpan.Zero;
 
@@ -174,8 +182,19 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
             lblGecenZaman.Text = _gecenZaman.ToString();
             lblVerilenAra.Text = "00:00:00";
+           
+        }
 
-            CheckButtons((Button)sender);
+        private void btnBitir_Click(object sender, EventArgs e)
+        {            
+            mainException = ExceptionHandling.HandleException(() => SaveStudy());
+            if (mainException is InsufficientTimeException)
+                MessageBox.Show(mainException.Message, "Çalışma Kaydedilemedi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException != null)
+                MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException == null)
+                CheckButtons((Button)sender);
+
         }        
 
         private void btnDurdur_Click(object sender, EventArgs e)
