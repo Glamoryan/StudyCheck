@@ -12,16 +12,22 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.AccountManagement;
+using StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl;
+using StudyCheck.FormsUI.ExceptionManage;
+using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 {
     public partial class StudyPanel : UserControl
     {
+        private Exception mainException;
+
         private static examInfoControl _examInfoControl;
         private static lessonInfoControl _lessonInfoControl;
         private static examRows _examRows;
         private static lessonRows _lessonRows;
-        
+
+        private studyControl _studyControl;
 
         private static EfExamDal _efExamDal = new EfExamDal();
         private static EfLessonDal _efLessonDal = new EfLessonDal();
@@ -40,6 +46,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private string _ortalama;
         private List<Calisma> _calisma;        
         private int _kalanGun;
+
+        private int? _secilenSinavId;
+        private int? _secilenDersId;        
 
 
         private int? _sinavId , _dersId;
@@ -122,7 +131,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     
 
             }    
-        }
+        }        
 
         private void GetLessonInfoControl()
         {
@@ -325,7 +334,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         }
 
         public void WhichExam(Button button)
-        {
+        {            
             foreach (examRows uControl in pnlSinavContent.Controls)
             {
                 if(uControl is examRows)
@@ -336,6 +345,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                         {
                             c.FlatAppearance.BorderSize = 2;
                             c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);
+                            _secilenSinavId = _examManager.GetAllExams().Where(e => e.sinav_ad == button.Text).Single().id;
                         }
                         else
                             c.FlatAppearance.BorderSize = 0;
@@ -345,7 +355,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         }
 
         public void WhichLesson(Button button)
-        {
+        {            
             foreach (lessonRows lControl in pnlDersContent.Controls)
             {
                 if (lControl is lessonRows)
@@ -356,6 +366,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                         {
                             c.FlatAppearance.BorderSize = 2;
                             c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);
+                            _secilenDersId = _lessonManager.GetAllLessons().Where(l => l.ders_ad == button.Text && l.sinav_id == _secilenSinavId).Single().id;
                         }
                         else
                             c.FlatAppearance.BorderSize = 0;
@@ -391,10 +402,50 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                 pnlDersContent.AutoScrollPosition = new Point(0, dersLocation);
             }
         }
+        
+        private void SetStudyControl()
+        {
+            if (_secilenSinavId == null)
+                throw new NoDataException("Sınav Mutlaka Seçilmeli");
+            else if (_secilenDersId == null)
+                throw new NoDataException("Ders Mutlaka Seçilmeli");
+            else
+            {
+                if (_studyControl == null)
+                {
+                    _studyControl = new studyControl(Convert.ToInt32(_secilenSinavId), Convert.ToInt32(_secilenDersId));
+                    PageRoute.studyControl = _studyControl;
+                    PageRoute.userContentPanel.Controls.Clear();
+                    PageRoute.userContentPanel.Controls.Add(_studyControl);
+                }
+                else
+                {
+                    if (!PageRoute.userContentPanel.Controls.ContainsKey("studyControl"))
+                    {
+                        PageRoute.userContentPanel.Controls.Clear();
+                        PageRoute.userContentPanel.Controls.Add(PageRoute.studyControl);
+                    }
+                    else if (PageRoute.userContentPanel.Controls.ContainsKey("studyControl"))
+                    {
+                        _studyControl = new studyControl(Convert.ToInt32(_secilenSinavId), Convert.ToInt32(_secilenDersId));
+                        GC.Collect();
+                        GC.WaitForPendingFinalizers();
+                        PageRoute.studyControl = _studyControl;
+                        PageRoute.userContentPanel.Controls.Clear();
+                        PageRoute.userContentPanel.Controls.Add(_studyControl);
+                    }
+                }
+            }
+            
+        }
 
         private void btnStart_Click(object sender, EventArgs e)
         {
-            
+            mainException = ExceptionHandling.HandleException(() => SetStudyControl());
+            if (mainException is NoDataException)
+                MessageBox.Show(mainException.Message, "Gerekli İşlemler", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            else if (mainException != null)
+                MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnDersDown_Click(object sender, EventArgs e)
