@@ -39,7 +39,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.lblVerilenAra = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnGeri = new System.Windows.Forms.Button();
             this.lessonInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.lessonInfoControl();
             this.examInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.examInfoControl();
             this.SuspendLayout();
@@ -112,6 +111,7 @@
             this.btnBitir.Size = new System.Drawing.Size(58, 42);
             this.btnBitir.TabIndex = 1;
             this.btnBitir.UseVisualStyleBackColor = false;
+            this.btnBitir.Click += new System.EventHandler(this.btnBitir_Click);
             // 
             // btnDurdur
             // 
@@ -178,21 +178,6 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Çalışılan Ders";
             // 
-            // btnGeri
-            // 
-            this.btnGeri.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.btnGeri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnGeri.FlatAppearance.BorderSize = 0;
-            this.btnGeri.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGeri.Font = new System.Drawing.Font("Calibri", 14F);
-            this.btnGeri.ForeColor = System.Drawing.Color.White;
-            this.btnGeri.Location = new System.Drawing.Point(851, 358);
-            this.btnGeri.Name = "btnGeri";
-            this.btnGeri.Size = new System.Drawing.Size(115, 36);
-            this.btnGeri.TabIndex = 4;
-            this.btnGeri.Text = "Geri";
-            this.btnGeri.UseVisualStyleBackColor = false;
-            // 
             // lessonInfo
             // 
             this.lessonInfo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(45)))), ((int)(((byte)(59)))));
@@ -214,7 +199,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
-            this.Controls.Add(this.btnGeri);
             this.Controls.Add(this.lessonInfo);
             this.Controls.Add(this.examInfo);
             this.Controls.Add(this.btnBitir);
@@ -251,6 +235,5 @@
         private System.Windows.Forms.Label lblVerilenAra;
         private System.Windows.Forms.Label label5;
         private lessonInfoControl lessonInfo;
-        private System.Windows.Forms.Button btnGeri;
     }
 }

@@ -57,6 +57,25 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             lblGecenZaman.Text = _gecenZaman.ToString();            
         }
 
+        private void CheckButtons(Button button)
+        {
+            Color btnColor;
+            foreach (var btn in this.Controls.OfType<Button>())
+            {
+                btnColor = btn.BackColor;
+                if (btn == button)
+                {
+                    btn.Enabled = false;                    
+                    btn.BackColor = Color.FromArgb(85, 85, 85);
+                }
+                else
+                {
+                    btn.Enabled = true;
+                    // devam ettir
+                }
+            }
+        }
+
         private void btnBasla_Click(object sender, EventArgs e)
         {
             if (!_timerRunning)
@@ -65,7 +84,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                 _toplamZaman = _gecenZaman;
                 _timer.Start();
                 _timerRunning = true;
-
+                
                 btnBasla.Enabled = false;
                 btnBitir.Enabled = true;
                 btnDurdur.Enabled = true;
@@ -119,6 +138,14 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         {
             GetExamDetails();
             GetLessonDetails();
+        }
+
+        private void btnBitir_Click(object sender, EventArgs e)
+        {
+            _timer.Stop();
+            _timerRunning = false;
+            _toplamZaman = TimeSpan.Zero;
+            _gecenZaman = TimeSpan.Zero;
         }
 
         private void btnDurdur_Click(object sender, EventArgs e)
