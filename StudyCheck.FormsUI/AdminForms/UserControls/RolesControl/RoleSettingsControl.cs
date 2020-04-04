@@ -15,29 +15,30 @@ using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Entites.AccountManagement;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
     public partial class RoleSettingsControl : UserControl
     {
+        private Exception mainException;
+
+        private IUserService _userService;
+        private IRoleService _roleService;
+        private IRightService _rightService;
+
+        private Rol _rol;
+        private List<Uyedetay> _uyeler;
+
         public RoleSettingsControl()
         {
             InitializeComponent();
-        }
-        private static Exception mainException;
-
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-        private static EfRightDal _efRightDal = new EfRightDal();
-
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
-        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
-        private static RightManager _rightManager = new RightManager(_efRightDal);
-
-        private static Rol _rol;
-        private static List<Uyedetay> _uyeler;        
-
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
+            _rightService = InstanceFactory.GetInstance<IRightService>();
+        }        
+        
         private void CheckFields()
         {
             if (tbxRolAdi.Text.Equals(string.Empty))
@@ -46,7 +47,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void GetUsers()
         {
-            _uyeler = _userManager.GetAllUyeDetay();            
+            _uyeler = _userService.GetAllUyeDetay();            
         }
        
         private void CheckIfRoleBase()
@@ -76,7 +77,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 guncelleyen_id = LoginInfo.Id
             };            
             CheckIfRoleUsing();
-            _roleManager.UpdateRole(_rol);
+            _roleService.UpdateRole(_rol);
         }
 
         private void SetDefault()//ilk halleri
@@ -175,7 +176,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
         {
             if(cbxDurum.SelectedIndex == 0)
             {
-                var uyedetaylar = _userManager.GetAllUyeDetay();
+                var uyedetaylar = _userService.GetAllUyeDetay();
                 foreach (var uye in uyedetaylar)
                 {
                     if(uye.rol_id == Convert.ToInt32(tbxRolId.Text))

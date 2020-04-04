@@ -11,31 +11,31 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Entites.Concrete;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
     public partial class RoleRowsControl : UserControl
     {
+        private IRoleService _roleService;
+        private IRightService _rightService;
+        private IUserService _userService;
+
+        private RoleSettingsControl _roleSettingsControl;
+        private List<Yetki> _yetkiler;
+
         public RoleRowsControl()
         {
             InitializeComponent();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
+            _rightService = InstanceFactory.GetInstance<IRightService>();
+            _userService = InstanceFactory.GetInstance<IUserService>();
         }
-        private static EfRolDal _efRolDal = new EfRolDal();
-        private static EfRightDal _efRightDal = new EfRightDal();
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-
-        private static RightManager _rightManager = new RightManager(_efRightDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-
-        private static RoleSettingsControl _roleSettingsControl;
-
-        private static List<Yetki> _yetkiler;
-
+        
         private void SetRights()
         {
-            _yetkiler = _rightManager.GetActiveRights();
+            _yetkiler = _rightService.GetActiveRights();
             _roleSettingsControl.cbxYetki.ValueMember = "id";
             _roleSettingsControl.cbxYetki.DisplayMember = "yetki_adi";
             _roleSettingsControl.cbxYetki.DataSource = _yetkiler;
@@ -43,9 +43,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void RolAyarlarinaGit()
         {            
-            var rol = _roleManager.GetRoleById(Convert.ToInt32(lblRolId.Text));
-            var yetki = _rightManager.GetRightById(rol.yetki_id);
-            var uyeler = _userManager.GetAllUyeDetay();
+            var rol = _roleService.GetRoleById(Convert.ToInt32(lblRolId.Text));
+            var yetki = _rightService.GetRightById(rol.yetki_id);
+            var uyeler = _userService.GetAllUyeDetay();
             PageRoute.contentPanel.Controls.Clear();
             _roleSettingsControl = new RoleSettingsControl();
             SetRights();

@@ -15,25 +15,26 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 {
     public partial class RolEkleControl : UserControl
     {
+        private Exception mainException;
+
+        private IRoleService _roleService;
+
+        private List<Rol> _roller;
+        private Rol _rol;
+
         public RolEkleControl()
         {
             InitializeComponent();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
         }
-
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
-
-        private List<Rol> _roller;
-        private static Rol _rol;
-
-        private static Exception mainException;
-
+        
         private void RolEkleControl_Load(object sender, EventArgs e)
         {
             SetYetkiler();
@@ -50,7 +51,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void isAdd(Rol rol)
         {
-            _roller = _roleManager.GetAllRoles();
+            _roller = _roleService.GetAllRoles();
             foreach (Rol rl in _roller)
             {
                 if (rol.rol_adi.ToLower().Equals(rl.rol_adi.ToLower()))
@@ -78,7 +79,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
                 guncelleyen_id = LoginInfo.Id
             };
             isAdd(_rol);
-            _roleManager.AddRole(_rol);
+            _roleService.AddRole(_rol);
         }
 
         private void btnRolEkle_Click(object sender, EventArgs e)
