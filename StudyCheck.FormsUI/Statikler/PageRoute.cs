@@ -41,8 +41,8 @@ namespace StudyCheck.FormsUI.Statikler
         {
             accountsControl = new AccountsControl();
             dashboardControl = new DashboardControl();
-            lessonControl = new LessonControl();
             examControl = new ExamControl();
+            lessonControl = new LessonControl();            
             roleControl = new RoleControl();
             rightControl = new RightControl();
             GC.Collect();

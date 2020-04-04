@@ -38,6 +38,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         public static List<Ders> _dersler;
         public static List<Sinav> _sinavlar;
         public static List<Uyedetay> _uyeler;
+        public static List<Sinav> _aktifSinavlar;
 
         private void LessonControl_Load(object sender, EventArgs e)
         {
@@ -50,6 +51,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         {
             _dersler = _lessonManager.GetAllLessons();
             _sinavlar = _examManager.GetAllExams();
+            _aktifSinavlar = _examManager.GetActiveExams();
             _uyeler = _userManager.GetAllUyeDetay();
         }
 
