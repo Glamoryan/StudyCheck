@@ -25,6 +25,8 @@ using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.UserForms;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI
 {
@@ -42,30 +44,27 @@ namespace StudyCheck.FormsUI
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        //----------------------------------------------
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfThemeDal _efThemeDal = new EfThemeDal();
-        private static EfRightDal _efRightDal = new EfRightDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
-        private static RightManager _rightManager = new RightManager(_efRightDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
-
-        private static frmUserPanel _userPanel;
-        private static frmAdminPanel _adminForm;
-        private static frmRegister _frmRegister;
-
-        private static PictureBox pcbLoading;
-
+        //----------------------------------------------        
         private static Exception mainException;
+
+        private IUserService _userService;
+        private IThemeService _themeService;
+        private IRightService _rightService;
+        private IRoleService _roleService;
+
+        private frmUserPanel _userPanel;
+        private frmAdminPanel _adminForm;
+        private frmRegister _frmRegister;
+        private PictureBox pcbLoading;
 
         public frmLogin()
         {
             //Thread.Sleep(500);
-            InitializeComponent();            
+            InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _themeService = InstanceFactory.GetInstance<IThemeService>();
+            _rightService = InstanceFactory.GetInstance<IRightService>();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
             if (Program.SplashScreen != null && !Program.SplashScreen.Disposing && !Program.SplashScreen.IsDisposed)
                 Program.SplashScreen.Invoke(new Action(() => Program.SplashScreen.Close()));
         }
@@ -141,11 +140,11 @@ namespace StudyCheck.FormsUI
         {
             string username = tbxUsername.Text;
             string password = tbxPassword.Text;
-            var user = _userManager.GetByUsernamePassword(username, password);
-            var yetkiler = _rightManager.GetAllRights();            
+            var user = _userService.GetByUsernamePassword(username, password);
+            var yetkiler = _rightService.GetAllRights();            
             if (user != null)
             {
-                var rol = _roleManager.GetRoleById(user.rol_id);
+                var rol = _roleService.GetRoleById(user.rol_id);
                 int yetkiId = yetkiler.Where(x => x.id == rol.yetki_id).Single().id;
                 LoginInfo.Id = user.id;
                 LoginInfo.UyeId = user.uye_id;
@@ -244,7 +243,7 @@ namespace StudyCheck.FormsUI
         delegate void CallRegisterFormDelegate();
         private void GetRegisterForm()
         {
-            List<Tema> temalar = _themeManager.GetActiveThemes();
+            List<Tema> temalar = _themeService.GetActiveThemes();
             _frmRegister = new frmRegister();
             _frmRegister.cbxTema.ValueMember = "id";
             _frmRegister.cbxTema.DisplayMember = "tema_adi";

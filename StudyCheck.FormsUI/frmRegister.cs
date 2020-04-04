@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
+using StudyCheck.Business.Abstract;
 using StudyCheck.Business.Concrete.Managers;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 using StudyCheck.Core.Aspects.Postsharp.CacheAspects;
 using StudyCheck.Core.CrossCuttingConcerns.Caching.Microsoft;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
@@ -36,25 +38,20 @@ namespace StudyCheck.FormsUI
         [DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
         //----------------------------------------------        
-        
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
+        private Exception mainException;
 
-        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
+        private IUserService _userService;
+        private IRoleService _roleService;
 
-        private static Exception mainException;
+        private frmLogin _loginForm;
+        private Uye _uye;
 
-        private static frmLogin _loginForm;
-
-        private static Uye _uye;
         public frmRegister()
         {
             InitializeComponent();
-        }
-
-       
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
+        }       
 
         private void CheckFields()
         {
@@ -68,7 +65,7 @@ namespace StudyCheck.FormsUI
 
         private void isAdd(Uyedetay uyedetay)
         {            
-            var uyeler = _userManager.GetAllUyeDetay();
+            var uyeler = _userService.GetAllUyeDetay();
             foreach (var detay in uyeler)
             {
                 if (detay.kullanici_adi.ToLower().Equals(uyedetay.kullanici_adi.ToLower()) || detay.kullanici_mail.ToLower().Equals(uyedetay.kullanici_mail.ToLower()))
@@ -84,8 +81,8 @@ namespace StudyCheck.FormsUI
                 uye_ad = tbxAd.Text,
                 uye_soyad = tbxSoyad.Text
             };
-            var uyeSonuc = _userManager.AddUser(_uye);
-            var roller = _roleManager.GetAllRoles();
+            var uyeSonuc = _userService.AddUser(_uye);
+            var roller = _roleService.GetAllRoles();
             Uyedetay uyedetay = new Uyedetay
             {
                 uye_id = uyeSonuc.id,
@@ -101,7 +98,7 @@ namespace StudyCheck.FormsUI
                 guncelleyen_id = 1
             };
             isAdd(uyedetay);
-            _userManager.AddUserDetail(uyedetay);
+            _userService.AddUserDetail(uyedetay);
         }
 
         private void pcbMinimize_Click(object sender, EventArgs e)
@@ -152,7 +149,7 @@ namespace StudyCheck.FormsUI
             if (!(mainException is RequiredFieldsException) && mainException != null)
             {
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _userManager.DeleteUser(_uye);
+                _userService.DeleteUser(_uye);
             }
             else if (mainException is RequiredFieldsException)
                 MessageBox.Show(mainException.Message, "Gerekli Alanlar", MessageBoxButtons.OK, MessageBoxIcon.Warning);
