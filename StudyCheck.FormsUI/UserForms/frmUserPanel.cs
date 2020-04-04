@@ -148,5 +148,15 @@ namespace StudyCheck.FormsUI.UserForms
             pnlUserContent.Controls.Clear();
             pnlUserContent.Controls.Add(_userDashboardControl);
         }
+
+        private void pnlUserContent_ControlAdded(object sender, ControlEventArgs e)
+        {
+            if (pnlUserContent.Controls.ContainsKey("StudyPanel"))
+                pcbRefresh.Image = Properties.Resources.undo_32px;
+            else if (pnlUserContent.Controls.ContainsKey("studyControl"))
+                pcbRefresh.Image = Properties.Resources.undo_32px;
+            else if (pnlUserContent.Controls.ContainsKey("UserDashboardControl"))
+                pcbRefresh.Image = Properties.Resources.refresh_32px;
+        }      
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.pnlDragDrop = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.lblTarih = new System.Windows.Forms.Label();
             this.pcbMinimize = new System.Windows.Forms.PictureBox();
             this.pcbExit = new System.Windows.Forms.PictureBox();
@@ -36,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pnlUserContent = new System.Windows.Forms.Panel();
             this.pcbRefresh = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.pnlDragDrop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcbMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcbExit)).BeginInit();
@@ -57,6 +57,17 @@
             this.pnlDragDrop.Size = new System.Drawing.Size(990, 42);
             this.pnlDragDrop.TabIndex = 0;
             this.pnlDragDrop.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlDragDrop_MouseDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(12, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(108, 19);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "StudyCheck";
             // 
             // lblTarih
             // 
@@ -122,11 +133,12 @@
             this.pnlUserContent.Name = "pnlUserContent";
             this.pnlUserContent.Size = new System.Drawing.Size(980, 416);
             this.pnlUserContent.TabIndex = 3;
+            this.pnlUserContent.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.pnlUserContent_ControlAdded);
             // 
             // pcbRefresh
             // 
             this.pcbRefresh.Image = global::StudyCheck.FormsUI.Properties.Resources.refresh_32px;
-            this.pcbRefresh.Location = new System.Drawing.Point(946, 471);
+            this.pcbRefresh.Location = new System.Drawing.Point(953, 471);
             this.pcbRefresh.Name = "pcbRefresh";
             this.pcbRefresh.Size = new System.Drawing.Size(32, 32);
             this.pcbRefresh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -134,17 +146,6 @@
             this.pcbRefresh.TabStop = false;
             this.pcbRefresh.Click += new System.EventHandler(this.pcbRefresh_Click);
             this.pcbRefresh.MouseEnter += new System.EventHandler(this.pcbRefresh_MouseEnter);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Cooper Black", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(12, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(108, 19);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "StudyCheck";
             // 
             // frmUserPanel
             // 
