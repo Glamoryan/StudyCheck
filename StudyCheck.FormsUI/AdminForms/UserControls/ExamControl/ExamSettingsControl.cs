@@ -174,9 +174,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
                 else if (mainException == null)
                 {
                     MessageBox.Show("Sınav başarıyla güncellendi!", "Güncelleme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    PageRoute.examControl = new ExamControl();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
+                    PageRoute.RefreshAllDataControls();
                     PageRoute.contentPanel.Controls.Clear();
                     PageRoute.contentPanel.Controls.Add(PageRoute.examControl);
                 }

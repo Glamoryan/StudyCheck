@@ -79,10 +79,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
             else if (mainException == null)
             {
                 MessageBox.Show("Sınav başarıyla eklendi", "Ekleme başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PageRoute.contentPanel.Controls.Clear();
-                PageRoute.examControl = new ExamControl();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                PageRoute.RefreshAllDataControls();
+                PageRoute.contentPanel.Controls.Clear();              
                 PageRoute.contentPanel.Controls.Add(PageRoute.examControl);
             }
 

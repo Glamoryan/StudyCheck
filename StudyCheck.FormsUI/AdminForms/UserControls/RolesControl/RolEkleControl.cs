@@ -95,10 +95,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
             else if (mainException == null)
             {
                 MessageBox.Show("Rol başarıyla eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PageRoute.contentPanel.Controls.Clear();
-                PageRoute.roleControl = new RoleControl();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                PageRoute.RefreshAllDataControls();
+                PageRoute.contentPanel.Controls.Clear();                
                 PageRoute.contentPanel.Controls.Add(PageRoute.roleControl);
             }
                 

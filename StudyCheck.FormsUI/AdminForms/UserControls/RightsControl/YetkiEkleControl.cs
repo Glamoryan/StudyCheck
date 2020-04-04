@@ -45,10 +45,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
             else if (mainException == null)
             {
                 MessageBox.Show("Yetki başarıyla eklendi", "İşlem Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PageRoute.contentPanel.Controls.Clear();
-                PageRoute.rightControl = new RightControl();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                PageRoute.RefreshAllDataControls();
+                PageRoute.contentPanel.Controls.Clear();                
                 PageRoute.contentPanel.Controls.Add(PageRoute.rightControl);
             }
         }

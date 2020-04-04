@@ -35,5 +35,18 @@ namespace StudyCheck.FormsUI.Statikler
         public static examInfoControl examInfoControl { get; set; }
         public static lessonInfoControl lessonInfoControl { get; set; }
         public static studyControl studyControl { get; set; }
+        //-------------------------------------------------------------
+
+        public static void RefreshAllDataControls()
+        {
+            accountsControl = new AccountsControl();
+            dashboardControl = new DashboardControl();
+            lessonControl = new LessonControl();
+            examControl = new ExamControl();
+            roleControl = new RoleControl();
+            rightControl = new RightControl();
+            GC.Collect();
+            GC.WaitForPendingFinalizers();
+        }        
     }
 }

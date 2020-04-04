@@ -94,10 +94,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
             else if (mainException == null)
             {
                 MessageBox.Show("Ders başarıyla eklendi","Ekleme Başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                PageRoute.contentPanel.Controls.Clear();
-                PageRoute.lessonControl = new LessonControl();
-                GC.Collect();
-                GC.WaitForPendingFinalizers();
+                PageRoute.RefreshAllDataControls();
+                PageRoute.contentPanel.Controls.Clear();               
                 PageRoute.contentPanel.Controls.Add(PageRoute.lessonControl);
             }
         }

@@ -171,9 +171,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 else if (mainException == null)
                 {
                     MessageBox.Show("Yetki başarıyla güncellendi", "Güncelleme başarılı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    PageRoute.rightControl = new RightControl();
-                    GC.Collect();
-                    GC.WaitForPendingFinalizers();
+                    PageRoute.RefreshAllDataControls();
                     PageRoute.contentPanel.Controls.Clear();
                     PageRoute.contentPanel.Controls.Add(PageRoute.rightControl);
                 }                    
