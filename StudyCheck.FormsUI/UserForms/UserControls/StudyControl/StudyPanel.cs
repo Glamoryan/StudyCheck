@@ -15,6 +15,8 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 {
@@ -22,22 +24,16 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
     {
         private Exception mainException;
 
-        private static examInfoControl _examInfoControl;
-        private static lessonInfoControl _lessonInfoControl;
-        private static examRows _examRows;
-        private static lessonRows _lessonRows;
+        private IExamService _examService;
+        private ILessonService _lessonService;
+        private IStudiesService _studiesService;
 
+        private examInfoControl _examInfoControl;
+        private lessonInfoControl _lessonInfoControl;
+        private examRows _examRows;
+        private lessonRows _lessonRows;
         private studyControl _studyControl;
-
-        private static EfExamDal _efExamDal = new EfExamDal();
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-        private static EfStudyDal _efStudyDal = new EfStudyDal();
-
-        private static ExamManager _examManager = new ExamManager(_efExamDal);
-        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
-        private static StudyManager _studyManager = new StudyManager(_efStudyDal);
-
-        private byte? _durum; // null = Yeni , 1 = Sınav Seçili , 2 = Son dersten devam
+        private byte? _durum; // null = Yeni , 1 = Sınav Seçili
         private List<Sinav> _sinavlar;
         private List<Ders> _dersler;
         private List<Calisma> _calismalar;
@@ -46,12 +42,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         private string _ortalama;
         private List<Calisma> _calisma;        
         private int _kalanGun;
-
-        private int? _secilenSinavId;
-        private int? _secilenDersId;        
-
-
-        private int? _sinavId , _dersId;
+        private int? _secilenSinavId, _secilenDersId , _dersId , _sinavId;        
 
         //Scroolbar
         private int location = 0;
@@ -61,6 +52,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         public StudyPanel(byte? durum=null,int? sinavId=null,int? dersId=null)
         {
             InitializeComponent();
+            _examService = InstanceFactory.GetInstance<IExamService>();
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+            _studiesService = InstanceFactory.GetInstance<IStudiesService>();
             if (durum != null)
             {
                 _durum = durum;
@@ -151,12 +145,12 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void GetExams()
         {
-            _sinavlar = _examManager.GetActiveExams();
+            _sinavlar = _examService.GetActiveExams();
         }
 
         private void GetLessons(int sinavId)
         {
-            _dersler = _lessonManager.GetActiveLessonsById(sinavId);
+            _dersler = _lessonService.GetActiveLessonsById(sinavId);
         }
 
         public void GetLessonDetails(int sinavId)
@@ -200,7 +194,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void GetStudies()
         {
-            _calismalar = _studyManager.GetStudiesByUyeId(LoginInfo.UyeId);
+            _calismalar = _studiesService.GetStudiesByUyeId(LoginInfo.UyeId);
         }
 
         private bool CalculateOrtalama(int sinavId)
@@ -345,7 +339,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                         {
                             c.FlatAppearance.BorderSize = 2;
                             c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);
-                            _secilenSinavId = _examManager.GetAllExams().Where(e => e.sinav_ad == button.Text).Single().id;
+                            _secilenSinavId = _examService.GetAllExams().Where(e => e.sinav_ad == button.Text).Single().id;
                         }
                         else
                             c.FlatAppearance.BorderSize = 0;
@@ -366,7 +360,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                         {
                             c.FlatAppearance.BorderSize = 2;
                             c.FlatAppearance.BorderColor = Color.FromArgb(255, 83, 17);
-                            _secilenDersId = _lessonManager.GetAllLessons().Where(l => l.ders_ad == button.Text && l.sinav_id == _secilenSinavId).Single().id;
+                            _secilenDersId = _lessonService.GetAllLessons().Where(l => l.ders_ad == button.Text && l.sinav_id == _secilenSinavId).Single().id;
                         }
                         else
                             c.FlatAppearance.BorderSize = 0;

@@ -16,6 +16,8 @@ using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.UserForms.UserControls.StudyControl;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls
 {
@@ -23,20 +25,12 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
     {
         private Exception mainException;
 
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfStudyDal _efStudyDal = new EfStudyDal();
-        private static EfExamDal _efExamDal = new EfExamDal();
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-        private static EfThemeDal _efThemeDal = new EfThemeDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        private static StudyManager _studyManager = new StudyManager(_efStudyDal);
-        private static ExamManager _examManager = new ExamManager(_efExamDal);
-        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
-        private static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
+        private IUserService _userService;
+        private IStudiesService _studiesService;
+        private IExamService _examService;
+        private ILessonService _lessonService;
+        private IThemeService _themeService;
+        private IRoleService _roleService;
 
         private Uye _uye;
         private Uyedetay _uyedetay;
@@ -49,36 +43,40 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
         private TimeSpan _toplamDakika;
         private TimeSpan _sinavToplam;
         private TimeSpan _dersToplam;
-
         private StudyPanel _studyPanel;
         private studyControl _studyControl;
         
-
         public UserDashboardControl()
         {
             InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _studiesService = InstanceFactory.GetInstance<IStudiesService>();
+            _examService = InstanceFactory.GetInstance<IExamService>();
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+            _themeService = InstanceFactory.GetInstance<IThemeService>();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
         }
 
         private void GetUserAndAccountThemeRole()
         {
-            _uye = _userManager.GetUserById(LoginInfo.UyeId);
-            _uyedetay = _userManager.GetUyeDetayById(LoginInfo.Id);
+            _uye = _userService.GetUserById(LoginInfo.UyeId);
+            _uyedetay = _userService.GetUyeDetayById(LoginInfo.Id);
             int temaId = _uyedetay.tema_id;
             int rolId = _uyedetay.rol_id;
-            _tema = _themeManager.GetThemeById(temaId);
-            _rol = _roleManager.GetRoleById(rolId);
+            _tema = _themeService.GetThemeById(temaId);
+            _rol = _roleService.GetRoleById(rolId);
         }
 
         private void GetStudiesAndExamsLessons()
         {
-            _calismalar = _studyManager.GetAllStudies().Where(x => x.uye_id == LoginInfo.UyeId).ToList();            
+            _calismalar = _studiesService.GetAllStudies().Where(x => x.uye_id == LoginInfo.UyeId).ToList();            
             if (_calismalar.Count > 0)
             {
                 int sinavId = _calismalar.Last().sinav_id;
                 int dersId = _calismalar.Last().ders_id;
                 _sonCalisma = _calismalar.Last().calisilan_tarih;
-                _sonSinav = _examManager.GetExamById(sinavId);
-                _sonDers = _lessonManager.GetLessonById(dersId);
+                _sonSinav = _examService.GetExamById(sinavId);
+                _sonDers = _lessonService.GetLessonById(dersId);
 
                 foreach (var calisma in _calismalar)
                 {

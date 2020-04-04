@@ -14,6 +14,8 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl
 {
@@ -21,38 +23,32 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
     {
         private Exception mainException;
 
+        private IExamService _examService;
+        private ILessonService _lessonService;
+        private IStudiesService _studiesService;
+
         private Timer _timer;
         private DateTime _baslangic = DateTime.MinValue;
         private TimeSpan _gecenZaman = TimeSpan.Zero;
         private TimeSpan _toplamZaman = TimeSpan.Zero;
-
         private DateTime _molaBaslangic = DateTime.MinValue;
         private TimeSpan _molaGecenZaman = TimeSpan.Zero;
         private TimeSpan _molaToplamZaman = TimeSpan.Zero;
-
-        private static EfExamDal _efExamDal = new EfExamDal();
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-        private static EfStudyDal _efStudyDal = new EfStudyDal();
-
-        private ExamManager _examManager = new ExamManager(_efExamDal);
-        private LessonManager _lessonManager = new LessonManager(_efLessonDal);
-        private StudyManager _studyManager = new StudyManager(_efStudyDal);
-
         private Sinav _sinav;
         private Ders _ders;
         private List<Calisma> _calismalar;
         private List<Calisma> _calisma;
-
         private Calisma _suankiCalisma;
-
         private bool _timerRunning = false;
-
         private int _sinavId, _dersId;
-
         private UserDashboardControl _userDashboardControl;
+
         public studyControl(int sinavId ,int dersId)
         {
             InitializeComponent();
+            _examService = InstanceFactory.GetInstance<IExamService>();
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+            _studiesService = InstanceFactory.GetInstance<IStudiesService>();
 
             _sinavId = sinavId;
             _dersId = dersId;
@@ -131,9 +127,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         private void GetExamDetails()
         {
             TimeSpan toplamSinav = TimeSpan.Zero;
-            _calismalar = _studyManager.GetAllStudies().Where(s => s.uye_id == LoginInfo.UyeId).ToList();
+            _calismalar = _studiesService.GetAllStudies().Where(s => s.uye_id == LoginInfo.UyeId).ToList();
             _calisma = _calismalar.Where(e => e.sinav_id == _sinavId).ToList();
-            _sinav = _examManager.GetExamById(_sinavId);            
+            _sinav = _examService.GetExamById(_sinavId);            
             examInfo.lblSinavAdi.Text = _sinav.sinav_ad;
             foreach (var cls in _calismalar.Where(s=>s.sinav_id==_sinavId))
             {
@@ -159,7 +155,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         private void GetLessonDetails()
         {
             TimeSpan toplamDers = TimeSpan.Zero;
-            _ders = _lessonManager.GetLessonById(_dersId);
+            _ders = _lessonService.GetLessonById(_dersId);
             lessonInfo.lblDersAdi.Text = _ders.ders_ad;
             foreach (var drs in _calismalar.Where(s=>s.ders_id == _dersId))
             {
@@ -190,7 +186,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                 calisilan_zaman = _gecenZaman,
                 calisilan_tarih = DateTime.Now
             };
-            _studyManager.AddStudy(_suankiCalisma);
+            _studiesService.AddStudy(_suankiCalisma);
 
             _toplamZaman = TimeSpan.Zero;
             _gecenZaman = TimeSpan.Zero;
