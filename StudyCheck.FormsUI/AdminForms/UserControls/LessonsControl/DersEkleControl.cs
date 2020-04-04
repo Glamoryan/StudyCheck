@@ -15,21 +15,26 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 {
     public partial class DersEkleControl : UserControl
     {
+        private Exception mainException;
+
+        private ILessonService _lessonService;
+
+        private Ders _ders;
+
         public DersEkleControl()
         {
             InitializeComponent();
-        }
-        private static Exception mainException;
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+        }                
 
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
-
-        private static Ders _ders;
+        
 
         private void SetExams()
         {
@@ -71,7 +76,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
                 sinav_id = Convert.ToInt32(cbxDersSinav.SelectedValue)                
             };
             isAdd(_ders);
-            _lessonManager.AddLesson(_ders);
+            _lessonService.AddLesson(_ders);
         }
 
         private void DersEkleControl_Load(object sender, EventArgs e)

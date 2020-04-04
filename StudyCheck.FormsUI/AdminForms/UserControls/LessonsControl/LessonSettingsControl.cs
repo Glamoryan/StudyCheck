@@ -15,25 +15,28 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 {
     public partial class LessonSettingsControl : UserControl
     {
+        private Exception mainException;
+
+        private ILessonService _lessonService;
+        private IStudiesService _studiesService;
+
+        private Ders _ders;
+
         public LessonSettingsControl()
         {
             InitializeComponent();
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+            _studiesService = InstanceFactory.GetInstance<IStudiesService>();
         }
 
-        private static Exception mainException;
-
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-        private static EfStudyDal _efStudyDal = new EfStudyDal();
-
-        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
-        private static StudyManager _studyManager = new StudyManager(_efStudyDal);
-
-        private static Ders _ders;
+        
         
         private void CheckFields()
         {
@@ -56,26 +59,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
                 sinav_id = Convert.ToInt32(cbxDersSinav.SelectedValue)
             };
             CheckIfLessonUsing();
-            _lessonManager.UpdateLesson(_ders);
+            _lessonService.UpdateLesson(_ders);
         }
-
-        // çözüm bul
-        //private void CheckIfAlreadyExist()
-        //{
-        //    if (!(tbxDersAdi.Text.Equals(LessonSettingsInfos.dersAdi)))
-        //    {
-        //        var dersler = LessonControl._dersler;
-        //        foreach (var ders in dersler)
-        //        {
-        //            if (ders.sinav_id == Convert.ToInt32(cbxDersSinav.SelectedValue))
-        //            {
-        //                if (ders.ders_ad.Equals(tbxDersAdi.Text))
-        //                    throw new DataAlreadyExistsException("Bu ders adı , bu sınavda zaten mevcut!");
-        //            }
-        //        }
-        //    }            
-        //}
-
 
         private void SetDefault()
         {
@@ -154,7 +139,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         {
             if(cbxDurum.SelectedIndex == 0)
             {
-                var calismalar = _studyManager.GetAllStudies();
+                var calismalar = _studiesService.GetAllStudies();
                 foreach (var calisma in calismalar)
                 {
                     if (calisma.ders_id == Convert.ToInt32(tbxDersId.Text))

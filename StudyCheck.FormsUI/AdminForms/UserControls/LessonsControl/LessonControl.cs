@@ -12,33 +12,33 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 {
     public partial class LessonControl : UserControl
     {
-        public LessonControl()
-        {
-            InitializeComponent();
-        }
+        private Exception mainException;
 
-        private static Exception mainException;
+        private ILessonService _lessonService;
+        private IExamService _examService;
+        private IUserService _userService;
 
-        private static EfLessonDal _efLessonDal = new EfLessonDal();
-        private static EfExamDal _efExamDal = new EfExamDal();
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-
-        private static LessonManager _lessonManager = new LessonManager(_efLessonDal);
-        private static ExamManager _examManager = new ExamManager(_efExamDal);
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-
-        private static LessonRowsControl _lessonRowsControl;
-        private static DersEkleControl _dersEkleControl;
+        private LessonRowsControl _lessonRowsControl;
+        private DersEkleControl _dersEkleControl;
         public static List<Ders> _dersler;
         public static List<Sinav> _sinavlar;
         public static List<Uyedetay> _uyeler;
         public static List<Sinav> _aktifSinavlar;
+
+        public LessonControl()
+        {
+            InitializeComponent();
+            _lessonService = InstanceFactory.GetInstance<ILessonService>();
+            _examService = InstanceFactory.GetInstance<IExamService>();
+            _userService = InstanceFactory.GetInstance<IUserService>();
+        }      
 
         private void LessonControl_Load(object sender, EventArgs e)
         {
@@ -49,10 +49,10 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 
         private void GetLessonsAndExamsAndUsers()
         {
-            _dersler = _lessonManager.GetAllLessons();
-            _sinavlar = _examManager.GetAllExams();
-            _aktifSinavlar = _examManager.GetActiveExams();
-            _uyeler = _userManager.GetAllUyeDetay();
+            _dersler = _lessonService.GetAllLessons();
+            _sinavlar = _examService.GetAllExams();
+            _aktifSinavlar = _examService.GetActiveExams();
+            _uyeler = _userService.GetAllUyeDetay();
         }
 
         private void GetLessonDetails()

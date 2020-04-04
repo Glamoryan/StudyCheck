@@ -13,13 +13,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 {
     public partial class LessonRowsControl : UserControl
     {
+        private LessonSettingsControl _lessonSettingsControl;
+
         public LessonRowsControl()
         {
             InitializeComponent();
         }
-
-        private static LessonSettingsControl _lessonSettingsControl;
-
 
         private void SetExams()
         {
