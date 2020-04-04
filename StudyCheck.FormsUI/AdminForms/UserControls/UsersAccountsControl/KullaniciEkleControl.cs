@@ -15,30 +15,26 @@ using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using FluentValidation;
 using StudyCheck.Entites.AccountManagement;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class KullaniciEkleControl : UserControl
     {
-        private static Exception mainException;        
+        private Exception mainException;
 
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfThemeDal _efThemeDal = new EfThemeDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
+        private IUserService _userService;
        
-
-        private static Uye _uye;
-        private static Uyedetay _uyedetay;
+        private Uye _uye;
+        private Uyedetay _uyedetay;
         List<Uyedetay> uyeDetaylari;
-
         private Uye uyeSonuc;
 
         public KullaniciEkleControl()
         {
             InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
         }
 
         private void SetRolesAndThemes()
@@ -53,7 +49,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private bool isUserAdd(Uyedetay uyedetay)
         {
-            uyeDetaylari = _userManager.GetAllUyeDetay();
+            uyeDetaylari = _userService.GetAllUyeDetay();
             foreach (var detay in uyeDetaylari)
             {
                 if (uyedetay.kullanici_adi.ToLower().Equals(detay.kullanici_adi.ToLower()) || uyedetay.kullanici_mail.ToLower().Equals(detay.kullanici_mail.ToLower()))
@@ -80,7 +76,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 uye_ad = tbxUyeAdi.Text,
                 uye_soyad = tbxUyeSoyad.Text
             };
-            uyeSonuc = _userManager.AddUser(_uye);
+            uyeSonuc = _userService.AddUser(_uye);
             _uyedetay = new Uyedetay
             {
                 uye_id = uyeSonuc.id,
@@ -126,7 +122,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 throw new DataAlreadyExistsException("Kullanıcı Adı / Mail alınmış");
             }
             else
-                _userManager.AddUserDetail(_uyedetay);
+                _userService.AddUserDetail(_uyedetay);
         }
 
         private void btnKaydet_Click(object sender, EventArgs e)
@@ -138,7 +134,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
             if (!(mainException is RequiredFieldsException) && mainException != null)
             {
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                _userManager.DeleteUser(_uye);
+                _userService.DeleteUser(_uye);
             }                
             else if (mainException is ValidationException)
                 MessageBox.Show(mainException.Message, "Doğrulama Hatası", MessageBoxButtons.OK, MessageBoxIcon.Warning);

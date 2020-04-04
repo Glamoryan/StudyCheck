@@ -17,25 +17,25 @@ using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.Entites.ComplexTypes;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class UserSettingsControl : UserControl
     {
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        
-        private static UserManager _userManager = new UserManager(_efUserDal,_efUserDetailDal);
+        private Exception mainException;
 
-        private static Uye _uye;
-        private static Uyedetay _uyedetay;
-        private static UserDetail detay = new UserDetail();
+        private IUserService _userService;
 
-        private static Exception mainException;
+        private Uye _uye;
+        private Uyedetay _uyedetay;
+        private UserDetail detay = new UserDetail();
 
         public UserSettingsControl()
         {           
             InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
             AccountsControl.deger = detay;
         }    
 
@@ -88,9 +88,9 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 guncelleme_tarihi = Convert.ToDateTime(DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss.fff")),
                 kayit_tarihi = Convert.ToDateTime(tbxKayitTarihi.Text),
                 guncelleyen_id = LoginInfo.Id
-            };            
-            _userManager.UpdateUser(_uye);
-            _userManager.UpdateUserDetail(_uyedetay);
+            };
+            _userService.UpdateUser(_uye);
+            _userService.UpdateUserDetail(_uyedetay);
 
         }
 
@@ -324,8 +324,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 {
                     MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ReturnToDefault();
-                    _userManager.UpdateUser(_uye);
-                    _userManager.UpdateUserDetail(_uyedetay);
+                    _userService.UpdateUser(_uye);
+                    _userService.UpdateUserDetail(_uyedetay);
                 }                
                 else if (mainException is RequiredFieldsException)
                     MessageBox.Show(mainException.Message, "Boş Alan Bırakılamaz", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -333,8 +333,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
                 {
                     MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     ReturnToDefault();
-                    _userManager.UpdateUser(_uye);
-                    _userManager.UpdateUserDetail(_uyedetay);
+                    _userService.UpdateUser(_uye);
+                    _userService.UpdateUserDetail(_uyedetay);
                 }                    
                 else if (mainException == null)
                 {                    

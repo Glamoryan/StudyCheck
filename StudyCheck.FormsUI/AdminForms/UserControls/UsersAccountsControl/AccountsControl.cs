@@ -15,47 +15,44 @@ using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.ExceptionManage.CustomExceptions;
 using StudyCheck.Entites.Concrete;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class AccountsControl : UserControl
     {
-        private static Exception mainException;
-        public AccountsControl()
-        {
-            InitializeComponent();
-        }        
+        private Exception mainException;
+
+        private IUserService _userService;
+        private IThemeService _themeService;
+        private IRoleService _roleService;
 
         public static UserDetail deger = null;
-
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfThemeDal _efThemeDal = new EfThemeDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static UserRowsControl _rowsControl;
-        private static KullaniciEkleControl _ekleControl;
-
-
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
-        static RoleManager _roleManager = new RoleManager(_efRolDal);
-
+        private UserRowsControl _rowsControl;
+        private KullaniciEkleControl _ekleControl;
         private List<UserDetail> _uyeDetaylar; //Complex Type
-
         public static List<Tema> temalar;
         public static List<Rol> roller;
 
+        public AccountsControl()
+        {
+            InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _themeService = InstanceFactory.GetInstance<IThemeService>();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
+        }        
+
         private void GetThemesAndRoles()
         {            
-            temalar = _themeManager.GetActiveThemes();
-            roller = _roleManager.GetActiveRoles();
+            temalar = _themeService.GetActiveThemes();
+            roller = _roleService.GetActiveRoles();
         }
 
         private void GetUserDetails()
         {
             GetThemesAndRoles();
-            _uyeDetaylar = _userManager.GetAllUserDetails();            
+            _uyeDetaylar = _userService.GetAllUserDetails();            
             if (_uyeDetaylar.Count <= 0)
                 throw new NoDataException("Hiçbir Kayıt Bulunamadı");
 

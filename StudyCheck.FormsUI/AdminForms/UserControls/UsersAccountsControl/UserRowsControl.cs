@@ -13,31 +13,25 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.Entites.ComplexTypes;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 {
     public partial class UserRowsControl : UserControl
     {
-        private static UserSettingsControl _userSettingsControl;
+        private IUserService _userService;
 
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfThemeDal _efThemeDal = new EfThemeDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        static ThemeManager _themeManager = new ThemeManager(_efThemeDal);
-        static RoleManager _roleManager = new RoleManager(_efRolDal);
-
-        private static UserDetail detay = new UserDetail();
+        private UserSettingsControl _userSettingsControl;
+        private UserDetail detay = new UserDetail();
 
         public UserRowsControl()
         {
             InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
             AccountsControl.deger = detay;
         }
   
-
         private void GetThemes()
         {                                 
             _userSettingsControl.cbxTema.ValueMember = "id";
@@ -54,8 +48,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void KullaniciAyarlarinaGit()
         {
-            var uyeler = _userManager.GetAllUyeDetay();
-            var uyeDetay = _userManager.GetUserDetailById(Convert.ToInt32(lblUyeId.Text));
+            var uyeler = _userService.GetAllUyeDetay();
+            var uyeDetay = _userService.GetUserDetailById(Convert.ToInt32(lblUyeId.Text));
             PageRoute.contentPanel.Controls.Clear();
             _userSettingsControl = new UserSettingsControl();
             GetThemes();
