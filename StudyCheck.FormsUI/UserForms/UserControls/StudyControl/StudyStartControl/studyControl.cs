@@ -15,11 +15,15 @@ using StudyCheck.Entites.AccountManagement;
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl
 {
     public partial class studyControl : UserControl
-    {
+    {       
         private Timer _timer;
         private DateTime _baslangic = DateTime.MinValue;
         private TimeSpan _gecenZaman = TimeSpan.Zero;
         private TimeSpan _toplamZaman = TimeSpan.Zero;
+
+        private DateTime _molaBaslangic = DateTime.MinValue;
+        private TimeSpan _molaGecenZaman = TimeSpan.Zero;
+        private TimeSpan _molaToplamZaman = TimeSpan.Zero;
 
         private static EfExamDal _efExamDal = new EfExamDal();
         private static EfLessonDal _efLessonDal = new EfLessonDal();
@@ -57,23 +61,42 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             lblGecenZaman.Text = _gecenZaman.ToString();            
         }
 
+        private void molaTimer_Tick(object sender, EventArgs e)
+        {
+            var molaBaslama = DateTime.Now - _molaBaslangic;
+            molaBaslama = new TimeSpan(molaBaslama.Hours, molaBaslama.Minutes, molaBaslama.Seconds);
+            _molaGecenZaman = molaBaslama + _molaToplamZaman;
+            lblVerilenAra.Text = _molaGecenZaman.ToString();
+        }
+
         private void CheckButtons(Button button)
         {
-            Color btnColor;
-            foreach (var btn in this.Controls.OfType<Button>())
+            switch (button.Name)
             {
-                btnColor = btn.BackColor;
-                if (btn == button)
-                {
-                    btn.Enabled = false;                    
-                    btn.BackColor = Color.FromArgb(85, 85, 85);
-                }
-                else
-                {
-                    btn.Enabled = true;
-                    // devam ettir
-                }
+                case "btnBasla":
+                    btnBasla.Enabled = false;
+                    btnDurdur.Enabled = true;
+                    btnBitir.Enabled = true;
+                    btnBasla.BackColor = Color.FromArgb(85, 85, 85);
+                    btnDurdur.BackColor = Color.FromArgb(255,83,17);
+                    btnBitir.BackColor = Color.Red;
+                    break;
+                case "btnDurdur":
+                    btnDurdur.Enabled = false;
+                    btnBasla.Enabled = true;
+                    btnBasla.BackColor = Color.FromArgb(33, 191, 115);
+                    btnDurdur.BackColor = Color.FromArgb(85, 85, 85);
+                    break;
+                case "btnBitir":
+                    btnDurdur.Enabled = false;
+                    btnBitir.Enabled = false;
+                    btnBasla.Enabled = true;
+                    btnBitir.BackColor = Color.FromArgb(85, 85, 85);
+                    btnDurdur.BackColor = Color.FromArgb(255, 83, 17);
+                    btnBasla.BackColor = Color.FromArgb(33, 191, 115);
+                    break;
             }
+            
         }
 
         private void btnBasla_Click(object sender, EventArgs e)
@@ -84,13 +107,13 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                 _toplamZaman = _gecenZaman;
                 _timer.Start();
                 _timerRunning = true;
-                
-                btnBasla.Enabled = false;
-                btnBitir.Enabled = true;
-                btnDurdur.Enabled = true;
+
+                CheckButtons((Button)sender);
 
                 if(_gecenZaman == TimeSpan.Zero)
                     lblBaslamaTarihi.Text = _baslangic.ToString();
+
+                molaTimer.Stop();
             }
             
         }
@@ -146,15 +169,25 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             _timerRunning = false;
             _toplamZaman = TimeSpan.Zero;
             _gecenZaman = TimeSpan.Zero;
-        }
+
+            molaTimer.Enabled = false;
+
+            lblGecenZaman.Text = _gecenZaman.ToString();
+            lblVerilenAra.Text = "00:00:00";
+
+            CheckButtons((Button)sender);
+        }        
 
         private void btnDurdur_Click(object sender, EventArgs e)
         {  
             _timer.Stop();
             _timerRunning = false;
 
-            btnBasla.Enabled = true;
-            btnDurdur.Enabled = false;
+            _molaBaslangic = DateTime.Now;
+            _molaToplamZaman = _molaGecenZaman;
+            molaTimer.Enabled = true;
+
+            CheckButtons((Button)sender);
         }
     }
 }

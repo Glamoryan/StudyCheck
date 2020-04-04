@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblGecenZaman = new System.Windows.Forms.Label();
             this.lblBaslamaTarihi = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +42,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lessonInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.lessonInfoControl();
             this.examInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.examInfoControl();
+            this.molaTimer = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // lblGecenZaman
@@ -100,7 +102,7 @@
             // 
             // btnBitir
             // 
-            this.btnBitir.BackColor = System.Drawing.Color.Red;
+            this.btnBitir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.btnBitir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBitir.Enabled = false;
             this.btnBitir.FlatAppearance.BorderSize = 0;
@@ -115,7 +117,7 @@
             // 
             // btnDurdur
             // 
-            this.btnDurdur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.btnDurdur.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.btnDurdur.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnDurdur.Enabled = false;
             this.btnDurdur.FlatAppearance.BorderSize = 0;
@@ -194,6 +196,11 @@
             this.examInfo.Size = new System.Drawing.Size(295, 162);
             this.examInfo.TabIndex = 2;
             // 
+            // molaTimer
+            // 
+            this.molaTimer.Interval = 1000;
+            this.molaTimer.Tick += new System.EventHandler(this.molaTimer_Tick);
+            // 
             // studyControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -235,5 +242,6 @@
         private System.Windows.Forms.Label lblVerilenAra;
         private System.Windows.Forms.Label label5;
         private lessonInfoControl lessonInfo;
+        private System.Windows.Forms.Timer molaTimer;
     }
 }
