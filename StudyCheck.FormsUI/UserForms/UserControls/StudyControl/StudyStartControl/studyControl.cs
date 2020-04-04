@@ -149,8 +149,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             else if ((toplamSinav.TotalMinutes / _calisma.Count) >= 41)
                 examInfo.lblCalismaDurum.Text = "Çok iyi";
 
-            var sinavTarihi = _sinav.sinav_tarih;
-            examInfo.lblKalanGun.Text = (DateTime.Now - sinavTarihi).TotalDays.ToString();
+            DateTime sinavTarihi = _sinav.sinav_tarih;
+            examInfo.lblKalanGun.Text = Convert.ToInt32((DateTime.Now - sinavTarihi).TotalDays).ToString();
         }
 
         /// <summary>
