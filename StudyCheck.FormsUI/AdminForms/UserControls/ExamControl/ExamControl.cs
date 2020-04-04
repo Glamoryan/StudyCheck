@@ -12,33 +12,34 @@ using StudyCheck.DataAccess.Concrete.EntityFramework;
 using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
 {
     public partial class ExamControl : UserControl
     {
+        private Exception mainException;
+
+        private IUserService _userService;
+        private IExamService _examService;
+
         public ExamControl()
         {
             InitializeComponent();
-        }
-        private static Exception mainException;
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _examService = InstanceFactory.GetInstance<IExamService>();
+        }        
 
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfExamDal _efExamDal = new EfExamDal();
-
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        private static ExamManager _examManager = new ExamManager(_efExamDal);
-
-        private static SinavEkleControl _sinavEkleControl;
-        private static ExamRowsControl _examRowsControl;
+        private SinavEkleControl _sinavEkleControl;
+        private ExamRowsControl _examRowsControl;
         public static List<Sinav> _sinavlar;
         public static List<Uyedetay> _uyeler;
 
         private void GetExamsAndUsers()
         {
-            _sinavlar = _examManager.GetAllExams();
-            _uyeler = _userManager.GetAllUyeDetay();
+            _sinavlar = _examService.GetAllExams();
+            _uyeler = _userService.GetAllUyeDetay();
         }
 
         private void GetExamDetails()
