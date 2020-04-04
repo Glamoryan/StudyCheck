@@ -15,26 +15,26 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 {
     public partial class RightSettingsControl : UserControl
     {
+        private Exception mainException;
+
+        private IRightService _rightService;
+        private IRoleService _roleService;
+
+        private Yetki _yetki;
+
         public RightSettingsControl()
         {
             InitializeComponent();
+            _rightService = InstanceFactory.GetInstance<IRightService>();
+            _roleService = InstanceFactory.GetInstance<IRoleService>();
         }
-
-        private static Exception mainException;
-
-        private static EfRightDal _efRightDal = new EfRightDal();
-        private static EfRolDal _efRolDal = new EfRolDal();
-
-        private static RightManager _rightManager = new RightManager(_efRightDal);
-        private static RoleManager _roleManager = new RoleManager(_efRolDal);
-
-        private static Yetki _yetki;        
-
 
         private void CheckFields()
         {
@@ -55,8 +55,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 ekleyen_id = RightControl._uyeler.Where(x => x.kullanici_adi == tbxEkleyen.Text).Single().id,
                 guncelleyen_id = LoginInfo.Id,                
             };            
-            CheckIfRightUsing();            
-            _rightManager.UpdateRight(_yetki);
+            CheckIfRightUsing();
+            _rightService.UpdateRight(_yetki);
         }
 
         private void SetDefault()
@@ -135,7 +135,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
         {
             if(cbxDurum.SelectedIndex == 0)
             {
-                var roller = _roleManager.GetAllRoles();
+                var roller = _roleService.GetAllRoles();
                 foreach (var rol in roller)
                 {
                     if (rol.yetki_id == Convert.ToInt32(tbxYetkiId.Text))

@@ -35,9 +35,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
             _lessonService = InstanceFactory.GetInstance<ILessonService>();
             _studiesService = InstanceFactory.GetInstance<IStudiesService>();
         }
-
-        
-        
+ 
         private void CheckFields()
         {
             if (tbxDersAdi.Text.Equals(string.Empty))

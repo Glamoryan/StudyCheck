@@ -13,12 +13,12 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 {
     public partial class RightRowsControl : UserControl
     {
+        private RightSettingsControl _rightSettingsControl;
+
         public RightRowsControl()
         {
             InitializeComponent();
         }
-
-        private static RightSettingsControl _rightSettingsControl;
 
         private void YetkiAyarlarinaGit()
         {

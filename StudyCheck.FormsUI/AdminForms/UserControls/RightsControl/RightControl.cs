@@ -12,34 +12,34 @@ using StudyCheck.Business.Concrete.Managers;
 using StudyCheck.Entites.Concrete;
 using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 {
     public partial class RightControl : UserControl
     {
-        public RightControl()
-        {
-            InitializeComponent();
-        }
+        private Exception mainException;
 
-        private static EfUserDal _efUserDal = new EfUserDal();
-        private static EfUserDetailDal _efUserDetailDal = new EfUserDetailDal();
-        private static EfRightDal _efRightDal = new EfRightDal();
+        private IUserService _userService;
+        private IRightService _rightService;
 
-        private static UserManager _userManager = new UserManager(_efUserDal, _efUserDetailDal);
-        private static RightManager _rightManager = new RightManager(_efRightDal);
-
-        private static YetkiEkleControl _yetkiEkleControl;
-        private static RightRowsControl _rightRowsControl;
+        private YetkiEkleControl _yetkiEkleControl;
+        private RightRowsControl _rightRowsControl;
         public static List<Uyedetay> _uyeler;
         public static List<Yetki> _yetkiler;
 
-        private static Exception mainException;
+        public RightControl()
+        {
+            InitializeComponent();
+            _userService = InstanceFactory.GetInstance<IUserService>();
+            _rightService = InstanceFactory.GetInstance<IRightService>();
+        }        
 
         private void GetUsersAndRights()
         {
-            _uyeler = _userManager.GetAllUyeDetay();
-            _yetkiler = _rightManager.GetAllRights();
+            _uyeler = _userService.GetAllUyeDetay();
+            _yetkiler = _rightService.GetAllRights();
         }
 
         private void GetRightDetails()

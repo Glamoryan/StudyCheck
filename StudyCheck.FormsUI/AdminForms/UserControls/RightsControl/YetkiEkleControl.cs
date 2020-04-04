@@ -15,22 +15,25 @@ using StudyCheck.Entites.AccountManagement;
 using StudyCheck.FormsUI.ExceptionManage;
 using FluentValidation;
 using StudyCheck.FormsUI.Statikler;
+using StudyCheck.Business.Abstract;
+using StudyCheck.Business.DependencyResolvers.Ninject;
 
 namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 {
     public partial class YetkiEkleControl : UserControl
     {
+        private Exception mainException;
+
+        private IRightService _rightService;
+
+        private Yetki _yetki;
+
         public YetkiEkleControl()
         {
             InitializeComponent();
-        }
-        private static Exception mainException;
-
-        private static EfRightDal _efRightDal = new EfRightDal();
-
-        private static RightManager _rightManager = new RightManager(_efRightDal);
-
-        private static Yetki _yetki;
+            _rightService = InstanceFactory.GetInstance<IRightService>();
+        }        
+       
         private void btnYetkiEkle_Click(object sender, EventArgs e)
         {
             mainException = ExceptionHandling.HandleException(() => SetRight());
@@ -58,7 +61,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 
         private void isAdd(Yetki yetki)
         {
-            var yetkiler = _rightManager.GetAllRights();
+            var yetkiler = _rightService.GetAllRights();
             foreach (var yt in yetkiler)
             {
                 if (yetki.yetki_adi.ToLower().Equals(yt.yetki_adi.ToLower()))
@@ -85,7 +88,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
                 guncelleyen_id = LoginInfo.Id
             };
             isAdd(_yetki);
-            _rightManager.AddRight(_yetki);
+            _rightService.AddRight(_yetki);
         }
     }
 }
