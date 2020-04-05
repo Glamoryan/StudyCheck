@@ -172,8 +172,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
         private void SaveStudy()
         {       
-            if (_gecenZaman <= TimeSpan.FromMinutes(3))
-                throw new InsufficientTimeException("Çalışmayı kaydetmek için en az 3 dakika çalışmalısınız!");
+            if (_gecenZaman <= TimeSpan.FromMinutes(1))
+                throw new InsufficientTimeException("Çalışmayı kaydetmek için en az 1 dakika çalışmalısınız!");
 
             _timer.Stop();
             _timerRunning = false;
