@@ -146,7 +146,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                 examInfo.lblCalismaDurum.Text = "Çok iyi";
 
             DateTime sinavTarihi = _sinav.sinav_tarih;
-            examInfo.lblKalanGun.Text = Convert.ToInt32((DateTime.Now - sinavTarihi).TotalDays).ToString();
+            examInfo.lblKalanGun.Text = Convert.ToInt32((sinavTarihi - DateTime.Now).TotalDays).ToString();
         }
 
         /// <summary>

@@ -141,12 +141,28 @@ namespace StudyCheck.FormsUI.UserForms
 
         private void pcbRefresh_Click(object sender, EventArgs e)
         {
-            _userDashboardControl = new UserDashboardControl();
-            GC.Collect();
-            GC.WaitForPendingFinalizers();
-            PageRoute.userDashboardControl = _userDashboardControl;
-            pnlUserContent.Controls.Clear();
-            pnlUserContent.Controls.Add(_userDashboardControl);
+            if (pnlUserContent.Controls.ContainsKey("studyControl"))
+            {
+                DialogResult sonuc = MessageBox.Show("Mevcut çalışma kaybedilecek", "Çalışma İptal Edilsin mi ?", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if(sonuc == DialogResult.Yes)
+                {
+                    _userDashboardControl = new UserDashboardControl();
+                    GC.Collect();
+                    GC.WaitForPendingFinalizers();
+                    PageRoute.userDashboardControl = _userDashboardControl;
+                    pnlUserContent.Controls.Clear();
+                    pnlUserContent.Controls.Add(_userDashboardControl);
+                }
+            }
+            else
+            {
+                _userDashboardControl = new UserDashboardControl();
+                GC.Collect();
+                GC.WaitForPendingFinalizers();
+                PageRoute.userDashboardControl = _userDashboardControl;
+                pnlUserContent.Controls.Clear();
+                pnlUserContent.Controls.Add(_userDashboardControl);
+            }            
         }
 
         private void pnlUserContent_ControlAdded(object sender, ControlEventArgs e)
