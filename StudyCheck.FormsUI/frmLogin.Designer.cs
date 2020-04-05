@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.DragDropPanel = new System.Windows.Forms.Panel();
             this.lblLoginTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -241,6 +242,7 @@
             this.Controls.Add(this.pcbCikisButon);
             this.Controls.Add(this.pcbLogo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
