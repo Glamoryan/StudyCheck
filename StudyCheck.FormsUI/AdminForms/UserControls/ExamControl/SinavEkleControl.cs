@@ -76,6 +76,8 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
                 MessageBox.Show(mainException.Message, "Sınav Zaten Mevcut", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException is ValidationException)
                 MessageBox.Show(mainException.Message, "Doğrulama Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (mainException is FormatException)
+                MessageBox.Show("Geçersiz Tarih", "Format Hatası", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else if (mainException == null)

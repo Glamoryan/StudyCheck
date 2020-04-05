@@ -216,7 +216,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                     _ortalama = "Çok iyi";
 
                 var sinavTarihi = _sinavlar.Where(s => s.id == sinavId).Single().sinav_tarih;
-                _kalanGun = Convert.ToInt32((DateTime.Now - sinavTarihi).TotalDays);
+                _kalanGun = Convert.ToInt32((sinavTarihi - DateTime.Now).TotalDays);
                 return true;
             }
             return false;            
@@ -276,22 +276,24 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
             GetLessonInfo(-1); //sınav seçildikten sonra ders silinsin
             GetStudies();            
             if (CalculateOrtalama(sinavId))
-            {
+            {                
                 pnlExamInfo.Controls.Clear();
                 //_examInfoControl = new examInfoControl();
                 _examInfoControl.lblSinavAdi.Text = _sinavlar.Where(s => s.id == sinavId).Single().sinav_ad;
                 _examInfoControl.lblCalisilanToplam.Text = _sinavToplam.ToString();
                 _examInfoControl.lblCalismaDurum.Text = _ortalama;
-                _examInfoControl.lblKalanGun.Text = _kalanGun.ToString();
+                _examInfoControl.lblKalanGun.Text = _kalanGun < 0 ? "sınav tarihi geçti" : _kalanGun.ToString();
                 pnlExamInfo.Controls.Add(_examInfoControl);
             }
             else
             {
+                var sinavTarihi = _sinavlar.Where(s => s.id == sinavId).Single().sinav_tarih;
+                _kalanGun = Convert.ToInt32((sinavTarihi - DateTime.Now).TotalDays);
                 pnlExamInfo.Controls.Clear();
                 _examInfoControl.lblSinavAdi.Text = _sinavlar.Where(s => s.id == sinavId).Single().sinav_ad;
                 _examInfoControl.lblCalisilanToplam.Text = "00:00:00";
                 _examInfoControl.lblCalismaDurum.Text = "-";
-                _examInfoControl.lblKalanGun.Text = _kalanGun.ToString();
+                _examInfoControl.lblKalanGun.Text = _kalanGun < 0 ? "sınav tarihi geçti" : _kalanGun.ToString();
                 pnlExamInfo.Controls.Add(_examInfoControl);
             }
             
