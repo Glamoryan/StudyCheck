@@ -227,12 +227,18 @@ namespace StudyCheck.FormsUI.UserForms.UserControls
 
         private void btnStartWExam_Click(object sender, EventArgs e)
         {
-            SetStudyPanel(1);
+            if (_calismalar.Count > 0)
+                SetStudyPanel(1);
+            else
+                MessageBox.Show("Geçerli bir çalışma bulunamadı", "Çalışma Yok", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
         private void btnStartWLesson_Click(object sender, EventArgs e)
         {
-            SetStudyControl();
+            if(_calismalar.Count >0)
+                SetStudyControl();
+            else
+                MessageBox.Show("Geçerli bir çalışma bulunamadı", "Çalışma Yok", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }
