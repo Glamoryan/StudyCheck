@@ -40,7 +40,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         private List<Calisma> _calisma;
         private Calisma _suankiCalisma;
         private bool _timerRunning = false;
-        private int _sinavId, _dersId;
+        private int _sinavId, _dersId,_kalangun;
         private UserDashboardControl _userDashboardControl;
 
         public studyControl(int sinavId ,int dersId)
@@ -146,7 +146,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                 examInfo.lblCalismaDurum.Text = "Çok iyi";
 
             DateTime sinavTarihi = _sinav.sinav_tarih;
-            examInfo.lblKalanGun.Text = Convert.ToInt32((sinavTarihi - DateTime.Now).TotalDays).ToString();
+            _kalangun = Convert.ToInt32((sinavTarihi - DateTime.Now).TotalDays);
+            examInfo.lblKalanGun.Text = _kalangun < 0 ? "sınav tarihi geçti" : _kalangun.ToString();
         }
 
         /// <summary>
