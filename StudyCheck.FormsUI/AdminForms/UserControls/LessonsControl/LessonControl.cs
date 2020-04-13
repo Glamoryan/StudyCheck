@@ -33,7 +33,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
         public static List<Sinav> _aktifSinavlar;
 
         public LessonControl()
-        {
+        {            
             InitializeComponent();
             _lessonService = InstanceFactory.GetInstance<ILessonService>();
             _examService = InstanceFactory.GetInstance<IExamService>();
@@ -42,6 +42,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.LessonsControl
 
         private void LessonControl_Load(object sender, EventArgs e)
         {
+            Utilities.Utility.AddScroolBar(pnlLessonContent);
             mainException = ExceptionHandling.HandleException(() => GetLessonDetails());
             if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);

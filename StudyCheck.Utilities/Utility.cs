@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace StudyCheck.Utilities
 {
@@ -15,6 +16,14 @@ namespace StudyCheck.Utilities
         public readonly static Regex regexAll = new Regex("^[a-zA-Z0-9_]*$");//harfler , rakamlar ve altçizgi
         public readonly static Regex regexTR = new Regex(@"^\s*[a-zA-Z0-9,ç,Ç,ğ,Ğ,ı,İ,ö,Ö,ş,Ş,ü,Ü,\s]+\s*$");//TR harfler ve sayılar
 
-        
+        public static void AddScroolBar(Panel panel)
+        {            
+            panel.AutoScroll = false;
+            panel.HorizontalScroll.Enabled = false;
+            panel.HorizontalScroll.Visible = false;
+            panel.HorizontalScroll.Maximum = 0;            
+            panel.AutoScroll = true;
+            
+        }
     }
 }

@@ -76,6 +76,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.ExamControl
 
         private void ExamControl_Load(object sender, EventArgs e)
         {
+            Utilities.Utility.AddScroolBar(pnlExamContent);
             mainException = ExceptionHandling.HandleException(() => GetExamDetails());
             if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -97,6 +97,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.UsersAccountsControl
 
         private void AccountsControl_Load(object sender, EventArgs e)
         {
+            Utilities.Utility.AddScroolBar(pnlUserContent);
             mainException = ExceptionHandling.HandleException(() => { GetUserDetails(); });
             if (mainException is NoDataException)
                 MessageBox.Show(mainException.Message,"Kullanıcı Bulunamadı",MessageBoxButtons.OK,MessageBoxIcon.Warning);

@@ -97,6 +97,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RolesControl
 
         private void RoleControl_Load(object sender, EventArgs e)
         {
+            Utilities.Utility.AddScroolBar(pnlRoleContent);
             mainException = ExceptionHandling.HandleException(() => GetRoleDetails());
             if (mainException is NoDataException)
                 MessageBox.Show(mainException.Message, "Veri Bulunamadı", MessageBoxButtons.OK, MessageBoxIcon.Warning);

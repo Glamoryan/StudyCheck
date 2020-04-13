@@ -77,6 +77,7 @@ namespace StudyCheck.FormsUI.AdminForms.UserControls.RightsControl
 
         private void RightControl_Load(object sender, EventArgs e)
         {
+            Utilities.Utility.AddScroolBar(pnlRightContent);
             mainException = ExceptionHandling.HandleException(() => GetRightDetails());
             if (mainException != null)
                 MessageBox.Show(mainException.Message, "Hatalı İşlem", MessageBoxButtons.OK, MessageBoxIcon.Error);
