@@ -155,6 +155,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         public void GetLessonDetails(int sinavId)
         {
+            dersLocation = 0;
+            pnlDersContent.AutoScrollPosition = new Point(0, 0);
             pnlDersContent.Controls.Clear();
             GetLessons(sinavId);
             if (!pnlLessonInfo.Controls.ContainsKey("lessonRows"))
@@ -243,9 +245,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         public void GetLessonInfo(int dersId)
         {
+            if(pnlDersContent.Controls.Count>0)
+                pnlDersContent.VerticalScroll.Maximum = pnlDersContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();
             GetStudies();
             if (dersId == -1)
-            {
+            {                
                 pnlLessonInfo.Controls.Clear();
                 _lessonInfoControl = new lessonInfoControl();
                 GC.Collect();
@@ -255,15 +259,14 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
                 pnlLessonInfo.Controls.Add(_lessonInfoControl);
             }
             else if (GetLesson(dersId))
-            {
-                pnlDersContent.VerticalScroll.Maximum = pnlDersContent.Controls.OfType<Control>().Select(c => c.Location.Y).Last();
+            {                
                 pnlLessonInfo.Controls.Clear();
                 _lessonInfoControl.lblDersAdi.Text = _dersler.Where(l => l.id == dersId).Single().ders_ad;
                 _lessonInfoControl.lblDersToplam.Text = _dersToplam.ToString();
                 pnlLessonInfo.Controls.Add(_lessonInfoControl);
             }            
             else
-            {
+            {                
                 pnlLessonInfo.Controls.Clear();
                 _lessonInfoControl.lblDersAdi.Text = _dersler.Where(l => l.id == dersId).Single().ders_ad;
                 _lessonInfoControl.lblDersToplam.Text = "00:00:00";
@@ -272,7 +275,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
         }
 
         public void GetExamInfo(int sinavId)
-        {
+        {              
             GetLessonInfo(-1); //sınav seçildikten sonra ders silinsin
             GetStudies();            
             if (CalculateOrtalama(sinavId))
@@ -317,9 +320,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnYukari_Click(object sender, EventArgs e)
         {
-            if (location - 40 > 0)
+            if (location - 20 > 0)
             {
-                location -= 40;
+                location -= 20;
                 pnlSinavContent.VerticalScroll.Value = location;
             }
             else
@@ -373,9 +376,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnAsagi_Click(object sender, EventArgs e)
         {
-            if (location + 40 < pnlSinavContent.VerticalScroll.Maximum)
+            if (location + 20 < pnlSinavContent.VerticalScroll.Maximum)
             {
-                location += 40;
+                location += 20;
                 pnlSinavContent.VerticalScroll.Value = location;
             }
             else
@@ -387,9 +390,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnDersUp_Click(object sender, EventArgs e)
         {
-            if (dersLocation - 40 > 0)
+            if (dersLocation - 20 > 0)
             {
-                dersLocation -= 40;
+                dersLocation -= 20;
                 pnlDersContent.VerticalScroll.Value = dersLocation;                
             }
             else
@@ -446,9 +449,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl
 
         private void btnDersDown_Click(object sender, EventArgs e)
         {
-            if(dersLocation + 40 < pnlDersContent.VerticalScroll.Maximum)
+            if(dersLocation + 20 < pnlDersContent.VerticalScroll.Maximum)
             {
-                dersLocation += 40;
+                dersLocation += 20;
                 pnlDersContent.VerticalScroll.Value = dersLocation;
             }
             else
