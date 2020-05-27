@@ -16,6 +16,9 @@ using StudyCheck.FormsUI.ExceptionManage;
 using StudyCheck.FormsUI.Statikler;
 using StudyCheck.Business.Abstract;
 using StudyCheck.Business.DependencyResolvers.Ninject;
+using System.Media;
+using System.IO;
+using StudyCheck.Utilities;
 
 namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartControl
 {
@@ -56,6 +59,8 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             _timer = new Timer();
             _timer.Interval = 1000;
             _timer.Tick += new EventHandler(_timerTick);
+
+            cbxSes.SelectedIndex = 0;
         }
 
         private void _timerTick(object sender,EventArgs e)
@@ -64,7 +69,35 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             baslamaZamani = new TimeSpan(baslamaZamani.Hours, baslamaZamani.Minutes, baslamaZamani.Seconds);
 
             _gecenZaman = baslamaZamani + _toplamZaman;
-            lblGecenZaman.Text = _gecenZaman.ToString();            
+            lblGecenZaman.Text = _gecenZaman.ToString();
+
+            if (chcPomodora.Checked)
+            {
+                if(cbxSes.Visible != true)
+                {
+                    cbxSes.Visible = true;
+                    label7.Visible = true;
+                }                
+                if (_gecenZaman == TimeSpan.FromMinutes(25))
+                {
+                    SoundPlayer player;
+                    if (cbxSes.SelectedIndex == 0)
+                        player = new SoundPlayer(Properties.Resources.Store_Door_Chime_Mike_Koenig_570742973);
+                    else
+                        player = new SoundPlayer(Properties.Resources.Tornado_Siren_II_Delilah_747233690);
+                    player.PlayLooping();
+                    MessageBox.Show("25 dakikaya ulaşıldı, 5 dakika mola verin!", "25 Dakika Doldu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    player.Stop();
+                }
+            }
+            else
+            {
+                if(cbxSes.Visible != false)
+                {
+                    cbxSes.Visible = false;
+                    label7.Visible = false;
+                }                
+            }
         }
 
         private void molaTimer_Tick(object sender, EventArgs e)

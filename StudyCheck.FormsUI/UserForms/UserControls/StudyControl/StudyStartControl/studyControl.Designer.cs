@@ -34,15 +34,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnBitir = new System.Windows.Forms.Button();
-            this.btnDurdur = new System.Windows.Forms.Button();
-            this.btnBasla = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.lblVerilenAra = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.molaTimer = new System.Windows.Forms.Timer(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.chcPomodora = new System.Windows.Forms.CheckBox();
+            this.btnBitir = new System.Windows.Forms.Button();
+            this.btnDurdur = new System.Windows.Forms.Button();
+            this.btnBasla = new System.Windows.Forms.Button();
+            this.cbxSes = new System.Windows.Forms.ComboBox();
             this.lessonInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.lessonInfoControl();
             this.examInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.examInfoControl();
-            this.molaTimer = new System.Windows.Forms.Timer(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblGecenZaman
@@ -100,6 +104,65 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Şuan Çalışılan Zaman";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label4.Location = new System.Drawing.Point(15, 337);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(183, 26);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Verilen Toplam Ara :";
+            // 
+            // lblVerilenAra
+            // 
+            this.lblVerilenAra.AutoSize = true;
+            this.lblVerilenAra.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.lblVerilenAra.ForeColor = System.Drawing.Color.White;
+            this.lblVerilenAra.Location = new System.Drawing.Point(204, 337);
+            this.lblVerilenAra.Name = "lblVerilenAra";
+            this.lblVerilenAra.Size = new System.Drawing.Size(90, 26);
+            this.lblVerilenAra.TabIndex = 0;
+            this.lblVerilenAra.Text = "00:00:00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label5.Location = new System.Drawing.Point(755, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(125, 26);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Çalışılan Ders";
+            // 
+            // molaTimer
+            // 
+            this.molaTimer.Interval = 1000;
+            this.molaTimer.Tick += new System.EventHandler(this.molaTimer_Tick);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label6.Location = new System.Drawing.Point(666, 221);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(101, 26);
+            this.label6.TabIndex = 0;
+            this.label6.Text = "Pomodora";
+            // 
+            // chcPomodora
+            // 
+            this.chcPomodora.AutoSize = true;
+            this.chcPomodora.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.chcPomodora.Location = new System.Drawing.Point(774, 229);
+            this.chcPomodora.Name = "chcPomodora";
+            this.chcPomodora.Size = new System.Drawing.Size(15, 14);
+            this.chcPomodora.TabIndex = 4;
+            this.chcPomodora.UseVisualStyleBackColor = true;
+            // 
             // btnBitir
             // 
             this.btnBitir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
@@ -147,38 +210,20 @@
             this.btnBasla.UseVisualStyleBackColor = false;
             this.btnBasla.Click += new System.EventHandler(this.btnBasla_Click);
             // 
-            // label4
+            // cbxSes
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label4.Location = new System.Drawing.Point(15, 337);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(183, 26);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Verilen Toplam Ara :";
-            // 
-            // lblVerilenAra
-            // 
-            this.lblVerilenAra.AutoSize = true;
-            this.lblVerilenAra.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.lblVerilenAra.ForeColor = System.Drawing.Color.White;
-            this.lblVerilenAra.Location = new System.Drawing.Point(204, 337);
-            this.lblVerilenAra.Name = "lblVerilenAra";
-            this.lblVerilenAra.Size = new System.Drawing.Size(90, 26);
-            this.lblVerilenAra.TabIndex = 0;
-            this.lblVerilenAra.Text = "00:00:00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
-            this.label5.Location = new System.Drawing.Point(755, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(125, 26);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Çalışılan Ders";
+            this.cbxSes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSes.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.cbxSes.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.cbxSes.FormattingEnabled = true;
+            this.cbxSes.Items.AddRange(new object[] {
+            "Door",
+            "Thunder"});
+            this.cbxSes.Location = new System.Drawing.Point(774, 258);
+            this.cbxSes.Name = "cbxSes";
+            this.cbxSes.Size = new System.Drawing.Size(121, 23);
+            this.cbxSes.TabIndex = 5;
+            this.cbxSes.Visible = false;
             // 
             // lessonInfo
             // 
@@ -196,22 +241,33 @@
             this.examInfo.Size = new System.Drawing.Size(295, 162);
             this.examInfo.TabIndex = 2;
             // 
-            // molaTimer
+            // label7
             // 
-            this.molaTimer.Interval = 1000;
-            this.molaTimer.Tick += new System.EventHandler(this.molaTimer_Tick);
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Calibri", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(83)))), ((int)(((byte)(17)))));
+            this.label7.Location = new System.Drawing.Point(727, 253);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(40, 26);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Ses";
+            this.label7.Visible = false;
             // 
             // studyControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.cbxSes);
+            this.Controls.Add(this.chcPomodora);
             this.Controls.Add(this.lessonInfo);
             this.Controls.Add(this.examInfo);
             this.Controls.Add(this.btnBitir);
             this.Controls.Add(this.btnDurdur);
             this.Controls.Add(this.btnBasla);
             this.Controls.Add(this.label3);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
@@ -243,5 +299,9 @@
         private System.Windows.Forms.Label label5;
         private lessonInfoControl lessonInfo;
         private System.Windows.Forms.Timer molaTimer;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.CheckBox chcPomodora;
+        private System.Windows.Forms.ComboBox cbxSes;
+        private System.Windows.Forms.Label label7;
     }
 }

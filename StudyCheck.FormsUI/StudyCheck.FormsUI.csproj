@@ -34,8 +34,8 @@
     <SuiteName>Sınav Çalışma Programı</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>9</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -689,6 +689,8 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Tornado_Siren_II-Delilah-747233690.wav" />
+    <None Include="Resources\Store_Door_Chime-Mike_Koenig-570742973.wav" />
     <Content Include="studyCheck.ico" />
     <Content Include="StudyCheck.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
