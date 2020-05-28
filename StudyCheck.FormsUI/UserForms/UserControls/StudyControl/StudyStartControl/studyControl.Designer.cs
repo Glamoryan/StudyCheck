@@ -49,6 +49,7 @@
             this.examInfo = new StudyCheck.FormsUI.UserForms.UserControls.StudyControl.examInfoControl();
             this.label8 = new System.Windows.Forms.Label();
             this.lblPomodoraSayisi = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblGecenZaman
@@ -278,11 +279,22 @@
             this.lblPomodoraSayisi.Text = "0";
             this.lblPomodoraSayisi.Visible = false;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.ForeColor = System.Drawing.Color.White;
+            this.label9.Location = new System.Drawing.Point(675, 394);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(291, 13);
+            this.label9.TabIndex = 7;
+            this.label9.Text = "Her 2 adet , 25+5(mola) dakikalık seans 1 pomodoraya eşittir";
+            // 
             // studyControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(27)))), ((int)(((byte)(56)))), ((int)(((byte)(74)))));
+            this.Controls.Add(this.label9);
             this.Controls.Add(this.lblPomodoraSayisi);
             this.Controls.Add(this.cbxSes);
             this.Controls.Add(this.chcPomodora);
@@ -332,5 +344,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblPomodoraSayisi;
+        private System.Windows.Forms.Label label9;
     }
 }

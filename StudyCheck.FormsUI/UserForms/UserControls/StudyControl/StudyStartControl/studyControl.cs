@@ -48,6 +48,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         private TimeSpan _pomodoraSuresi = TimeSpan.Zero;
         SoundPlayer _player;
         private int _pomodoraSayac = 0;
+        private bool _pomodoraMola = false;
 
         public studyControl(int sinavId, int dersId)
         {
@@ -78,7 +79,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         {
             if (chcPomodora.Checked && _pomodoraSuresi == TimeSpan.Zero)
             {
-                _pomodoraSuresi = TimeSpan.FromSeconds(25);
+                _pomodoraSuresi = TimeSpan.FromMinutes(25);
                 chcPomodora.Enabled = false;
             }                
             else if (!chcPomodora.Checked && chcPomodora.Visible == true)
@@ -106,14 +107,25 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                         _player = new SoundPlayer(Properties.Resources.Tornado_Siren_II_Delilah_747233690);
                     }
                     _player.PlayLooping();
-                    _pomodoraSuresi += TimeSpan.FromSeconds(25);
+                    _pomodoraSuresi += TimeSpan.FromMinutes(25);
                     _pomodoraSayac++;
-                    MessageBox.Show("25 dakikaya ulaşıldı, 5 dakika mola verin!", "25 Dakika Doldu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    _player.Stop();                    
-                }
-                if (_pomodoraSayac % 2 == 0)
-                    lblPomodoraSayisi.Text = (_pomodoraSayac / 2).ToString();
-
+                    if (_pomodoraSayac % 2 == 0)
+                        lblPomodoraSayisi.Text = (_pomodoraSayac / 2).ToString();
+                    if ((Convert.ToInt32(lblPomodoraSayisi.Text) % 4 == 0) && !lblPomodoraSayisi.Text.Equals("0") && _pomodoraMola == false)
+                    {
+                        btnDurdur.PerformClick();//durdur butonuna bas (simulate)                        
+                        MessageBox.Show("4 Pomodora sayısına ulaşıldı, Her 4 pomodoradan sonra 30 dakika mola vermeniz önerilir", "4 Pomodoraya Ulaşıldı, Mola Başlatıldı!", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        _player.Stop();
+                        _pomodoraMola = true;
+                    }
+                    else
+                    {
+                        btnDurdur.PerformClick();//durdur butonuna bas (simulate)   
+                        MessageBox.Show("25 dakikaya ulaşıldı, 5 dakika mola verin!", "25 Dakika Doldu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        _player.Stop();
+                        _pomodoraMola = false;
+                    }                    
+                }                                            
             }
             else
             {
