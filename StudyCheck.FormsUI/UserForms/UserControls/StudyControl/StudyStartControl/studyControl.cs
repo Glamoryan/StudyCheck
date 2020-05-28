@@ -43,10 +43,13 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         private List<Calisma> _calisma;
         private Calisma _suankiCalisma;
         private bool _timerRunning = false;
-        private int _sinavId, _dersId,_kalangun;
+        private int _sinavId, _dersId, _kalangun;
         private UserDashboardControl _userDashboardControl;
+        private TimeSpan _pomodoraSuresi = TimeSpan.Zero;
+        SoundPlayer _player;
+        private int _pomodoraSayac = 0;
 
-        public studyControl(int sinavId ,int dersId)
+        public studyControl(int sinavId, int dersId)
         {
             InitializeComponent();
             _examService = InstanceFactory.GetInstance<IExamService>();
@@ -60,11 +63,30 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             _timer.Interval = 1000;
             _timer.Tick += new EventHandler(_timerTick);
 
-            cbxSes.SelectedIndex = 0;
+            cbxSes.SelectedIndex = 0;            
         }
 
-        private void _timerTick(object sender,EventArgs e)
+        private void ShowPomodora()
         {
+            cbxSes.Visible = true;
+            label7.Visible = true;
+            label8.Visible = true;
+            lblPomodoraSayisi.Visible = true;
+        }
+
+        private void _timerTick(object sender, EventArgs e)
+        {
+            if (chcPomodora.Checked && _pomodoraSuresi == TimeSpan.Zero)
+            {
+                _pomodoraSuresi = TimeSpan.FromSeconds(25);
+                chcPomodora.Enabled = false;
+            }                
+            else if (!chcPomodora.Checked && chcPomodora.Visible == true)
+            {
+                chcPomodora.Visible = false;
+                label6.Visible = false;
+            }
+                
             var baslamaZamani = DateTime.Now - _baslangic;
             baslamaZamani = new TimeSpan(baslamaZamani.Hours, baslamaZamani.Minutes, baslamaZamani.Seconds);
 
@@ -73,30 +95,33 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
             if (chcPomodora.Checked)
             {
-                if(cbxSes.Visible != true)
+                if (cbxSes.Visible != true)
                 {
-                    cbxSes.Visible = true;
-                    label7.Visible = true;
-                }                
-                if (_gecenZaman == TimeSpan.FromMinutes(25))
-                {
-                    SoundPlayer player;
-                    if (cbxSes.SelectedIndex == 0)
-                        player = new SoundPlayer(Properties.Resources.Store_Door_Chime_Mike_Koenig_570742973);
-                    else
-                        player = new SoundPlayer(Properties.Resources.Tornado_Siren_II_Delilah_747233690);
-                    player.PlayLooping();
-                    MessageBox.Show("25 dakikaya ulaşıldı, 5 dakika mola verin!", "25 Dakika Doldu", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    player.Stop();
+                    ShowPomodora();
                 }
+                if (_gecenZaman == _pomodoraSuresi)
+                {
+                    if (_player == null)
+                    {
+                        _player = new SoundPlayer(Properties.Resources.Tornado_Siren_II_Delilah_747233690);
+                    }
+                    _player.PlayLooping();
+                    _pomodoraSuresi += TimeSpan.FromSeconds(25);
+                    _pomodoraSayac++;
+                    MessageBox.Show("25 dakikaya ulaşıldı, 5 dakika mola verin!", "25 Dakika Doldu", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _player.Stop();                    
+                }
+                if (_pomodoraSayac % 2 == 0)
+                    lblPomodoraSayisi.Text = (_pomodoraSayac / 2).ToString();
+
             }
             else
             {
-                if(cbxSes.Visible != false)
+                if (cbxSes.Visible != false)
                 {
                     cbxSes.Visible = false;
                     label7.Visible = false;
-                }                
+                }
             }
         }
 
@@ -117,7 +142,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                     btnDurdur.Enabled = true;
                     btnBitir.Enabled = true;
                     btnBasla.BackColor = Color.FromArgb(85, 85, 85);
-                    btnDurdur.BackColor = Color.FromArgb(255,83,17);
+                    btnDurdur.BackColor = Color.FromArgb(255, 83, 17);
                     btnBitir.BackColor = Color.Red;
                     break;
                 case "btnDurdur":
@@ -131,17 +156,17 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                     btnBitir.Enabled = false;
                     btnBasla.Enabled = true;
                     btnBitir.BackColor = Color.FromArgb(85, 85, 85);
-                    btnDurdur.BackColor = Color.FromArgb(85,85,85);
+                    btnDurdur.BackColor = Color.FromArgb(85, 85, 85);
                     btnBasla.BackColor = Color.FromArgb(33, 191, 115);
                     break;
             }
-            
+
         }
 
         private void btnBasla_Click(object sender, EventArgs e)
         {
             if (!_timerRunning)
-            {                
+            {
                 _baslangic = DateTime.Now;
                 _toplamZaman = _gecenZaman;
                 _timer.Start();
@@ -149,12 +174,12 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
                 CheckButtons((Button)sender);
 
-                if(_gecenZaman == TimeSpan.Zero)
+                if (_gecenZaman == TimeSpan.Zero)
                     lblBaslamaTarihi.Text = _baslangic.ToString();
 
                 molaTimer.Stop();
             }
-            
+
         }
 
         private void GetExamDetails()
@@ -162,9 +187,9 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             TimeSpan toplamSinav = TimeSpan.Zero;
             _calismalar = _studiesService.GetAllStudies().Where(s => s.uye_id == LoginInfo.UyeId).ToList();
             _calisma = _calismalar.Where(e => e.sinav_id == _sinavId).ToList();
-            _sinav = _examService.GetExamById(_sinavId);            
+            _sinav = _examService.GetExamById(_sinavId);
             examInfo.lblSinavAdi.Text = _sinav.sinav_ad;
-            foreach (var cls in _calismalar.Where(s=>s.sinav_id==_sinavId))
+            foreach (var cls in _calismalar.Where(s => s.sinav_id == _sinavId))
             {
                 toplamSinav += cls.calisilan_zaman;
             }
@@ -191,7 +216,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
             TimeSpan toplamDers = TimeSpan.Zero;
             _ders = _lessonService.GetLessonById(_dersId);
             lessonInfo.lblDersAdi.Text = _ders.ders_ad;
-            foreach (var drs in _calismalar.Where(s=>s.ders_id == _dersId))
+            foreach (var drs in _calismalar.Where(s => s.ders_id == _dersId))
             {
                 toplamDers += drs.calisilan_zaman;
             }
@@ -205,7 +230,7 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
         }
 
         private void SaveStudy()
-        {       
+        {
             if (_gecenZaman <= TimeSpan.FromMinutes(1))
                 throw new InsufficientTimeException("Çalışmayı kaydetmek için en az 1 dakika çalışmalısınız!");
 
@@ -229,11 +254,11 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
 
             lblGecenZaman.Text = _gecenZaman.ToString();
             lblVerilenAra.Text = "00:00:00";
-           
+
         }
 
         private void btnBitir_Click(object sender, EventArgs e)
-        {            
+        {
             mainException = ExceptionHandling.HandleException(() => SaveStudy());
             if (mainException is InsufficientTimeException)
                 MessageBox.Show(mainException.Message, "Çalışma Kaydedilemedi!", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -250,10 +275,10 @@ namespace StudyCheck.FormsUI.UserForms.UserControls.StudyControl.StudyStartContr
                 PageRoute.userContentPanel.Controls.Clear();
                 PageRoute.userContentPanel.Controls.Add(_userDashboardControl);
             }
-        }        
+        }
 
         private void btnDurdur_Click(object sender, EventArgs e)
-        {  
+        {
             _timer.Stop();
             _timerRunning = false;
 

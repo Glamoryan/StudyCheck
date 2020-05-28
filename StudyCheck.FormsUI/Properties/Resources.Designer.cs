@@ -351,15 +351,6 @@ namespace StudyCheck.FormsUI.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized resource of type System.IO.UnmanagedMemoryStream similar to System.IO.MemoryStream.
-        /// </summary>
-        internal static System.IO.UnmanagedMemoryStream Store_Door_Chime_Mike_Koenig_570742973 {
-            get {
-                return ResourceManager.GetStream("Store_Door_Chime_Mike_Koenig_570742973", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap test_passed_38px {
