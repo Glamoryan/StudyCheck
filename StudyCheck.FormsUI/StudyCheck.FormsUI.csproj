@@ -34,7 +34,7 @@
     <SuiteName>Sınav Çalışma Programı</SuiteName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>4</ApplicationRevision>
     <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -689,12 +689,16 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\Tornado_Siren_II-Delilah-747233690.wav" />
-    <None Include="Resources\Store_Door_Chime-Mike_Koenig-570742973.wav" />
-    <Content Include="studyCheck.ico" />
     <Content Include="StudyCheck.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="StudyCheck_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>StudyCheck.mdf</DependentUpon>
+    </Content>
+    <None Include="Resources\Tornado_Siren_II-Delilah-747233690.wav" />
+    <None Include="Resources\Store_Door_Chime-Mike_Koenig-570742973.wav" />
+    <Content Include="studyCheck.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
