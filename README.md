@@ -29,8 +29,8 @@ StudyCheck projesini build etmek için [PostSharp](https://www.postsharp.net/dow
 [Releases](https://github.com/Glamoryan/StudyCheck/releases) linkinden son yayınlanan versiyonu indirip kurulumu tamamlayın.
 
 Kurum sonrası gerekli bilgiler..
-  > Kullanıcı Adı: admin
-  > Şifre: admin123
+  > Kullanıcı Adı: -iletişime Geçin-
+  > Şifre: -iletişime Geçin-
 
 Lisans
 ----
