@@ -27,15 +27,16 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <UpdateUrl>http://localhost/CD/</UpdateUrl>
+    <UpdateUrl>\\DESKTOP-LQJ3B6G\StudyCheck-Updates\</UpdateUrl>
+    <SupportUrl>https://github.com/Glamoryan/StudyCheck</SupportUrl>
+    <ErrorReportUrl>https://github.com/Glamoryan/StudyCheck</ErrorReportUrl>
     <TargetCulture>tr-TR</TargetCulture>
     <ProductName>Study Check</ProductName>
     <PublisherName>Adnan Özdemir</PublisherName>
     <SuiteName>Sınav Çalışma Programı</SuiteName>
-    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>1.0.1.%2a</ApplicationVersion>
+    <ApplicationRevision>7</ApplicationRevision>
+    <ApplicationVersion>2.0.1.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -682,9 +683,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.SqlServer.SqlLocalDB.11.1">
+    <BootstrapperPackage Include="Microsoft.SqlServer.Express.11.0">
       <Visible>False</Visible>
-      <ProductName>SQL Server 2012 Express LocalDB</ProductName>
+      <ProductName>SQL Server 2012 Express</ProductName>
       <Install>true</Install>
     </BootstrapperPackage>
   </ItemGroup>
