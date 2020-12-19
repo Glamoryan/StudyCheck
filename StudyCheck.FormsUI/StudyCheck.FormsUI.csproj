@@ -64,18 +64,6 @@
   <PropertyGroup>
     <ApplicationIcon>studyCheck.ico</ApplicationIcon>
   </PropertyGroup>
-  <PropertyGroup>
-    <ManifestCertificateThumbprint>F1153CB70334B72F65D350D7821D99630FE8504E</ManifestCertificateThumbprint>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ManifestKeyFile>StudyCheck.FormsUI_TemporaryKey.pfx</ManifestKeyFile>
-  </PropertyGroup>
-  <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>true</SignManifests>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
@@ -690,15 +678,15 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="StudyCheck.mdf">
+    <None Include="Resources\Tornado_Siren_II-Delilah-747233690.wav" />
+    <None Include="Resources\Store_Door_Chime-Mike_Koenig-570742973.wav" />
+    <Content Include="App_Data\StudyCheck.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="StudyCheck_log.ldf">
+    <Content Include="App_Data\StudyCheck_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>StudyCheck.mdf</DependentUpon>
     </Content>
-    <None Include="Resources\Tornado_Siren_II-Delilah-747233690.wav" />
-    <None Include="Resources\Store_Door_Chime-Mike_Koenig-570742973.wav" />
     <Content Include="studyCheck.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

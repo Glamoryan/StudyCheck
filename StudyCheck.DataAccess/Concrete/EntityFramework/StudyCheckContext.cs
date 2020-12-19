@@ -3,7 +3,9 @@ using StudyCheck.Entites.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +13,11 @@ namespace StudyCheck.DataAccess.Concrete.EntityFramework
 {
     public class StudyCheckContext:DbContext
     {
-
+        
         public StudyCheckContext()
         {
             Database.SetInitializer<StudyCheckContext>(null);//veritabanı üretimini engelleme
+            AppDomain.CurrentDomain.SetData("DataDirectory", Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + "\\App_Data");
         }
         public DbSet<Uye> Uyeler { get; set; }
         public DbSet<Rol> Roller { get; set; }
